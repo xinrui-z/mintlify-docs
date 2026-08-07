@@ -21,7 +21,7 @@
             ]
           },
           {
-            "group": "Coding Agents",
+            "group": "Quick Started",
             "pages": [
               "claude-code"
             ]
@@ -38,7 +38,7 @@
             ]
           },
           {
-            "group": "Coding Agent",
+            "group": "快速开始",
             "pages": [
               "zh/claude-code"
             ]
