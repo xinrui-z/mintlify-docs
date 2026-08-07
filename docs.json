@@ -11,17 +11,10 @@
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "cn",
         "pages": [
-          "index",
-          "quickstart"
-        ]
-      },
-      {
-        "group": "zh",
-        "pages": [
-          "zh/index",
-          "zh/claude-code"
+          "cn/index",
+          "cn/claude-code"
         ]
       },
       "index",
