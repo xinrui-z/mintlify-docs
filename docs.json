@@ -9,31 +9,43 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "languages": [
       {
-        "group": "cn",
-        "pages": [
-          "cn/index",
-          "cn/claude-code"
+        "language": "en",
+        "default": true,
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "Coding Agents",
+            "pages": [
+              "claude-code"
+            ]
+          }
         ]
       },
-      "index",
-      "claude-code"
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+      {
+        "language": "zh-Hans",
+        "groups": [
+          {
+            "group": "快速开始",
+            "pages": [
+              "zh/index"
+            ]
+          },
+          {
+            "group": "Coding Agent",
+            "pages": [
+              "zh/claude-code"
+            ]
+          }
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/images/logo.svg",
@@ -43,13 +55,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@harogo.ai"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "href": "https://app.harogo.ai"
     }
   },
   "contextual": {
