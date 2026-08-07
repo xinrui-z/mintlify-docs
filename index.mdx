@@ -1,63 +1,63 @@
 ---
 title: "Product Introduction"
-description: "Harogo 是面向编程 Agent 的多模型订阅服务。本页面介绍订阅包含的内容、如何完成配置、支持哪些模型，以及用量限制的运作方式。"
+description: "Harogo is a multi-model subscription service built for coding agents. This page covers what's included in a subscription, how to set it up, which models are supported, and how usage limits work."
 ---
 
-# 简介
+# Introduction
 
-Harogo 是面向编程 Agent 的多模型订阅服务。
+Harogo is a multi-model subscription service built for coding agents.
 
-优惠订阅价格为 \$4.9/月，目前开放 100 个优惠订阅名额。剩余名额和实际结算价格以订阅页面显示为准。
+The discounted subscription price is \$4.9/month, with 100 discounted subscription slots currently available. Remaining slots and the actual billed price are shown on the subscription page.
 
-订阅后，你可以通过一个 Harogo 账户和 API Key 使用多款编程模型，所有模型共享同一份订阅配额，无需分别注册、充值或管理多个模型平台。
+Once subscribed, you can use multiple coding models through a single Harogo account and API key. All models share the same subscription quota, so there's no need to sign up for, fund, or manage separate model platforms.
 
-# 为什么选择 Harogo
+# Why Harogo
 
-不同模型擅长不同的编程任务。直接使用多个模型提供商，通常需要同时管理多个账户、API Key、余额、速率限制和账单。
+Different models excel at different coding tasks. Using multiple model providers directly usually means juggling several accounts, API keys, balances, rate limits, and bills at once.
 
-Harogo 将多款适合编程 Agent 的模型整合到一个服务中。你可以根据任务自由切换模型，并通过同一份订阅配额统一结算。
+Harogo brings together a range of models well-suited to coding agents into a single service. You're free to switch between models based on the task, with everything billed against one shared subscription quota.
 
-# 支持的模型
+# Supported Models
 
-当前支持的模型：
+Currently supported models:
 
-| 模型 | 模型 ID | 适用场景 |
+| Model | Model ID | Best For |
 | --- | --- | --- |
-| GLM-5.2 | `glm-5.2` | 长时任务、大型代码库与 Agent 编程 |
-| Qwen3.8 Max | `qwen3.8-max-preview` | 复杂推理、视觉理解与内置工具调用 |
-| Kimi K3 | `kimi-k3` | 复杂编程、长上下文、Agent 任务 |
-| MiniMax M3 | `minimax-m3` | 高频编程、工具调用、长上下文 |
-| DeepSeek V4 Pro | `deepseek-v4-pro` | 推理与复杂代码生成 |
-| DeepSeek V4 Flash | `deepseek-v4-flash-0731` | 快速补全、高频调用与批量任务 |
-| Claude Opus 5 | `claude-opus-5` | 复杂 Agent 编程与高难度工程任务 |
-| Claude Sonnet 5 | `claude-sonnet-5` | 日常编程与通用开发任务 |
-| Claude Fable 5 | `claude-fable-5` | 长时间运行的复杂 Agent 任务 |
-| Claude Haiku 4.5 | `claude-haiku-4-5` | 快速响应、轻量任务与批处理 |
-| GPT-5.6 Luna | `gpt-5.6-luna` | 高频编程与轻量任务 |
-| GPT-5.6 Sol | `gpt-5.6-sol` | 高难度代码生成、审查与推理 |
-| GPT-5.6 Terra | `gpt-5.6-terra` | 日常 Agent 编程与通用任务 |
+| GLM-5.2 | `glm-5.2` | Long-running tasks, large codebases, and agentic coding |
+| Qwen3.8 Max | `qwen3.8-max-preview` | Complex reasoning, vision understanding, and built-in tool calling |
+| Kimi K3 | `kimi-k3` | Complex coding, long context, and agentic tasks |
+| MiniMax M3 | `minimax-m3` | High-frequency coding, tool calling, and long context |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Reasoning and complex code generation |
+| DeepSeek V4 Flash | `deepseek-v4-flash-0731` | Fast completions, high-frequency calls, and batch tasks |
+| Claude Opus 5 | `claude-opus-5` | Complex agentic coding and high-difficulty engineering tasks |
+| Claude Sonnet 5 | `claude-sonnet-5` | Everyday coding and general development tasks |
+| Claude Fable 5 | `claude-fable-5` | Long-running, complex agentic tasks |
+| Claude Haiku 4.5 | `claude-haiku-4-5` | Fast responses, lightweight tasks, and batch processing |
+| GPT-5.6 Luna | `gpt-5.6-luna` | High-frequency coding and lightweight tasks |
+| GPT-5.6 Sol | `gpt-5.6-sol` | High-difficulty code generation, review, and reasoning |
+| GPT-5.6 Terra | `gpt-5.6-terra` | Everyday agentic coding and general tasks |
 
-以上名称和模型 ID 是 Harogo 使用的路由标识符。模型列表、版本和可用性可能会变化 —— 请以控制台实际显示为准。
+The names and model IDs above are the routing identifiers Harogo uses internally. The model lineup, versions, and availability may change — check the console for the current list.
 
-## 用量与限制
+## Usage and Limits
 
-Harogo 实施以下用量限制：
+Harogo enforces the following usage limits:
 
-- 每日限额：\$12
-- 每周限额：\$30
-- 每月限额：\$60
+- Daily limit: \$12
+- Weekly limit: \$30
+- Monthly limit: \$60
 
-三项限制同时生效。每一次模型调用都从共享订阅配额中扣除，部分模型还设有更低的最高用量上限 ,详见下方的定价表。
+All three limits apply at the same time. Every model call draws from the shared subscription quota, and some models also carry a lower per-model usage cap — see the pricing table below for details.
 
-限制以美元金额定义，而非固定请求数。你实际能获得的请求数取决于所使用的模型 —— 通常价格更低的模型能支持更多请求，价格更高的模型则较少。
+Limits are defined in dollar amounts rather than a fixed request count. How many requests you actually get depends on the model you use — lower-priced models generally support more requests, while higher-priced models support fewer.
 
-你可以在 [Harogo 控制台](https://console.harogo.ai/plan)查看当前用量和剩余配额。
+You can check your current usage and remaining quota in the [Harogo console](https://console.harogo.ai/plan).
 
-### 预估请求量
+### Estimated Request Volume
 
-下表根据典型 Harogo 使用模式估算不同模型对应的请求数量：
+The table below estimates request counts per model based on typical Harogo usage patterns:
 
-| 模型 | 每日（\$12） | 每周（\$30） | 每月（\$60） |
+| Model | Daily (\$12) | Weekly (\$30) | Monthly (\$60) |
 | --- | --: | --: | --: |
 | Kimi K3 | 1,040 | 2,600 | 5,200 |
 | Claude Opus 5 | 300 | 750 | 1,500 |
@@ -73,35 +73,35 @@ Harogo 实施以下用量限制：
 | GPT-5.6 Luna | 2,060 | 5,150 | 10,300 |
 | Claude Fable 5 | 220 | 560 | 1,110 |
 
-每一行均假设该时间窗口内的配额主要用于对应模型。混合使用多个模型时，它们会共同消耗同一份共享配额，因此表中的请求数不能相加。
+Each row assumes the quota for that time window is spent mostly on that one model. When you mix models, they draw from the same shared quota together, so the request counts in the table can't simply be added up across rows.
 
-实际请求量会受到上下文长度、缓存命中率、推理强度和输出长度等因素影响。编程 Agent 完成一个任务通常也会发起多次模型请求。
+Actual request volume is affected by factors like context length, cache hit rate, reasoning effort, and output length. A coding agent completing a single task also typically fires off multiple model requests.
 
-### 预估方法
+### Estimation Method
 
-预估采用以下典型请求结构：
+These estimates are based on the following typical request profile:
 
-- **GLM-5.2** —— 每次请求约 700 个输入 Token、52,000 个缓存读取 Token 和 150 个输出 Token。
-- **Qwen3.8 Max** —— 每次请求约 8,731 个输入 Token、31,831 个缓存读取 Token 和 2,029 个输出 Token。
-- **Kimi K3** —— 每次请求约 1,050 个输入 Token、76,500 个缓存读取 Token 和 300 个输出 Token。
-- **MiniMax M3** —— 每次请求约 4,381 个输入 Token、28,768 个缓存读取 Token 和 1,108 个输出 Token。
-- **DeepSeek V4 Pro** —— 每次请求约 750 个输入 Token、82,000 个缓存读取 Token 和 290 个输出 Token。
-- **DeepSeek V4 Flash** —— 每次请求约 790 个输入 Token、68,000 个缓存读取 Token 和 280 个输出 Token。
-- **Claude Opus 5** —— 每次请求约 580 个输入 Token、386,230 个缓存读取 Token、19,476 个缓存写入 Token 和 2,025 个输出 Token。
-- **Claude Sonnet 5** —— 每次请求约 159 个输入 Token、129,804 个缓存读取 Token、6,260 个缓存写入 Token 和 850 个输出 Token。
-- **Claude Fable 5** —— 每次请求约 399 个输入 Token、315,393 个缓存读取 Token、12,907 个缓存写入 Token 和 1,016 个输出 Token。
-- **Claude Haiku 4.5** —— 每次请求约 700 个输入 Token、52,000 个缓存读取 Token 和 150 个输出 Token。
-- **GPT-5.6 Luna** —— 每次请求约 45,726 个输入 Token、10,720 个缓存读取 Token 和 1,905 个输出 Token。
-- **GPT-5.6 Sol** —— 每次请求约 6,032 个输入 Token、112,138 个缓存读取 Token 和 678 个输出 Token。
-- **GPT-5.6 Terra** —— 每次请求约 6,825 个输入 Token、69,476 个缓存读取 Token 和 734 个输出 Token。
+- **GLM-5.2** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request.
+- **Qwen3.8 Max** — about 8,731 input tokens, 31,831 cache-read tokens, and 2,029 output tokens per request.
+- **Kimi K3** — about 1,050 input tokens, 76,500 cache-read tokens, and 300 output tokens per request.
+- **MiniMax M3** — about 4,381 input tokens, 28,768 cache-read tokens, and 1,108 output tokens per request.
+- **DeepSeek V4 Pro** — about 750 input tokens, 82,000 cache-read tokens, and 290 output tokens per request.
+- **DeepSeek V4 Flash** — about 790 input tokens, 68,000 cache-read tokens, and 280 output tokens per request.
+- **Claude Opus 5** — about 580 input tokens, 386,230 cache-read tokens, 19,476 cache-write tokens, and 2,025 output tokens per request.
+- **Claude Sonnet 5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request.
+- **Claude Fable 5** — about 399 input tokens, 315,393 cache-read tokens, 12,907 cache-write tokens, and 1,016 output tokens per request.
+- **Claude Haiku 4.5** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request.
+- **GPT-5.6 Luna** — about 45,726 input tokens, 10,720 cache-read tokens, and 1,905 output tokens per request.
+- **GPT-5.6 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request.
+- **GPT-5.6 Terra** — about 6,825 input tokens, 69,476 cache-read tokens, and 734 output tokens per request.
 
-以上数字用于估算典型用量，并不构成对固定请求数量的承诺。
+These figures are meant to estimate typical usage and aren't a commitment to any fixed number of requests.
 
-### 模型定价与用量上限
+### Model Pricing and Usage Caps
 
-下表列出各模型每百万 Token 的 API 参考价格，以及 Harogo 设置的单模型用量上限：
+The table below lists the reference API price per million tokens for each model, along with the per-model usage cap Harogo sets:
 
-| 模型 | 模型 ID | 输入 / 百万 | 输出 / 百万 | 缓存读取 / 百万 | 用量上限 |
+| Model | Model ID | Input / M | Output / M | Cache Read / M | Usage Cap |
 | --- | --- | --: | --: | --: | --: |
 | Kimi K3 | `kimi-k3` | \$3.00 | \$15.00 | \$0.30 | \$15 |
 | Claude Opus 5 | `claude-opus-5` | \$5.00 | \$25.00 | \$0.50 | \$60 |
@@ -117,6 +117,6 @@ Harogo 实施以下用量限制：
 | GPT-5.6 Luna | `gpt-5.6-luna` | \$1.00 | \$6.00 | \$0.10 | \$60 |
 | Claude Fable 5 | `claude-fable-5` | \$10.00 | \$50.00 | \$1.00 | \$60 |
 
-“—” 表示该项目当前不单独计费或不适用于该模型。
+"—" means that item isn't billed separately, or doesn't apply to that model.
 
-模型定价、用量上限和预估请求量可能随服务调整，请以 Harogo 控制台及本页面最新信息为准。
+Model pricing, usage caps, and estimated request volumes may change as the service evolves — check the Harogo console and this page for the latest information.

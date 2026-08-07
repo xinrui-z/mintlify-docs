@@ -1,4 +1,121 @@
 ---
 title: "Codex CLI"
+description: "This guide will get you up and running with Codex powered by Harogo in just a few minutes."
 icon: "pineapple"
 ---
+
+## Installation
+
+### Download from the official site (macOS)
+
+[https://openai.com/codex/](https://openai.com/codex/)
+
+### Install via the command line
+
+```bash
+npm install -g @openai/codex
+```
+
+## Environment Variable Configuration
+
+### Configure via the config file
+
+1. Edit your `~/.codex/config.toml` file and add the following:
+
+```toml
+profile = "harogo"
+
+[model_providers.aihubmix]
+name = "harogo"
+base_url = "https://api.harogo.ai/v1"
+personality = "pragmatic"
+wire_api = "responses"
+
+[profiles.aihubmix]
+model = "gpt-5.6-sol"
+model_provider = "harogo"
+model_reasoning_effort = "high"
+```
+
+2. Edit your `~/.codex/auth.json` file and update it as follows:
+
+```json
+{
+  "OPENAI_API_KEY": "HAROGO_API_KEY"
+}
+```
+
+### Configure via cc-switch
+
+1. Launch CC-Switch and add a provider.
+
+<img
+  alt="Add Provider screen in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-1.png"
+  lightAlt="Add Provider screen in CC-Switch"
+  darkAlt="Add Provider screen in CC-Switch"
+  src="/images/iShot_2026-08-07_17.20.12.png"
+/>
+
+2. From the preset list, choose "Custom Configuration."
+
+<img
+  alt="Selecting AiHubMix in the CC-Switch preset list"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-2.png"
+  lightAlt="Selecting AiHubMix in the CC-Switch preset list"
+  darkAlt="Selecting AiHubMix in the CC-Switch preset list"
+  src="/images/iShot_2026-08-07_17.20.35.png"
+/>
+
+3. Fill in the provider name, API key, and endpoint ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)), etc. Once everything is filled in, click "Add."
+
+<img
+  alt="Entering the API key and saving in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-3.png"
+  lightAlt="Entering the API key and saving in CC-Switch"
+  darkAlt="Entering the API key and saving in CC-Switch"
+  src="/images/iShot_2026-08-07_17.22.08.png"
+/>
+
+4. Back on the home screen, select "harogo" and click "Enable" to start using it.
+
+<img
+  alt="Enabling the AiHubMix provider in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-4.png"
+  lightAlt="Enabling the AiHubMix provider in CC-Switch"
+  darkAlt="Enabling the AiHubMix provider in CC-Switch"
+  src="/images/iShot_2026-08-07_17.27.33.png"
+/>
+
+## Using Codex
+
+### In the terminal
+
+1. Open a terminal, navigate to your project directory, then run the `codex` command.
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+2. Set permissions as needed.
+
+<img
+  alt="Setting approval permissions on Codex startup"
+  width="1212"
+  height="814"
+  data-path="public/cn/codex-5.png"
+  lightAlt="Setting approval permissions on Codex startup"
+  darkAlt="Setting approval permissions on Codex startup"
+  src="/images/iShot_2026-08-07_17.31.13.png"
+/>
+
+3. Type a natural-language prompt — if you get a normal response back, the setup was successful.
