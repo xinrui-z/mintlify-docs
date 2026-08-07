@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title">
+  <title>Harogo</title>
+  <rect x="0" y="0" width="64" height="64" rx="16" fill="#ffffff"/>
+  <rect x="12" y="8" width="11" height="48" fill="#0d0d0d"/>
+  <rect x="12" y="26.5" width="40" height="11" fill="#0d0d0d"/>
+  <rect x="41" y="37.5" width="11" height="18.5" fill="#0d0d0d"/>
+  <rect x="41" y="8" width="11" height="13" fill="#10a37f"/>
+</svg>
