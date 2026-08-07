@@ -23,7 +23,8 @@
           {
             "group": "Quick Started",
             "pages": [
-              "claude-code"
+              "claude-code",
+              "codex"
             ]
           }
         ]
@@ -40,7 +41,8 @@
           {
             "group": "快速开始",
             "pages": [
-              "zh/claude-code"
+              "zh/claude-code",
+              "zh/codex"
             ]
           }
         ]
