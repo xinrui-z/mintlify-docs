@@ -7,7 +7,7 @@ description: "Harogo is a multi-model subscription service built for coding agen
 
 Harogo is a multi-model subscription service built for coding agents.
 
-The discounted subscription price is \$4.9/month, with 100 discounted subscription slots currently available. Remaining slots and the actual billed price are shown on the subscription page.
+The discounted subscription price is \$4.90 for the first month, then \$9.90/month, with 100 discounted subscription slots currently available. Remaining slots and the actual billed price are shown on the subscription page.
 
 Once subscribed, you can use multiple coding models through a single Harogo account and API key. All models share the same subscription quota, so there's no need to sign up for, fund, or manage separate model platforms.
 
@@ -17,25 +17,47 @@ Different models excel at different coding tasks. Using multiple model providers
 
 Harogo brings together a range of models well-suited to coding agents into a single service. You're free to switch between models based on the task, with everything billed against one shared subscription quota.
 
+The current models fall roughly into these groups:
+
+- **Large codebases and hard reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
+- **Everyday agentic coding, code generation, and debugging**: Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **High-frequency calls, fast responses, and cost-sensitive tasks**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
+- **Long-running, multi-step agent workflows**: Claude Fable 5.1
+
+These groups are only a guide for choosing a model. Actual results depend on the task, the context, and how you use tools.
+
+# Getting started
+
+1. Sign in to Harogo and subscribe.
+2. Create and copy an API key in the console.
+3. Set the Base URL to `https://harogo.ai`.
+4. Paste in your API key.
+5. Start using it.
+
+Keep your API key safe. Don't commit it to a public repository or share it with anyone.
+
 # Supported Models
 
 Currently supported models:
 
 | Model | Model ID | Best For |
 | --- | --- | --- |
-| GLM-5.2 | `glm-5.2` | Long-running tasks, large codebases, and agentic coding |
-| Qwen3.8 Max | `qwen3.8-max-preview` | Complex reasoning, vision understanding, and built-in tool calling |
-| Kimi K3 | `kimi-k3` | Complex coding, long context, and agentic tasks |
+| GLM-5.3 | `glm-5.3` | Long-running tasks, large codebases, and agentic coding |
+| Qwen3.8 Max | `qwen3.8-max` | Complex reasoning, vision understanding, and built-in tool calling |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Long-horizon coding, 1M context, front-end and 3D modeling |
 | MiniMax M3 | `minimax-m3` | High-frequency coding, tool calling, and long context |
 | DeepSeek V4 Pro | `deepseek-v4-pro` | Reasoning and complex code generation |
-| DeepSeek V4 Flash | `deepseek-v4-flash-0731` | Fast completions, high-frequency calls, and batch tasks |
-| Claude Opus 5 | `claude-opus-5` | Complex agentic coding and high-difficulty engineering tasks |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Fast completions, high-frequency calls, and batch tasks |
+| Claude Opus 5.5 | `claude-opus-5-5` | Complex agentic coding and high-difficulty engineering tasks |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Everyday coding and general development tasks |
 | Claude Sonnet 5 | `claude-sonnet-5` | Everyday coding and general development tasks |
-| Claude Fable 5 | `claude-fable-5` | Long-running, complex agentic tasks |
-| Claude Haiku 4.5 | `claude-haiku-4-5` | Fast responses, lightweight tasks, and batch processing |
-| GPT-5.6 Luna | `gpt-5.6-luna` | High-frequency coding and lightweight tasks |
-| GPT-5.6 Sol | `gpt-5.6-sol` | High-difficulty code generation, review, and reasoning |
-| GPT-5.6 Terra | `gpt-5.6-terra` | Everyday agentic coding and general tasks |
+| Claude Fable 5.1 | `claude-fable-5-1` | Long-running, complex agentic tasks |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Fast responses, lightweight tasks, and batch processing |
+| GPT-6 Luna | `gpt-6-luna` | High-frequency coding and lightweight tasks |
+| GPT-6 Sol | `gpt-6-sol` | High-difficulty code generation, review, and reasoning |
+| GPT-6.1 Sol | `gpt-6.1-sol` | High-difficulty code generation, review, and reasoning |
+| GPT-6 Astra | `gpt-6-astra` | Flagship reasoning for the hardest engineering problems |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Everyday agentic coding and general tasks |
 
 The names and model IDs above are the routing identifiers Harogo uses internally. The model lineup, versions, and availability may change — check the console for the current list.
 
@@ -47,7 +69,7 @@ Harogo enforces the following usage limits:
 - Weekly limit: \$30
 - Monthly limit: \$60
 
-All three limits apply at the same time. Every model call draws from the shared subscription quota, and some models also carry a lower per-model usage cap — see the pricing table below for details.
+All three limits apply at the same time. Every model call draws from the shared subscription quota. DeepSeek V4 Pro has a usage cap of \$15; every other model is capped at \$60.
 
 Limits are defined in dollar amounts rather than a fixed request count. How many requests you actually get depends on the model you use — lower-priced models generally support more requests, while higher-priced models support fewer.
 
@@ -59,64 +81,48 @@ The table below estimates request counts per model based on typical Harogo usage
 
 | Model | Daily (\$12) | Weekly (\$30) | Monthly (\$60) |
 | --- | --: | --: | --: |
-| Kimi K3 | 1,040 | 2,600 | 5,200 |
-| Claude Opus 5 | 300 | 750 | 1,500 |
-| GPT-5.6 Sol | 1,130 | 2,820 | 5,630 |
-| Qwen3.8 Max | 3,960 | 9,900 | 19,800 |
-| GLM-5.2 | 7,920 | 19,790 | 39,580 |
-| Claude Sonnet 5 | 2,350 | 5,880 | 11,760 |
-| GPT-5.6 Terra | 2,640 | 6,600 | 13,200 |
+| GLM-5.3 | 7,920 | 19,790 | 39,580 |
+| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
+| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
 | MiniMax M3 | 27,460 | 68,650 | 137,300 |
-| DeepSeek V4 Pro | 34,250 | 85,640 | 171,270 |
-| DeepSeek V4 Flash | 316,290 | 790,720 | 1,581,440 |
-| Claude Haiku 4.5 | 18,050 | 45,110 | 90,230 |
-| GPT-5.6 Luna | 2,060 | 5,150 | 10,300 |
-| Claude Fable 5 | 220 | 560 | 1,110 |
+| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
+| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
+| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
+| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
+| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
+| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
+| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
+| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
+| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
+| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
+| GPT-6 Astra | 580 | 1,450 | 2,910 |
+| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
 
 Each row assumes the quota for that time window is spent mostly on that one model. When you mix models, they draw from the same shared quota together, so the request counts in the table can't simply be added up across rows.
 
-Actual request volume is affected by factors like context length, cache hit rate, reasoning effort, and output length. A coding agent completing a single task also typically fires off multiple model requests.
+Actual request volume is affected by factors like context length, cache hit rate, reasoning effort, and output length. A coding agent completing a single task also typically fires off multiple model requests, so one request isn't one complete coding task.
 
 ### Estimation Method
 
 These estimates are based on the following typical request profile:
 
-- **GLM-5.2** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request.
-- **Qwen3.8 Max** — about 8,731 input tokens, 31,831 cache-read tokens, and 2,029 output tokens per request.
-- **Kimi K3** — about 1,050 input tokens, 76,500 cache-read tokens, and 300 output tokens per request.
+- **GLM-5.3** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request. (Reuses the GLM-5.2 request profile.)
+- **Qwen3.8 Max** — about 8,731 input tokens, 31,831 cache-read tokens, and 2,029 output tokens per request. (Reuses the Qwen3.8 Max Preview request profile.)
+- **Kimi K3.1 Pro** — about 1,050 input tokens, 76,500 cache-read tokens, and 300 output tokens per request. (Reuses the Kimi K3 request profile.)
 - **MiniMax M3** — about 4,381 input tokens, 28,768 cache-read tokens, and 1,108 output tokens per request.
 - **DeepSeek V4 Pro** — about 750 input tokens, 82,000 cache-read tokens, and 290 output tokens per request.
-- **DeepSeek V4 Flash** — about 790 input tokens, 68,000 cache-read tokens, and 280 output tokens per request.
-- **Claude Opus 5** — about 580 input tokens, 386,230 cache-read tokens, 19,476 cache-write tokens, and 2,025 output tokens per request.
+- **DeepSeek V4.1 Flash 1017** — about 790 input tokens, 68,000 cache-read tokens, and 280 output tokens per request. (Reuses the DeepSeek V4 Flash 0731 request profile.)
+- **Claude Opus 5.5** — about 580 input tokens, 386,230 cache-read tokens, 19,476 cache-write tokens, and 2,025 output tokens per request. (Reuses the Claude Opus 5 request profile.)
+- **Claude Sonnet 5.5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request. (Reuses the Claude Sonnet 5 request profile.)
 - **Claude Sonnet 5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request.
-- **Claude Fable 5** — about 399 input tokens, 315,393 cache-read tokens, 12,907 cache-write tokens, and 1,016 output tokens per request.
-- **Claude Haiku 4.5** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request.
-- **GPT-5.6 Luna** — about 45,726 input tokens, 10,720 cache-read tokens, and 1,905 output tokens per request.
-- **GPT-5.6 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request.
-- **GPT-5.6 Terra** — about 6,825 input tokens, 69,476 cache-read tokens, and 734 output tokens per request.
+- **Claude Fable 5.1** — about 399 input tokens, 315,393 cache-read tokens, 12,907 cache-write tokens, and 1,016 output tokens per request. (Reuses the Claude Fable 5 request profile.)
+- **Claude Haiku 5.5** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request. (Reuses the Claude Haiku 4.5 request profile.)
+- **GPT-6 Luna** — about 45,726 input tokens, 10,720 cache-read tokens, and 1,905 output tokens per request. (Reuses the GPT-5.6 Luna request profile.)
+- **GPT-6 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
+- **GPT-6.1 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
+- **GPT-6 Astra** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Temporarily based on the GPT-5.6 Sol request profile.)
+- **GPT-6.1 Terra** — about 6,825 input tokens, 69,476 cache-read tokens, and 734 output tokens per request. (Reuses the GPT-5.6 Terra request profile.)
 
-These figures are meant to estimate typical usage and aren't a commitment to any fixed number of requests.
+Newer model versions reuse the request profile observed on their predecessor for now. Requests = window quota ÷ (list price per request × 0.1); models with a \$15 usage cap are scaled by \$15 / \$60.
 
-### Model Pricing and Usage Caps
-
-The table below lists the reference API price per million tokens for each model, along with the per-model usage cap Harogo sets:
-
-| Model | Model ID | Input / M | Output / M | Cache Read / M | Usage Cap |
-| --- | --- | --: | --: | --: | --: |
-| Kimi K3 | `kimi-k3` | \$3.00 | \$15.00 | \$0.30 | \$15 |
-| Claude Opus 5 | `claude-opus-5` | \$5.00 | \$25.00 | \$0.50 | \$60 |
-| GPT-5.6 Sol | `gpt-5.6-sol` | \$5.00 | \$30.00 | \$0.50 | \$60 |
-| Qwen3.8 Max | `qwen3.8-max-preview` | \$1.69 | \$5.03 | \$0.17 | \$60 |
-| GLM-5.2 | `glm-5.2` | \$1.40 | \$4.40 | \$0.26 | \$60 |
-| Claude Sonnet 5 | `claude-sonnet-5` | \$2.00 | \$10.00 | \$0.20 | \$60 |
-| GPT-5.6 Terra | `gpt-5.6-terra` | \$2.50 | \$15.00 | \$0.25 | \$60 |
-| MiniMax M3 | `minimax-m3` | \$0.30 | \$1.20 | \$0.06 | \$60 |
-| DeepSeek V4 Pro | `deepseek-v4-pro` | \$0.44 | \$0.87 | — | \$15 |
-| DeepSeek V4 Flash | `deepseek-v4-flash-0731` | \$0.14 | \$0.28 | — | \$60 |
-| Claude Haiku 4.5 | `claude-haiku-4-5` | \$1.00 | \$5.00 | \$0.10 | \$60 |
-| GPT-5.6 Luna | `gpt-5.6-luna` | \$1.00 | \$6.00 | \$0.10 | \$60 |
-| Claude Fable 5 | `claude-fable-5` | \$10.00 | \$50.00 | \$1.00 | \$60 |
-
-"—" means that item isn't billed separately, or doesn't apply to that model.
-
-Model pricing, usage caps, and estimated request volumes may change as the service evolves — check the Harogo console and this page for the latest information.
+These figures are meant to estimate typical usage and aren't a commitment to any fixed number of requests. Usage caps and estimated request volumes may change as the service evolves — check the Harogo console and this page for the latest information.

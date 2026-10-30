@@ -1,0 +1,182 @@
+---
+title: "OpenCode"
+description: "Bu rehber, Harogo destekli OpenCode'u birkaç dakika içinde kullanmaya başlamanıza yardımcı olur."
+icon: "apple-whole"
+---
+
+Kuruluma başlamadan önce sisteminizin aşağıdaki gereksinimleri karşıladığından emin olun:
+
+- **Node.js ≥ 18.0.0**
+- Platformunuza uygun bir paket yöneticisi (isteğe bağlı):
+  - macOS / Linux: `brew`
+  - Arch Linux: `paru`
+  - Windows: `choco`, `winget` veya `scoop`
+
+## 1. OpenCode'u Kurun
+
+Sisteminize ve araçlarınıza uygun kurulum yöntemini seçin.
+
+### 1. Node.js ile Kurulum
+
+```text
+# curl betiğiyle hızlı kurulum
+curl -fsSL https://opencode.ai/install | bash
+
+# NPM ile
+npm install -g opencode-ai
+
+# Bun ile
+bun install -g opencode-ai
+
+# PNPM ile
+pnpm install -g opencode-ai
+
+# Yarn ile
+yarn global add opencode-ai
+```
+
+---
+
+### 2. Homebrew ile (macOS / Linux)
+
+```text
+brew install sst/tap/opencode
+```
+
+---
+
+### 3. Paru ile (Arch Linux)
+
+```text
+paru -S opencode-bin
+```
+
+---
+
+### 4. Windows Kurulumu
+
+Windows kullanıcıları OpenCode'u aşağıdakilerden herhangi biriyle kurabilir:
+
+```text
+# Chocolatey
+choco install opencode
+
+# WinGet
+winget install opencode
+
+# Scoop
+scoop bucket add extras
+scoop install extras/opencode
+
+# Veya NPM ile (Node.js gerektirir) — not: yönetici yetkisi gerektirir
+npm install -g opencode-ai
+```
+
+---
+
+## 2. OpenCode'u CC Switch ile Yapılandırın
+
+1. CC Switch'i açın, soldan OpenCode'u seçin ve ardından "Sağlayıcı Ekle" (Add Provider) seçeneğine tıklayın.
+
+<Frame>
+  ![I Shot 2026 08 07 18 06 55](/images/iShot_2026-08-07_18.06.55.png "I Shot 2026 08 07 18 06 55")
+</Frame>
+
+2. Hazır ayarlar listesinden sağlayıcı olarak "Özel Yapılandırma" (Custom Configuration) seçeneğini seçin.
+
+<Frame>
+  ![I Shot 2026 08 07 18 07 24](/images/iShot_2026-08-07_18.07.24.png "I Shot 2026 08 07 18 07 24")
+</Frame>
+
+3. Sağlayıcı anahtarı, ad, API anahtarı ve uç nokta (`https://api.harogo.ai/v1`) gibi bilgileri doldurun.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.16.46.png"
+    alt="Sağlayıcı yapılandırma formunun doldurulması"
+    title="Sağlayıcı yapılandırma formunun doldurulması"
+    lightAlt="Sağlayıcı yapılandırma formunun doldurulması"
+    darkAlt="Sağlayıcı yapılandırma formunun doldurulması"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.08.20.png"
+    alt="Sağlayıcı yapılandırma formunun doldurulması"
+    title="Sağlayıcı yapılandırma formunun doldurulması"
+    lightAlt="Sağlayıcı yapılandırma formunun doldurulması"
+    darkAlt="Sağlayıcı yapılandırma formunun doldurulması"
+    className="hidden dark:block"
+  />
+</Frame>
+
+4. Model bilgilerini doldurun ve kaydedin.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.18.44.png"
+    alt="Model yapılandırmasının doldurulması"
+    title="Model yapılandırmasının doldurulması"
+    lightAlt="Model yapılandırmasının doldurulması"
+    darkAlt="Model yapılandırmasının doldurulması"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.09.03.png"
+    alt="Model yapılandırmasının doldurulması"
+    title="Model yapılandırmasının doldurulması"
+    lightAlt="Model yapılandırmasının doldurulması"
+    darkAlt="Model yapılandırmasının doldurulması"
+    className="hidden dark:block"
+  />
+</Frame>
+
+5. Ana ekrana döndüğünüzde sağlayıcı listesinden "harogo"yu seçin ve "Kullan" (Use) seçeneğine tıklayın.
+
+<Frame>
+  ![11](/images/11.png "11")
+</Frame>
+
+---
+
+## 3. Modeli Kullanma
+
+### 1. Kurulumu Doğrulayın
+
+OpenCode'un doğru şekilde kurulup yapılandırıldığını aşağıdaki komutla doğrulayabilirsiniz:
+
+```text
+opencode
+```
+
+<img
+  src="/images/iShot_2026-08-07_18.21.30.png"
+  alt="Opencode 3"
+  width="2750"
+  height="1420"
+  data-path="public/cn/opencode-3.jpg"
+/>
+
+### 2. Bir Model Seçin
+
+`/models` yazın, `harogo` için arama yapın ve istediğiniz modeli seçin.
+
+<img
+  src="/images/iShot_2026-08-07_18.22.23.png"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="dark:hidden"
+/>
+<img
+  src="https://mintcdn.com/aihubmix/aax4hBrhzzthbrWx/public/cn/opencode-4.jpg?fit=max&auto=format&n=aax4hBrhzzthbrWx&q=85&s=09d8bbf66f1069fe42f85beb2f0297c5"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="hidden dark:block"
+/>

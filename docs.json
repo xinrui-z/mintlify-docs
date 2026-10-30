@@ -31,16 +31,263 @@
         ]
       },
       {
-        "language": "zh-Hans",
+        "language": "ja",
         "groups": [
           {
-            "group": "开始使用",
+            "group": "はじめに",
+            "pages": [
+              "ja/index"
+            ]
+          },
+          {
+            "group": "クイックスタート",
+            "pages": [
+              "ja/claude-code",
+              "ja/codex",
+              "ja/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ko",
+        "groups": [
+          {
+            "group": "시작하기",
+            "pages": [
+              "ko/index"
+            ]
+          },
+          {
+            "group": "빠른 시작",
+            "pages": [
+              "ko/claude-code",
+              "ko/codex",
+              "ko/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "de",
+        "groups": [
+          {
+            "group": "Erste Schritte",
+            "pages": [
+              "de/index"
+            ]
+          },
+          {
+            "group": "Schnellstart",
+            "pages": [
+              "de/claude-code",
+              "de/codex",
+              "de/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "groups": [
+          {
+            "group": "Primeros pasos",
+            "pages": [
+              "es/index"
+            ]
+          },
+          {
+            "group": "Inicio rápido",
+            "pages": [
+              "es/claude-code",
+              "es/codex",
+              "es/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "fr",
+        "groups": [
+          {
+            "group": "Premiers pas",
+            "pages": [
+              "fr/index"
+            ]
+          },
+          {
+            "group": "Démarrage rapide",
+            "pages": [
+              "fr/claude-code",
+              "fr/codex",
+              "fr/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "pt",
+        "groups": [
+          {
+            "group": "Primeiros passos",
+            "pages": [
+              "pt/index"
+            ]
+          },
+          {
+            "group": "Início rápido",
+            "pages": [
+              "pt/claude-code",
+              "pt/codex",
+              "pt/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ru",
+        "groups": [
+          {
+            "group": "Начало работы",
+            "pages": [
+              "ru/index"
+            ]
+          },
+          {
+            "group": "Быстрый старт",
+            "pages": [
+              "ru/claude-code",
+              "ru/codex",
+              "ru/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "tr",
+        "groups": [
+          {
+            "group": "Başlarken",
+            "pages": [
+              "tr/index"
+            ]
+          },
+          {
+            "group": "Hızlı başlangıç",
+            "pages": [
+              "tr/claude-code",
+              "tr/codex",
+              "tr/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "pl",
+        "groups": [
+          {
+            "group": "Pierwsze kroki",
+            "pages": [
+              "pl/index"
+            ]
+          },
+          {
+            "group": "Szybki start",
+            "pages": [
+              "pl/claude-code",
+              "pl/codex",
+              "pl/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "nl",
+        "groups": [
+          {
+            "group": "Aan de slag",
+            "pages": [
+              "nl/index"
+            ]
+          },
+          {
+            "group": "Snelstart",
+            "pages": [
+              "nl/claude-code",
+              "nl/codex",
+              "nl/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "it",
+        "groups": [
+          {
+            "group": "Per iniziare",
+            "pages": [
+              "it/index"
+            ]
+          },
+          {
+            "group": "Avvio rapido",
+            "pages": [
+              "it/claude-code",
+              "it/codex",
+              "it/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "vi",
+        "groups": [
+          {
+            "group": "Bắt đầu",
+            "pages": [
+              "vi/index"
+            ]
+          },
+          {
+            "group": "Khởi động nhanh",
+            "pages": [
+              "vi/claude-code",
+              "vi/codex",
+              "vi/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "uk",
+        "groups": [
+          {
+            "group": "Початок роботи",
+            "pages": [
+              "uk/index"
+            ]
+          },
+          {
+            "group": "Швидкий старт",
+            "pages": [
+              "uk/claude-code",
+              "uk/codex",
+              "uk/opencode"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "zh-Hant",
+        "groups": [
+          {
+            "group": "開始使用",
             "pages": [
               "zh/index"
             ]
           },
           {
-            "group": "快速开始",
+            "group": "快速開始",
             "pages": [
               "zh/claude-code",
               "zh/codex",

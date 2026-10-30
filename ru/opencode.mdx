@@ -1,0 +1,182 @@
+---
+title: "OpenCode"
+description: "Это руководство поможет вам за несколько минут начать работать с OpenCode на базе Harogo."
+icon: "apple-whole"
+---
+
+Перед установкой убедитесь, что система соответствует следующим требованиям:
+
+- **Node.js ≥ 18.0.0**
+- Менеджер пакетов для вашей платформы (необязательно):
+  - macOS / Linux: `brew`
+  - Arch Linux: `paru`
+  - Windows: `choco`, `winget` или `scoop`
+
+## 1. Установка OpenCode
+
+Выберите способ установки, который подходит вашей системе и инструментам.
+
+### 1. Установка через Node.js
+
+```text
+# Быстрая установка через скрипт curl
+curl -fsSL https://opencode.ai/install | bash
+
+# Через NPM
+npm install -g opencode-ai
+
+# Через Bun
+bun install -g opencode-ai
+
+# Через PNPM
+pnpm install -g opencode-ai
+
+# Через Yarn
+yarn global add opencode-ai
+```
+
+---
+
+### 2. Через Homebrew (macOS / Linux)
+
+```text
+brew install sst/tap/opencode
+```
+
+---
+
+### 3. Через Paru (Arch Linux)
+
+```text
+paru -S opencode-bin
+```
+
+---
+
+### 4. Установка в Windows
+
+В Windows OpenCode можно установить любым из следующих способов:
+
+```text
+# Chocolatey
+choco install opencode
+
+# WinGet
+winget install opencode
+
+# Scoop
+scoop bucket add extras
+scoop install extras/opencode
+
+# Или через NPM (нужен Node.js); требуются права администратора
+npm install -g opencode-ai
+```
+
+---
+
+## 2. Настройка OpenCode через CC Switch
+
+1. Запустите CC Switch, выберите слева OpenCode и нажмите «Добавить провайдера» (Add Provider).
+
+<Frame>
+  ![I Shot 2026 08 07 18 06 55](/images/iShot_2026-08-07_18.06.55.png "I Shot 2026 08 07 18 06 55")
+</Frame>
+
+2. В списке пресетов выберите в качестве провайдера «Пользовательская конфигурация» (Custom Configuration).
+
+<Frame>
+  ![I Shot 2026 08 07 18 07 24](/images/iShot_2026-08-07_18.07.24.png "I Shot 2026 08 07 18 07 24")
+</Frame>
+
+3. Укажите ключ провайдера, имя, API-ключ, эндпоинт `https://api.harogo.ai/v1` и другие данные.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.16.46.png"
+    alt="Заполнение формы настройки провайдера"
+    title="Заполнение формы настройки провайдера"
+    lightAlt="Заполнение формы настройки провайдера"
+    darkAlt="Заполнение формы настройки провайдера"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.08.20.png"
+    alt="Заполнение формы настройки провайдера"
+    title="Заполнение формы настройки провайдера"
+    lightAlt="Заполнение формы настройки провайдера"
+    darkAlt="Заполнение формы настройки провайдера"
+    className="hidden dark:block"
+  />
+</Frame>
+
+4. Заполните данные модели и сохраните.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.18.44.png"
+    alt="Заполнение настроек модели"
+    title="Заполнение настроек модели"
+    lightAlt="Заполнение настроек модели"
+    darkAlt="Заполнение настроек модели"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.09.03.png"
+    alt="Заполнение настроек модели"
+    title="Заполнение настроек модели"
+    lightAlt="Заполнение настроек модели"
+    darkAlt="Заполнение настроек модели"
+    className="hidden dark:block"
+  />
+</Frame>
+
+5. Вернитесь на главный экран, выберите «harogo» в списке провайдеров и нажмите «Использовать» (Use).
+
+<Frame>
+  ![11](/images/11.png "11")
+</Frame>
+
+---
+
+## 3. Работа с моделью
+
+### 1. Проверка установки
+
+Убедиться, что OpenCode установлен и настроен правильно, можно с помощью следующей команды:
+
+```text
+opencode
+```
+
+<img
+  src="/images/iShot_2026-08-07_18.21.30.png"
+  alt="Opencode 3"
+  width="2750"
+  height="1420"
+  data-path="public/cn/opencode-3.jpg"
+/>
+
+### 2. Выбор модели
+
+Введите `/models`, найдите `harogo` и выберите нужную модель.
+
+<img
+  src="/images/iShot_2026-08-07_18.22.23.png"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="dark:hidden"
+/>
+<img
+  src="https://mintcdn.com/aihubmix/aax4hBrhzzthbrWx/public/cn/opencode-4.jpg?fit=max&auto=format&n=aax4hBrhzzthbrWx&q=85&s=09d8bbf66f1069fe42f85beb2f0297c5"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="hidden dark:block"
+/>

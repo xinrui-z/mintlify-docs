@@ -1,22 +1,22 @@
 ---
 title: "Codex CLI"
-description: "本指南将帮助您在几分钟内使用由 Harogo 提供的 Codex。"
+description: "本指南將幫助您在幾分鐘內使用由 Harogo 提供的 Codex。"
 icon: "pineapple"
 ---
 
-## 安装
+## 安裝
 
-### 官网下载（macOS 版本）
+### 官網下載（macOS 版本）
 
 [https://openai.com/zh-Hans-CN/codex/](https://openai.com/zh-Hans-CN/codex/)
 
-### 使用命令行安装
+### 使用命令行安裝
 
 ```bash
 npm install -g @openai/codex
 ```
 
-## 环境变量配置
+## 環境變量配置
 
 ### 使用配置文件配置
 
@@ -25,14 +25,14 @@ npm install -g @openai/codex
 ```toml
 profile = "harogo"
 
-[model_providers.aihubmix]
+[model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
 personality = "pragmatic"
 wire_api = "responses"
 
-[profiles.aihubmix]
-model = "gpt-5.6-sol"
+[profiles.harogo]
+model = "gpt-6.1-sol"
 model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
@@ -45,77 +45,77 @@ model_reasoning_effort = "high"
 }
 ```
 
-### 通过 cc-switch 配置
+### 通過 cc-switch 配置
 
-1. 运行 CC-Switch，添加供应商。
+1. 運行 CC-Switch，添加供應商。
 
 <img
-  alt="CC-Switch 添加供应商界面"
+  alt="CC-Switch 添加供應商界面"
   width="2072"
   height="1374"
   data-path="public/cn/codex-1.png"
-  lightAlt="CC-Switch 添加供应商界面"
-  darkAlt="CC-Switch 添加供应商界面"
+  lightAlt="CC-Switch 添加供應商界面"
+  darkAlt="CC-Switch 添加供應商界面"
   src="/images/iShot_2026-08-07_17.20.12.png"
 />
 
-2. 在预设列表中选择「自定义配置」。
+2. 在預設列表中選擇「自定義配置」。
 
 <img
-  alt="在 CC-Switch 预设列表选择 AiHubMix"
+  alt="在 CC-Switch 預設列表選擇自定義配置"
   width="2072"
   height="1374"
   data-path="public/cn/codex-2.png"
-  lightAlt="在 CC-Switch 预设列表选择 AiHubMix"
-  darkAlt="在 CC-Switch 预设列表选择 AiHubMix"
+  lightAlt="在 CC-Switch 預設列表選擇自定義配置"
+  darkAlt="在 CC-Switch 預設列表選擇自定義配置"
   src="/images/iShot_2026-08-07_17.20.35.png"
 />
 
-3. 填写供应商名称、API Key、端点「[https://api.harogo.ai/v1」等信息。信息填写完整后，点击「添加」即可。](https://api.harogo.ai/v1」等信息。信息填写完整后，点击「添加」即可。)
+3. 填寫供應商名稱、API Key、端點（[https://api.harogo.ai/v1](https://api.harogo.ai/v1)）等信息。信息填寫完整後，點擊「添加」即可。
 
 <img
-  alt="在 CC-Switch 填写 API Key 并保存"
+  alt="在 CC-Switch 填寫 API Key 並保存"
   width="2072"
   height="1374"
   data-path="public/cn/codex-3.png"
-  lightAlt="在 CC-Switch 填写 API Key 并保存"
-  darkAlt="在 CC-Switch 填写 API Key 并保存"
+  lightAlt="在 CC-Switch 填寫 API Key 並保存"
+  darkAlt="在 CC-Switch 填寫 API Key 並保存"
   src="/images/iShot_2026-08-07_17.22.08.png"
 />
 
-4. 返回首页，选择「harogo」，点击「启用」即可使用。
+4. 返回首頁，選擇「harogo」，點擊「啓用」即可使用。
 
 <img
-  alt="在 CC-Switch 启用 AiHubMix 供应商"
+  alt="在 CC-Switch 啓用 harogo 供應商"
   width="2072"
   height="1374"
   data-path="public/cn/codex-4.png"
-  lightAlt="在 CC-Switch 启用 AiHubMix 供应商"
-  darkAlt="在 CC-Switch 启用 AiHubMix 供应商"
+  lightAlt="在 CC-Switch 啓用 harogo 供應商"
+  darkAlt="在 CC-Switch 啓用 harogo 供應商"
   src="/images/iShot_2026-08-07_17.27.33.png"
 />
 
 ## 使用 Codex
 
-### 在终端中使用
+### 在終端中使用
 
-1. 打开终端，定位到你的项目目录，然后运行 `codex` 命令。
+1. 打開終端，定位到你的項目目錄，然後運行 `codex` 命令。
 
 ```bash
-cd /你的项目路径
+cd /你的項目路徑
 codex
 ```
 
-2. 根据需求，设置权限。
+2. 根據需求，設置權限。
 
 <img
-  alt="Codex 启动时设置审批权限"
+  alt="Codex 啓動時設置審批權限"
   width="1212"
   height="814"
   data-path="public/cn/codex-5.png"
-  lightAlt="Codex 启动时设置审批权限"
-  darkAlt="Codex 启动时设置审批权限"
+  lightAlt="Codex 啓動時設置審批權限"
+  darkAlt="Codex 啓動時設置審批權限"
   src="/images/iShot_2026-08-07_17.31.13.png"
 />
 
-3. 输入自然语言，若正常响应，则配置成功。
+3. 輸入自然語言，若正常響應，則配置成功。

@@ -1,0 +1,121 @@
+---
+title: "Codex CLI"
+description: "Hướng dẫn này giúp bạn bắt đầu dùng Codex với Harogo chỉ trong vài phút."
+icon: "pineapple"
+---
+
+## Cài đặt
+
+### Tải từ trang chính thức (macOS)
+
+[https://openai.com/codex/](https://openai.com/codex/)
+
+### Cài đặt qua dòng lệnh
+
+```bash
+npm install -g @openai/codex
+```
+
+## Cấu hình biến môi trường
+
+### Cấu hình qua tệp cấu hình
+
+1. Mở tệp `~/.codex/config.toml` và thêm nội dung sau:
+
+```toml
+profile = "harogo"
+
+[model_providers.harogo]
+name = "harogo"
+base_url = "https://api.harogo.ai/v1"
+personality = "pragmatic"
+wire_api = "responses"
+
+[profiles.harogo]
+model = "gpt-6.1-sol"
+model_provider = "harogo"
+model_reasoning_effort = "high"
+```
+
+2. Mở tệp `~/.codex/auth.json` và cập nhật như sau:
+
+```json
+{
+  "OPENAI_API_KEY": "HAROGO_API_KEY"
+}
+```
+
+### Cấu hình qua cc-switch
+
+1. Mở CC-Switch và thêm một nhà cung cấp.
+
+<img
+  alt="Màn hình Thêm nhà cung cấp trong CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-1.png"
+  lightAlt="Màn hình Thêm nhà cung cấp trong CC-Switch"
+  darkAlt="Màn hình Thêm nhà cung cấp trong CC-Switch"
+  src="/images/iShot_2026-08-07_17.20.12.png"
+/>
+
+2. Trong danh sách cài đặt sẵn, chọn "Cấu hình tùy chỉnh" (Custom Configuration).
+
+<img
+  alt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-2.png"
+  lightAlt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
+  darkAlt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
+  src="/images/iShot_2026-08-07_17.20.35.png"
+/>
+
+3. Điền tên nhà cung cấp, API key, endpoint ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) và các thông tin khác. Điền xong, nhấp "Thêm" (Add).
+
+<img
+  alt="Nhập API key và lưu trong CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-3.png"
+  lightAlt="Nhập API key và lưu trong CC-Switch"
+  darkAlt="Nhập API key và lưu trong CC-Switch"
+  src="/images/iShot_2026-08-07_17.22.08.png"
+/>
+
+4. Quay lại màn hình chính, chọn "harogo" và nhấp "Bật" (Enable) để bắt đầu sử dụng.
+
+<img
+  alt="Bật nhà cung cấp harogo trên CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-4.png"
+  lightAlt="Bật nhà cung cấp harogo trên CC-Switch"
+  darkAlt="Bật nhà cung cấp harogo trên CC-Switch"
+  src="/images/iShot_2026-08-07_17.27.33.png"
+/>
+
+## Sử dụng Codex
+
+### Trong terminal
+
+1. Mở terminal, chuyển đến thư mục dự án của bạn, rồi chạy lệnh `codex`.
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+2. Thiết lập quyền theo nhu cầu.
+
+<img
+  alt="Thiết lập quyền phê duyệt khi khởi động Codex"
+  width="1212"
+  height="814"
+  data-path="public/cn/codex-5.png"
+  lightAlt="Thiết lập quyền phê duyệt khi khởi động Codex"
+  darkAlt="Thiết lập quyền phê duyệt khi khởi động Codex"
+  src="/images/iShot_2026-08-07_17.31.13.png"
+/>
+
+3. Nhập một prompt bằng ngôn ngữ tự nhiên — nếu nhận được phản hồi bình thường, nghĩa là bạn đã thiết lập thành công.

@@ -1,0 +1,121 @@
+---
+title: "Codex CLI"
+description: "Questa guida ti permette di iniziare a usare Codex con Harogo in pochi minuti."
+icon: "pineapple"
+---
+
+## Installazione
+
+### Download dal sito ufficiale (macOS)
+
+[https://openai.com/codex/](https://openai.com/codex/)
+
+### Installazione da riga di comando
+
+```bash
+npm install -g @openai/codex
+```
+
+## Configurazione delle variabili d'ambiente
+
+### Configurazione tramite file di configurazione
+
+1. Modifica il file `~/.codex/config.toml` e aggiungi quanto segue:
+
+```toml
+profile = "harogo"
+
+[model_providers.harogo]
+name = "harogo"
+base_url = "https://api.harogo.ai/v1"
+personality = "pragmatic"
+wire_api = "responses"
+
+[profiles.harogo]
+model = "gpt-6.1-sol"
+model_provider = "harogo"
+model_reasoning_effort = "high"
+```
+
+2. Modifica il file `~/.codex/auth.json` come segue:
+
+```json
+{
+  "OPENAI_API_KEY": "HAROGO_API_KEY"
+}
+```
+
+### Configurazione tramite cc-switch
+
+1. Avvia CC-Switch e aggiungi un provider.
+
+<img
+  alt="Schermata Aggiungi provider in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-1.png"
+  lightAlt="Schermata Aggiungi provider in CC-Switch"
+  darkAlt="Schermata Aggiungi provider in CC-Switch"
+  src="/images/iShot_2026-08-07_17.20.12.png"
+/>
+
+2. Dall'elenco dei preset, scegli "Configurazione personalizzata" (Custom Configuration).
+
+<img
+  alt="Selezione di Custom Configuration nell'elenco dei preset di CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-2.png"
+  lightAlt="Selezione di Custom Configuration nell'elenco dei preset di CC-Switch"
+  darkAlt="Selezione di Custom Configuration nell'elenco dei preset di CC-Switch"
+  src="/images/iShot_2026-08-07_17.20.35.png"
+/>
+
+3. Inserisci il nome del provider, la chiave API, l'endpoint ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) e così via. Una volta compilati tutti i campi, fai clic su "Aggiungi" (Add).
+
+<img
+  alt="Inserimento della chiave API e salvataggio in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-3.png"
+  lightAlt="Inserimento della chiave API e salvataggio in CC-Switch"
+  darkAlt="Inserimento della chiave API e salvataggio in CC-Switch"
+  src="/images/iShot_2026-08-07_17.22.08.png"
+/>
+
+4. Tornato alla schermata principale, seleziona "harogo" e fai clic su "Abilita" (Enable) per iniziare a usarlo.
+
+<img
+  alt="Attivazione del provider harogo in CC-Switch"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-4.png"
+  lightAlt="Attivazione del provider harogo in CC-Switch"
+  darkAlt="Attivazione del provider harogo in CC-Switch"
+  src="/images/iShot_2026-08-07_17.27.33.png"
+/>
+
+## Usare Codex
+
+### Nel terminale
+
+1. Apri un terminale, spostati nella directory del progetto, poi esegui il comando `codex`.
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+2. Imposta i permessi in base alle tue esigenze.
+
+<img
+  alt="Impostazione dei permessi di approvazione all'avvio di Codex"
+  width="1212"
+  height="814"
+  data-path="public/cn/codex-5.png"
+  lightAlt="Impostazione dei permessi di approvazione all'avvio di Codex"
+  darkAlt="Impostazione dei permessi di approvazione all'avvio di Codex"
+  src="/images/iShot_2026-08-07_17.31.13.png"
+/>
+
+3. Scrivi un prompt in linguaggio naturale: se ricevi una risposta normale, la configurazione è riuscita.

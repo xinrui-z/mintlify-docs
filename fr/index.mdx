@@ -1,0 +1,128 @@
+---
+title: "Présentation du produit"
+description: "Harogo est un abonnement multi-modèles conçu pour les agents de codage. Cette page présente le contenu d'un abonnement, sa configuration, les modèles pris en charge et le fonctionnement des limites d'utilisation."
+---
+
+# Présentation
+
+Harogo est un abonnement multi-modèles conçu pour les agents de codage.
+
+Le prix d'abonnement à tarif réduit est de \$4.90 le premier mois, puis de \$9.90/mois, avec 100 places d'abonnement à tarif réduit actuellement disponibles. Le nombre de places restantes et le prix de règlement sont indiqués sur la page d'abonnement.
+
+Une fois abonné, vous pouvez utiliser plusieurs modèles de codage avec un seul compte Harogo et une seule clé API. Tous les modèles partagent le même quota d'abonnement : inutile de vous inscrire, de recharger un solde ou de gérer des plateformes de modèles séparées.
+
+# Pourquoi Harogo
+
+Chaque modèle excelle dans des tâches de codage différentes. Utiliser directement plusieurs fournisseurs de modèles signifie généralement gérer à la fois plusieurs comptes, clés API, soldes, limites de débit et factures.
+
+Harogo réunit en un seul service un ensemble de modèles bien adaptés aux agents de codage. Vous changez librement de modèle selon la tâche, et toute l'utilisation est décomptée d'un seul quota d'abonnement partagé.
+
+Les modèles actuels se répartissent globalement en plusieurs groupes :
+
+- **Grandes bases de code et raisonnement complexe** : Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
+- **Codage d'agent au quotidien, génération de code et débogage** : Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Appels haute fréquence, réponses rapides et tâches sensibles au coût** : DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
+- **Flux de travail d'agent longs et multi-étapes** : Claude Fable 5.1
+
+Ces groupes servent uniquement de repère pour choisir un modèle. Les résultats réels dépendent de la tâche, du contexte et de la manière dont vous utilisez les outils.
+
+# Prise en main
+
+1. Connectez-vous à Harogo et abonnez-vous.
+2. Créez et copiez une clé API dans la console.
+3. Définissez l'URL de base sur `https://harogo.ai`.
+4. Collez votre clé API.
+5. Commencez à l'utiliser.
+
+Gardez votre clé API en lieu sûr. Ne la publiez pas dans un dépôt public et ne la partagez avec personne.
+
+# Modèles pris en charge
+
+Modèles actuellement pris en charge :
+
+| Modèle | ID du modèle | Idéal pour |
+| --- | --- | --- |
+| GLM-5.3 | `glm-5.3` | Tâches de longue durée, grandes bases de code, codage d'agent |
+| Qwen3.8 Max | `qwen3.8-max` | Raisonnement complexe, compréhension visuelle, appel d'outils intégré |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Codage de longue durée, contexte de 1M, front-end et modélisation 3D |
+| MiniMax M3 | `minimax-m3` | Codage haute fréquence, appel d'outils, contexte long |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Raisonnement et génération de code complexe |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Complétions rapides, appels haute fréquence, tâches par lots |
+| Claude Opus 5.5 | `claude-opus-5-5` | Codage d'agent complexe et tâches d'ingénierie difficiles |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codage quotidien et travail de développement général |
+| Claude Sonnet 5 | `claude-sonnet-5` | Codage quotidien et travail de développement général |
+| Claude Fable 5.1 | `claude-fable-5-1` | Tâches d'agent complexes et de longue durée |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Réponses rapides, tâches légères, traitement par lots |
+| GPT-6 Luna | `gpt-6-luna` | Codage haute fréquence et tâches légères |
+| GPT-6 Sol | `gpt-6-sol` | Génération de code complexe, revue et raisonnement |
+| GPT-6.1 Sol | `gpt-6.1-sol` | Génération de code complexe, revue et raisonnement |
+| GPT-6 Astra | `gpt-6-astra` | Raisonnement haut de gamme pour les problèmes d'ingénierie les plus difficiles |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Codage d'agent quotidien et tâches générales |
+
+Les noms et identifiants de modèles ci-dessus sont les identifiants de routage utilisés en interne par Harogo. La liste des modèles, leurs versions et leur disponibilité peuvent évoluer ; consultez la console pour connaître la liste actuelle.
+
+## Utilisation et limites
+
+Harogo applique les limites d'utilisation suivantes :
+
+- Limite quotidienne : \$12
+- Limite hebdomadaire : \$30
+- Limite mensuelle : \$60
+
+Les trois limites s'appliquent en même temps. Chaque appel de modèle puise dans le quota d'abonnement partagé. DeepSeek V4 Pro a un plafond de quota de \$15 ; tous les autres modèles sont plafonnés à \$60.
+
+Les limites sont exprimées en dollars plutôt qu'en nombre fixe de requêtes. Le nombre de requêtes dont vous disposez réellement dépend du modèle utilisé : les modèles moins chers permettent généralement plus de requêtes, les modèles plus chers moins.
+
+Vous pouvez consulter votre utilisation actuelle et votre quota restant dans la [console Harogo](https://console.harogo.ai/plan).
+
+### Volume de requêtes estimé
+
+Le tableau ci-dessous estime le nombre de requêtes par modèle, sur la base des schémas d'utilisation typiques de Harogo :
+
+| Modèle | Par jour (\$12) | Par semaine (\$30) | Par mois (\$60) |
+| --- | --: | --: | --: |
+| GLM-5.3 | 7,920 | 19,790 | 39,580 |
+| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
+| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
+| MiniMax M3 | 27,460 | 68,650 | 137,300 |
+| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
+| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
+| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
+| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
+| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
+| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
+| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
+| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
+| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
+| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
+| GPT-6 Astra | 580 | 1,450 | 2,910 |
+| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
+
+Chaque ligne suppose que le quota de la fenêtre concernée est consacré principalement à ce seul modèle. Si vous combinez plusieurs modèles, ils puisent ensemble dans le même quota partagé : les nombres de requêtes du tableau ne s'additionnent donc pas d'une ligne à l'autre.
+
+Le volume de requêtes réel dépend de facteurs comme la longueur du contexte, le taux de succès du cache, l'effort de raisonnement et la longueur de sortie. Un agent de codage envoie aussi généralement plusieurs requêtes au modèle pour accomplir une seule tâche : une requête ne correspond donc pas à une tâche de codage complète.
+
+### Méthode d'estimation
+
+Ces estimations reposent sur le profil de requête typique suivant :
+
+- **GLM-5.3** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de GLM-5.2.)
+- **Qwen3.8 Max** : environ 8,731 jetons d'entrée, 31,831 jetons de lecture du cache et 2,029 jetons de sortie par requête. (Reprend le profil de requête de Qwen3.8 Max Preview.)
+- **Kimi K3.1 Pro** : environ 1,050 jetons d'entrée, 76,500 jetons de lecture du cache et 300 jetons de sortie par requête. (Reprend le profil de requête de Kimi K3.)
+- **MiniMax M3** : environ 4,381 jetons d'entrée, 28,768 jetons de lecture du cache et 1,108 jetons de sortie par requête.
+- **DeepSeek V4 Pro** : environ 750 jetons d'entrée, 82,000 jetons de lecture du cache et 290 jetons de sortie par requête.
+- **DeepSeek V4.1 Flash 1017** : environ 790 jetons d'entrée, 68,000 jetons de lecture du cache et 280 jetons de sortie par requête. (Reprend le profil de requête de DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** : environ 580 jetons d'entrée, 386,230 jetons de lecture du cache, 19,476 jetons d'écriture dans le cache et 2,025 jetons de sortie par requête. (Reprend le profil de requête de Claude Opus 5.)
+- **Claude Sonnet 5.5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête. (Reprend le profil de requête de Claude Sonnet 5.)
+- **Claude Sonnet 5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête.
+- **Claude Fable 5.1** : environ 399 jetons d'entrée, 315,393 jetons de lecture du cache, 12,907 jetons d'écriture dans le cache et 1,016 jetons de sortie par requête. (Reprend le profil de requête de Claude Fable 5.)
+- **Claude Haiku 5.5** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de Claude Haiku 4.5.)
+- **GPT-6 Luna** : environ 45,726 jetons d'entrée, 10,720 jetons de lecture du cache et 1,905 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Luna.)
+- **GPT-6 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.1 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
+- **GPT-6 Astra** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Provisoirement basé sur le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.1 Terra** : environ 6,825 jetons d'entrée, 69,476 jetons de lecture du cache et 734 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Terra.)
+
+Les nouvelles versions de modèles reprennent pour l'instant le profil de requête observé sur leur prédécesseur. Requêtes = quota de la fenêtre ÷ (prix catalogue par requête × 0.1) ; pour les modèles dont le plafond de quota est de \$15, le résultat est multiplié par \$15 / \$60.
+
+Ces chiffres servent à estimer une utilisation typique et ne constituent pas un engagement sur un nombre fixe de requêtes. Les plafonds de quota et les volumes de requêtes estimés peuvent évoluer avec le service ; consultez la console Harogo et cette page pour les informations les plus récentes.

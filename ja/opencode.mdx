@@ -1,0 +1,182 @@
+---
+title: "OpenCode"
+description: "このガイドでは、Harogoを使ったOpenCodeを数分で使い始める方法を説明します。"
+icon: "apple-whole"
+---
+
+インストールの前に、お使いのシステムが次の要件を満たしていることを確認してください。
+
+- **Node.js ≥ 18.0.0**
+- お使いのプラットフォーム向けのパッケージマネージャー（任意）：
+  - macOS / Linux: `brew`
+  - Arch Linux: `paru`
+  - Windows: `choco`、`winget`、または`scoop`
+
+## 1. OpenCodeをインストールする
+
+お使いのシステムとツールに合ったインストール方法を選んでください。
+
+### 1. Node.jsでインストールする
+
+```text
+# curlスクリプトでクイックインストール
+curl -fsSL https://opencode.ai/install | bash
+
+# NPMを使う場合
+npm install -g opencode-ai
+
+# Bunを使う場合
+bun install -g opencode-ai
+
+# PNPMを使う場合
+pnpm install -g opencode-ai
+
+# Yarnを使う場合
+yarn global add opencode-ai
+```
+
+---
+
+### 2. Homebrewを使う（macOS / Linux）
+
+```text
+brew install sst/tap/opencode
+```
+
+---
+
+### 3. Paruを使う（Arch Linux）
+
+```text
+paru -S opencode-bin
+```
+
+---
+
+### 4. Windowsでのインストール
+
+Windowsでは、次のいずれかの方法でOpenCodeをインストールできます。
+
+```text
+# Chocolatey
+choco install opencode
+
+# WinGet
+winget install opencode
+
+# Scoop
+scoop bucket add extras
+scoop install extras/opencode
+
+# またはNPM経由（Node.jsが必要）— 注意：管理者権限が必要です
+npm install -g opencode-ai
+```
+
+---
+
+## 2. CC SwitchでOpenCodeを設定する
+
+1. CC Switchを起動し、左側でOpenCodeを選択してから「プロバイダーを追加」（Add Provider）をクリックします。
+
+<Frame>
+  ![I Shot 2026 08 07 18 06 55](/images/iShot_2026-08-07_18.06.55.png "I Shot 2026 08 07 18 06 55")
+</Frame>
+
+2. プリセット一覧から、プロバイダーとして「カスタム設定」（Custom Configuration）を選択します。
+
+<Frame>
+  ![I Shot 2026 08 07 18 07 24](/images/iShot_2026-08-07_18.07.24.png "I Shot 2026 08 07 18 07 24")
+</Frame>
+
+3. プロバイダーキー、名前、APIキー、エンドポイント（`https://api.harogo.ai/v1`）などを入力します。
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.16.46.png"
+    alt="プロバイダー設定フォームの入力画面"
+    title="プロバイダー設定フォームの入力画面"
+    lightAlt="プロバイダー設定フォームの入力画面"
+    darkAlt="プロバイダー設定フォームの入力画面"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.08.20.png"
+    alt="プロバイダー設定フォームの入力画面"
+    title="プロバイダー設定フォームの入力画面"
+    lightAlt="プロバイダー設定フォームの入力画面"
+    darkAlt="プロバイダー設定フォームの入力画面"
+    className="hidden dark:block"
+  />
+</Frame>
+
+4. モデル情報を入力して保存します。
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.18.44.png"
+    alt="モデル設定の入力画面"
+    title="モデル設定の入力画面"
+    lightAlt="モデル設定の入力画面"
+    darkAlt="モデル設定の入力画面"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.09.03.png"
+    alt="モデル設定の入力画面"
+    title="モデル設定の入力画面"
+    lightAlt="モデル設定の入力画面"
+    darkAlt="モデル設定の入力画面"
+    className="hidden dark:block"
+  />
+</Frame>
+
+5. ホーム画面に戻り、プロバイダー一覧から「harogo」を選択して「使用」（Use）をクリックします。
+
+<Frame>
+  ![11](/images/11.png "11")
+</Frame>
+
+---
+
+## 3. モデルを使う
+
+### 1. インストールを確認する
+
+次のコマンドで、OpenCodeが正しくインストール・設定されているかを確認できます。
+
+```text
+opencode
+```
+
+<img
+  src="/images/iShot_2026-08-07_18.21.30.png"
+  alt="Opencode 3"
+  width="2750"
+  height="1420"
+  data-path="public/cn/opencode-3.jpg"
+/>
+
+### 2. モデルを選択する
+
+`/models`と入力して`harogo`を検索し、使いたいモデルを選択します。
+
+<img
+  src="/images/iShot_2026-08-07_18.22.23.png"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="dark:hidden"
+/>
+<img
+  src="https://mintcdn.com/aihubmix/aax4hBrhzzthbrWx/public/cn/opencode-4.jpg?fit=max&auto=format&n=aax4hBrhzzthbrWx&q=85&s=09d8bbf66f1069fe42f85beb2f0297c5"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="hidden dark:block"
+/>

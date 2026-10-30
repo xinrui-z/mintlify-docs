@@ -1,0 +1,121 @@
+---
+title: "Codex CLI"
+description: "このガイドでは、Harogoを使ったCodexを数分で使い始める方法を説明します。"
+icon: "pineapple"
+---
+
+## インストール
+
+### 公式サイトからダウンロードする（macOS）
+
+[https://openai.com/codex/](https://openai.com/codex/)
+
+### コマンドラインでインストールする
+
+```bash
+npm install -g @openai/codex
+```
+
+## 環境変数の設定
+
+### 設定ファイルで設定する
+
+1. `~/.codex/config.toml`ファイルを編集し、次の内容を追加します。
+
+```toml
+profile = "harogo"
+
+[model_providers.harogo]
+name = "harogo"
+base_url = "https://api.harogo.ai/v1"
+personality = "pragmatic"
+wire_api = "responses"
+
+[profiles.harogo]
+model = "gpt-6.1-sol"
+model_provider = "harogo"
+model_reasoning_effort = "high"
+```
+
+2. `~/.codex/auth.json`ファイルを編集し、次のように更新します。
+
+```json
+{
+  "OPENAI_API_KEY": "HAROGO_API_KEY"
+}
+```
+
+### cc-switchで設定する
+
+1. CC-Switchを起動し、プロバイダーを追加します。
+
+<img
+  alt="CC-Switchのプロバイダー追加画面"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-1.png"
+  lightAlt="CC-Switchのプロバイダー追加画面"
+  darkAlt="CC-Switchのプロバイダー追加画面"
+  src="/images/iShot_2026-08-07_17.20.12.png"
+/>
+
+2. プリセット一覧から「カスタム設定」（Custom Configuration）を選択します。
+
+<img
+  alt="CC-Switchのプリセット一覧でCustom Configurationを選択する画面"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-2.png"
+  lightAlt="CC-Switchのプリセット一覧でCustom Configurationを選択する画面"
+  darkAlt="CC-Switchのプリセット一覧でCustom Configurationを選択する画面"
+  src="/images/iShot_2026-08-07_17.20.35.png"
+/>
+
+3. プロバイダー名、APIキー、エンドポイント（[https://api.harogo.ai/v1](https://api.harogo.ai/v1)）などを入力します。すべて入力したら「追加」（Add）をクリックします。
+
+<img
+  alt="CC-SwitchでAPIキーを入力して保存する画面"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-3.png"
+  lightAlt="CC-SwitchでAPIキーを入力して保存する画面"
+  darkAlt="CC-SwitchでAPIキーを入力して保存する画面"
+  src="/images/iShot_2026-08-07_17.22.08.png"
+/>
+
+4. ホーム画面に戻り、「harogo」を選択して「有効化」（Enable）をクリックすると利用を開始できます。
+
+<img
+  alt="CC-Switchでharogoプロバイダーを有効にする画面"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-4.png"
+  lightAlt="CC-Switchでharogoプロバイダーを有効にする画面"
+  darkAlt="CC-Switchでharogoプロバイダーを有効にする画面"
+  src="/images/iShot_2026-08-07_17.27.33.png"
+/>
+
+## Codexを使う
+
+### ターミナルで使う
+
+1. ターミナルを開いてプロジェクトディレクトリに移動し、`codex`コマンドを実行します。
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+2. 必要に応じて権限を設定します。
+
+<img
+  alt="Codex起動時に承認権限を設定する画面"
+  width="1212"
+  height="814"
+  data-path="public/cn/codex-5.png"
+  lightAlt="Codex起動時に承認権限を設定する画面"
+  darkAlt="Codex起動時に承認権限を設定する画面"
+  src="/images/iShot_2026-08-07_17.31.13.png"
+/>
+
+3. 自然言語でプロンプトを入力します。正常な応答が返ってくれば、セットアップは完了です。

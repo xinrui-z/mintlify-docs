@@ -1,0 +1,128 @@
+---
+title: "Wprowadzenie do produktu"
+description: "Harogo to wielomodelowa subskrypcja stworzona dla agentów kodujących. Na tej stronie dowiesz się, co obejmuje subskrypcja, jak ją skonfigurować, które modele są obsługiwane i jak działają limity wykorzystania."
+---
+
+# Wprowadzenie
+
+Harogo to wielomodelowa subskrypcja stworzona dla agentów kodujących.
+
+Zniżkowa cena subskrypcji wynosi \$4.90 za pierwszy miesiąc, a następnie \$9.90/mies. Obecnie dostępnych jest 100 zniżkowych miejsc subskrypcji. Pozostałe miejsca i faktyczna cena rozliczeniowa są pokazane na stronie subskrypcji.
+
+Po zasubskrybowaniu możesz korzystać z wielu modeli do kodowania za pomocą jednego konta Harogo i jednego klucza API. Wszystkie modele korzystają z tego samego wspólnego limitu subskrypcji, więc nie musisz zakładać kont, doładowywać sald ani zarządzać osobnymi platformami modeli.
+
+# Dlaczego Harogo
+
+Różne modele sprawdzają się w różnych zadaniach programistycznych. Korzystanie bezpośrednio z kilku dostawców modeli zwykle oznacza zarządzanie kilkoma kontami, kluczami API, saldami, limitami zapytań i rachunkami naraz.
+
+Harogo łączy w jednej usłudze zestaw modeli dobrze dopasowanych do agentów kodujących. Możesz swobodnie przełączać modele w zależności od zadania, a całe wykorzystanie jest rozliczane z jednego wspólnego limitu subskrypcji.
+
+Obecne modele można z grubsza podzielić na następujące grupy:
+
+- **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
+- **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Wywołania o wysokiej częstotliwości, szybkie odpowiedzi i zadania wrażliwe na koszty**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
+- **Długie, wieloetapowe przepływy pracy agentów**: Claude Fable 5.1
+
+Te grupy służą jedynie jako punkt odniesienia przy wyborze modelu. Rzeczywiste wyniki zależą od zadania, kontekstu i sposobu korzystania z narzędzi.
+
+# Pierwsze kroki
+
+1. Zaloguj się do Harogo i wykup subskrypcję.
+2. Utwórz i skopiuj klucz API w konsoli.
+3. Ustaw Base URL na `https://harogo.ai`.
+4. Wklej swój klucz API.
+5. Zacznij korzystać.
+
+Chroń swój klucz API. Nie umieszczaj go w publicznych repozytoriach ani nie udostępniaj innym.
+
+# Obsługiwane modele
+
+Obecnie obsługiwane modele:
+
+| Model | Identyfikator modelu | Najlepszy do |
+| --- | --- | --- |
+| GLM-5.3 | `glm-5.3` | Długie zadania, duże bazy kodu, kodowanie agentowe |
+| Qwen3.8 Max | `qwen3.8-max` | Złożone rozumowanie, rozumienie obrazów, wbudowane wywołania narzędzi |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Długie zadania kodowania, kontekst 1M, frontend i modelowanie 3D |
+| MiniMax M3 | `minimax-m3` | Kodowanie o wysokiej częstotliwości, wywołania narzędzi, długi kontekst |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Rozumowanie i złożone generowanie kodu |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Szybkie odpowiedzi, wywołania o wysokiej częstotliwości, zadania wsadowe |
+| Claude Opus 5.5 | `claude-opus-5-5` | Złożone kodowanie agentowe i trudne zadania inżynierskie |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codzienne kodowanie i ogólne prace deweloperskie |
+| Claude Sonnet 5 | `claude-sonnet-5` | Codzienne kodowanie i ogólne prace deweloperskie |
+| Claude Fable 5.1 | `claude-fable-5-1` | Złożone, długotrwałe zadania agentowe |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Szybkie odpowiedzi, lekkie zadania, przetwarzanie wsadowe |
+| GPT-6 Luna | `gpt-6-luna` | Kodowanie o wysokiej częstotliwości i lekkie zadania |
+| GPT-6 Sol | `gpt-6-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
+| GPT-6.1 Sol | `gpt-6.1-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
+| GPT-6 Astra | `gpt-6-astra` | Flagowe rozumowanie dla najtrudniejszych problemów inżynierskich |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Codzienne kodowanie agentowe i zadania ogólne |
+
+Powyższe nazwy i identyfikatory modeli to identyfikatory routingu używane wewnętrznie przez Harogo. Lista modeli, ich wersje i dostępność mogą się zmieniać — aktualną listę znajdziesz w konsoli.
+
+## Wykorzystanie i limity
+
+Harogo stosuje następujące limity wykorzystania:
+
+- Limit dzienny: \$12
+- Limit tygodniowy: \$30
+- Limit miesięczny: \$60
+
+Wszystkie trzy limity obowiązują jednocześnie. Każde wywołanie modelu korzysta ze wspólnego limitu subskrypcji. DeepSeek V4 Pro ma limit wykorzystania \$15, a wszystkie pozostałe modele — \$60.
+
+Limity są określone w wartości USD, a nie jako stała liczba zapytań. Liczba zapytań, które faktycznie otrzymasz, zależy od używanego modelu — tańsze modele zazwyczaj pozwalają na więcej zapytań, a droższe na mniej.
+
+Bieżące wykorzystanie i pozostały limit możesz sprawdzić w [konsoli Harogo](https://console.harogo.ai/plan).
+
+### Szacowany wolumen zapytań
+
+Poniższa tabela przedstawia szacunkową liczbę zapytań dla każdego modelu na podstawie typowych wzorców korzystania z Harogo:
+
+| Model | Dziennie (\$12) | Tygodniowo (\$30) | Miesięcznie (\$60) |
+| --- | --: | --: | --: |
+| GLM-5.3 | 7,920 | 19,790 | 39,580 |
+| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
+| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
+| MiniMax M3 | 27,460 | 68,650 | 137,300 |
+| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
+| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
+| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
+| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
+| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
+| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
+| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
+| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
+| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
+| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
+| GPT-6 Astra | 580 | 1,450 | 2,910 |
+| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
+
+Każdy wiersz zakłada, że limit danego okna czasowego jest wykorzystywany głównie przez ten jeden model. Gdy łączysz kilka modeli, wszystkie korzystają z tego samego wspólnego limitu, więc liczb zapytań z różnych wierszy tabeli nie można po prostu sumować.
+
+Na rzeczywisty wolumen zapytań wpływają m.in. długość kontekstu, współczynnik trafień w pamięć podręczną, wysiłek rozumowania i długość odpowiedzi. Agent kodujący wykonujący jedno zadanie zwykle wysyła też wiele zapytań do modelu, więc jedno zapytanie to nie jedno kompletne zadanie programistyczne.
+
+### Metoda szacowania
+
+Szacunki opierają się na następującym typowym profilu zapytań:
+
+- **GLM-5.3** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań GLM-5.2.)
+- **Qwen3.8 Max** — na zapytanie około 8,731 tokenów wejściowych, 31,831 tokenów odczytu z pamięci podręcznej i 2,029 tokenów wyjściowych. (Wykorzystuje profil zapytań Qwen3.8 Max Preview.)
+- **Kimi K3.1 Pro** — na zapytanie około 1,050 tokenów wejściowych, 76,500 tokenów odczytu z pamięci podręcznej i 300 tokenów wyjściowych. (Wykorzystuje profil zapytań Kimi K3.)
+- **MiniMax M3** — na zapytanie około 4,381 tokenów wejściowych, 28,768 tokenów odczytu z pamięci podręcznej i 1,108 tokenów wyjściowych.
+- **DeepSeek V4 Pro** — na zapytanie około 750 tokenów wejściowych, 82,000 tokenów odczytu z pamięci podręcznej i 290 tokenów wyjściowych.
+- **DeepSeek V4.1 Flash 1017** — na zapytanie około 790 tokenów wejściowych, 68,000 tokenów odczytu z pamięci podręcznej i 280 tokenów wyjściowych. (Wykorzystuje profil zapytań DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** — na zapytanie około 580 tokenów wejściowych, 386,230 tokenów odczytu z pamięci podręcznej, 19,476 tokenów zapisu do pamięci podręcznej i 2,025 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Opus 5.)
+- **Claude Sonnet 5.5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Sonnet 5.)
+- **Claude Sonnet 5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych.
+- **Claude Fable 5.1** — na zapytanie około 399 tokenów wejściowych, 315,393 tokenów odczytu z pamięci podręcznej, 12,907 tokenów zapisu do pamięci podręcznej i 1,016 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Fable 5.)
+- **Claude Haiku 5.5** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Haiku 4.5.)
+- **GPT-6 Luna** — na zapytanie około 45,726 tokenów wejściowych, 10,720 tokenów odczytu z pamięci podręcznej i 1,905 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Luna.)
+- **GPT-6 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
+- **GPT-6.1 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
+- **GPT-6 Astra** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Tymczasowo oparte na profilu zapytań GPT-5.6 Sol.)
+- **GPT-6.1 Terra** — na zapytanie około 6,825 tokenów wejściowych, 69,476 tokenów odczytu z pamięci podręcznej i 734 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Terra.)
+
+Nowsze wersje modeli na razie wykorzystują profil zapytań zaobserwowany dla swoich poprzedników. Liczba zapytań = limit okna ÷ (cena katalogowa za zapytanie × 0.1); w przypadku modeli z limitem wykorzystania \$15 wynik jest skalowany przez \$15 / \$60.
+
+Te liczby służą do oszacowania typowego wykorzystania i nie stanowią gwarancji żadnej stałej liczby zapytań. Limity wykorzystania i szacowany wolumen zapytań mogą się zmieniać wraz z rozwojem usługi — najnowsze informacje znajdziesz w konsoli Harogo i na tej stronie.

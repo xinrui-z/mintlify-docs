@@ -1,0 +1,182 @@
+---
+title: "OpenCode"
+description: "Questa guida ti permette di iniziare a usare OpenCode con Harogo in pochi minuti."
+icon: "apple-whole"
+---
+
+Prima dell'installazione, assicurati che il tuo sistema soddisfi i seguenti requisiti:
+
+- **Node.js ≥ 18.0.0**
+- Un gestore di pacchetti per la tua piattaforma (facoltativo):
+  - macOS / Linux: `brew`
+  - Arch Linux: `paru`
+  - Windows: `choco`, `winget` o `scoop`
+
+## 1. Installare OpenCode
+
+Scegli il metodo di installazione più adatto al tuo sistema e ai tuoi strumenti.
+
+### 1. Installazione tramite Node.js
+
+```text
+# Installazione rapida tramite script curl
+curl -fsSL https://opencode.ai/install | bash
+
+# Con NPM
+npm install -g opencode-ai
+
+# Con Bun
+bun install -g opencode-ai
+
+# Con PNPM
+pnpm install -g opencode-ai
+
+# Con Yarn
+yarn global add opencode-ai
+```
+
+---
+
+### 2. Con Homebrew (macOS / Linux)
+
+```text
+brew install sst/tap/opencode
+```
+
+---
+
+### 3. Con Paru (Arch Linux)
+
+```text
+paru -S opencode-bin
+```
+
+---
+
+### 4. Installazione su Windows
+
+Su Windows puoi installare OpenCode in uno dei seguenti modi:
+
+```text
+# Chocolatey
+choco install opencode
+
+# WinGet
+winget install opencode
+
+# Scoop
+scoop bucket add extras
+scoop install extras/opencode
+
+# Oppure tramite NPM (richiede Node.js) — nota: richiede privilegi di amministratore
+npm install -g opencode-ai
+```
+
+---
+
+## 2. Configurare OpenCode tramite CC Switch
+
+1. Avvia CC Switch, seleziona OpenCode a sinistra, poi fai clic su "Aggiungi provider" (Add Provider).
+
+<Frame>
+  ![I Shot 2026 08 07 18 06 55](/images/iShot_2026-08-07_18.06.55.png "I Shot 2026 08 07 18 06 55")
+</Frame>
+
+2. Dall'elenco dei preset, scegli "Configurazione personalizzata" (Custom Configuration) come provider.
+
+<Frame>
+  ![I Shot 2026 08 07 18 07 24](/images/iShot_2026-08-07_18.07.24.png "I Shot 2026 08 07 18 07 24")
+</Frame>
+
+3. Inserisci la chiave del provider, il nome, la chiave API, l'endpoint (`https://api.harogo.ai/v1`) e così via.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.16.46.png"
+    alt="Compilazione del modulo di configurazione del provider"
+    title="Compilazione del modulo di configurazione del provider"
+    lightAlt="Compilazione del modulo di configurazione del provider"
+    darkAlt="Compilazione del modulo di configurazione del provider"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.08.20.png"
+    alt="Compilazione del modulo di configurazione del provider"
+    title="Compilazione del modulo di configurazione del provider"
+    lightAlt="Compilazione del modulo di configurazione del provider"
+    darkAlt="Compilazione del modulo di configurazione del provider"
+    className="hidden dark:block"
+  />
+</Frame>
+
+4. Inserisci le informazioni del modello, poi salva.
+
+<Frame>
+  <img
+    src="/images/iShot_2026-08-07_18.18.44.png"
+    alt="Compilazione della configurazione del modello"
+    title="Compilazione della configurazione del modello"
+    lightAlt="Compilazione della configurazione del modello"
+    darkAlt="Compilazione della configurazione del modello"
+    className="dark:hidden"
+  />
+  <img
+    src="/images/iShot_2026-08-07_18.09.03.png"
+    alt="Compilazione della configurazione del modello"
+    title="Compilazione della configurazione del modello"
+    lightAlt="Compilazione della configurazione del modello"
+    darkAlt="Compilazione della configurazione del modello"
+    className="hidden dark:block"
+  />
+</Frame>
+
+5. Tornato alla schermata principale, seleziona "harogo" dall'elenco dei provider e fai clic su "Usa" (Use).
+
+<Frame>
+  ![11](/images/11.png "11")
+</Frame>
+
+---
+
+## 3. Usare il modello
+
+### 1. Verificare l'installazione
+
+Puoi verificare che OpenCode sia installato e configurato correttamente con il seguente comando:
+
+```text
+opencode
+```
+
+<img
+  src="/images/iShot_2026-08-07_18.21.30.png"
+  alt="Opencode 3"
+  width="2750"
+  height="1420"
+  data-path="public/cn/opencode-3.jpg"
+/>
+
+### 2. Selezionare un modello
+
+Digita `/models`, cerca `harogo` e scegli il modello che preferisci.
+
+<img
+  src="/images/iShot_2026-08-07_18.22.23.png"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="dark:hidden"
+/>
+<img
+  src="https://mintcdn.com/aihubmix/aax4hBrhzzthbrWx/public/cn/opencode-4.jpg?fit=max&auto=format&n=aax4hBrhzzthbrWx&q=85&s=09d8bbf66f1069fe42f85beb2f0297c5"
+  alt="Opencode 4"
+  width="1982"
+  height="1290"
+  data-path="public/cn/opencode-4.jpg"
+  lightAlt="Opencode 4"
+  darkAlt="Opencode 4"
+  className="hidden dark:block"
+/>

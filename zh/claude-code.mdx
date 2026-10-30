@@ -1,12 +1,12 @@
 ---
 title: "Claude Code"
-description: "本指南将帮助您在几分钟内使用由 Harogo 提供的 Claude Code。"
+description: "本指南將幫助您在幾分鐘內使用由 Harogo 提供的 Claude Code。"
 icon: "code-branch"
 ---
 
-### 1. 安装 Claude Code
+### 1. 安裝 Claude Code
 
-#### 本地安装
+#### 本地安裝
 
 <CodeGroup>
 
@@ -20,7 +20,7 @@ irm https://claude.ai/install.ps1 | iex
 
 </CodeGroup>
 
-#### 使用 npm 安装
+#### 使用 npm 安裝
 
 需要 [Node.js 18 或更高版本](https://nodejs.org/en/download/)
 
@@ -30,33 +30,33 @@ npm install -g @anthropic-ai/claude-code
 
 ### 2. 配置 Harogo API
 
-要通过兼容 Anthropic API 的方式来接入 Harogo 的模型服务，需要配置以下环境变量。
+要通過兼容 Anthropic API 的方式來接入 Harogo 的模型服務，需要配置以下環境變量。
 
-1. 将 `ANTHROPIC_BASE_URL` 设置为 `https://api.harogo.ai/`
-2. 将 `ANTHROPIC_AUTH_TOKEN` 设置为从 [Harogo 平台](https://console.harogo.ai/keys) 获取的 API Key
-3. 将 `ANTHROPIC_MODEL` 设置为 Harogo 中支持的 Claude 模型，例如 `claude-sonnet-5`。
+1. 將 `ANTHROPIC_BASE_URL` 設置爲 `https://api.harogo.ai/`
+2. 將 `ANTHROPIC_AUTH_TOKEN` 設置爲從 [Harogo 平台](https://console.harogo.ai/keys) 獲取的 API Key
+3. 將 `ANTHROPIC_MODEL` 設置爲 Harogo 中支持的 Claude 模型，例如 `claude-sonnet-5`。
 
 <Tabs>
   <Tab title="macOS">
-    1. 在终端中执行以下命令，查看默认 Shell 类型。
+    1. 在終端中執行以下命令，查看默認 Shell 類型。
 
     ```shellscript
     echo $SHELL
     ```
 
-    2. 根据 Shell 类型设置环境变量，命令如下：
+    2. 根據 Shell 類型設置環境變量，命令如下：
 
     <CodeGroup>
 
     ```shellscript Zsh
-    # 将 <HAROGO_API_KEY> 替换为你从 Harogo 平台获取的真实 Key
+    # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
     echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
-    # 将 <HAROGO_API_KEY> 替换为你从 Harogo 平台获取的真实 Key
+    # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
     echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
@@ -64,7 +64,7 @@ npm install -g @anthropic-ai/claude-code
 
     </CodeGroup>
 
-    3. 在终端中执行下列命令，使环境变量生效。
+    3. 在終端中執行下列命令，使環境變量生效。
 
     <CodeGroup>
 
@@ -78,7 +78,7 @@ npm install -g @anthropic-ai/claude-code
 
     </CodeGroup>
 
-    4. 打开一个新的终端，执行下列命令，查看环境变量是否生效。
+    4. 打開一個新的終端，執行下列命令，查看環境變量是否生效。
 
     ```shellscript
     echo $ANTHROPIC_BASE_URL
@@ -87,20 +87,20 @@ npm install -g @anthropic-ai/claude-code
     ```
   </Tab>
   <Tab title="Windows">
-    在 Windows 中，可以通过 CMD 或 PowerShell 将 Harogo 的 Base URL 和 [API Key](https://console.harogo.ai/keys) 设置为环境变量。
+    在 Windows 中，可以通過 CMD 或 PowerShell 將 Harogo 的 Base URL 和 [API Key](https://console.harogo.ai/keys) 設置爲環境變量。
 
     <Tabs>
       <Tab title="CMD">
-        1. 在 CMD 中运行以下命令，设置环境变量。
+        1. 在 CMD 中運行以下命令，設置環境變量。
 
         ```shellscript
-        REM 将 <HAROGO_API_KEY> 替换为你从 Harogo 平台获取的真实 Key
+        REM 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
         setx ANTHROPIC_MODEL "claude-sonnet-5"
         ```
 
-        2. 打开一个新的 CMD 窗口，运行以下命令，检查环境变量是否生效。
+        2. 打開一個新的 CMD 窗口，運行以下命令，檢查環境變量是否生效。
 
         ```shellscript
         if defined ANTHROPIC_AUTH_TOKEN echo ANTHROPIC_AUTH_TOKEN is set
@@ -109,16 +109,16 @@ npm install -g @anthropic-ai/claude-code
         ```
       </Tab>
       <Tab title="PowerShell">
-        1. 在 PowerShell 中运行以下命令，设置环境变量。
+        1. 在 PowerShell 中運行以下命令，設置環境變量。
 
         ```shellscript
-        # 将 <HAROGO_API_KEY> 替换为你从 Harogo 平台获取的真实 Key
+        # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
         ```
 
-        2. 打开一个新的 PowerShell 窗口，运行以下命令，检查环境变量是否生效。
+        2. 打開一個新的 PowerShell 窗口，運行以下命令，檢查環境變量是否生效。
 
         ```shellscript
         if ($env:ANTHROPIC_AUTH_TOKEN) { "ANTHROPIC_AUTH_TOKEN is set" }
@@ -131,12 +131,12 @@ npm install -g @anthropic-ai/claude-code
 </Tabs>
 
 <Note>
-  如果你准备通过 CC Switch 管理 Claude Code，建议不要再额外设置全局 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`。系统或用户环境变量可能覆盖 CC Switch 写入的 Provider 配置，导致界面里选择了正确 Provider，但 Claude Code 实际仍使用旧 Key 或旧模型。
+  如果你準備通過 CC Switch 管理 Claude Code，建議不要再額外設置全局 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`。系統或用戶環境變量可能覆蓋 CC Switch 寫入的 Provider 配置，導致界面裏選擇了正確 Provider，但 Claude Code 實際仍使用舊 Key 或舊模型。
 </Note>
 
-### 3. 验证配置是否生效
+### 3. 驗證配置是否生效
 
-完成环境变量或 CC Switch 配置后，建议先用一次最小请求确认 Key、模型和 Anthropic 兼容接口都可用，再启动长会话。
+完成環境變量或 CC Switch 配置後，建議先用一次最小請求確認 Key、模型和 Anthropic 兼容接口都可用，再啓動長會話。
 
 <CodeGroup>
 
@@ -162,31 +162,31 @@ curl.exe https://api.harogo.ai/v1/messages `
 
 </CodeGroup>
 
-### 4. 开始使用
+### 4. 開始使用
 
-完成配置后，进入你的工作目录，在终端运行 `claude` 命令开始使用 Claude Code。
+完成配置後，進入你的工作目錄，在終端運行 `claude` 命令開始使用 Claude Code。
 
 ```bash
 $ cd /path/your-project
 > claude
 ```
 
-如果启动后看到 `Not logged in · Please run /login`，或进入 Anthropic 登录选项，通常说明 Claude Code 没有读取到可用的 Harogo 配置，或首次引导尚未完成。请先确认上一步最小请求可返回 `2`，并检查 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL` 是否被旧的全局环境变量覆盖。确认 Key 可用后，如仍进入登录流程，可按以下步骤跳过首次引导：
+如果啓動後看到 `Not logged in · Please run /login`，或進入 Anthropic 登錄選項，通常說明 Claude Code 沒有讀取到可用的 Harogo 配置，或首次引導尚未完成。請先確認上一步最小請求可返回 `2`，並檢查 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL` 是否被舊的全局環境變量覆蓋。確認 Key 可用後，如仍進入登錄流程，可按以下步驟跳過首次引導：
 
 <img
-  alt="Claude Code 首次启动时提示登录或继续配置的终端界面"
+  alt="Claude Code 首次啓動時提示登錄或繼續配置的終端界面"
   width="1622"
   height="438"
   data-path="public/cn/cc-7.jpg"
-  lightAlt="Claude Code 首次启动时提示登录或继续配置的终端界面"
-  darkAlt="Claude Code 首次启动时提示登录或继续配置的终端界面"
+  lightAlt="Claude Code 首次啓動時提示登錄或繼續配置的終端界面"
+  darkAlt="Claude Code 首次啓動時提示登錄或繼續配置的終端界面"
   src="/images/cc-7.avif"
 />
 
-1. 定位用户主目录下的 `.claude.json` 文件，具体路径如下：
+1. 定位用戶主目錄下的 `.claude.json` 文件，具體路徑如下：
    - macOS / Linux: `~/.claude.json`
    - Windows: `C:\Users\%USERNAME%\.claude.json`
-2. 设置`hasCompletedOnboarding` 字段的值为 `true`
+2. 設置`hasCompletedOnboarding` 字段的值爲 `true`
 
 ```json
 {
@@ -194,98 +194,98 @@ $ cd /path/your-project
 }
 ```
 
-3. 保存文件，然后在终端中重新运行 `claude` 。
+3. 保存文件，然後在終端中重新運行 `claude` 。
 
-#### （可选）更多配置模型的方式
+#### （可選）更多配置模型的方式
 
-Claude Code 支持以下模型配置方式，**按优先级从高到低排列**，优先级高的配置会覆盖优先级低的配置。
+Claude Code 支持以下模型配置方式，**按優先級從高到低排列**，優先級高的配置會覆蓋優先級低的配置。
 
-1. **对话期间：** 执行`/model <模型名称>`命令切换模型。适用于临时切换模型。
+1. **對話期間：** 執行`/model <模型名稱>`命令切換模型。適用於臨時切換模型。
 
 ```text
 /model claude-sonnet-5
 ```
 
-2. **启动 Claude Code 时：** 执行`claude --model <模型名称>`指定模型。适用于单次会话。
+2. **啓動 Claude Code 時：** 執行`claude --model <模型名稱>`指定模型。適用於單次會話。
 
 ```text
 claude --model claude-sonnet-5
 ```
 
-3. **设置环境变量**：可按任务复杂度配置不同级别的模型，Claude Code 会根据任务类型自动选择合适的模型。适用于全局生效。
+3. **設置環境變量**：可按任務複雜度配置不同級別的模型，Claude Code 會根據任務類型自動選擇合適的模型。適用於全局生效。
 
 ```shellscript
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-4-5"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
 其中：
 
-- `ANTHROPIC_DEFAULT_OPUS_MODEL`：用于复杂推理、架构设计等高难度任务。
-- `ANTHROPIC_DEFAULT_SONNET_MODEL`：用于代码编写、功能实现等日常任务。
-- `ANTHROPIC_DEFAULT_HAIKU_MODEL`：用于语法检查、文件搜索等简单任务。
+- `ANTHROPIC_DEFAULT_OPUS_MODEL`：用於複雜推理、架構設計等高難度任務。
+- `ANTHROPIC_DEFAULT_SONNET_MODEL`：用於代碼編寫、功能實現等日常任務。
+- `ANTHROPIC_DEFAULT_HAIKU_MODEL`：用於語法檢查、文件搜索等簡單任務。
 
-4. **在 settings.json 配置文件中永久设置**：在 Claude Code 的用户配置文件（如 `~/.claude/settings.json`，Windows 为 `C:\Users\%USERNAME%\.claude\settings.json`）或项目级配置中写入模型配置信息，可分别进行用户级或项目级的永久配置。
+4. **在 settings.json 配置文件中永久設置**：在 Claude Code 的用戶配置文件（如 `~/.claude/settings.json`，Windows 爲 `C:\Users\%USERNAME%\.claude\settings.json`）或項目級配置中寫入模型配置信息，可分別進行用戶級或項目級的永久配置。
 
-## 如何通过 CC Switch 配置？
+## 如何通過 CC Switch 配置？
 
-1. 运行 CC Switch，先在左侧选择 **Claude Code**，再点击「添加供应商」。
+1. 運行 CC Switch，先在左側選擇 **Claude Code**，再點擊「添加供應商」。
 
 <img
-  alt="CC Switch 首页中点击添加供应商入口的界面"
+  alt="CC Switch 首頁中點擊添加供應商入口的界面"
   width="2068"
   height="1370"
   data-path="public/cn/cc-1.jpg"
-  lightAlt="CC Switch 首页中点击添加供应商入口的界面"
-  darkAlt="CC Switch 首页中点击添加供应商入口的界面"
+  lightAlt="CC Switch 首頁中點擊添加供應商入口的界面"
+  darkAlt="CC Switch 首頁中點擊添加供應商入口的界面"
   src="/images/1.png"
 />
 
-2. 在预设列表中选择供应商为「自定义配置」。
+2. 在預設列表中選擇供應商爲「自定義配置」。
 
 <img
-  alt="CC Switch 供应商预设列表中选择 AiHubMix 的界面"
+  alt="CC Switch 供應商預設列表中選擇自定義配置的界面"
   width="2072"
   height="1376"
   data-path="public/cn/cc-2.jpg"
-  lightAlt="CC Switch 供应商预设列表中选择 AiHubMix 的界面"
-  darkAlt="CC Switch 供应商预设列表中选择 AiHubMix 的界面"
+  lightAlt="CC Switch 供應商預設列表中選擇自定義配置的界面"
+  darkAlt="CC Switch 供應商預設列表中選擇自定義配置的界面"
   src="/images/iShot_2026-08-07_16.51.01.png"
 />
 
-3. 填写供应商名称、API Key、端点「[https://api.harogo.ai」等信息。信息填写完整后，点击「添加」即可。](https://api.harogo.ai」等信息。信息填写完整后，点击「添加」即可。)
+3. 填寫供應商名稱、API Key、端點（[https://api.harogo.ai](https://api.harogo.ai)）等信息。信息填寫完整後，點擊「添加」即可。
 
 <img
-  alt="CC Switch AiHubMix 配置表单中填写 API Key 的界面"
+  alt="CC Switch 供應商配置表單中填寫 API Key 的界面"
   width="2070"
   height="1372"
   data-path="public/cn/cc-3.jpg"
-  lightAlt="CC Switch AiHubMix 配置表单中填写 API Key 的界面"
-  darkAlt="CC Switch AiHubMix 配置表单中填写 API Key 的界面"
+  lightAlt="CC Switch 供應商配置表單中填寫 API Key 的界面"
+  darkAlt="CC Switch 供應商配置表單中填寫 API Key 的界面"
   src="/images/iShot_2026-08-07_16.55.17.png"
 />
 
-4. 返回首页，在供应商列表中选择「harogo」，点击「使用」即可。
+4. 返回首頁，在供應商列表中選擇「harogo」，點擊「使用」即可。
 
 <img
-  alt="CC Switch 首页中选择 AiHubMix 并点击启动的界面"
+  alt="CC Switch 首頁中選擇 harogo 並點擊使用的界面"
   width="2068"
   height="1366"
   data-path="public/cn/cc-5.jpg"
-  lightAlt="CC Switch 首页中选择 AiHubMix 并点击启动的界面"
-  darkAlt="CC Switch 首页中选择 AiHubMix 并点击启动的界面"
+  lightAlt="CC Switch 首頁中選擇 harogo 並點擊使用的界面"
+  darkAlt="CC Switch 首頁中選擇 harogo 並點擊使用的界面"
   src="/images/iShot_2026-08-07_17.00.16.png"
 />
 
 > <Frame>
 >   <img
->     alt="Claude Code 终端中使用 status 和 models 命令查看模型配置"
+>     alt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
 >     width="1142"
 >     height="1068"
 >     data-path="images/image-68.png"
->     lightAlt="Claude Code 终端中使用 status 和 models 命令查看模型配置"
->     darkAlt="Claude Code 终端中使用 status 和 models 命令查看模型配置"
+>     lightAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
+>     darkAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
 >     src="/images/iShot_2026-08-07_17.03.17.png"
 >   />
 > </Frame>
@@ -294,8 +294,8 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-4-5"
 >   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
 > </Frame>
 >
-> Tip: 终端打开 Claude Code后，输入 <kbd> /status </kbd>可查询模型ID，输入<kbd>/models </kbd>可选择配置的其他模型
+> Tip: 終端打開 Claude Code後，輸入 <kbd> /status </kbd>可查詢模型ID，輸入<kbd>/models </kbd>可選擇配置的其他模型
 
 <Warning>
-  如果 CC Switch 提示「检测到系统环境变量冲突」，请优先处理 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`。这些全局变量会覆盖当前 Provider 配置；其中 `ANTHROPIC_AUTH_TOKEN=AIHUBMIX_API_KEY` 这类占位符值会直接导致认证失败。确认不再需要全局变量后，可在 CC Switch 中删除冲突项，或手动删除系统/用户环境变量，然后重启终端。
+  如果 CC Switch 提示「檢測到系統環境變量衝突」，請優先處理 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`。這些全局變量會覆蓋當前 Provider 配置；其中 `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` 這類佔位符值會直接導致認證失敗。確認不再需要全局變量後，可在 CC Switch 中刪除衝突項，或手動刪除系統/用戶環境變量，然後重啓終端。
 </Warning>

@@ -1,0 +1,121 @@
+---
+title: "Codex CLI"
+description: "이 가이드를 따라 하면 Harogo 기반의 Codex를 몇 분 만에 사용할 수 있습니다."
+icon: "pineapple"
+---
+
+## 설치
+
+### 공식 사이트에서 다운로드(macOS)
+
+[https://openai.com/codex/](https://openai.com/codex/)
+
+### 명령줄로 설치
+
+```bash
+npm install -g @openai/codex
+```
+
+## 환경 변수 설정
+
+### 설정 파일로 설정하기
+
+1. `~/.codex/config.toml` 파일을 편집해 다음 내용을 추가합니다.
+
+```toml
+profile = "harogo"
+
+[model_providers.harogo]
+name = "harogo"
+base_url = "https://api.harogo.ai/v1"
+personality = "pragmatic"
+wire_api = "responses"
+
+[profiles.harogo]
+model = "gpt-6.1-sol"
+model_provider = "harogo"
+model_reasoning_effort = "high"
+```
+
+2. `~/.codex/auth.json` 파일을 편집해 다음과 같이 수정합니다.
+
+```json
+{
+  "OPENAI_API_KEY": "HAROGO_API_KEY"
+}
+```
+
+### cc-switch로 설정하기
+
+1. CC-Switch를 실행하고 제공업체를 추가합니다.
+
+<img
+  alt="CC-Switch의 제공업체 추가 화면"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-1.png"
+  lightAlt="CC-Switch의 제공업체 추가 화면"
+  darkAlt="CC-Switch의 제공업체 추가 화면"
+  src="/images/iShot_2026-08-07_17.20.12.png"
+/>
+
+2. 프리셋 목록에서 "사용자 지정 설정"(Custom Configuration)을 선택합니다.
+
+<img
+  alt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-2.png"
+  lightAlt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
+  darkAlt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
+  src="/images/iShot_2026-08-07_17.20.35.png"
+/>
+
+3. 제공업체 이름, API 키, 엔드포인트([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) 등을 입력합니다. 모두 입력했다면 "추가"(Add)를 클릭합니다.
+
+<img
+  alt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-3.png"
+  lightAlt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
+  darkAlt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
+  src="/images/iShot_2026-08-07_17.22.08.png"
+/>
+
+4. 홈 화면으로 돌아가 "harogo"를 선택하고 "활성화"(Enable)를 클릭하면 바로 사용할 수 있습니다.
+
+<img
+  alt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
+  width="2072"
+  height="1374"
+  data-path="public/cn/codex-4.png"
+  lightAlt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
+  darkAlt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
+  src="/images/iShot_2026-08-07_17.27.33.png"
+/>
+
+## Codex 사용하기
+
+### 터미널에서 사용하기
+
+1. 터미널을 열고 프로젝트 디렉터리로 이동한 뒤 `codex` 명령을 실행합니다.
+
+```bash
+cd /path/to/your/project
+codex
+```
+
+2. 필요에 따라 권한을 설정합니다.
+
+<img
+  alt="Codex 시작 시 승인 권한을 설정하는 화면"
+  width="1212"
+  height="814"
+  data-path="public/cn/codex-5.png"
+  lightAlt="Codex 시작 시 승인 권한을 설정하는 화면"
+  darkAlt="Codex 시작 시 승인 권한을 설정하는 화면"
+  src="/images/iShot_2026-08-07_17.31.13.png"
+/>
+
+3. 자연어로 프롬프트를 입력하세요. 정상적인 응답이 돌아오면 설정이 완료된 것입니다.
