@@ -27,6 +27,12 @@
               "codex",
               "untitled-page"
             ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+              "pricing"
+            ]
           }
         ]
       },
@@ -45,6 +51,12 @@
               "ja/claude-code",
               "ja/codex",
               "ja/opencode"
+            ]
+          },
+          {
+            "group": "料金",
+            "pages": [
+              "ja/pricing"
             ]
           }
         ]
@@ -65,6 +77,12 @@
               "ko/codex",
               "ko/opencode"
             ]
+          },
+          {
+            "group": "요금",
+            "pages": [
+              "ko/pricing"
+            ]
           }
         ]
       },
@@ -83,6 +101,12 @@
               "de/claude-code",
               "de/codex",
               "de/opencode"
+            ]
+          },
+          {
+            "group": "Preise",
+            "pages": [
+              "de/pricing"
             ]
           }
         ]
@@ -103,6 +127,12 @@
               "es/codex",
               "es/opencode"
             ]
+          },
+          {
+            "group": "Precios",
+            "pages": [
+              "es/pricing"
+            ]
           }
         ]
       },
@@ -121,6 +151,12 @@
               "fr/claude-code",
               "fr/codex",
               "fr/opencode"
+            ]
+          },
+          {
+            "group": "Tarifs",
+            "pages": [
+              "fr/pricing"
             ]
           }
         ]
@@ -141,6 +177,12 @@
               "pt/codex",
               "pt/opencode"
             ]
+          },
+          {
+            "group": "Preços",
+            "pages": [
+              "pt/pricing"
+            ]
           }
         ]
       },
@@ -159,6 +201,12 @@
               "ru/claude-code",
               "ru/codex",
               "ru/opencode"
+            ]
+          },
+          {
+            "group": "Цены",
+            "pages": [
+              "ru/pricing"
             ]
           }
         ]
@@ -179,6 +227,12 @@
               "tr/codex",
               "tr/opencode"
             ]
+          },
+          {
+            "group": "Fiyatlandırma",
+            "pages": [
+              "tr/pricing"
+            ]
           }
         ]
       },
@@ -197,6 +251,12 @@
               "pl/claude-code",
               "pl/codex",
               "pl/opencode"
+            ]
+          },
+          {
+            "group": "Cennik",
+            "pages": [
+              "pl/pricing"
             ]
           }
         ]
@@ -217,6 +277,12 @@
               "nl/codex",
               "nl/opencode"
             ]
+          },
+          {
+            "group": "Prijzen",
+            "pages": [
+              "nl/pricing"
+            ]
           }
         ]
       },
@@ -235,6 +301,12 @@
               "it/claude-code",
               "it/codex",
               "it/opencode"
+            ]
+          },
+          {
+            "group": "Prezzi",
+            "pages": [
+              "it/pricing"
             ]
           }
         ]
@@ -255,6 +327,12 @@
               "vi/codex",
               "vi/opencode"
             ]
+          },
+          {
+            "group": "Bảng giá",
+            "pages": [
+              "vi/pricing"
+            ]
           }
         ]
       },
@@ -274,6 +352,12 @@
               "uk/codex",
               "uk/opencode"
             ]
+          },
+          {
+            "group": "Ціни",
+            "pages": [
+              "uk/pricing"
+            ]
           }
         ]
       },
@@ -292,6 +376,12 @@
               "zh/claude-code",
               "zh/codex",
               "zh/opencode"
+            ]
+          },
+          {
+            "group": "價格表",
+            "pages": [
+              "zh/pricing"
             ]
           }
         ]
