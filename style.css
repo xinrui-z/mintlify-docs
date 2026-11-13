@@ -1,0 +1,132 @@
+/* Pricing tables only; leave other documentation tables to Mintlify. */
+.pricing-table {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Undo Mintlify's wider scroll area and intrinsic-width table wrappers. */
+.pricing-table [data-table-wrapper] {
+  --page-padding: 0px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.pricing-table [data-component-part="scroll-area-viewport"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: visible !important;
+}
+
+.pricing-table [data-component-part="scroll-area-content"],
+.pricing-table [data-component-part="scroll-area-content"] > div {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0 !important; /* Overrides Mintlify's inline fit-content. */
+  padding: 0;
+}
+
+.pricing-table table {
+  display: table;
+  box-sizing: border-box;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: clamp(0.6875rem, 2.3cqi, 0.875rem);
+  line-height: 1.5;
+  border: 1px solid #e6e8eb;
+  border-radius: 10px;
+}
+
+.pricing-table table th,
+.pricing-table table td {
+  box-sizing: border-box;
+  min-width: 0 !important;
+  padding: 10px clamp(2px, 1cqi, 10px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  vertical-align: middle;
+}
+
+.pricing-table table th:first-child {
+  width: 26%;
+}
+
+.pricing-table table th:not(:first-child) {
+  width: 14.8%;
+}
+
+.pricing-table table thead th {
+  font-size: clamp(0.625rem, 2cqi, 0.6875rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b7280;
+  background: #fafbfc;
+  border-bottom: 1px solid #e6e8eb;
+}
+
+.pricing-table table tbody td {
+  border-bottom: 1px solid #f0f1f3;
+}
+
+.pricing-table table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.pricing-table table tbody td:first-child {
+  font-weight: 500;
+}
+
+.pricing-table table tbody td:not(:first-child) {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.pricing-table table tbody tr:hover td {
+  background: #fafbfc;
+}
+
+.pricing-table table td strong {
+  font-weight: 650;
+}
+
+/* Keep prices intact while labels wrap in narrow content columns. */
+@container (max-width: 400px) {
+  .pricing-table table th,
+  .pricing-table table td {
+    padding-inline: 2px;
+  }
+}
+
+html.dark .pricing-table table {
+  border-color: #27272a;
+}
+
+html.dark .pricing-table table thead th {
+  color: #a1a1aa;
+  background: #18181b;
+  border-bottom-color: #27272a;
+}
+
+html.dark .pricing-table table tbody td {
+  border-bottom-color: #232326;
+}
+
+html.dark .pricing-table table tbody tr:hover td {
+  background: #1b1b1f;
+}
