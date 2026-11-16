@@ -20,7 +20,7 @@ A Harogo reúne em um único serviço uma variedade de modelos adequados para ag
 Os modelos atuais se dividem, de forma geral, nestes grupos:
 
 - **Bases de código grandes e raciocínio difícil**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Programação de agentes, geração de código e depuração no dia a dia**: Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Programação de agentes, geração de código e depuração no dia a dia**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Chamadas de alta frequência, respostas rápidas e tarefas sensíveis a custo**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 - **Fluxos de trabalho de agentes de várias etapas e longa duração**: Claude Fable 5.1
 
@@ -43,7 +43,7 @@ Modelos suportados atualmente:
 | Modelo | ID do modelo | Ideal para |
 | --- | --- | --- |
 | GLM-5.3 | `glm-5.3` | Tarefas longas, bases de código grandes, programação de agentes |
-| Qwen3.8 Max | `qwen3.8-max` | Raciocínio complexo, compreensão visual, chamadas de ferramentas integradas |
+| Qwen4 Max | `qwen4-max` | Raciocínio complexo, compreensão visual e chamadas de ferramentas integradas |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Programação de longa duração, contexto de 1M, front-end e modelagem 3D |
 | MiniMax M3 | `minimax-m3` | Programação de alta frequência, chamadas de ferramentas, contexto longo |
 | DeepSeek V4 Pro | `deepseek-v4-pro` | Raciocínio e geração de código complexa |
@@ -94,7 +94,7 @@ A tabela abaixo estima o número de solicitações por modelo com base nos padr�
 | Modelo | Diário (\$12) | Semanal (\$30) | Mensal (\$60) |
 | --- | --: | --: | --: |
 | GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Qwen4 Max | 3,190 | 7,980 | 15,960 |
 | Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
 | MiniMax M3 | 11,087 | 27,718 | 55,436 |
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
@@ -119,7 +119,7 @@ O volume real de solicitações é afetado por fatores como tamanho do contexto,
 Estas estimativas se baseiam no seguinte perfil de solicitação típico:
 
 - **GLM-5.3**: cerca de 700 tokens de entrada, 52,000 tokens de leitura de cache e 150 tokens de saída por solicitação. (Reutiliza o perfil de solicitação do GLM-5.2.)
-- **Qwen3.8 Max**: cerca de 8,731 tokens de entrada, 31,831 tokens de leitura de cache e 2,029 tokens de saída por solicitação. (Reutiliza o perfil de solicitação do Qwen3.8 Max Preview.)
+- **Qwen4 Max** — cerca de 8.731 tokens de entrada, 31.831 de leitura de cache e 2.029 de saída por solicitação. (Por enquanto usa o perfil do Qwen3.8 Max.)
 - **Kimi K3.1 Pro**: cerca de 1,050 tokens de entrada, 76,500 tokens de leitura de cache e 300 tokens de saída por solicitação. (Reutiliza o perfil de solicitação do Kimi K3.)
 - **MiniMax M3**: cerca de 4,381 tokens de entrada, 28,768 tokens de leitura de cache e 1,108 tokens de saída por solicitação.
 - **DeepSeek V4 Pro**: cerca de 750 tokens de entrada, 82,000 tokens de leitura de cache e 290 tokens de saída por solicitação.

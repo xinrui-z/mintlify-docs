@@ -20,7 +20,7 @@ Harogo riunisce in un unico servizio una serie di modelli adatti agli agenti di 
 I modelli attuali si dividono a grandi linee in questi gruppi:
 
 - **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Chiamate ad alta frequenza, risposte rapide e task sensibili ai costi**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 - **Flussi di lavoro per agenti multi-step e di lunga durata**: Claude Fable 5.1
 
@@ -43,7 +43,7 @@ Modelli attualmente supportati:
 | Modello | ID modello | Ideale per |
 | --- | --- | --- |
 | GLM-5.3 | `glm-5.3` | Task di lunga durata, codebase estese, coding per agenti |
-| Qwen3.8 Max | `qwen3.8-max` | Ragionamento complesso, comprensione visiva, chiamate a strumenti integrate |
+| Qwen4 Max | `qwen4-max` | Ragionamento complesso, comprensione visiva e chiamate a strumenti integrate |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Coding di lunga durata, contesto da 1M, front-end e modellazione 3D |
 | MiniMax M3 | `minimax-m3` | Coding ad alta frequenza, chiamate a strumenti, contesto lungo |
 | DeepSeek V4 Pro | `deepseek-v4-pro` | Ragionamento e generazione di codice complessa |
@@ -94,7 +94,7 @@ La tabella seguente stima il numero di richieste per modello in base ai pattern 
 | Modello | Giornaliero (\$12) | Settimanale (\$30) | Mensile (\$60) |
 | --- | --: | --: | --: |
 | GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Qwen4 Max | 3,190 | 7,980 | 15,960 |
 | Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
 | MiniMax M3 | 11,087 | 27,718 | 55,436 |
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
@@ -119,7 +119,7 @@ Il volume di richieste effettivo dipende da fattori come la lunghezza del contes
 Queste stime si basano sul seguente profilo di richiesta tipico:
 
 - **GLM-5.3**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di GLM-5.2.)
-- **Qwen3.8 Max**: circa 8,731 token di input, 31,831 token di lettura dalla cache e 2,029 token di output per richiesta. (Riutilizza il profilo di richiesta di Qwen3.8 Max Preview.)
+- **Qwen4 Max** — circa 8.731 token di input, 31.831 di lettura cache e 2.029 di output per richiesta. (Per ora usa il profilo di Qwen3.8 Max.)
 - **Kimi K3.1 Pro**: circa 1,050 token di input, 76,500 token di lettura dalla cache e 300 token di output per richiesta. (Riutilizza il profilo di richiesta di Kimi K3.)
 - **MiniMax M3**: circa 4,381 token di input, 28,768 token di lettura dalla cache e 1,108 token di output per richiesta.
 - **DeepSeek V4 Pro**: circa 750 token di input, 82,000 token di lettura dalla cache e 290 token di output per richiesta.

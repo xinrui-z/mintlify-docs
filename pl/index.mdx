@@ -20,7 +20,7 @@ Harogo łączy w jednej usłudze zestaw modeli dobrze dopasowanych do agentów k
 Obecne modele można z grubsza podzielić na następujące grupy:
 
 - **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen3.8 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Wywołania o wysokiej częstotliwości, szybkie odpowiedzi i zadania wrażliwe na koszty**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 - **Długie, wieloetapowe przepływy pracy agentów**: Claude Fable 5.1
 
@@ -43,7 +43,7 @@ Obecnie obsługiwane modele:
 | Model | Identyfikator modelu | Najlepszy do |
 | --- | --- | --- |
 | GLM-5.3 | `glm-5.3` | Długie zadania, duże bazy kodu, kodowanie agentowe |
-| Qwen3.8 Max | `qwen3.8-max` | Złożone rozumowanie, rozumienie obrazów, wbudowane wywołania narzędzi |
+| Qwen4 Max | `qwen4-max` | Złożone rozumowanie, rozumienie obrazu i wbudowane wywoływanie narzędzi |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Długie zadania kodowania, kontekst 1M, frontend i modelowanie 3D |
 | MiniMax M3 | `minimax-m3` | Kodowanie o wysokiej częstotliwości, wywołania narzędzi, długi kontekst |
 | DeepSeek V4 Pro | `deepseek-v4-pro` | Rozumowanie i złożone generowanie kodu |
@@ -94,7 +94,7 @@ Poniższa tabela przedstawia szacunkową liczbę zapytań dla każdego modelu na
 | Model | Dziennie (\$12) | Tygodniowo (\$30) | Miesięcznie (\$60) |
 | --- | --: | --: | --: |
 | GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Qwen4 Max | 3,190 | 7,980 | 15,960 |
 | Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
 | MiniMax M3 | 11,087 | 27,718 | 55,436 |
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
@@ -119,7 +119,7 @@ Na rzeczywisty wolumen zapytań wpływają m.in. długość kontekstu, współcz
 Szacunki opierają się na następującym typowym profilu zapytań:
 
 - **GLM-5.3** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań GLM-5.2.)
-- **Qwen3.8 Max** — na zapytanie około 8,731 tokenów wejściowych, 31,831 tokenów odczytu z pamięci podręcznej i 2,029 tokenów wyjściowych. (Wykorzystuje profil zapytań Qwen3.8 Max Preview.)
+- **Qwen4 Max** — około 8 731 tokenów wejściowych, 31 831 odczytu z pamięci podręcznej i 2 029 tokenów wyjściowych na zapytanie. (Na razie używa profilu Qwen3.8 Max.)
 - **Kimi K3.1 Pro** — na zapytanie około 1,050 tokenów wejściowych, 76,500 tokenów odczytu z pamięci podręcznej i 300 tokenów wyjściowych. (Wykorzystuje profil zapytań Kimi K3.)
 - **MiniMax M3** — na zapytanie około 4,381 tokenów wejściowych, 28,768 tokenów odczytu z pamięci podręcznej i 1,108 tokenów wyjściowych.
 - **DeepSeek V4 Pro** — na zapytanie około 750 tokenów wejściowych, 82,000 tokenów odczytu z pamięci podręcznej i 290 tokenów wyjściowych.
