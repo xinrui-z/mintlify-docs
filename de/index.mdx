@@ -81,7 +81,7 @@ Harogo wendet die folgenden Nutzungslimits an:
 - Wochenlimit: \$30
 - Monatslimit: \$60
 
-Alle drei Limits gelten gleichzeitig. Jeder Modellaufruf greift auf das gemeinsame Abo-Kontingent zu. Für DeepSeek V4 Pro gilt ein Kontingent-Limit von \$15, für alle anderen Modelle ein Kontingent-Limit von \$60.
+Alle drei Limits gelten gleichzeitig. Jeder Modellaufruf greift auf das gemeinsame Abo-Kontingent zu. Für alle Modelle gilt ein Kontingent-Limit von \$60.
 
 Die Limits sind in USD-Wert festgelegt, nicht als feste Anzahl an Anfragen. Wie viele Anfragen Sie tatsächlich erhalten, hängt vom verwendeten Modell ab: Günstigere Modelle erlauben in der Regel mehr Anfragen, teurere Modelle weniger.
 
@@ -93,22 +93,22 @@ Die folgende Tabelle schätzt die Anzahl der Anfragen pro Modell auf Basis typis
 
 | Modell | Täglich (\$12) | Wöchentlich (\$30) | Monatlich (\$60) |
 | --- | --: | --: | --: |
-| GLM-5.3 | 7,920 | 19,790 | 39,580 |
-| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
-| MiniMax M3 | 27,460 | 68,650 | 137,300 |
-| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
-| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
-| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
-| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
-| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
-| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
-| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
-| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
-| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
-| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
-| GPT-6 Astra | 580 | 1,450 | 2,910 |
-| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
+| GLM-5.3 | 7,487 | 18,716 | 37,433 |
+| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
+| MiniMax M3 | 11,087 | 27,718 | 55,436 |
+| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
+| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
+| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
+| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
+| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
+| GPT-6 Astra | 582 | 1,454 | 2,908 |
+| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
+| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
+| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
+| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
+| Claude Fable 5.1 | 370 | 925 | 1,849 |
+| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Jede Zeile geht davon aus, dass das Kontingent des jeweiligen Zeitfensters überwiegend für dieses eine Modell verbraucht wird. Wenn Sie Modelle kombinieren, greifen sie gemeinsam auf dasselbe Kontingent zu. Die Anfragezahlen der Tabelle lassen sich daher nicht einfach zeilenübergreifend addieren.
 
@@ -135,6 +135,6 @@ Die Schätzungen basieren auf folgendem typischen Anfrageprofil:
 - **GPT-6 Astra** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Basiert vorübergehend auf dem Anfrageprofil von GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – etwa 6,825 Eingabe-Tokens, 69,476 Cache-Read-Tokens und 734 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Terra.)
 
-Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage × 0.1); Modelle mit einem Kontingent-Limit von \$15 werden mit dem Faktor \$15 / \$60 skaliert.
+Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage × 0.1).
 
 Diese Werte dienen zur Schätzung typischer Nutzung und sind keine Zusage einer festen Anzahl an Anfragen. Kontingent-Limits und geschätztes Anfragevolumen können sich im Zuge der Weiterentwicklung des Dienstes ändern – aktuelle Informationen finden Sie in der Harogo-Konsole und auf dieser Seite.

@@ -81,7 +81,7 @@ Harogo applica i seguenti limiti di utilizzo:
 - Limite settimanale: \$30
 - Limite mensile: \$60
 
-Tutti e tre i limiti si applicano contemporaneamente. Ogni chiamata al modello attinge dalla quota di abbonamento condivisa. DeepSeek V4 Pro ha un limite quota di \$15; tutti gli altri modelli hanno un limite di \$60.
+Tutti e tre i limiti si applicano contemporaneamente. Ogni chiamata al modello attinge dalla quota di abbonamento condivisa. Tutti i modelli hanno un limite quota di \$60.
 
 I limiti sono definiti in dollari anziché in un numero fisso di richieste. Il numero di richieste che ottieni effettivamente dipende dal modello che usi: i modelli più economici in genere consentono più richieste, quelli più costosi meno.
 
@@ -93,22 +93,22 @@ La tabella seguente stima il numero di richieste per modello in base ai pattern 
 
 | Modello | Giornaliero (\$12) | Settimanale (\$30) | Mensile (\$60) |
 | --- | --: | --: | --: |
-| GLM-5.3 | 7,920 | 19,790 | 39,580 |
-| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
-| MiniMax M3 | 27,460 | 68,650 | 137,300 |
-| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
-| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
-| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
-| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
-| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
-| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
-| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
-| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
-| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
-| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
-| GPT-6 Astra | 580 | 1,450 | 2,910 |
-| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
+| GLM-5.3 | 7,487 | 18,716 | 37,433 |
+| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
+| MiniMax M3 | 11,087 | 27,718 | 55,436 |
+| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
+| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
+| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
+| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
+| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
+| GPT-6 Astra | 582 | 1,454 | 2,908 |
+| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
+| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
+| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
+| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
+| Claude Fable 5.1 | 370 | 925 | 1,849 |
+| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Ogni riga presuppone che la quota di quella finestra venga spesa principalmente su quel solo modello. Se combini più modelli, attingono insieme dalla stessa quota condivisa, quindi i conteggi delle richieste nella tabella non si possono semplicemente sommare tra le righe.
 
@@ -135,6 +135,6 @@ Queste stime si basano sul seguente profilo di richiesta tipico:
 - **GPT-6 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6.1 Terra**: circa 6,825 token di input, 69,476 token di lettura dalla cache e 734 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Terra.)
 
-Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta × 0.1); per i modelli con un limite quota di \$15 il risultato viene scalato di \$15 / \$60.
+Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta × 0.1).
 
 Questi dati servono a stimare un utilizzo tipico e non costituiscono un impegno su un numero fisso di richieste. I limiti quota e i volumi di richieste stimati possono cambiare con l'evoluzione del servizio: per le informazioni più aggiornate consulta la console Harogo e questa pagina.

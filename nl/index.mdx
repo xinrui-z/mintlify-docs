@@ -81,7 +81,7 @@ Harogo hanteert de volgende gebruikslimieten:
 - Weeklimiet: \$30
 - Maandlimiet: \$60
 
-Alle drie de limieten gelden tegelijk. Elke modelaanroep put uit het gedeelde abonnementsquotum. Voor DeepSeek V4 Pro geldt een quotumlimiet van \$15; voor alle andere modellen is de quotumlimiet \$60.
+Alle drie de limieten gelden tegelijk. Elke modelaanroep put uit het gedeelde abonnementsquotum. Voor alle modellen geldt een quotumlimiet van \$60.
 
 Limieten zijn vastgesteld in USD-waarde, niet in een vast aantal aanvragen. Hoeveel aanvragen je werkelijk krijgt, hangt af van het model dat je gebruikt: goedkopere modellen leveren doorgaans meer aanvragen op, duurdere modellen minder.
 
@@ -93,22 +93,22 @@ De onderstaande tabel schat het aantal aanvragen per model op basis van typische
 
 | Model | Per dag (\$12) | Per week (\$30) | Per maand (\$60) |
 | --- | --: | --: | --: |
-| GLM-5.3 | 7,920 | 19,790 | 39,580 |
-| Qwen3.8 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,840 | 14,600 | 29,200 |
-| MiniMax M3 | 27,460 | 68,650 | 137,300 |
-| DeepSeek V4 Pro | 10,440 | 26,100 | 52,210 |
-| DeepSeek V4.1 Flash 1017 | 261,610 | 654,030 | 1,308,060 |
-| Claude Opus 5.5 | 550 | 1,380 | 2,760 |
-| Claude Sonnet 5.5 | 2,380 | 5,950 | 11,900 |
-| Claude Sonnet 5 | 2,380 | 5,950 | 11,900 |
-| Claude Fable 5.1 | 410 | 1,020 | 2,030 |
-| Claude Haiku 5.5 | 180,450 | 451,130 | 902,260 |
-| GPT-6 Luna | 21,310 | 53,260 | 106,530 |
-| GPT-6 Sol | 2,910 | 7,270 | 14,540 |
-| GPT-6.1 Sol | 3,990 | 9,980 | 19,960 |
-| GPT-6 Astra | 580 | 1,450 | 2,910 |
-| GPT-6.1 Terra | 8,590 | 21,480 | 42,950 |
+| GLM-5.3 | 7,487 | 18,716 | 37,433 |
+| Qwen3.8 Max | 3,778 | 9,444 | 18,889 |
+| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
+| MiniMax M3 | 11,087 | 27,718 | 55,436 |
+| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
+| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
+| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
+| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
+| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
+| GPT-6 Astra | 582 | 1,454 | 2,908 |
+| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
+| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
+| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
+| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
+| Claude Fable 5.1 | 370 | 925 | 1,849 |
+| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
 
@@ -135,6 +135,6 @@ Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
 - **GPT-6 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
 
-Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag × 0.1); modellen met een quotumlimiet van \$15 worden geschaald met \$15 / \$60.
+Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag × 0.1).
 
 Deze cijfers zijn bedoeld om typisch gebruik te schatten en zijn geen toezegging van een vast aantal aanvragen. Quotumlimieten en het geschatte aanvraagvolume kunnen wijzigen naarmate de dienst zich ontwikkelt – check de Harogo-console en deze pagina voor de meest actuele informatie.
