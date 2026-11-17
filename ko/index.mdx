@@ -19,10 +19,9 @@ Harogo는 코딩 에이전트에 적합한 다양한 모델을 하나의 서비�
 
 현재 모델은 대략 다음과 같이 분류됩니다.
 
-- **대규모 코드베이스와 고난도 추론**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **일상적인 에이전트 코딩, 코드 생성, 디버깅**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **대규모 코드베이스와 고난도 추론**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **일상적인 에이전트 코딩, 코드 생성, 디버깅**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **고빈도 호출, 빠른 응답, 비용에 민감한 작업**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **장시간 실행되는 다단계 에이전트 워크플로**: Claude Fable 5.1
 
 이 분류는 모델을 선택할 때 참고용입니다. 실제 결과는 작업, 컨텍스트, 도구 사용 방식에 따라 달라집니다.
 
@@ -30,7 +29,7 @@ Harogo는 코딩 에이전트에 적합한 다양한 모델을 하나의 서비�
 
 1. Harogo에 로그인하고 구독합니다.
 2. 콘솔에서 API 키를 생성하고 복사합니다.
-3. Base URL을 `https://harogo.ai`로 설정합니다.
+3. [Claude Code](/ko/claude-code)는 `https://api.harogo.ai`를, [Codex](/ko/codex)와 [OpenCode](/ko/opencode)는 `https://api.harogo.ai/v1`을 사용합니다. 해당 클라이언트의 안내에 따라 설정하세요.
 4. API 키를 붙여 넣습니다.
 5. 사용을 시작합니다.
 
@@ -50,11 +49,8 @@ API 키는 안전하게 보관하세요. 공개 저장소에 커밋하거나 다
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | 빠른 완료, 고빈도 호출, 배치 작업 |
 | Claude Opus 5.5 | `claude-opus-5-5` | 복잡한 에이전트 코딩과 고난도 엔지니어링 작업 |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | 일상적인 코딩과 일반 개발 작업 |
-| Claude Sonnet 5 | `claude-sonnet-5` | 일상적인 코딩과 일반 개발 작업 |
-| Claude Fable 5.1 | `claude-fable-5-1` | 복잡하고 장시간 실행되는 에이전트 작업 |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | 빠른 응답, 경량 작업, 배치 처리 |
 | GPT-6 Luna | `gpt-6-luna` | 고빈도 코딩과 경량 작업 |
-| GPT-6 Sol | `gpt-6-sol` | 고난도 코드 생성, 리뷰, 추론 |
 | GPT-6.1 Sol | `gpt-6.1-sol` | 고난도 코드 생성, 리뷰, 추론 |
 | GPT-6 Astra | `gpt-6-astra` | 가장 어려운 엔지니어링 문제를 위한 플래그십 추론 |
 | GPT-6.1 Terra | `gpt-6.1-terra` | 일상적인 에이전트 코딩과 일반 작업 |
@@ -66,9 +62,9 @@ API 키는 안전하게 보관하세요. 공개 저장소에 커밋하거나 다
 일부 모델은 특정 클라이언트에서만 사용할 수 있으며, 나머지 모델은 제한이 없습니다.
 
 <Note>
-**GPT 시리즈**(GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra)는 [Codex](/ko/codex)에서만 사용할 수 있습니다.
+**GPT 시리즈**(GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra)는 [Codex](/ko/codex)에서만 사용할 수 있습니다.
 
-**Claude 시리즈**(Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5)는 [Claude Code](/ko/claude-code)에서만 사용할 수 있습니다.
+**Claude 시리즈**(Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5)는 [Claude Code](/ko/claude-code)에서만 사용할 수 있습니다.
 
 **그 외 모델**(GLM, Qwen, Kimi, MiniMax, DeepSeek)은 클라이언트 제한이 없으며 지원되는 모든 클라이언트에서 사용할 수 있습니다.
 </Note>
@@ -100,14 +96,11 @@ Harogo에는 다음과 같은 사용 한도가 적용됩니다.
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 각 행은 해당 기간의 쿼터를 대부분 그 모델 하나에 사용한다고 가정한 값입니다. 여러 모델을 함께 사용하면 동일한 공유 쿼터에서 함께 차감되므로, 표의 요청 수를 행끼리 단순히 더할 수는 없습니다.
@@ -125,12 +118,9 @@ Harogo에는 다음과 같은 사용 한도가 적용됩니다.
 - **DeepSeek V4 Pro** — 요청당 입력 토큰 약 750개, 캐시 읽기 토큰 약 82,000개, 출력 토큰 약 290개.
 - **DeepSeek V4.1 Flash 1017** — 요청당 입력 토큰 약 790개, 캐시 읽기 토큰 약 68,000개, 출력 토큰 약 280개. (DeepSeek V4 Flash 0731의 요청 패턴을 재사용합니다.)
 - **Claude Opus 5.5** — 요청당 입력 토큰 약 580개, 캐시 읽기 토큰 약 386,230개, 캐시 쓰기 토큰 약 19,476개, 출력 토큰 약 2,025개. (Claude Opus 5의 요청 패턴을 재사용합니다.)
-- **Claude Sonnet 5.5** — 요청당 입력 토큰 약 159개, 캐시 읽기 토큰 약 129,804개, 캐시 쓰기 토큰 약 6,260개, 출력 토큰 약 850개. (Claude Sonnet 5의 요청 패턴을 재사용합니다.)
-- **Claude Sonnet 5** — 요청당 입력 토큰 약 159개, 캐시 읽기 토큰 약 129,804개, 캐시 쓰기 토큰 약 6,260개, 출력 토큰 약 850개.
-- **Claude Fable 5.1** — 요청당 입력 토큰 약 399개, 캐시 읽기 토큰 약 315,393개, 캐시 쓰기 토큰 약 12,907개, 출력 토큰 약 1,016개. (Claude Fable 5의 요청 패턴을 재사용합니다.)
+- **Claude Sonnet 5.5** — 요청당 입력 토큰 약 159개, 캐시 읽기 토큰 약 129,804개, 캐시 쓰기 토큰 약 6,260개, 출력 토큰 약 850개. (이전 모델 버전에서 관측된 요청 패턴을 사용합니다.)
 - **Claude Haiku 5.5** — 요청당 입력 토큰 약 700개, 캐시 읽기 토큰 약 52,000개, 출력 토큰 약 150개. (Claude Haiku 4.5의 요청 패턴을 재사용합니다.)
 - **GPT-6 Luna** — 요청당 입력 토큰 약 45,726개, 캐시 읽기 토큰 약 10,720개, 출력 토큰 약 1,905개. (GPT-5.6 Luna의 요청 패턴을 재사용합니다.)
-- **GPT-6 Sol** — 요청당 입력 토큰 약 6,032개, 캐시 읽기 토큰 약 112,138개, 출력 토큰 약 678개. (GPT-5.6 Sol의 요청 패턴을 재사용합니다.)
 - **GPT-6.1 Sol** — 요청당 입력 토큰 약 6,032개, 캐시 읽기 토큰 약 112,138개, 출력 토큰 약 678개. (GPT-5.6 Sol의 요청 패턴을 재사용합니다.)
 - **GPT-6 Astra** — 요청당 입력 토큰 약 6,032개, 캐시 읽기 토큰 약 112,138개, 출력 토큰 약 678개. (임시로 GPT-5.6 Sol의 요청 패턴을 기준으로 합니다.)
 - **GPT-6.1 Terra** — 요청당 입력 토큰 약 6,825개, 캐시 읽기 토큰 약 69,476개, 출력 토큰 약 734개. (GPT-5.6 Terra의 요청 패턴을 재사용합니다.)

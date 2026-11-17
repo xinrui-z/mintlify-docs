@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**У цьому посібнику використовуються лише моделі Claude.** Claude Code може запускати моделі Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) та моделі без обмежень за клієнтом (GLM, Qwen, Kimi, MiniMax, DeepSeek). Моделі GPT у Claude Code недоступні — див. [Codex](/uk/codex).
+**У цьому посібнику використовуються лише моделі Claude.** Claude Code може запускати моделі Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) та моделі без обмежень за клієнтом (GLM, Qwen, Kimi, MiniMax, DeepSeek). Моделі GPT у Claude Code недоступні — див. [Codex](/uk/codex).
 </Note>
 
 ### 1. Встановлення Claude Code
@@ -38,7 +38,7 @@ npm install -g @anthropic-ai/claude-code
 
 1. Задайте для `ANTHROPIC_BASE_URL` значення `https://api.harogo.ai/`
 2. Задайте для `ANTHROPIC_AUTH_TOKEN` API-ключ, отриманий на [платформі Harogo](https://console.harogo.ai/keys)
-3. Задайте для `ANTHROPIC_MODEL` модель Claude, яку підтримує Harogo, наприклад `claude-sonnet-5`.
+3. Задайте для `ANTHROPIC_MODEL` модель Claude, яку підтримує Harogo, наприклад `claude-sonnet-5-5`.
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ npm install -g @anthropic-ai/claude-code
     # Замініть <HAROGO_API_KEY> на справжній ключ із платформи Harogo
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # Замініть <HAROGO_API_KEY> на справжній ключ із платформи Harogo
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ npm install -g @anthropic-ai/claude-code
         REM Замініть <HAROGO_API_KEY> на справжній ключ із платформи Harogo
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. Відкрийте нове вікно CMD і виконайте такі команди, щоб переконатися, що змінні середовища застосовано.
@@ -119,7 +119,7 @@ npm install -g @anthropic-ai/claude-code
         # Замініть <HAROGO_API_KEY> на справжній ключ із платформи Harogo
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. Відкрийте нове вікно PowerShell і виконайте такі команди, щоб переконатися, що змінні середовища застосовано.
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Code підтримує такі способи налаштування 
 1. **Під час діалогу:** виконайте команду `/model <model-name>`, щоб змінити модель. Підходить для разового перемикання.
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **Під час запуску Claude Code:** виконайте `claude --model <model-name>`, щоб вказати модель. Підходить для однієї сесії.
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **Через змінні середовища:** налаштуйте моделі різних рівнів залежно від складності завдання, і Claude Code автоматично вибиратиме відповідну. Діє глобально.
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     darkAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     darkAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> Порада: відкривши Claude Code у терміналі, введіть <kbd>/status</kbd>, щоб переглянути ID моделі, або <kbd>/models</kbd>, щоб вибрати іншу налаштовану модель.
+<Frame>
+  <img
+    alt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    darkAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    darkAlt="Перевірка конфігурації моделі командами status і models у терміналі Claude Code"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+Порада: відкривши Claude Code у терміналі, введіть <kbd>/status</kbd>, щоб переглянути ID моделі, або <kbd>/models</kbd>, щоб вибрати іншу налаштовану модель.
 
 <Warning>
   Якщо CC Switch показує «Виявлено конфлікт системних змінних середовища» (System environment variable conflict detected), спершу розберіться з `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` і `ANTHROPIC_MODEL`. Ці глобальні змінні перевизначають поточну конфігурацію постачальника, а значення-заглушка на кшталт `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` одразу призведе до помилки автентифікації. Переконавшись, що глобальні змінні більше не потрібні, видаліть конфліктні записи в CC Switch або вручну видаліть системні/користувацькі змінні середовища та перезапустіть термінал.

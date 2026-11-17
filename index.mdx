@@ -19,10 +19,9 @@ Harogo brings together a range of models well-suited to coding agents into a sin
 
 The current models fall roughly into these groups:
 
-- **Large codebases and hard reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Everyday agentic coding, code generation, and debugging**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Large codebases and hard reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Everyday agentic coding, code generation, and debugging**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **High-frequency calls, fast responses, and cost-sensitive tasks**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Long-running, multi-step agent workflows**: Claude Fable 5.1
 
 These groups are only a guide for choosing a model. Actual results depend on the task, the context, and how you use tools.
 
@@ -30,7 +29,7 @@ These groups are only a guide for choosing a model. Actual results depend on the
 
 1. Sign in to Harogo and subscribe.
 2. Create and copy an API key in the console.
-3. Set the Base URL to `https://harogo.ai`.
+3. Use `https://api.harogo.ai` for [Claude Code](/claude-code), or `https://api.harogo.ai/v1` for [Codex](/codex) and [OpenCode](/untitled-page). Follow the guide for your client.
 4. Paste in your API key.
 5. Start using it.
 
@@ -50,11 +49,8 @@ Currently supported models:
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Fast completions, high-frequency calls, and batch tasks |
 | Claude Opus 5.5 | `claude-opus-5-5` | Complex agentic coding and high-difficulty engineering tasks |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Everyday coding and general development tasks |
-| Claude Sonnet 5 | `claude-sonnet-5` | Everyday coding and general development tasks |
-| Claude Fable 5.1 | `claude-fable-5-1` | Long-running, complex agentic tasks |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Fast responses, lightweight tasks, and batch processing |
 | GPT-6 Luna | `gpt-6-luna` | High-frequency coding and lightweight tasks |
-| GPT-6 Sol | `gpt-6-sol` | High-difficulty code generation, review, and reasoning |
 | GPT-6.1 Sol | `gpt-6.1-sol` | High-difficulty code generation, review, and reasoning |
 | GPT-6 Astra | `gpt-6-astra` | Flagship reasoning for the hardest engineering problems |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Everyday agentic coding and general tasks |
@@ -66,9 +62,9 @@ The names and model IDs above are the routing identifiers Harogo uses internally
 Some models are limited to a specific client. Others can be used anywhere.
 
 <Note>
-**GPT models** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) can only be used in [Codex](/codex).
+**GPT models** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) can only be used in [Codex](/codex).
 
-**Claude models** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) can only be used in [Claude Code](/claude-code).
+**Claude models** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) can only be used in [Claude Code](/claude-code).
 
 **All other models** (GLM, Qwen, Kimi, MiniMax, DeepSeek) have no client restriction and work in any supported client.
 </Note>
@@ -100,14 +96,11 @@ The table below estimates request counts per model based on typical Harogo usage
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Each row assumes the quota for that time window is spent mostly on that one model. When you mix models, they draw from the same shared quota together, so the request counts in the table can't simply be added up across rows.
@@ -125,12 +118,9 @@ These estimates are based on the following typical request profile:
 - **DeepSeek V4 Pro** — about 750 input tokens, 82,000 cache-read tokens, and 290 output tokens per request.
 - **DeepSeek V4.1 Flash 1017** — about 790 input tokens, 68,000 cache-read tokens, and 280 output tokens per request. (Reuses the DeepSeek V4 Flash 0731 request profile.)
 - **Claude Opus 5.5** — about 580 input tokens, 386,230 cache-read tokens, 19,476 cache-write tokens, and 2,025 output tokens per request. (Reuses the Claude Opus 5 request profile.)
-- **Claude Sonnet 5.5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request. (Reuses the Claude Sonnet 5 request profile.)
-- **Claude Sonnet 5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request.
-- **Claude Fable 5.1** — about 399 input tokens, 315,393 cache-read tokens, 12,907 cache-write tokens, and 1,016 output tokens per request. (Reuses the Claude Fable 5 request profile.)
+- **Claude Sonnet 5.5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request. (Uses the request profile observed on a previous model version.)
 - **Claude Haiku 5.5** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request. (Reuses the Claude Haiku 4.5 request profile.)
 - **GPT-6 Luna** — about 45,726 input tokens, 10,720 cache-read tokens, and 1,905 output tokens per request. (Reuses the GPT-5.6 Luna request profile.)
-- **GPT-6 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
 - **GPT-6.1 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
 - **GPT-6 Astra** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Temporarily based on the GPT-5.6 Sol request profile.)
 - **GPT-6.1 Terra** — about 6,825 input tokens, 69,476 cache-read tokens, and 734 output tokens per request. (Reuses the GPT-5.6 Terra request profile.)

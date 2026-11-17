@@ -19,10 +19,9 @@ Harogo réunit en un seul service un ensemble de modèles bien adaptés aux agen
 
 Les modèles actuels se répartissent globalement en plusieurs groupes :
 
-- **Grandes bases de code et raisonnement complexe** : Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Codage d'agent au quotidien, génération de code et débogage** : Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Grandes bases de code et raisonnement complexe** : Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Codage d'agent au quotidien, génération de code et débogage** : Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Appels haute fréquence, réponses rapides et tâches sensibles au coût** : DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Flux de travail d'agent longs et multi-étapes** : Claude Fable 5.1
 
 Ces groupes servent uniquement de repère pour choisir un modèle. Les résultats réels dépendent de la tâche, du contexte et de la manière dont vous utilisez les outils.
 
@@ -30,7 +29,7 @@ Ces groupes servent uniquement de repère pour choisir un modèle. Les résultat
 
 1. Connectez-vous à Harogo et abonnez-vous.
 2. Créez et copiez une clé API dans la console.
-3. Définissez l'URL de base sur `https://harogo.ai`.
+3. Utilisez `https://api.harogo.ai` pour [Claude Code](/fr/claude-code), ou `https://api.harogo.ai/v1` pour [Codex](/fr/codex) et [OpenCode](/fr/opencode). Suivez le guide de votre client.
 4. Collez votre clé API.
 5. Commencez à l'utiliser.
 
@@ -50,11 +49,8 @@ Modèles actuellement pris en charge :
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Complétions rapides, appels haute fréquence, tâches par lots |
 | Claude Opus 5.5 | `claude-opus-5-5` | Codage d'agent complexe et tâches d'ingénierie difficiles |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codage quotidien et travail de développement général |
-| Claude Sonnet 5 | `claude-sonnet-5` | Codage quotidien et travail de développement général |
-| Claude Fable 5.1 | `claude-fable-5-1` | Tâches d'agent complexes et de longue durée |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Réponses rapides, tâches légères, traitement par lots |
 | GPT-6 Luna | `gpt-6-luna` | Codage haute fréquence et tâches légères |
-| GPT-6 Sol | `gpt-6-sol` | Génération de code complexe, revue et raisonnement |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Génération de code complexe, revue et raisonnement |
 | GPT-6 Astra | `gpt-6-astra` | Raisonnement haut de gamme pour les problèmes d'ingénierie les plus difficiles |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Codage d'agent quotidien et tâches générales |
@@ -66,9 +62,9 @@ Les noms et identifiants de modèles ci-dessus sont les identifiants de routage 
 Certains modèles sont réservés à un client précis. Les autres fonctionnent partout.
 
 <Note>
-**Modèles GPT** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) : uniquement disponibles dans [Codex](/fr/codex).
+**Modèles GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) : uniquement disponibles dans [Codex](/fr/codex).
 
-**Modèles Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) : uniquement disponibles dans [Claude Code](/fr/claude-code).
+**Modèles Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) : uniquement disponibles dans [Claude Code](/fr/claude-code).
 
 **Tous les autres modèles** (GLM, Qwen, Kimi, MiniMax, DeepSeek) n'ont aucune restriction de client et fonctionnent dans tout client pris en charge.
 </Note>
@@ -100,14 +96,11 @@ Le tableau ci-dessous estime le nombre de requêtes par modèle, sur la base des
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Chaque ligne suppose que le quota de la fenêtre concernée est consacré principalement à ce seul modèle. Si vous combinez plusieurs modèles, ils puisent ensemble dans le même quota partagé : les nombres de requêtes du tableau ne s'additionnent donc pas d'une ligne à l'autre.
@@ -125,12 +118,9 @@ Ces estimations reposent sur le profil de requête typique suivant :
 - **DeepSeek V4 Pro** : environ 750 jetons d'entrée, 82,000 jetons de lecture du cache et 290 jetons de sortie par requête.
 - **DeepSeek V4.1 Flash 1017** : environ 790 jetons d'entrée, 68,000 jetons de lecture du cache et 280 jetons de sortie par requête. (Reprend le profil de requête de DeepSeek V4 Flash 0731.)
 - **Claude Opus 5.5** : environ 580 jetons d'entrée, 386,230 jetons de lecture du cache, 19,476 jetons d'écriture dans le cache et 2,025 jetons de sortie par requête. (Reprend le profil de requête de Claude Opus 5.)
-- **Claude Sonnet 5.5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête. (Reprend le profil de requête de Claude Sonnet 5.)
-- **Claude Sonnet 5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête.
-- **Claude Fable 5.1** : environ 399 jetons d'entrée, 315,393 jetons de lecture du cache, 12,907 jetons d'écriture dans le cache et 1,016 jetons de sortie par requête. (Reprend le profil de requête de Claude Fable 5.)
+- **Claude Sonnet 5.5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête. (Utilise le profil de requêtes observé sur une version précédente du modèle.)
 - **Claude Haiku 5.5** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de Claude Haiku 4.5.)
 - **GPT-6 Luna** : environ 45,726 jetons d'entrée, 10,720 jetons de lecture du cache et 1,905 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Luna.)
-- **GPT-6 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
 - **GPT-6.1 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
 - **GPT-6 Astra** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Provisoirement basé sur le profil de requête de GPT-5.6 Sol.)
 - **GPT-6.1 Terra** : environ 6,825 jetons d'entrée, 69,476 jetons de lecture du cache et 734 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Terra.)

@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**Questa guida usa solo modelli Claude.** Claude Code può eseguire i modelli Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) e i modelli senza restrizioni di client (GLM, Qwen, Kimi, MiniMax, DeepSeek). I modelli GPT non sono disponibili in Claude Code — vedi [Codex](/it/codex).
+**Questa guida usa solo modelli Claude.** Claude Code può eseguire i modelli Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) e i modelli senza restrizioni di client (GLM, Qwen, Kimi, MiniMax, DeepSeek). I modelli GPT non sono disponibili in Claude Code — vedi [Codex](/it/codex).
 </Note>
 
 ### 1. Installare Claude Code
@@ -38,7 +38,7 @@ Per collegarti al servizio di modelli di Harogo tramite l'API compatibile con An
 
 1. Imposta `ANTHROPIC_BASE_URL` su `https://api.harogo.ai/`
 2. Imposta `ANTHROPIC_AUTH_TOKEN` sulla chiave API ottenuta dalla [piattaforma Harogo](https://console.harogo.ai/keys)
-3. Imposta `ANTHROPIC_MODEL` su un modello Claude supportato da Harogo, ad esempio `claude-sonnet-5`.
+3. Imposta `ANTHROPIC_MODEL` su un modello Claude supportato da Harogo, ad esempio `claude-sonnet-5-5`.
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ Per collegarti al servizio di modelli di Harogo tramite l'API compatibile con An
     # Sostituisci <HAROGO_API_KEY> con la chiave reale ottenuta dalla tua piattaforma Harogo
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # Sostituisci <HAROGO_API_KEY> con la chiave reale ottenuta dalla tua piattaforma Harogo
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ Per collegarti al servizio di modelli di Harogo tramite l'API compatibile con An
         REM Sostituisci <HAROGO_API_KEY> con la chiave reale ottenuta dalla tua piattaforma Harogo
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. Apri una nuova finestra di CMD ed esegui i seguenti comandi per verificare che le variabili d'ambiente siano attive.
@@ -119,7 +119,7 @@ Per collegarti al servizio di modelli di Harogo tramite l'API compatibile con An
         # Sostituisci <HAROGO_API_KEY> con la chiave reale ottenuta dalla tua piattaforma Harogo
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. Apri una nuova finestra di PowerShell ed esegui i seguenti comandi per verificare che le variabili d'ambiente siano attive.
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Code supporta i seguenti modi per configurare il modello, **elencati dall
 1. **Durante una conversazione:** esegui il comando `/model <model-name>` per cambiare modello. Utile per un cambio occasionale.
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **All'avvio di Claude Code:** esegui `claude --model <model-name>` per specificare un modello. Utile per una singola sessione.
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **Impostare le variabili d'ambiente:** configura diversi livelli di modello in base alla complessità del task e Claude Code sceglierà automaticamente quello adatto. Si applica a livello globale.
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ Dove:
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     darkAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     darkAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> Suggerimento: una volta aperto Claude Code nel terminale, digita <kbd>/status</kbd> per verificare l'ID del modello, oppure <kbd>/models</kbd> per scegliere un altro modello configurato.
+<Frame>
+  <img
+    alt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    darkAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    darkAlt="Verifica della configurazione del modello con i comandi status e models nel terminale di Claude Code"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+Suggerimento: una volta aperto Claude Code nel terminale, digita <kbd>/status</kbd> per verificare l'ID del modello, oppure <kbd>/models</kbd> per scegliere un altro modello configurato.
 
 <Warning>
   Se CC Switch mostra "Rilevato conflitto con variabili d'ambiente di sistema" (System environment variable conflict detected), occupati prima di `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` e `ANTHROPIC_MODEL`. Queste variabili globali sovrascrivono la configurazione del provider attuale: un valore segnaposto come `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` farà fallire direttamente l'autenticazione. Quando sei sicuro di non aver più bisogno delle variabili globali, rimuovi le voci in conflitto in CC Switch, oppure elimina manualmente le variabili d'ambiente di sistema/utente e riavvia il terminale.

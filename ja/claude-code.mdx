@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**このガイドは Claude シリーズのみを対象としています。** Claude Code では Claude シリーズ（Claude Opus 5.5、Claude Sonnet 5.5、Claude Sonnet 5、Claude Fable 5.1、Claude Haiku 5.5）と、制限のないモデル（GLM、Qwen、Kimi、MiniMax、DeepSeek）を利用できます。GPT シリーズは Claude Code では利用できません。[Codex](/ja/codex) をご覧ください。
+**このガイドは Claude シリーズのみを対象としています。** Claude Code では Claude シリーズ（Claude Opus 5.5、Claude Sonnet 5.5、Claude Haiku 5.5）と、制限のないモデル（GLM、Qwen、Kimi、MiniMax、DeepSeek）を利用できます。GPT シリーズは Claude Code では利用できません。[Codex](/ja/codex) をご覧ください。
 </Note>
 
 ### 1. Claude Codeをインストールする
@@ -38,7 +38,7 @@ Anthropic互換APIを通じてHarogoのモデルサービスに接続するに�
 
 1. `ANTHROPIC_BASE_URL`を`https://api.harogo.ai/`に設定します
 2. `ANTHROPIC_AUTH_TOKEN`を[Harogoプラットフォーム](https://console.harogo.ai/keys)で取得したAPIキーに設定します
-3. `ANTHROPIC_MODEL`をHarogoが対応しているClaudeモデル（例：`claude-sonnet-5`）に設定します。
+3. `ANTHROPIC_MODEL`をHarogoが対応しているClaudeモデル（例：`claude-sonnet-5-5`）に設定します。
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ Anthropic互換APIを通じてHarogoのモデルサービスに接続するに�
     # <HAROGO_API_KEY> をHarogoプラットフォームで取得した実際のキーに置き換えてください
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # <HAROGO_API_KEY> をHarogoプラットフォームで取得した実際のキーに置き換えてください
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ Anthropic互換APIを通じてHarogoのモデルサービスに接続するに�
         REM <HAROGO_API_KEY> をHarogoプラットフォームで取得した実際のキーに置き換えてください
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. 新しいCMDウィンドウを開き、次のコマンドを実行して環境変数が反映されていることを確認します。
@@ -119,7 +119,7 @@ Anthropic互換APIを通じてHarogoのモデルサービスに接続するに�
         # <HAROGO_API_KEY> をHarogoプラットフォームで取得した実際のキーに置き換えてください
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. 新しいPowerShellウィンドウを開き、次のコマンドを実行して環境変数が反映されていることを確認します。
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Codeでは次の方法でモデルを設定できます。**優先度の�
 1. **会話中：** `/model <model-name>`コマンドを実行してモデルを切り替えます。一時的に切り替えたい場合に便利です。
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **Claude Codeの起動時：** `claude --model <model-name>`を実行してモデルを指定します。1回のセッションだけに適用したい場合に便利です。
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **環境変数を設定する：** タスクの複雑さに応じて異なるレベルのモデルを設定しておくと、Claude Codeがタスクに合ったモデルを自動で選択します。グローバルに適用されます。
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     darkAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     darkAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> ヒント：ターミナルでClaude Codeを開いたら、<kbd>/status</kbd>と入力するとモデルIDを確認でき、<kbd>/models</kbd>と入力すると設定済みの別のモデルを選択できます。
+<Frame>
+  <img
+    alt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    darkAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    darkAlt="Claude Codeのターミナルでstatusコマンドとmodelsコマンドを使ってモデル設定を確認する画面"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+ヒント：ターミナルでClaude Codeを開いたら、<kbd>/status</kbd>と入力するとモデルIDを確認でき、<kbd>/models</kbd>と入力すると設定済みの別のモデルを選択できます。
 
 <Warning>
   CC Switchに「システム環境変数の競合を検出しました」（System environment variable conflict detected）と表示された場合は、まず`ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`に対処してください。これらのグローバル変数は現在のプロバイダー設定を上書きします。`ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>`のようなプレースホルダー値が残っていると、認証がそのまま失敗します。グローバル変数が不要であることを確認したら、CC Switchで競合している項目を削除するか、システム/ユーザーの環境変数を手動で削除してから、ターミナルを再起動してください。

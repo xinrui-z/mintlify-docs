@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**Bu kılavuz yalnızca Claude modellerini kullanır.** Claude Code, Claude modellerini (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) ve istemci kısıtlaması olmayan modelleri (GLM, Qwen, Kimi, MiniMax, DeepSeek) çalıştırabilir. GPT modelleri Claude Code'da kullanılamaz — bkz. [Codex](/tr/codex).
+**Bu kılavuz yalnızca Claude modellerini kullanır.** Claude Code, Claude modellerini (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) ve istemci kısıtlaması olmayan modelleri (GLM, Qwen, Kimi, MiniMax, DeepSeek) çalıştırabilir. GPT modelleri Claude Code'da kullanılamaz — bkz. [Codex](/tr/codex).
 </Note>
 
 ### 1. Claude Code'u Kurun
@@ -38,7 +38,7 @@ Harogo'nun model hizmetine Anthropic uyumlu API üzerinden bağlanmak için aşa
 
 1. `ANTHROPIC_BASE_URL` değerini `https://api.harogo.ai/` olarak ayarlayın
 2. `ANTHROPIC_AUTH_TOKEN` değerini [Harogo platformundan](https://console.harogo.ai/keys) aldığınız API anahtarı olarak ayarlayın
-3. `ANTHROPIC_MODEL` değerini Harogo'nun desteklediği bir Claude modeli olarak ayarlayın, örneğin `claude-sonnet-5`.
+3. `ANTHROPIC_MODEL` değerini Harogo'nun desteklediği bir Claude modeli olarak ayarlayın, örneğin `claude-sonnet-5-5`.
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ Harogo'nun model hizmetine Anthropic uyumlu API üzerinden bağlanmak için aşa
     # <HAROGO_API_KEY> değerini Harogo platformundan aldığınız gerçek anahtarla değiştirin
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # <HAROGO_API_KEY> değerini Harogo platformundan aldığınız gerçek anahtarla değiştirin
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ Harogo'nun model hizmetine Anthropic uyumlu API üzerinden bağlanmak için aşa
         REM <HAROGO_API_KEY> değerini Harogo platformundan aldığınız gerçek anahtarla değiştirin
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. Yeni bir CMD penceresi açın ve ortam değişkenlerinin etkin olduğunu doğrulamak için aşağıdaki komutları çalıştırın.
@@ -119,7 +119,7 @@ Harogo'nun model hizmetine Anthropic uyumlu API üzerinden bağlanmak için aşa
         # <HAROGO_API_KEY> değerini Harogo platformundan aldığınız gerçek anahtarla değiştirin
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. Yeni bir PowerShell penceresi açın ve ortam değişkenlerinin etkin olduğunu doğrulamak için aşağıdaki komutları çalıştırın.
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Code, modeli yapılandırmak için aşağıdaki yolları destekler; bunla
 1. **Sohbet sırasında:** modeli değiştirmek için `/model <model-name>` komutunu çalıştırın. Tek seferlik geçişler için uygundur.
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **Claude Code'u başlatırken:** bir model belirtmek için `claude --model <model-name>` komutunu çalıştırın. Tek bir oturum için uygundur.
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **Ortam değişkenlerini ayarlayın:** görev karmaşıklığına göre farklı seviyelerde modeller yapılandırın; Claude Code göreve uygun modeli otomatik olarak seçer. Genel olarak uygulanır.
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ Burada:
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     darkAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     darkAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> İpucu: Claude Code terminalde açıldıktan sonra model kimliğini kontrol etmek için <kbd>/status</kbd>, yapılandırılmış başka bir model seçmek için <kbd>/models</kbd> yazın.
+<Frame>
+  <img
+    alt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    darkAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    darkAlt="Claude Code terminalinde status ve models komutlarıyla model yapılandırmasının kontrol edilmesi"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+İpucu: Claude Code terminalde açıldıktan sonra model kimliğini kontrol etmek için <kbd>/status</kbd>, yapılandırılmış başka bir model seçmek için <kbd>/models</kbd> yazın.
 
 <Warning>
   CC Switch "Sistem ortam değişkeni çakışması algılandı" (System environment variable conflict detected) uyarısı gösterirse, önce `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` ve `ANTHROPIC_MODEL` değişkenleriyle ilgilenin. Bu genel değişkenler mevcut sağlayıcı yapılandırmasını geçersiz kılar — `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` gibi bir yer tutucu değer kimlik doğrulamanın doğrudan başarısız olmasına neden olur. Genel değişkenlere artık ihtiyacınız olmadığından emin olduğunuzda, çakışan girdileri CC Switch'te kaldırın veya sistem/kullanıcı ortam değişkenlerini elle silip terminalinizi yeniden başlatın.

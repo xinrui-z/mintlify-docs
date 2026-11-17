@@ -19,10 +19,9 @@ Harogo tập hợp nhiều mô hình phù hợp cho agent lập trình vào mộ
 
 Các mô hình hiện tại được chia thành mấy nhóm chính như sau:
 
-- **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Lệnh gọi tần suất cao, phản hồi nhanh và tác vụ tối ưu chi phí**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Quy trình agent nhiều bước, chạy trong thời gian dài**: Claude Fable 5.1
 
 Các nhóm này chỉ mang tính tham khảo khi chọn mô hình. Kết quả thực tế phụ thuộc vào tác vụ, ngữ cảnh và cách bạn sử dụng công cụ.
 
@@ -30,7 +29,7 @@ Các nhóm này chỉ mang tính tham khảo khi chọn mô hình. Kết quả t
 
 1. Đăng nhập Harogo và đăng ký gói.
 2. Tạo và sao chép API key trong console.
-3. Đặt Base URL là `https://harogo.ai`.
+3. Dùng `https://api.harogo.ai` cho [Claude Code](/vi/claude-code), hoặc `https://api.harogo.ai/v1` cho [Codex](/vi/codex) và [OpenCode](/vi/opencode). Làm theo hướng dẫn của ứng dụng bạn dùng.
 4. Dán API key của bạn vào.
 5. Bắt đầu sử dụng.
 
@@ -50,11 +49,8 @@ Các mô hình hiện được hỗ trợ:
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Hoàn thành nhanh, lệnh gọi tần suất cao, tác vụ theo lô |
 | Claude Opus 5.5 | `claude-opus-5-5` | Lập trình agent phức tạp và các tác vụ kỹ thuật khó |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Lập trình hằng ngày và công việc phát triển tổng quát |
-| Claude Sonnet 5 | `claude-sonnet-5` | Lập trình hằng ngày và công việc phát triển tổng quát |
-| Claude Fable 5.1 | `claude-fable-5-1` | Tác vụ agent phức tạp, chạy trong thời gian dài |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Phản hồi nhanh, tác vụ nhẹ, xử lý theo lô |
 | GPT-6 Luna | `gpt-6-luna` | Lập trình tần suất cao và tác vụ nhẹ |
-| GPT-6 Sol | `gpt-6-sol` | Sinh mã khó, review và suy luận |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Sinh mã khó, review và suy luận |
 | GPT-6 Astra | `gpt-6-astra` | Suy luận hàng đầu cho các bài toán kỹ thuật khó nhất |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Lập trình agent hằng ngày và các tác vụ tổng quát |
@@ -66,9 +62,9 @@ Tên và ID mô hình ở trên là các định danh định tuyến mà Harogo
 Một số mô hình chỉ dùng được trong một ứng dụng nhất định. Các mô hình còn lại không bị giới hạn.
 
 <Note>
-**Mô hình GPT** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) chỉ dùng được trong [Codex](/vi/codex).
+**Mô hình GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) chỉ dùng được trong [Codex](/vi/codex).
 
-**Mô hình Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) chỉ dùng được trong [Claude Code](/vi/claude-code).
+**Mô hình Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) chỉ dùng được trong [Claude Code](/vi/claude-code).
 
 **Các mô hình còn lại** (GLM, Qwen, Kimi, MiniMax, DeepSeek) không bị giới hạn ứng dụng và dùng được trong mọi ứng dụng được hỗ trợ.
 </Note>
@@ -100,14 +96,11 @@ Bảng dưới đây ước tính số lượng yêu cầu của từng mô hìn
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Mỗi hàng giả định hạn mức của khung thời gian đó được dùng chủ yếu cho riêng mô hình đó. Khi bạn kết hợp nhiều mô hình, chúng cùng trừ vào một hạn mức dùng chung, nên không thể cộng dồn số lượng yêu cầu giữa các hàng trong bảng.
@@ -125,12 +118,9 @@ Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
 - **DeepSeek V4 Pro** — khoảng 750 token đầu vào, 82,000 token đọc cache và 290 token đầu ra mỗi yêu cầu.
 - **DeepSeek V4.1 Flash 1017** — khoảng 790 token đầu vào, 68,000 token đọc cache và 280 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của DeepSeek V4 Flash 0731.)
 - **Claude Opus 5.5** — khoảng 580 token đầu vào, 386,230 token đọc cache, 19,476 token ghi cache và 2,025 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Opus 5.)
-- **Claude Sonnet 5.5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Sonnet 5.)
-- **Claude Sonnet 5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu.
-- **Claude Fable 5.1** — khoảng 399 token đầu vào, 315,393 token đọc cache, 12,907 token ghi cache và 1,016 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Fable 5.)
+- **Claude Sonnet 5.5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu. (Dùng mẫu yêu cầu quan sát được ở một phiên bản mô hình trước đó.)
 - **Claude Haiku 5.5** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Haiku 4.5.)
 - **GPT-6 Luna** — khoảng 45,726 token đầu vào, 10,720 token đọc cache và 1,905 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Luna.)
-- **GPT-6 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
 - **GPT-6.1 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
 - **GPT-6 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
 - **GPT-6.1 Terra** — khoảng 6,825 token đầu vào, 69,476 token đọc cache và 734 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Terra.)

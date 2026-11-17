@@ -19,10 +19,9 @@ Harogo 將多款適合編程 Agent 的模型整合到一個服務中。你可以
 
 目前的模型大致分爲：
 
-- **大型代碼庫與高難度推理**：Kimi K3.1 Pro、Claude Opus 5.5、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Astra
-- **日常 Agent 編程、代碼生成與調試**：Qwen4 Max、GLM-5.3、Claude Sonnet 5.5、Claude Sonnet 5、GPT-6.1 Terra、MiniMax M3、DeepSeek V4 Pro
+- **大型代碼庫與高難度推理**：Kimi K3.1 Pro、Claude Opus 5.5、GPT-6.1 Sol、GPT-6 Astra
+- **日常 Agent 編程、代碼生成與調試**：Qwen4 Max、GLM-5.3、Claude Sonnet 5.5、GPT-6.1 Terra、MiniMax M3、DeepSeek V4 Pro
 - **高頻調用、快速響應與成本敏感型任務**：DeepSeek V4.1 Flash 1017、Claude Haiku 5.5、GPT-6 Luna
-- **長時間運行、步驟較多的 Agent 工作流**：Claude Fable 5.1
 
 這些分類僅供選擇模型時參考，實際效果取決於具體任務、上下文和工具使用方式。
 
@@ -30,7 +29,7 @@ Harogo 將多款適合編程 Agent 的模型整合到一個服務中。你可以
 
 1. 登錄 Harogo 並完成訂閱。
 2. 在控制檯創建並複製 API Key。
-3. 將 Base URL 配置爲 `https://harogo.ai`。
+3. [Claude Code](/zh/claude-code) 使用 `https://api.harogo.ai`；[Codex](/zh/codex) 和 [OpenCode](/zh/opencode) 使用 `https://api.harogo.ai/v1`。請依對應指南完成配置。
 4. 粘貼 API Key。
 5. 開始使用。
 
@@ -50,11 +49,8 @@ Harogo 將多款適合編程 Agent 的模型整合到一個服務中。你可以
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | 快速補全、高頻調用與批量任務 |
 | Claude Opus 5.5 | `claude-opus-5-5` | 複雜 Agent 編程與高難度工程任務 |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | 日常編程與通用開發任務 |
-| Claude Sonnet 5 | `claude-sonnet-5` | 日常編程與通用開發任務 |
-| Claude Fable 5.1 | `claude-fable-5-1` | 長時間運行的複雜 Agent 任務 |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | 快速響應、輕量任務與批處理 |
 | GPT-6 Luna | `gpt-6-luna` | 高頻編程與輕量任務 |
-| GPT-6 Sol | `gpt-6-sol` | 高難度代碼生成、審查與推理 |
 | GPT-6.1 Sol | `gpt-6.1-sol` | 高難度代碼生成、審查與推理 |
 | GPT-6 Astra | `gpt-6-astra` | 旗艦級推理，攻克最高難度的工程問題 |
 | GPT-6.1 Terra | `gpt-6.1-terra` | 日常 Agent 編程與通用任務 |
@@ -66,9 +62,9 @@ Harogo 將多款適合編程 Agent 的模型整合到一個服務中。你可以
 部分模型只能在指定的客戶端使用，其餘模型則不受限制。
 
 <Note>
-**GPT 系列模型**（GPT-6 Luna、GPT-6 Sol、GPT-6.1 Sol、GPT-6 Astra、GPT-6.1 Terra）僅能在 [Codex](/zh/codex) 中使用。
+**GPT 系列模型**（GPT-6 Luna、GPT-6.1 Sol、GPT-6 Astra、GPT-6.1 Terra）僅能在 [Codex](/zh/codex) 中使用。
 
-**Claude 系列模型**（Claude Opus 5.5、Claude Sonnet 5.5、Claude Sonnet 5、Claude Fable 5.1、Claude Haiku 5.5）僅能在 [Claude Code](/zh/claude-code) 中使用。
+**Claude 系列模型**（Claude Opus 5.5、Claude Sonnet 5.5、Claude Haiku 5.5）僅能在 [Claude Code](/zh/claude-code) 中使用。
 
 **其餘模型**（GLM、Qwen、Kimi、MiniMax、DeepSeek）沒有客戶端限制，可在任何支援的客戶端中使用。
 </Note>
@@ -100,14 +96,11 @@ Harogo 實施以下用量限制：
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 每一行均假設該時間窗口內的配額主要用於對應模型。混合使用多個模型時，它們會共同消耗同一份共享配額，因此表中的請求數不能相加。
@@ -125,12 +118,9 @@ Harogo 實施以下用量限制：
 - **DeepSeek V4 Pro** —— 每次請求約 750 個輸入 Token、82,000 個緩存讀取 Token 和 290 個輸出 Token。
 - **DeepSeek V4.1 Flash 1017** —— 每次請求約 790 個輸入 Token、68,000 個緩存讀取 Token 和 280 個輸出 Token。（沿用 DeepSeek V4 Flash 0731 的請求結構）
 - **Claude Opus 5.5** —— 每次請求約 580 個輸入 Token、386,230 個緩存讀取 Token、19,476 個緩存寫入 Token 和 2,025 個輸出 Token。（沿用 Claude Opus 5 的請求結構）
-- **Claude Sonnet 5.5** —— 每次請求約 159 個輸入 Token、129,804 個緩存讀取 Token、6,260 個緩存寫入 Token 和 850 個輸出 Token。（沿用 Claude Sonnet 5 的請求結構）
-- **Claude Sonnet 5** —— 每次請求約 159 個輸入 Token、129,804 個緩存讀取 Token、6,260 個緩存寫入 Token 和 850 個輸出 Token。
-- **Claude Fable 5.1** —— 每次請求約 399 個輸入 Token、315,393 個緩存讀取 Token、12,907 個緩存寫入 Token 和 1,016 個輸出 Token。（沿用 Claude Fable 5 的請求結構）
+- **Claude Sonnet 5.5** —— 每次請求約 159 個輸入 Token、129,804 個緩存讀取 Token、6,260 個緩存寫入 Token 和 850 個輸出 Token。（沿用前代模型已觀察到的請求結構。）
 - **Claude Haiku 5.5** —— 每次請求約 700 個輸入 Token、52,000 個緩存讀取 Token 和 150 個輸出 Token。（沿用 Claude Haiku 4.5 的請求結構）
 - **GPT-6 Luna** —— 每次請求約 45,726 個輸入 Token、10,720 個緩存讀取 Token 和 1,905 個輸出 Token。（沿用 GPT-5.6 Luna 的請求結構）
-- **GPT-6 Sol** —— 每次請求約 6,032 個輸入 Token、112,138 個緩存讀取 Token 和 678 個輸出 Token。（沿用 GPT-5.6 Sol 的請求結構）
 - **GPT-6.1 Sol** —— 每次請求約 6,032 個輸入 Token、112,138 個緩存讀取 Token 和 678 個輸出 Token。（沿用 GPT-5.6 Sol 的請求結構）
 - **GPT-6 Astra** —— 每次請求約 6,032 個輸入 Token、112,138 個緩存讀取 Token 和 678 個輸出 Token。（暫時參考 GPT-5.6 Sol 的請求結構）
 - **GPT-6.1 Terra** —— 每次請求約 6,825 個輸入 Token、69,476 個緩存讀取 Token 和 734 個輸出 Token。（沿用 GPT-5.6 Terra 的請求結構）
