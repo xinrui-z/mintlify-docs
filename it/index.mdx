@@ -19,10 +19,9 @@ Harogo riunisce in un unico servizio una serie di modelli adatti agli agenti di 
 
 I modelli attuali si dividono a grandi linee in questi gruppi:
 
-- **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Chiamate ad alta frequenza, risposte rapide e task sensibili ai costi**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Flussi di lavoro per agenti multi-step e di lunga durata**: Claude Fable 5.1
 
 Questi gruppi sono solo un riferimento per la scelta del modello. I risultati effettivi dipendono dal task, dal contesto e da come usi gli strumenti.
 
@@ -30,7 +29,7 @@ Questi gruppi sono solo un riferimento per la scelta del modello. I risultati ef
 
 1. Accedi a Harogo e sottoscrivi l'abbonamento.
 2. Crea e copia una chiave API nella console.
-3. Imposta il Base URL su `https://harogo.ai`.
+3. Usa `https://api.harogo.ai` per [Claude Code](/it/claude-code), oppure `https://api.harogo.ai/v1` per [Codex](/it/codex) e [OpenCode](/it/opencode). Segui la guida del tuo client.
 4. Incolla la tua chiave API.
 5. Inizia a usarlo.
 
@@ -50,11 +49,8 @@ Modelli attualmente supportati:
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Completamenti rapidi, chiamate ad alta frequenza, task in batch |
 | Claude Opus 5.5 | `claude-opus-5-5` | Coding complesso per agenti e task di ingegneria difficili |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Coding quotidiano e sviluppo generale |
-| Claude Sonnet 5 | `claude-sonnet-5` | Coding quotidiano e sviluppo generale |
-| Claude Fable 5.1 | `claude-fable-5-1` | Task complessi per agenti, di lunga durata |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Risposte rapide, task leggeri, elaborazione in batch |
 | GPT-6 Luna | `gpt-6-luna` | Coding ad alta frequenza e task leggeri |
-| GPT-6 Sol | `gpt-6-sol` | Generazione di codice complessa, revisione e ragionamento |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Generazione di codice complessa, revisione e ragionamento |
 | GPT-6 Astra | `gpt-6-astra` | Ragionamento di punta per i problemi di ingegneria più difficili |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Coding quotidiano per agenti e task generali |
@@ -66,9 +62,9 @@ I nomi e gli ID dei modelli qui sopra sono gli identificatori di instradamento u
 Alcuni modelli sono limitati a un client specifico. Gli altri funzionano ovunque.
 
 <Note>
-**Modelli GPT** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) sono disponibili solo in [Codex](/it/codex).
+**Modelli GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) sono disponibili solo in [Codex](/it/codex).
 
-**Modelli Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) sono disponibili solo in [Claude Code](/it/claude-code).
+**Modelli Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) sono disponibili solo in [Claude Code](/it/claude-code).
 
 **Tutti gli altri modelli** (GLM, Qwen, Kimi, MiniMax, DeepSeek) non hanno restrizioni di client e funzionano in qualsiasi client supportato.
 </Note>
@@ -100,14 +96,11 @@ La tabella seguente stima il numero di richieste per modello in base ai pattern 
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Ogni riga presuppone che la quota di quella finestra venga spesa principalmente su quel solo modello. Se combini più modelli, attingono insieme dalla stessa quota condivisa, quindi i conteggi delle richieste nella tabella non si possono semplicemente sommare tra le righe.
@@ -125,12 +118,9 @@ Queste stime si basano sul seguente profilo di richiesta tipico:
 - **DeepSeek V4 Pro**: circa 750 token di input, 82,000 token di lettura dalla cache e 290 token di output per richiesta.
 - **DeepSeek V4.1 Flash 1017**: circa 790 token di input, 68,000 token di lettura dalla cache e 280 token di output per richiesta. (Riutilizza il profilo di richiesta di DeepSeek V4 Flash 0731.)
 - **Claude Opus 5.5**: circa 580 token di input, 386,230 token di lettura dalla cache, 19,476 token di scrittura nella cache e 2,025 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Opus 5.)
-- **Claude Sonnet 5.5**: circa 159 token di input, 129,804 token di lettura dalla cache, 6,260 token di scrittura nella cache e 850 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Sonnet 5.)
-- **Claude Sonnet 5**: circa 159 token di input, 129,804 token di lettura dalla cache, 6,260 token di scrittura nella cache e 850 token di output per richiesta.
-- **Claude Fable 5.1**: circa 399 token di input, 315,393 token di lettura dalla cache, 12,907 token di scrittura nella cache e 1,016 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Fable 5.)
+- **Claude Sonnet 5.5**: circa 159 token di input, 129,804 token di lettura dalla cache, 6,260 token di scrittura nella cache e 850 token di output per richiesta. (Usa il profilo di richieste osservato in una versione precedente del modello.)
 - **Claude Haiku 5.5**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Haiku 4.5.)
 - **GPT-6 Luna**: circa 45,726 token di input, 10,720 token di lettura dalla cache e 1,905 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Luna.)
-- **GPT-6 Sol**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6.1 Sol**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6.1 Terra**: circa 6,825 token di input, 69,476 token di lettura dalla cache e 734 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Terra.)

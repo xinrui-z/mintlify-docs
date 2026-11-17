@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**이 가이드는 Claude 시리즈만 사용합니다.** Claude Code에서는 Claude 시리즈(Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5)와 제한이 없는 모델(GLM, Qwen, Kimi, MiniMax, DeepSeek)을 실행할 수 있습니다. GPT 시리즈는 Claude Code에서 사용할 수 없습니다. [Codex](/ko/codex)를 참고하세요.
+**이 가이드는 Claude 시리즈만 사용합니다.** Claude Code에서는 Claude 시리즈(Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5)와 제한이 없는 모델(GLM, Qwen, Kimi, MiniMax, DeepSeek)을 실행할 수 있습니다. GPT 시리즈는 Claude Code에서 사용할 수 없습니다. [Codex](/ko/codex)를 참고하세요.
 </Note>
 
 ### 1. Claude Code 설치
@@ -38,7 +38,7 @@ Anthropic 호환 API를 통해 Harogo의 모델 서비스에 연결하려면 다
 
 1. `ANTHROPIC_BASE_URL`을 `https://api.harogo.ai/`로 설정합니다
 2. `ANTHROPIC_AUTH_TOKEN`을 [Harogo 플랫폼](https://console.harogo.ai/keys)에서 발급받은 API 키로 설정합니다
-3. `ANTHROPIC_MODEL`을 Harogo에서 지원하는 Claude 모델(예: `claude-sonnet-5`)로 설정합니다.
+3. `ANTHROPIC_MODEL`을 Harogo에서 지원하는 Claude 모델(예: `claude-sonnet-5-5`)로 설정합니다.
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ Anthropic 호환 API를 통해 Harogo의 모델 서비스에 연결하려면 다
     # <HAROGO_API_KEY>를 Harogo 플랫폼에서 발급받은 실제 키로 바꾸세요
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # <HAROGO_API_KEY>를 Harogo 플랫폼에서 발급받은 실제 키로 바꾸세요
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ Anthropic 호환 API를 통해 Harogo의 모델 서비스에 연결하려면 다
         REM <HAROGO_API_KEY>를 Harogo 플랫폼에서 발급받은 실제 키로 바꾸세요
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. 새 CMD 창을 열고 다음 명령을 실행해 환경 변수가 적용되었는지 확인합니다.
@@ -119,7 +119,7 @@ Anthropic 호환 API를 통해 Harogo의 모델 서비스에 연결하려면 다
         # <HAROGO_API_KEY>를 Harogo 플랫폼에서 발급받은 실제 키로 바꾸세요
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. 새 PowerShell 창을 열고 다음 명령을 실행해 환경 변수가 적용되었는지 확인합니다.
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Code는 다음과 같은 모델 설정 방법을 지원하며, **우선�
 1. **대화 중:** `/model <model-name>` 명령을 실행해 모델을 전환합니다. 일시적으로 전환할 때 적합합니다.
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **Claude Code 시작 시:** `claude --model <model-name>`을 실행해 모델을 지정합니다. 단일 세션에 적합합니다.
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **환경 변수 설정:** 작업 복잡도에 따라 서로 다른 등급의 모델을 설정해 두면 Claude Code가 작업에 맞는 모델을 자동으로 선택합니다. 전역으로 적용됩니다.
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     darkAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     darkAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> 팁: 터미널에서 Claude Code를 연 뒤 <kbd>/status</kbd>를 입력하면 모델 ID를 확인할 수 있고, <kbd>/models</kbd>를 입력하면 설정해 둔 다른 모델을 선택할 수 있습니다.
+<Frame>
+  <img
+    alt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    darkAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    darkAlt="Claude Code 터미널에서 status 및 models 명령으로 모델 설정을 확인하는 화면"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+팁: 터미널에서 Claude Code를 연 뒤 <kbd>/status</kbd>를 입력하면 모델 ID를 확인할 수 있고, <kbd>/models</kbd>를 입력하면 설정해 둔 다른 모델을 선택할 수 있습니다.
 
 <Warning>
   CC Switch에 "시스템 환경 변수 충돌이 감지되었습니다"(System environment variable conflict detected)라는 메시지가 표시되면 먼저 `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL`, `ANTHROPIC_MODEL`을 처리하세요. 이러한 전역 변수는 현재 제공업체 설정을 덮어씁니다. `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>`와 같은 자리 표시자 값이 남아 있으면 인증이 바로 실패합니다. 전역 변수가 더 이상 필요하지 않다고 확인되면 CC Switch에서 충돌 항목을 삭제하거나, 시스템/사용자 환경 변수를 직접 삭제한 뒤 터미널을 다시 시작하세요.

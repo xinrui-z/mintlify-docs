@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**本指南僅使用 Claude 系列模型。** Claude Code 可執行 Claude 系列模型（Claude Opus 5.5、Claude Sonnet 5.5、Claude Sonnet 5、Claude Fable 5.1、Claude Haiku 5.5），以及沒有限制的模型（GLM、Qwen、Kimi、MiniMax、DeepSeek）。GPT 系列模型無法在 Claude Code 中使用，請參考 [Codex](/zh/codex)。
+**本指南僅使用 Claude 系列模型。** Claude Code 可執行 Claude 系列模型（Claude Opus 5.5、Claude Sonnet 5.5、Claude Haiku 5.5），以及沒有限制的模型（GLM、Qwen、Kimi、MiniMax、DeepSeek）。GPT 系列模型無法在 Claude Code 中使用，請參考 [Codex](/zh/codex)。
 </Note>
 
 ### 1. 安裝 Claude Code
@@ -38,7 +38,7 @@ npm install -g @anthropic-ai/claude-code
 
 1. 將 `ANTHROPIC_BASE_URL` 設置爲 `https://api.harogo.ai/`
 2. 將 `ANTHROPIC_AUTH_TOKEN` 設置爲從 [Harogo 平台](https://console.harogo.ai/keys) 獲取的 API Key
-3. 將 `ANTHROPIC_MODEL` 設置爲 Harogo 中支持的 Claude 模型，例如 `claude-sonnet-5`。
+3. 將 `ANTHROPIC_MODEL` 設置爲 Harogo 中支持的 Claude 模型，例如 `claude-sonnet-5-5`。
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ npm install -g @anthropic-ai/claude-code
     # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ npm install -g @anthropic-ai/claude-code
         REM 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. 打開一個新的 CMD 窗口，運行以下命令，檢查環境變量是否生效。
@@ -119,7 +119,7 @@ npm install -g @anthropic-ai/claude-code
         # 將 <HAROGO_API_KEY> 替換爲你從 Harogo 平台獲取的真實 Key
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. 打開一個新的 PowerShell 窗口，運行以下命令，檢查環境變量是否生效。
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -207,20 +207,20 @@ Claude Code 支持以下模型配置方式，**按優先級從高到低排列**�
 1. **對話期間：** 執行`/model <模型名稱>`命令切換模型。適用於臨時切換模型。
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **啓動 Claude Code 時：** 執行`claude --model <模型名稱>`指定模型。適用於單次會話。
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **設置環境變量**：可按任務複雜度配置不同級別的模型，Claude Code 會根據任務類型自動選擇合適的模型。適用於全局生效。
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -282,23 +282,23 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
   src="/images/iShot_2026-08-07_17.00.16.png"
 />
 
-> <Frame>
->   <img
->     alt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
->     darkAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> Tip: 終端打開 Claude Code後，輸入 <kbd> /status </kbd>可查詢模型ID，輸入<kbd>/models </kbd>可選擇配置的其他模型
+<Frame>
+  <img
+    alt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
+    darkAlt="Claude Code 終端中使用 status 和 models 命令查看模型配置"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+Tip: 終端打開 Claude Code後，輸入 <kbd> /status </kbd>可查詢模型ID，輸入<kbd>/models </kbd>可選擇配置的其他模型
 
 <Warning>
   如果 CC Switch 提示「檢測到系統環境變量衝突」，請優先處理 `ANTHROPIC_AUTH_TOKEN`、`ANTHROPIC_BASE_URL`、`ANTHROPIC_MODEL`。這些全局變量會覆蓋當前 Provider 配置；其中 `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` 這類佔位符值會直接導致認證失敗。確認不再需要全局變量後，可在 CC Switch 中刪除衝突項，或手動刪除系統/用戶環境變量，然後重啓終端。

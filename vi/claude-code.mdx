@@ -5,7 +5,7 @@ icon: "code-branch"
 ---
 
 <Note>
-**Hướng dẫn này chỉ dùng mô hình Claude.** Claude Code có thể chạy các mô hình Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) cùng các mô hình không bị giới hạn ứng dụng (GLM, Qwen, Kimi, MiniMax, DeepSeek). Mô hình GPT không dùng được trong Claude Code — xem [Codex](/vi/codex).
+**Hướng dẫn này chỉ dùng mô hình Claude.** Claude Code có thể chạy các mô hình Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) cùng các mô hình không bị giới hạn ứng dụng (GLM, Qwen, Kimi, MiniMax, DeepSeek). Mô hình GPT không dùng được trong Claude Code — xem [Codex](/vi/codex).
 </Note>
 
 ### 1. Cài đặt Claude Code
@@ -38,7 +38,7 @@ npm install -g @anthropic-ai/claude-code
 
 1. Đặt `ANTHROPIC_BASE_URL` là `https://api.harogo.ai/`
 2. Đặt `ANTHROPIC_AUTH_TOKEN` là API key bạn lấy từ [nền tảng Harogo](https://console.harogo.ai/keys)
-3. Đặt `ANTHROPIC_MODEL` là một mô hình Claude được Harogo hỗ trợ, ví dụ `claude-sonnet-5`.
+3. Đặt `ANTHROPIC_MODEL` là một mô hình Claude được Harogo hỗ trợ, ví dụ `claude-sonnet-5-5`.
 
 <Tabs>
   <Tab title="macOS">
@@ -56,14 +56,14 @@ npm install -g @anthropic-ai/claude-code
     # Thay <HAROGO_API_KEY> bằng key thật lấy từ nền tảng Harogo của bạn
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
     ```
 
     ```shellscript Bash
     # Thay <HAROGO_API_KEY> bằng key thật lấy từ nền tảng Harogo của bạn
     echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
     echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bash_profile
+    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
     ```
 
     </CodeGroup>
@@ -101,7 +101,7 @@ npm install -g @anthropic-ai/claude-code
         REM Thay <HAROGO_API_KEY> bằng key thật lấy từ nền tảng Harogo của bạn
         setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
         setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5"
+        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
         ```
 
         2. Mở một cửa sổ CMD mới và chạy các lệnh sau để xác nhận biến môi trường đã có hiệu lực.
@@ -119,7 +119,7 @@ npm install -g @anthropic-ai/claude-code
         # Thay <HAROGO_API_KEY> bằng key thật lấy từ nền tảng Harogo của bạn
         [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
         [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5", [EnvironmentVariableTarget]::User)
+        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
         ```
 
         2. Mở một cửa sổ PowerShell mới và chạy các lệnh sau để xác nhận biến môi trường đã có hiệu lực.
@@ -150,7 +150,7 @@ curl https://api.harogo.ai/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
   -d '{
-    "model": "claude-sonnet-5",
+    "model": "claude-sonnet-5-5",
     "max_tokens": 16,
     "messages": [{"role": "user", "content": "1+1, output only the answer"}]
   }'
@@ -161,7 +161,7 @@ curl.exe https://api.harogo.ai/v1/messages `
   -H "content-type: application/json" `
   -H "anthropic-version: 2023-06-01" `
   -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
 ```
 
 </CodeGroup>
@@ -218,20 +218,20 @@ Claude Code hỗ trợ các cách cấu hình mô hình sau, **xếp theo mức 
 1. **Trong cuộc hội thoại:** chạy lệnh `/model <model-name>` để chuyển mô hình. Phù hợp khi cần chuyển nhanh một lần.
 
 ```text
-/model claude-sonnet-5
+/model claude-sonnet-5-5
 ```
 
 2. **Khi khởi động Claude Code:** chạy `claude --model <model-name>` để chỉ định mô hình. Phù hợp cho một phiên làm việc.
 
 ```text
-claude --model claude-sonnet-5
+claude --model claude-sonnet-5-5
 ```
 
 3. **Đặt biến môi trường:** cấu hình các cấp mô hình khác nhau theo độ phức tạp của tác vụ, Claude Code sẽ tự chọn mô hình phù hợp cho từng tác vụ. Áp dụng toàn cục.
 
 ```shellscript
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
@@ -337,34 +337,34 @@ Trong đó:
   className="hidden dark:block"
 />
 
-> <Frame>
->   <img
->     alt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     darkAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     src="/images/iShot_2026-08-07_17.03.17.png"
->     className="dark:hidden"
->   />
->   <img
->     alt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     width="1142"
->     height="1068"
->     data-path="images/image-68.png"
->     lightAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     darkAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
->     src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
->     className="hidden dark:block"
->   />
-> </Frame>
->
-> <Frame>
->   ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-> </Frame>
->
-> Mẹo: khi Claude Code đã mở trong terminal, gõ <kbd>/status</kbd> để kiểm tra ID mô hình, hoặc <kbd>/models</kbd> để chọn một mô hình khác đã cấu hình.
+<Frame>
+  <img
+    alt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    darkAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    src="/images/iShot_2026-08-07_17.03.17.png"
+    className="dark:hidden"
+  />
+  <img
+    alt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    width="1142"
+    height="1068"
+    data-path="images/image-68.png"
+    lightAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    darkAlt="Kiểm tra cấu hình mô hình bằng lệnh status và models trong terminal Claude Code"
+    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
+    className="hidden dark:block"
+  />
+</Frame>
+
+<Frame>
+  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
+</Frame>
+
+Mẹo: khi Claude Code đã mở trong terminal, gõ <kbd>/status</kbd> để kiểm tra ID mô hình, hoặc <kbd>/models</kbd> để chọn một mô hình khác đã cấu hình.
 
 <Warning>
   Nếu CC Switch hiển thị "Phát hiện xung đột biến môi trường hệ thống" (System environment variable conflict detected), hãy xử lý `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` và `ANTHROPIC_MODEL` trước. Các biến toàn cục này ghi đè cấu hình nhà cung cấp hiện tại — một giá trị giữ chỗ như `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` sẽ khiến xác thực thất bại ngay. Khi chắc chắn không còn cần các biến toàn cục đó, hãy xóa các mục xung đột trong CC Switch, hoặc tự xóa biến môi trường cấp hệ thống/người dùng rồi khởi động lại terminal.

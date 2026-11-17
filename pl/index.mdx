@@ -19,10 +19,9 @@ Harogo łączy w jednej usłudze zestaw modeli dobrze dopasowanych do agentów k
 
 Obecne modele można z grubsza podzielić na następujące grupy:
 
-- **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Wywołania o wysokiej częstotliwości, szybkie odpowiedzi i zadania wrażliwe na koszty**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Długie, wieloetapowe przepływy pracy agentów**: Claude Fable 5.1
 
 Te grupy służą jedynie jako punkt odniesienia przy wyborze modelu. Rzeczywiste wyniki zależą od zadania, kontekstu i sposobu korzystania z narzędzi.
 
@@ -30,7 +29,7 @@ Te grupy służą jedynie jako punkt odniesienia przy wyborze modelu. Rzeczywist
 
 1. Zaloguj się do Harogo i wykup subskrypcję.
 2. Utwórz i skopiuj klucz API w konsoli.
-3. Ustaw Base URL na `https://harogo.ai`.
+3. Użyj `https://api.harogo.ai` dla [Claude Code](/pl/claude-code) lub `https://api.harogo.ai/v1` dla [Codex](/pl/codex) i [OpenCode](/pl/opencode). Postępuj zgodnie z instrukcją swojego klienta.
 4. Wklej swój klucz API.
 5. Zacznij korzystać.
 
@@ -50,11 +49,8 @@ Obecnie obsługiwane modele:
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Szybkie odpowiedzi, wywołania o wysokiej częstotliwości, zadania wsadowe |
 | Claude Opus 5.5 | `claude-opus-5-5` | Złożone kodowanie agentowe i trudne zadania inżynierskie |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codzienne kodowanie i ogólne prace deweloperskie |
-| Claude Sonnet 5 | `claude-sonnet-5` | Codzienne kodowanie i ogólne prace deweloperskie |
-| Claude Fable 5.1 | `claude-fable-5-1` | Złożone, długotrwałe zadania agentowe |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Szybkie odpowiedzi, lekkie zadania, przetwarzanie wsadowe |
 | GPT-6 Luna | `gpt-6-luna` | Kodowanie o wysokiej częstotliwości i lekkie zadania |
-| GPT-6 Sol | `gpt-6-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
 | GPT-6 Astra | `gpt-6-astra` | Flagowe rozumowanie dla najtrudniejszych problemów inżynierskich |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Codzienne kodowanie agentowe i zadania ogólne |
@@ -66,9 +62,9 @@ Powyższe nazwy i identyfikatory modeli to identyfikatory routingu używane wewn
 Niektóre modele są ograniczone do konkretnego klienta. Pozostałe działają wszędzie.
 
 <Note>
-**Modele GPT** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) są dostępne tylko w [Codex](/pl/codex).
+**Modele GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) są dostępne tylko w [Codex](/pl/codex).
 
-**Modele Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) są dostępne tylko w [Claude Code](/pl/claude-code).
+**Modele Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) są dostępne tylko w [Claude Code](/pl/claude-code).
 
 **Wszystkie pozostałe modele** (GLM, Qwen, Kimi, MiniMax, DeepSeek) nie mają ograniczeń klienta i działają w każdym obsługiwanym kliencie.
 </Note>
@@ -100,14 +96,11 @@ Poniższa tabela przedstawia szacunkową liczbę zapytań dla każdego modelu na
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Każdy wiersz zakłada, że limit danego okna czasowego jest wykorzystywany głównie przez ten jeden model. Gdy łączysz kilka modeli, wszystkie korzystają z tego samego wspólnego limitu, więc liczb zapytań z różnych wierszy tabeli nie można po prostu sumować.
@@ -125,12 +118,9 @@ Szacunki opierają się na następującym typowym profilu zapytań:
 - **DeepSeek V4 Pro** — na zapytanie około 750 tokenów wejściowych, 82,000 tokenów odczytu z pamięci podręcznej i 290 tokenów wyjściowych.
 - **DeepSeek V4.1 Flash 1017** — na zapytanie około 790 tokenów wejściowych, 68,000 tokenów odczytu z pamięci podręcznej i 280 tokenów wyjściowych. (Wykorzystuje profil zapytań DeepSeek V4 Flash 0731.)
 - **Claude Opus 5.5** — na zapytanie około 580 tokenów wejściowych, 386,230 tokenów odczytu z pamięci podręcznej, 19,476 tokenów zapisu do pamięci podręcznej i 2,025 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Opus 5.)
-- **Claude Sonnet 5.5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Sonnet 5.)
-- **Claude Sonnet 5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych.
-- **Claude Fable 5.1** — na zapytanie około 399 tokenów wejściowych, 315,393 tokenów odczytu z pamięci podręcznej, 12,907 tokenów zapisu do pamięci podręcznej i 1,016 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Fable 5.)
+- **Claude Sonnet 5.5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych. (Wykorzystuje profil zapytań zaobserwowany we wcześniejszej wersji modelu.)
 - **Claude Haiku 5.5** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Haiku 4.5.)
 - **GPT-6 Luna** — na zapytanie około 45,726 tokenów wejściowych, 10,720 tokenów odczytu z pamięci podręcznej i 1,905 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Luna.)
-- **GPT-6 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
 - **GPT-6.1 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
 - **GPT-6 Astra** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Tymczasowo oparte na profilu zapytań GPT-5.6 Sol.)
 - **GPT-6.1 Terra** — na zapytanie około 6,825 tokenów wejściowych, 69,476 tokenów odczytu z pamięci podręcznej i 734 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Terra.)

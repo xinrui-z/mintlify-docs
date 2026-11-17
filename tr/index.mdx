@@ -19,10 +19,9 @@ Harogo, kodlama ajanlarına uygun çeşitli modelleri tek bir hizmette bir araya
 
 Mevcut modeller kabaca şu gruplara ayrılır:
 
-- **Büyük kod tabanları ve zor muhakeme**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Günlük ajan kodlaması, kod üretimi ve hata ayıklama**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Büyük kod tabanları ve zor muhakeme**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Günlük ajan kodlaması, kod üretimi ve hata ayıklama**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Yüksek frekanslı çağrılar, hızlı yanıtlar ve maliyete duyarlı görevler**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Uzun süreli, çok adımlı ajan iş akışları**: Claude Fable 5.1
 
 Bu gruplar yalnızca model seçerken referans amaçlıdır. Gerçek sonuçlar göreve, bağlama ve araçları nasıl kullandığınıza bağlıdır.
 
@@ -30,7 +29,7 @@ Bu gruplar yalnızca model seçerken referans amaçlıdır. Gerçek sonuçlar g�
 
 1. Harogo'ya giriş yapın ve abone olun.
 2. Konsolda bir API anahtarı oluşturun ve kopyalayın.
-3. Taban URL'yi `https://harogo.ai` olarak ayarlayın.
+3. [Claude Code](/tr/claude-code) için `https://api.harogo.ai`, [Codex](/tr/codex) ve [OpenCode](/tr/opencode) için `https://api.harogo.ai/v1` kullanın. İstemcinizin kılavuzunu izleyin.
 4. API anahtarınızı yapıştırın.
 5. Kullanmaya başlayın.
 
@@ -50,11 +49,8 @@ API anahtarınızı gizli tutun. Herkese açık bir depoya commit etmeyin veya b
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Hızlı tamamlamalar, yüksek frekanslı çağrılar, toplu görevler |
 | Claude Opus 5.5 | `claude-opus-5-5` | Karmaşık ajan kodlaması ve zor mühendislik görevleri |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Günlük kodlama ve genel geliştirme çalışmaları |
-| Claude Sonnet 5 | `claude-sonnet-5` | Günlük kodlama ve genel geliştirme çalışmaları |
-| Claude Fable 5.1 | `claude-fable-5-1` | Karmaşık, daha uzun süreli ajan görevleri |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Hızlı yanıtlar, hafif görevler, toplu işleme |
 | GPT-6 Luna | `gpt-6-luna` | Yüksek frekanslı kodlama ve hafif görevler |
-| GPT-6 Sol | `gpt-6-sol` | Zor kod üretimi, inceleme ve muhakeme |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Zor kod üretimi, inceleme ve muhakeme |
 | GPT-6 Astra | `gpt-6-astra` | En zor mühendislik problemleri için amiral gemisi akıl yürütme |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Günlük ajan kodlaması ve genel görevler |
@@ -66,9 +62,9 @@ Yukarıdaki model adları ve model kimlikleri, Harogo'nun dahili olarak kulland�
 Bazı modeller yalnızca belirli bir istemcide kullanılabilir. Diğerlerinde kısıtlama yoktur.
 
 <Note>
-**GPT modelleri** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) yalnızca [Codex](/tr/codex) içinde kullanılabilir.
+**GPT modelleri** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) yalnızca [Codex](/tr/codex) içinde kullanılabilir.
 
-**Claude modelleri** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) yalnızca [Claude Code](/tr/claude-code) içinde kullanılabilir.
+**Claude modelleri** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) yalnızca [Claude Code](/tr/claude-code) içinde kullanılabilir.
 
 **Diğer tüm modeller** (GLM, Qwen, Kimi, MiniMax, DeepSeek) istemci kısıtlaması olmadan desteklenen her istemcide çalışır.
 </Note>
@@ -100,14 +96,11 @@ Aşağıdaki tablo, tipik Harogo kullanım örüntülerine göre model başına 
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Her satır, ilgili zaman penceresinin kotasının büyük ölçüde o tek model için harcandığını varsayar. Modelleri birlikte kullandığınızda hepsi aynı paylaşılan kotadan düşer; bu nedenle tablodaki istek sayıları satırlar arasında doğrudan toplanamaz.
@@ -125,12 +118,9 @@ Bu tahminler aşağıdaki tipik istek profiline dayanır:
 - **DeepSeek V4 Pro** — istek başına yaklaşık 750 girdi token'ı, 82,000 önbellek okuma token'ı ve 290 çıktı token'ı.
 - **DeepSeek V4.1 Flash 1017** — istek başına yaklaşık 790 girdi token'ı, 68,000 önbellek okuma token'ı ve 280 çıktı token'ı. (DeepSeek V4 Flash 0731 istek profili yeniden kullanılmıştır.)
 - **Claude Opus 5.5** — istek başına yaklaşık 580 girdi token'ı, 386,230 önbellek okuma token'ı, 19,476 önbellek yazma token'ı ve 2,025 çıktı token'ı. (Claude Opus 5 istek profili yeniden kullanılmıştır.)
-- **Claude Sonnet 5.5** — istek başına yaklaşık 159 girdi token'ı, 129,804 önbellek okuma token'ı, 6,260 önbellek yazma token'ı ve 850 çıktı token'ı. (Claude Sonnet 5 istek profili yeniden kullanılmıştır.)
-- **Claude Sonnet 5** — istek başına yaklaşık 159 girdi token'ı, 129,804 önbellek okuma token'ı, 6,260 önbellek yazma token'ı ve 850 çıktı token'ı.
-- **Claude Fable 5.1** — istek başına yaklaşık 399 girdi token'ı, 315,393 önbellek okuma token'ı, 12,907 önbellek yazma token'ı ve 1,016 çıktı token'ı. (Claude Fable 5 istek profili yeniden kullanılmıştır.)
+- **Claude Sonnet 5.5** — istek başına yaklaşık 159 girdi token'ı, 129,804 önbellek okuma token'ı, 6,260 önbellek yazma token'ı ve 850 çıktı token'ı. (Önceki bir model sürümünde gözlemlenen istek profilini kullanır.)
 - **Claude Haiku 5.5** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (Claude Haiku 4.5 istek profili yeniden kullanılmıştır.)
 - **GPT-6 Luna** — istek başına yaklaşık 45,726 girdi token'ı, 10,720 önbellek okuma token'ı ve 1,905 çıktı token'ı. (GPT-5.6 Luna istek profili yeniden kullanılmıştır.)
-- **GPT-6 Sol** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (GPT-5.6 Sol istek profili yeniden kullanılmıştır.)
 - **GPT-6.1 Sol** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (GPT-5.6 Sol istek profili yeniden kullanılmıştır.)
 - **GPT-6 Astra** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (Geçici olarak GPT-5.6 Sol istek profiline dayanmaktadır.)
 - **GPT-6.1 Terra** — istek başına yaklaşık 6,825 girdi token'ı, 69,476 önbellek okuma token'ı ve 734 çıktı token'ı. (GPT-5.6 Terra istek profili yeniden kullanılmıştır.)

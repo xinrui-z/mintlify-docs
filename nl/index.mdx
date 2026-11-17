@@ -19,10 +19,9 @@ Harogo brengt een reeks modellen die goed geschikt zijn voor coding agents samen
 
 De huidige modellen zijn grofweg in te delen in deze groepen:
 
-- **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Astra
-- **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Hoogfrequente aanroepen, snelle reacties en kostenbewuste taken**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-- **Langlopende agent-workflows met meerdere stappen**: Claude Fable 5.1
 
 Deze groepen zijn alleen een richtlijn bij het kiezen van een model. De werkelijke resultaten hangen af van de taak, de context en hoe je de tools gebruikt.
 
@@ -30,7 +29,7 @@ Deze groepen zijn alleen een richtlijn bij het kiezen van een model. De werkelij
 
 1. Log in bij Harogo en sluit een abonnement af.
 2. Maak in de console een API-key aan en kopieer die.
-3. Stel de Base URL in op `https://harogo.ai`.
+3. Gebruik `https://api.harogo.ai` voor [Claude Code](/nl/claude-code) of `https://api.harogo.ai/v1` voor [Codex](/nl/codex) en [OpenCode](/nl/opencode). Volg de handleiding voor je client.
 4. Plak je API-key.
 5. Ga aan de slag.
 
@@ -50,11 +49,8 @@ Momenteel ondersteunde modellen:
 | DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Snelle completions, hoogfrequente aanroepen, batchtaken |
 | Claude Opus 5.5 | `claude-opus-5-5` | Complexe agent-coding en zware technische taken |
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Dagelijkse coding en algemeen ontwikkelwerk |
-| Claude Sonnet 5 | `claude-sonnet-5` | Dagelijkse coding en algemeen ontwikkelwerk |
-| Claude Fable 5.1 | `claude-fable-5-1` | Complexe, langer lopende agenttaken |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Snelle reacties, lichte taken, batchverwerking |
 | GPT-6 Luna | `gpt-6-luna` | Hoogfrequente coding en lichte taken |
-| GPT-6 Sol | `gpt-6-sol` | Zware codegeneratie, review en redenering |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Zware codegeneratie, review en redenering |
 | GPT-6 Astra | `gpt-6-astra` | Vlaggenschip-redeneren voor de moeilijkste engineeringproblemen |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Dagelijkse agent-coding en algemene taken |
@@ -66,9 +62,9 @@ De bovenstaande namen en model-ID's zijn de routeringsidentifiers die Harogo int
 Sommige modellen zijn beperkt tot een specifieke client. De overige modellen werken overal.
 
 <Note>
-**GPT-modellen** (GPT-6 Luna, GPT-6 Sol, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) zijn alleen beschikbaar in [Codex](/nl/codex).
+**GPT-modellen** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) zijn alleen beschikbaar in [Codex](/nl/codex).
 
-**Claude-modellen** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Fable 5.1, Claude Haiku 5.5) zijn alleen beschikbaar in [Claude Code](/nl/claude-code).
+**Claude-modellen** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) zijn alleen beschikbaar in [Claude Code](/nl/claude-code).
 
 **Alle andere modellen** (GLM, Qwen, Kimi, MiniMax, DeepSeek) hebben geen clientbeperking en werken in elke ondersteunde client.
 </Note>
@@ -100,14 +96,11 @@ De onderstaande tabel schat het aantal aanvragen per model op basis van typische
 | DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
 | DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
 | GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6 Sol | 2,908 | 7,269 | 14,538 |
 | GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
 | GPT-6 Astra | 582 | 1,454 | 2,908 |
 | GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
 | Claude Opus 5.5 | 552 | 1,380 | 2,759 |
 | Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Sonnet 5 | 2,380 | 5,949 | 11,898 |
-| Claude Fable 5.1 | 370 | 925 | 1,849 |
 | Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
 
 Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
@@ -125,12 +118,9 @@ Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
 - **DeepSeek V4 Pro** – ongeveer 750 inputtokens, 82,000 cache-read-tokens en 290 outputtokens per aanvraag.
 - **DeepSeek V4.1 Flash 1017** – ongeveer 790 inputtokens, 68,000 cache-read-tokens en 280 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van DeepSeek V4 Flash 0731.)
 - **Claude Opus 5.5** – ongeveer 580 inputtokens, 386,230 cache-read-tokens, 19,476 cache-write-tokens en 2,025 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Opus 5.)
-- **Claude Sonnet 5.5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Sonnet 5.)
-- **Claude Sonnet 5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag.
-- **Claude Fable 5.1** – ongeveer 399 inputtokens, 315,393 cache-read-tokens, 12,907 cache-write-tokens en 1,016 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Fable 5.)
+- **Claude Sonnet 5.5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag. (Gebruikt het waargenomen aanvraagprofiel van een eerdere modelversie.)
 - **Claude Haiku 5.5** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Haiku 4.5.)
 - **GPT-6 Luna** – ongeveer 45,726 inputtokens, 10,720 cache-read-tokens en 1,905 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Luna.)
-- **GPT-6 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6.1 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
