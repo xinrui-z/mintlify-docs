@@ -19,7 +19,7 @@ Harogo brings together a range of models well-suited to coding agents into a sin
 
 The current models fall roughly into these groups:
 
-- **Large codebases and hard reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Large codebases and hard reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Everyday agentic coding, code generation, and debugging**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **High-frequency calls, fast responses, and cost-sensitive tasks**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Currently supported models:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Everyday coding and general development tasks |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Fast responses, lightweight tasks, and batch processing |
 | GPT-6 Luna | `gpt-6-luna` | High-frequency coding and lightweight tasks |
-| GPT-6.1 Sol | `gpt-6.1-sol` | High-difficulty code generation, review, and reasoning |
-| GPT-6 Astra | `gpt-6-astra` | Flagship reasoning for the hardest engineering problems |
+| GPT-6.2 Sol | `gpt-6.2-sol` | High-difficulty code generation, review, and reasoning |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Flagship reasoning for the hardest engineering problems |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Everyday agentic coding and general tasks |
 
 The names and model IDs above are the routing identifiers Harogo uses internally. The model lineup, versions, and availability may change — check the console for the current list.
@@ -62,7 +62,7 @@ The names and model IDs above are the routing identifiers Harogo uses internally
 Some models are limited to a specific client. Others can be used anywhere.
 
 <Note>
-**GPT models** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) can only be used in [Codex](/codex).
+**GPT models** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) can only be used in [Codex](/codex).
 
 **Claude models** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) can only be used in [Claude Code](/claude-code).
 
@@ -77,7 +77,7 @@ Harogo enforces the following usage limits:
 - Weekly limit: \$30
 - Monthly limit: \$60
 
-All three limits apply at the same time. Every model call draws from the shared subscription quota. Every model is capped at \$60.
+All three limits apply at the same time. Every model call draws from the shared subscription quota. Each model has its own usage cap: models capped below \$60 draw down the shared quota faster, and models capped above \$60 draw it down more slowly. See [Pricing](/pricing) for each model's cap.
 
 Limits are defined in dollar amounts rather than a fixed request count. How many requests you actually get depends on the model you use — lower-priced models generally support more requests, while higher-priced models support fewer.
 
@@ -85,23 +85,27 @@ You can check your current usage and remaining quota in the [Harogo console](htt
 
 ### Estimated Request Volume
 
-The table below estimates request counts per model based on typical Harogo usage patterns:
+The table below estimates request counts per model based on typical Harogo usage patterns. The shared quota is \$12 / \$30 / \$60 per day / week / month, but each model has its own usage cap: a model with a lower cap draws down the shared quota faster, so the cap shown is how much that model alone can use in each window.
 
-| Model | Daily (\$12) | Weekly (\$30) | Monthly (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Usage caps are not separate allowances.** All models draw from one shared quota of \$12 per day, \$30 per week and \$60 per month. Each model's usage cap only shows how much you can use if that is the only model you use — the caps don't add up, and you can't use every model's full cap in the same window. For example, using up Kimi K3.1 Pro's full \$15 monthly cap exhausts the whole shared quota for the month, leaving nothing for other models.
+</Note>
+
+| Model | Usage cap (day / week / month) | Daily | Weekly | Monthly |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Each row assumes the quota for that time window is spent mostly on that one model. When you mix models, they draw from the same shared quota together, so the request counts in the table can't simply be added up across rows.
 
@@ -121,10 +125,10 @@ These estimates are based on the following typical request profile:
 - **Claude Sonnet 5.5** — about 159 input tokens, 129,804 cache-read tokens, 6,260 cache-write tokens, and 850 output tokens per request. (Uses the request profile observed on a previous model version.)
 - **Claude Haiku 5.5** — about 700 input tokens, 52,000 cache-read tokens, and 150 output tokens per request. (Reuses the Claude Haiku 4.5 request profile.)
 - **GPT-6 Luna** — about 45,726 input tokens, 10,720 cache-read tokens, and 1,905 output tokens per request. (Reuses the GPT-5.6 Luna request profile.)
-- **GPT-6.1 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
-- **GPT-6 Astra** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Temporarily based on the GPT-5.6 Sol request profile.)
+- **GPT-6.2 Sol** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Reuses the GPT-5.6 Sol request profile.)
+- **GPT-6.2 Astra** — about 6,032 input tokens, 112,138 cache-read tokens, and 678 output tokens per request. (Temporarily based on the GPT-5.6 Sol request profile.)
 - **GPT-6.1 Terra** — about 6,825 input tokens, 69,476 cache-read tokens, and 734 output tokens per request. (Reuses the GPT-5.6 Terra request profile.)
 
-Newer model versions reuse the request profile observed on their predecessor for now. Requests = window quota ÷ (list price per request × 0.1).
+Newer model versions reuse the request profile observed on their predecessor for now. Requests = window quota ÷ (list price per request × 0.1) × (model cap ÷ \$60).
 
 These figures are meant to estimate typical usage and aren't a commitment to any fixed number of requests. Usage caps and estimated request volumes may change as the service evolves — check the Harogo console and this page for the latest information.

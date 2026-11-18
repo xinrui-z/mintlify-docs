@@ -19,7 +19,7 @@ Harogo réunit en un seul service un ensemble de modèles bien adaptés aux agen
 
 Les modèles actuels se répartissent globalement en plusieurs groupes :
 
-- **Grandes bases de code et raisonnement complexe** : Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Grandes bases de code et raisonnement complexe** : Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Codage d'agent au quotidien, génération de code et débogage** : Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Appels haute fréquence, réponses rapides et tâches sensibles au coût** : DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Modèles actuellement pris en charge :
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codage quotidien et travail de développement général |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Réponses rapides, tâches légères, traitement par lots |
 | GPT-6 Luna | `gpt-6-luna` | Codage haute fréquence et tâches légères |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Génération de code complexe, revue et raisonnement |
-| GPT-6 Astra | `gpt-6-astra` | Raisonnement haut de gamme pour les problèmes d'ingénierie les plus difficiles |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Génération de code complexe, revue et raisonnement |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Raisonnement haut de gamme pour les problèmes d'ingénierie les plus difficiles |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Codage d'agent quotidien et tâches générales |
 
 Les noms et identifiants de modèles ci-dessus sont les identifiants de routage utilisés en interne par Harogo. La liste des modèles, leurs versions et leur disponibilité peuvent évoluer ; consultez la console pour connaître la liste actuelle.
@@ -62,7 +62,7 @@ Les noms et identifiants de modèles ci-dessus sont les identifiants de routage 
 Certains modèles sont réservés à un client précis. Les autres fonctionnent partout.
 
 <Note>
-**Modèles GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) : uniquement disponibles dans [Codex](/fr/codex).
+**Modèles GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) : uniquement disponibles dans [Codex](/fr/codex).
 
 **Modèles Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) : uniquement disponibles dans [Claude Code](/fr/claude-code).
 
@@ -77,7 +77,7 @@ Harogo applique les limites d'utilisation suivantes :
 - Limite hebdomadaire : \$30
 - Limite mensuelle : \$60
 
-Les trois limites s'appliquent en même temps. Chaque appel de modèle puise dans le quota d'abonnement partagé. Tous les modèles sont plafonnés à \$60.
+Les trois limites s'appliquent en même temps. Chaque appel de modèle puise dans le quota d'abonnement partagé. Chaque modèle a son propre plafond d'utilisation : les modèles plafonnés sous \$60 consomment le quota partagé plus vite, ceux plafonnés au-dessus de \$60 plus lentement. Le plafond de chaque modèle figure sur la page [Tarifs](/fr/pricing).
 
 Les limites sont exprimées en dollars plutôt qu'en nombre fixe de requêtes. Le nombre de requêtes dont vous disposez réellement dépend du modèle utilisé : les modèles moins chers permettent généralement plus de requêtes, les modèles plus chers moins.
 
@@ -85,23 +85,27 @@ Vous pouvez consulter votre utilisation actuelle et votre quota restant dans la 
 
 ### Volume de requêtes estimé
 
-Le tableau ci-dessous estime le nombre de requêtes par modèle, sur la base des schémas d'utilisation typiques de Harogo :
+Le tableau ci-dessous estime le nombre de requêtes par modèle selon des usages typiques de Harogo. Le quota partagé est de \$12 / \$30 / \$60 par jour / semaine / mois, mais chaque modèle a son propre plafond d'utilisation : un modèle au plafond plus bas consomme le quota partagé plus vite. Le plafond indiqué correspond à ce que ce modèle seul peut utiliser dans chaque fenêtre.
 
-| Modèle | Par jour (\$12) | Par semaine (\$30) | Par mois (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Les plafonds d'utilisation ne sont pas des enveloppes séparées.** Tous les modèles puisent dans un quota partagé unique de \$12 par jour, \$30 par semaine et \$60 par mois. Le plafond de chaque modèle indique seulement ce que vous pouvez utiliser si vous n'utilisez que ce modèle : les plafonds ne s'additionnent pas, et vous ne pouvez pas utiliser le plafond complet de chaque modèle dans la même fenêtre. Par exemple, épuiser le plafond mensuel de \$15 de Kimi K3.1 Pro consomme tout le quota partagé du mois et ne laisse rien pour les autres modèles.
+</Note>
+
+| Modèle | Plafond d'utilisation (jour / semaine / mois) | Par jour | Par semaine | Par mois |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Chaque ligne suppose que le quota de la fenêtre concernée est consacré principalement à ce seul modèle. Si vous combinez plusieurs modèles, ils puisent ensemble dans le même quota partagé : les nombres de requêtes du tableau ne s'additionnent donc pas d'une ligne à l'autre.
 
@@ -121,10 +125,10 @@ Ces estimations reposent sur le profil de requête typique suivant :
 - **Claude Sonnet 5.5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête. (Utilise le profil de requêtes observé sur une version précédente du modèle.)
 - **Claude Haiku 5.5** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de Claude Haiku 4.5.)
 - **GPT-6 Luna** : environ 45,726 jetons d'entrée, 10,720 jetons de lecture du cache et 1,905 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Luna.)
-- **GPT-6.1 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
-- **GPT-6 Astra** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Provisoirement basé sur le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.2 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.2 Astra** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Provisoirement basé sur le profil de requête de GPT-5.6 Sol.)
 - **GPT-6.1 Terra** : environ 6,825 jetons d'entrée, 69,476 jetons de lecture du cache et 734 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Terra.)
 
-Les nouvelles versions de modèles reprennent pour l'instant le profil de requête observé sur leur prédécesseur. Requêtes = quota de la fenêtre ÷ (prix catalogue par requête × 0.1).
+Les nouvelles versions de modèles reprennent pour l'instant le profil de requête observé sur leur prédécesseur. Requêtes = quota de la fenêtre ÷ (prix catalogue par requête × 0.1) × (plafond du modèle ÷ \$60).
 
 Ces chiffres servent à estimer une utilisation typique et ne constituent pas un engagement sur un nombre fixe de requêtes. Les plafonds de quota et les volumes de requêtes estimés peuvent évoluer avec le service ; consultez la console Harogo et cette page pour les informations les plus récentes.

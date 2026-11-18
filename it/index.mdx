@@ -19,7 +19,7 @@ Harogo riunisce in un unico servizio una serie di modelli adatti agli agenti di 
 
 I modelli attuali si dividono a grandi linee in questi gruppi:
 
-- **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Chiamate ad alta frequenza, risposte rapide e task sensibili ai costi**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Modelli attualmente supportati:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Coding quotidiano e sviluppo generale |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Risposte rapide, task leggeri, elaborazione in batch |
 | GPT-6 Luna | `gpt-6-luna` | Coding ad alta frequenza e task leggeri |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Generazione di codice complessa, revisione e ragionamento |
-| GPT-6 Astra | `gpt-6-astra` | Ragionamento di punta per i problemi di ingegneria più difficili |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Generazione di codice complessa, revisione e ragionamento |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Ragionamento di punta per i problemi di ingegneria più difficili |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Coding quotidiano per agenti e task generali |
 
 I nomi e gli ID dei modelli qui sopra sono gli identificatori di instradamento usati internamente da Harogo. L'elenco dei modelli, le versioni e la disponibilità possono cambiare: verifica l'elenco attuale nella console.
@@ -62,7 +62,7 @@ I nomi e gli ID dei modelli qui sopra sono gli identificatori di instradamento u
 Alcuni modelli sono limitati a un client specifico. Gli altri funzionano ovunque.
 
 <Note>
-**Modelli GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) sono disponibili solo in [Codex](/it/codex).
+**Modelli GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) sono disponibili solo in [Codex](/it/codex).
 
 **Modelli Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) sono disponibili solo in [Claude Code](/it/claude-code).
 
@@ -77,7 +77,7 @@ Harogo applica i seguenti limiti di utilizzo:
 - Limite settimanale: \$30
 - Limite mensile: \$60
 
-Tutti e tre i limiti si applicano contemporaneamente. Ogni chiamata al modello attinge dalla quota di abbonamento condivisa. Tutti i modelli hanno un limite quota di \$60.
+Tutti e tre i limiti si applicano contemporaneamente. Ogni chiamata al modello attinge dalla quota di abbonamento condivisa. Ogni modello ha un proprio limite di utilizzo: i modelli con limite inferiore a \$60 consumano la quota condivisa più rapidamente, quelli con limite superiore a \$60 più lentamente. Il limite di ciascun modello è indicato in [Prezzi](/it/pricing).
 
 I limiti sono definiti in dollari anziché in un numero fisso di richieste. Il numero di richieste che ottieni effettivamente dipende dal modello che usi: i modelli più economici in genere consentono più richieste, quelli più costosi meno.
 
@@ -85,23 +85,27 @@ Puoi verificare l'utilizzo attuale e la quota residua nella [console Harogo](htt
 
 ### Volume di richieste stimato
 
-La tabella seguente stima il numero di richieste per modello in base ai pattern di utilizzo tipici di Harogo:
+La tabella seguente stima il numero di richieste per modello in base ai modelli di utilizzo tipici di Harogo. La quota condivisa è di \$12 / \$30 / \$60 al giorno / settimana / mese, ma ogni modello ha un proprio limite di utilizzo: un modello con limite più basso consuma la quota condivisa più rapidamente. Il limite indicato è quanto quel modello da solo può usare in ciascuna finestra.
 
-| Modello | Giornaliero (\$12) | Settimanale (\$30) | Mensile (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**I limiti di utilizzo non sono quote separate.** Tutti i modelli attingono da un'unica quota condivisa di \$12 al giorno, \$30 a settimana e \$60 al mese. Il limite di ciascun modello indica solo quanto puoi usare se usi esclusivamente quel modello: i limiti non si sommano e non puoi usare il limite completo di ogni modello nella stessa finestra. Ad esempio, esaurire l'intero limite mensile di \$15 di Kimi K3.1 Pro consuma tutta la quota condivisa del mese e non lascia nulla per gli altri modelli.
+</Note>
+
+| Modello | Limite di utilizzo (giorno / settimana / mese) | Giornaliero | Settimanale | Mensile |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Ogni riga presuppone che la quota di quella finestra venga spesa principalmente su quel solo modello. Se combini più modelli, attingono insieme dalla stessa quota condivisa, quindi i conteggi delle richieste nella tabella non si possono semplicemente sommare tra le righe.
 
@@ -121,10 +125,10 @@ Queste stime si basano sul seguente profilo di richiesta tipico:
 - **Claude Sonnet 5.5**: circa 159 token di input, 129,804 token di lettura dalla cache, 6,260 token di scrittura nella cache e 850 token di output per richiesta. (Usa il profilo di richieste osservato in una versione precedente del modello.)
 - **Claude Haiku 5.5**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Haiku 4.5.)
 - **GPT-6 Luna**: circa 45,726 token di input, 10,720 token di lettura dalla cache e 1,905 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Luna.)
-- **GPT-6.1 Sol**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Sol.)
-- **GPT-6 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
+- **GPT-6.2 Sol**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Sol.)
+- **GPT-6.2 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6.1 Terra**: circa 6,825 token di input, 69,476 token di lettura dalla cache e 734 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Terra.)
 
-Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta × 0.1).
+Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta × 0.1) × (limite del modello ÷ \$60).
 
 Questi dati servono a stimare un utilizzo tipico e non costituiscono un impegno su un numero fisso di richieste. I limiti quota e i volumi di richieste stimati possono cambiare con l'evoluzione del servizio: per le informazioni più aggiornate consulta la console Harogo e questa pagina.
