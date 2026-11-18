@@ -19,7 +19,7 @@ Harogo bündelt eine Reihe von Modellen, die sich gut für Coding-Agenten eignen
 
 Die aktuellen Modelle lassen sich grob in folgende Gruppen einteilen:
 
-- **Große Codebasen und anspruchsvolles Reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Große Codebasen und anspruchsvolles Reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Alltägliches Agent-Coding, Codegenerierung und Debugging**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Hochfrequente Aufrufe, schnelle Antworten und kostensensitive Aufgaben**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Derzeit unterstützte Modelle:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Alltägliches Coding und allgemeine Entwicklungsarbeit |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Schnelle Antworten, leichte Aufgaben, Batch-Verarbeitung |
 | GPT-6 Luna | `gpt-6-luna` | Hochfrequentes Coding und leichte Aufgaben |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Anspruchsvolle Codegenerierung, Review und Reasoning |
-| GPT-6 Astra | `gpt-6-astra` | Flaggschiff-Reasoning für die schwierigsten Engineering-Probleme |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Anspruchsvolle Codegenerierung, Review und Reasoning |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Flaggschiff-Reasoning für die schwierigsten Engineering-Probleme |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Alltägliches Agent-Coding und allgemeine Aufgaben |
 
 Die oben genannten Namen und Modell-IDs sind die Routing-Bezeichner, die Harogo intern verwendet. Modellauswahl, Versionen und Verfügbarkeit können sich ändern – die aktuelle Liste finden Sie in der Konsole.
@@ -62,7 +62,7 @@ Die oben genannten Namen und Modell-IDs sind die Routing-Bezeichner, die Harogo 
 Einige Modelle sind auf einen bestimmten Client beschränkt. Alle anderen Modelle können überall genutzt werden.
 
 <Note>
-**GPT-Modelle** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) sind nur in [Codex](/de/codex) verfügbar.
+**GPT-Modelle** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) sind nur in [Codex](/de/codex) verfügbar.
 
 **Claude-Modelle** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) sind nur in [Claude Code](/de/claude-code) verfügbar.
 
@@ -77,7 +77,7 @@ Harogo wendet die folgenden Nutzungslimits an:
 - Wochenlimit: \$30
 - Monatslimit: \$60
 
-Alle drei Limits gelten gleichzeitig. Jeder Modellaufruf greift auf das gemeinsame Abo-Kontingent zu. Für alle Modelle gilt ein Kontingent-Limit von \$60.
+Alle drei Limits gelten gleichzeitig. Jeder Modellaufruf greift auf das gemeinsame Abo-Kontingent zu. Jedes Modell hat ein eigenes Nutzungslimit: Modelle mit einem Limit unter \$60 verbrauchen das gemeinsame Kontingent schneller, Modelle mit einem Limit über \$60 langsamer. Die Limits je Modell stehen auf der Seite [Preise](/de/pricing).
 
 Die Limits sind in USD-Wert festgelegt, nicht als feste Anzahl an Anfragen. Wie viele Anfragen Sie tatsächlich erhalten, hängt vom verwendeten Modell ab: Günstigere Modelle erlauben in der Regel mehr Anfragen, teurere Modelle weniger.
 
@@ -85,23 +85,27 @@ Ihre aktuelle Nutzung und das verbleibende Kontingent sehen Sie in der [Harogo-K
 
 ### Geschätztes Anfragevolumen
 
-Die folgende Tabelle schätzt die Anzahl der Anfragen pro Modell auf Basis typischer Nutzungsmuster bei Harogo:
+Die folgende Tabelle schätzt die Anzahl der Anfragen pro Modell auf Basis typischer Harogo-Nutzungsmuster. Das gemeinsame Kontingent beträgt \$12 / \$30 / \$60 pro Tag / Woche / Monat, jedes Modell hat jedoch ein eigenes Nutzungslimit: Modelle mit niedrigerem Limit verbrauchen das gemeinsame Kontingent schneller. Das angegebene Limit zeigt, wie viel dieses Modell allein im jeweiligen Zeitfenster nutzen kann.
 
-| Modell | Täglich (\$12) | Wöchentlich (\$30) | Monatlich (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Nutzungslimits sind keine separaten Kontingente.** Alle Modelle greifen auf ein gemeinsames Kontingent von \$12 pro Tag, \$30 pro Woche und \$60 pro Monat zu. Das Limit eines Modells zeigt nur, wie viel du nutzen kannst, wenn du ausschließlich dieses Modell verwendest — die Limits addieren sich nicht, und du kannst nicht im selben Zeitraum das volle Limit jedes Modells ausschöpfen. Wer zum Beispiel das volle Monatslimit von \$15 bei Kimi K3.1 Pro aufbraucht, hat das gesamte gemeinsame Monatskontingent verbraucht; für andere Modelle bleibt nichts übrig.
+</Note>
+
+| Modell | Nutzungslimit (Tag / Woche / Monat) | Täglich | Wöchentlich | Monatlich |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Jede Zeile geht davon aus, dass das Kontingent des jeweiligen Zeitfensters überwiegend für dieses eine Modell verbraucht wird. Wenn Sie Modelle kombinieren, greifen sie gemeinsam auf dasselbe Kontingent zu. Die Anfragezahlen der Tabelle lassen sich daher nicht einfach zeilenübergreifend addieren.
 
@@ -121,10 +125,10 @@ Die Schätzungen basieren auf folgendem typischen Anfrageprofil:
 - **Claude Sonnet 5.5** – etwa 159 Eingabe-Tokens, 129,804 Cache-Read-Tokens, 6,260 Cache-Write-Tokens und 850 Ausgabe-Tokens pro Anfrage. (Verwendet das beobachtete Anfrageprofil einer früheren Modellversion.)
 - **Claude Haiku 5.5** – etwa 700 Eingabe-Tokens, 52,000 Cache-Read-Tokens und 150 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von Claude Haiku 4.5.)
 - **GPT-6 Luna** – etwa 45,726 Eingabe-Tokens, 10,720 Cache-Read-Tokens und 1,905 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Luna.)
-- **GPT-6.1 Sol** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Sol.)
-- **GPT-6 Astra** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Basiert vorübergehend auf dem Anfrageprofil von GPT-5.6 Sol.)
+- **GPT-6.2 Sol** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Sol.)
+- **GPT-6.2 Astra** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Basiert vorübergehend auf dem Anfrageprofil von GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – etwa 6,825 Eingabe-Tokens, 69,476 Cache-Read-Tokens und 734 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Terra.)
 
-Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage × 0.1).
+Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage × 0.1) × (Modell-Limit ÷ \$60).
 
 Diese Werte dienen zur Schätzung typischer Nutzung und sind keine Zusage einer festen Anzahl an Anfragen. Kontingent-Limits und geschätztes Anfragevolumen können sich im Zuge der Weiterentwicklung des Dienstes ändern – aktuelle Informationen finden Sie in der Harogo-Konsole und auf dieser Seite.

@@ -19,7 +19,7 @@ Harogo łączy w jednej usłudze zestaw modeli dobrze dopasowanych do agentów k
 
 Obecne modele można z grubsza podzielić na następujące grupy:
 
-- **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Duże bazy kodu i trudne rozumowanie**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Codzienne kodowanie agentowe, generowanie kodu i debugowanie**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Wywołania o wysokiej częstotliwości, szybkie odpowiedzi i zadania wrażliwe na koszty**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Obecnie obsługiwane modele:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Codzienne kodowanie i ogólne prace deweloperskie |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Szybkie odpowiedzi, lekkie zadania, przetwarzanie wsadowe |
 | GPT-6 Luna | `gpt-6-luna` | Kodowanie o wysokiej częstotliwości i lekkie zadania |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
-| GPT-6 Astra | `gpt-6-astra` | Flagowe rozumowanie dla najtrudniejszych problemów inżynierskich |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Trudne generowanie kodu, przegląd i rozumowanie |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Flagowe rozumowanie dla najtrudniejszych problemów inżynierskich |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Codzienne kodowanie agentowe i zadania ogólne |
 
 Powyższe nazwy i identyfikatory modeli to identyfikatory routingu używane wewnętrznie przez Harogo. Lista modeli, ich wersje i dostępność mogą się zmieniać — aktualną listę znajdziesz w konsoli.
@@ -62,7 +62,7 @@ Powyższe nazwy i identyfikatory modeli to identyfikatory routingu używane wewn
 Niektóre modele są ograniczone do konkretnego klienta. Pozostałe działają wszędzie.
 
 <Note>
-**Modele GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) są dostępne tylko w [Codex](/pl/codex).
+**Modele GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) są dostępne tylko w [Codex](/pl/codex).
 
 **Modele Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) są dostępne tylko w [Claude Code](/pl/claude-code).
 
@@ -77,7 +77,7 @@ Harogo stosuje następujące limity wykorzystania:
 - Limit tygodniowy: \$30
 - Limit miesięczny: \$60
 
-Wszystkie trzy limity obowiązują jednocześnie. Każde wywołanie modelu korzysta ze wspólnego limitu subskrypcji. Wszystkie modele mają limit wykorzystania \$60.
+Wszystkie trzy limity obowiązują jednocześnie. Każde wywołanie modelu korzysta ze wspólnego limitu subskrypcji. Każdy model ma własny limit wykorzystania: modele z limitem poniżej \$60 szybciej zużywają wspólny limit subskrypcji, a modele z limitem powyżej \$60 — wolniej. Limity poszczególnych modeli znajdziesz w [Cenniku](/pl/pricing).
 
 Limity są określone w wartości USD, a nie jako stała liczba zapytań. Liczba zapytań, które faktycznie otrzymasz, zależy od używanego modelu — tańsze modele zazwyczaj pozwalają na więcej zapytań, a droższe na mniej.
 
@@ -85,23 +85,27 @@ Bieżące wykorzystanie i pozostały limit możesz sprawdzić w [konsoli Harogo]
 
 ### Szacowany wolumen zapytań
 
-Poniższa tabela przedstawia szacunkową liczbę zapytań dla każdego modelu na podstawie typowych wzorców korzystania z Harogo:
+Poniższa tabela szacuje liczbę zapytań dla każdego modelu na podstawie typowych wzorców użycia Harogo. Wspólny limit wynosi \$12 / \$30 / \$60 na dzień / tydzień / miesiąc, ale każdy model ma własny limit wykorzystania: model z niższym limitem szybciej zużywa wspólny limit. Podany limit to tyle, ile sam ten model może wykorzystać w danym okresie.
 
-| Model | Dziennie (\$12) | Tygodniowo (\$30) | Miesięcznie (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Limity wykorzystania nie są osobnymi pulami.** Wszystkie modele korzystają z jednego wspólnego limitu: \$12 dziennie, \$30 tygodniowo i \$60 miesięcznie. Limit danego modelu pokazuje tylko, ile możesz wykorzystać, używając wyłącznie tego modelu — limity się nie sumują i w tym samym okresie nie da się wykorzystać pełnego limitu każdego modelu. Na przykład wykorzystanie całego miesięcznego limitu \$15 dla Kimi K3.1 Pro wyczerpuje cały wspólny limit na dany miesiąc i nic nie zostaje dla innych modeli.
+</Note>
+
+| Model | Limit wykorzystania (dzień / tydzień / miesiąc) | Dziennie | Tygodniowo | Miesięcznie |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Każdy wiersz zakłada, że limit danego okna czasowego jest wykorzystywany głównie przez ten jeden model. Gdy łączysz kilka modeli, wszystkie korzystają z tego samego wspólnego limitu, więc liczb zapytań z różnych wierszy tabeli nie można po prostu sumować.
 
@@ -121,10 +125,10 @@ Szacunki opierają się na następującym typowym profilu zapytań:
 - **Claude Sonnet 5.5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych. (Wykorzystuje profil zapytań zaobserwowany we wcześniejszej wersji modelu.)
 - **Claude Haiku 5.5** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Haiku 4.5.)
 - **GPT-6 Luna** — na zapytanie około 45,726 tokenów wejściowych, 10,720 tokenów odczytu z pamięci podręcznej i 1,905 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Luna.)
-- **GPT-6.1 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
-- **GPT-6 Astra** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Tymczasowo oparte na profilu zapytań GPT-5.6 Sol.)
+- **GPT-6.2 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
+- **GPT-6.2 Astra** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Tymczasowo oparte na profilu zapytań GPT-5.6 Sol.)
 - **GPT-6.1 Terra** — na zapytanie około 6,825 tokenów wejściowych, 69,476 tokenów odczytu z pamięci podręcznej i 734 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Terra.)
 
-Nowsze wersje modeli na razie wykorzystują profil zapytań zaobserwowany dla swoich poprzedników. Liczba zapytań = limit okna ÷ (cena katalogowa za zapytanie × 0.1).
+Nowsze wersje modeli na razie wykorzystują profil zapytań zaobserwowany dla swoich poprzedników. Liczba zapytań = limit okna ÷ (cena katalogowa za zapytanie × 0.1) × (limit modelu ÷ \$60).
 
 Te liczby służą do oszacowania typowego wykorzystania i nie stanowią gwarancji żadnej stałej liczby zapytań. Limity wykorzystania i szacowany wolumen zapytań mogą się zmieniać wraz z rozwojem usługi — najnowsze informacje znajdziesz w konsoli Harogo i na tej stronie.

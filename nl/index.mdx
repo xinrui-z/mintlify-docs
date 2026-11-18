@@ -19,7 +19,7 @@ Harogo brengt een reeks modellen die goed geschikt zijn voor coding agents samen
 
 De huidige modellen zijn grofweg in te delen in deze groepen:
 
-- **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Hoogfrequente aanroepen, snelle reacties en kostenbewuste taken**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Momenteel ondersteunde modellen:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Dagelijkse coding en algemeen ontwikkelwerk |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Snelle reacties, lichte taken, batchverwerking |
 | GPT-6 Luna | `gpt-6-luna` | Hoogfrequente coding en lichte taken |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Zware codegeneratie, review en redenering |
-| GPT-6 Astra | `gpt-6-astra` | Vlaggenschip-redeneren voor de moeilijkste engineeringproblemen |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Zware codegeneratie, review en redenering |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Vlaggenschip-redeneren voor de moeilijkste engineeringproblemen |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Dagelijkse agent-coding en algemene taken |
 
 De bovenstaande namen en model-ID's zijn de routeringsidentifiers die Harogo intern gebruikt. Het modelaanbod, de versies en de beschikbaarheid kunnen wijzigen – check de console voor de actuele lijst.
@@ -62,7 +62,7 @@ De bovenstaande namen en model-ID's zijn de routeringsidentifiers die Harogo int
 Sommige modellen zijn beperkt tot een specifieke client. De overige modellen werken overal.
 
 <Note>
-**GPT-modellen** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) zijn alleen beschikbaar in [Codex](/nl/codex).
+**GPT-modellen** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) zijn alleen beschikbaar in [Codex](/nl/codex).
 
 **Claude-modellen** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) zijn alleen beschikbaar in [Claude Code](/nl/claude-code).
 
@@ -77,7 +77,7 @@ Harogo hanteert de volgende gebruikslimieten:
 - Weeklimiet: \$30
 - Maandlimiet: \$60
 
-Alle drie de limieten gelden tegelijk. Elke modelaanroep put uit het gedeelde abonnementsquotum. Voor alle modellen geldt een quotumlimiet van \$60.
+Alle drie de limieten gelden tegelijk. Elke modelaanroep put uit het gedeelde abonnementsquotum. Elk model heeft een eigen gebruikslimiet: modellen met een limiet onder \$60 verbruiken het gedeelde quotum sneller, modellen met een limiet boven \$60 langzamer. De limiet per model staat op de pagina [Prijzen](/nl/pricing).
 
 Limieten zijn vastgesteld in USD-waarde, niet in een vast aantal aanvragen. Hoeveel aanvragen je werkelijk krijgt, hangt af van het model dat je gebruikt: goedkopere modellen leveren doorgaans meer aanvragen op, duurdere modellen minder.
 
@@ -85,23 +85,27 @@ Je huidige gebruik en resterende quotum zie je in de [Harogo-console](https://co
 
 ### Geschat aanvraagvolume
 
-De onderstaande tabel schat het aantal aanvragen per model op basis van typische gebruikspatronen bij Harogo:
+De onderstaande tabel schat het aantal aanvragen per model op basis van typische Harogo-gebruikspatronen. Het gedeelde quotum is \$12 / \$30 / \$60 per dag / week / maand, maar elk model heeft een eigen gebruikslimiet: een model met een lagere limiet verbruikt het gedeelde quotum sneller. De vermelde limiet is hoeveel dat model alleen per periode kan gebruiken.
 
-| Model | Per dag (\$12) | Per week (\$30) | Per maand (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Gebruikslimieten zijn geen aparte tegoeden.** Alle modellen putten uit één gedeeld quotum van \$12 per dag, \$30 per week en \$60 per maand. De limiet van een model geeft alleen aan hoeveel je kunt gebruiken als je uitsluitend dat model gebruikt — de limieten tellen niet op en je kunt niet in dezelfde periode de volledige limiet van elk model gebruiken. Wie bijvoorbeeld de volledige maandlimiet van \$15 van Kimi K3.1 Pro opmaakt, heeft het hele gedeelde quotum van die maand verbruikt; voor andere modellen blijft niets over.
+</Note>
+
+| Model | Gebruikslimiet (dag / week / maand) | Per dag | Per week | Per maand |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
 
@@ -121,10 +125,10 @@ Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
 - **Claude Sonnet 5.5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag. (Gebruikt het waargenomen aanvraagprofiel van een eerdere modelversie.)
 - **Claude Haiku 5.5** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Haiku 4.5.)
 - **GPT-6 Luna** – ongeveer 45,726 inputtokens, 10,720 cache-read-tokens en 1,905 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Luna.)
-- **GPT-6.1 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
-- **GPT-6 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
+- **GPT-6.2 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
+- **GPT-6.2 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
 
-Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag × 0.1).
+Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag × 0.1) × (modellimiet ÷ \$60).
 
 Deze cijfers zijn bedoeld om typisch gebruik te schatten en zijn geen toezegging van een vast aantal aanvragen. Quotumlimieten en het geschatte aanvraagvolume kunnen wijzigen naarmate de dienst zich ontwikkelt – check de Harogo-console en deze pagina voor de meest actuele informatie.

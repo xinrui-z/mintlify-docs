@@ -19,7 +19,7 @@ Harogo tập hợp nhiều mô hình phù hợp cho agent lập trình vào mộ
 
 Các mô hình hiện tại được chia thành mấy nhóm chính như sau:
 
-- **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Lệnh gọi tần suất cao, phản hồi nhanh và tác vụ tối ưu chi phí**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ Các mô hình hiện được hỗ trợ:
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Lập trình hằng ngày và công việc phát triển tổng quát |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Phản hồi nhanh, tác vụ nhẹ, xử lý theo lô |
 | GPT-6 Luna | `gpt-6-luna` | Lập trình tần suất cao và tác vụ nhẹ |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Sinh mã khó, review và suy luận |
-| GPT-6 Astra | `gpt-6-astra` | Suy luận hàng đầu cho các bài toán kỹ thuật khó nhất |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Sinh mã khó, review và suy luận |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Suy luận hàng đầu cho các bài toán kỹ thuật khó nhất |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Lập trình agent hằng ngày và các tác vụ tổng quát |
 
 Tên và ID mô hình ở trên là các định danh định tuyến mà Harogo sử dụng nội bộ. Danh sách mô hình, phiên bản và tình trạng khả dụng có thể thay đổi — hãy kiểm tra console để biết danh sách hiện tại.
@@ -62,7 +62,7 @@ Tên và ID mô hình ở trên là các định danh định tuyến mà Harogo
 Một số mô hình chỉ dùng được trong một ứng dụng nhất định. Các mô hình còn lại không bị giới hạn.
 
 <Note>
-**Mô hình GPT** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) chỉ dùng được trong [Codex](/vi/codex).
+**Mô hình GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) chỉ dùng được trong [Codex](/vi/codex).
 
 **Mô hình Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) chỉ dùng được trong [Claude Code](/vi/claude-code).
 
@@ -77,7 +77,7 @@ Harogo áp dụng các giới hạn sử dụng sau:
 - Hạn mức theo tuần: \$30
 - Hạn mức theo tháng: \$60
 
-Cả ba hạn mức áp dụng cùng lúc. Mọi lệnh gọi mô hình đều trừ vào cùng một hạn mức đăng ký dùng chung. Mọi mô hình đều có hạn mức tối đa \$60.
+Cả ba hạn mức áp dụng cùng lúc. Mọi lệnh gọi mô hình đều trừ vào cùng một hạn mức đăng ký dùng chung. Mỗi mô hình có hạn mức sử dụng riêng: mô hình có hạn mức dưới \$60 tiêu hao hạn mức dùng chung nhanh hơn, mô hình có hạn mức trên \$60 tiêu hao chậm hơn. Xem hạn mức của từng mô hình tại trang [Bảng giá](/vi/pricing).
 
 Hạn mức được tính theo giá trị USD chứ không phải theo số lượng yêu cầu cố định. Số yêu cầu bạn thực sự nhận được phụ thuộc vào mô hình đang dùng — mô hình giá thấp thường cho phép nhiều yêu cầu hơn, còn mô hình giá cao cho phép ít yêu cầu hơn.
 
@@ -85,23 +85,27 @@ Bạn có thể xem mức sử dụng hiện tại và hạn mức còn lại tr
 
 ### Khối lượng yêu cầu ước tính
 
-Bảng dưới đây ước tính số lượng yêu cầu của từng mô hình dựa trên mẫu sử dụng điển hình trên Harogo:
+Bảng dưới đây ước tính số yêu cầu cho từng mô hình dựa trên mẫu sử dụng Harogo điển hình. Hạn mức dùng chung là \$12 / \$30 / \$60 mỗi ngày / tuần / tháng, nhưng mỗi mô hình có hạn mức sử dụng riêng: mô hình có hạn mức thấp hơn tiêu hao hạn mức dùng chung nhanh hơn. Hạn mức trong bảng là lượng mà riêng mô hình đó có thể dùng trong mỗi khung.
 
-| Mô hình | Theo ngày (\$12) | Theo tuần (\$30) | Theo tháng (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Hạn mức sử dụng không phải là các hạn mức riêng biệt.** Tất cả mô hình đều trừ vào một hạn mức dùng chung duy nhất: \$12 mỗi ngày, \$30 mỗi tuần và \$60 mỗi tháng. Hạn mức của mỗi mô hình chỉ cho biết bạn dùng được bao nhiêu nếu chỉ dùng riêng mô hình đó — các hạn mức không cộng dồn và bạn không thể dùng hết hạn mức của mọi mô hình trong cùng một khung. Ví dụ, dùng hết hạn mức tháng \$15 của Kimi K3.1 Pro sẽ tiêu hết toàn bộ hạn mức dùng chung của tháng, không còn lại gì cho các mô hình khác.
+</Note>
+
+| Mô hình | Hạn mức sử dụng (ngày / tuần / tháng) | Theo ngày | Theo tuần | Theo tháng |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Mỗi hàng giả định hạn mức của khung thời gian đó được dùng chủ yếu cho riêng mô hình đó. Khi bạn kết hợp nhiều mô hình, chúng cùng trừ vào một hạn mức dùng chung, nên không thể cộng dồn số lượng yêu cầu giữa các hàng trong bảng.
 
@@ -121,10 +125,10 @@ Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
 - **Claude Sonnet 5.5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu. (Dùng mẫu yêu cầu quan sát được ở một phiên bản mô hình trước đó.)
 - **Claude Haiku 5.5** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Haiku 4.5.)
 - **GPT-6 Luna** — khoảng 45,726 token đầu vào, 10,720 token đọc cache và 1,905 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Luna.)
-- **GPT-6.1 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
-- **GPT-6 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
+- **GPT-6.2 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
+- **GPT-6.2 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
 - **GPT-6.1 Terra** — khoảng 6,825 token đầu vào, 69,476 token đọc cache và 734 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Terra.)
 
-Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu × 0.1).
+Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu × 0.1) × (hạn mức của mô hình ÷ \$60).
 
 Các con số này nhằm ước tính mức sử dụng điển hình và không phải là cam kết về số lượng yêu cầu cố định. Hạn mức tối đa và khối lượng yêu cầu ước tính có thể thay đổi khi dịch vụ phát triển — hãy kiểm tra console Harogo và trang này để biết thông tin mới nhất.

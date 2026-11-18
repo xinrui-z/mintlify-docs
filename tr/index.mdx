@@ -19,7 +19,7 @@ Harogo, kodlama ajanlarına uygun çeşitli modelleri tek bir hizmette bir araya
 
 Mevcut modeller kabaca şu gruplara ayrılır:
 
-- **Büyük kod tabanları ve zor muhakeme**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra
+- **Büyük kod tabanları ve zor muhakeme**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
 - **Günlük ajan kodlaması, kod üretimi ve hata ayıklama**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Yüksek frekanslı çağrılar, hızlı yanıtlar ve maliyete duyarlı görevler**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
@@ -51,8 +51,8 @@ API anahtarınızı gizli tutun. Herkese açık bir depoya commit etmeyin veya b
 | Claude Sonnet 5.5 | `claude-sonnet-5-5` | Günlük kodlama ve genel geliştirme çalışmaları |
 | Claude Haiku 5.5 | `claude-haiku-5-5` | Hızlı yanıtlar, hafif görevler, toplu işleme |
 | GPT-6 Luna | `gpt-6-luna` | Yüksek frekanslı kodlama ve hafif görevler |
-| GPT-6.1 Sol | `gpt-6.1-sol` | Zor kod üretimi, inceleme ve muhakeme |
-| GPT-6 Astra | `gpt-6-astra` | En zor mühendislik problemleri için amiral gemisi akıl yürütme |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Zor kod üretimi, inceleme ve muhakeme |
+| GPT-6.2 Astra | `gpt-6.2-astra` | En zor mühendislik problemleri için amiral gemisi akıl yürütme |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Günlük ajan kodlaması ve genel görevler |
 
 Yukarıdaki model adları ve model kimlikleri, Harogo'nun dahili olarak kullandığı yönlendirme tanımlayıcılarıdır. Model listesi, sürümler ve kullanılabilirlik değişebilir — güncel liste için konsolu kontrol edin.
@@ -62,7 +62,7 @@ Yukarıdaki model adları ve model kimlikleri, Harogo'nun dahili olarak kulland�
 Bazı modeller yalnızca belirli bir istemcide kullanılabilir. Diğerlerinde kısıtlama yoktur.
 
 <Note>
-**GPT modelleri** (GPT-6 Luna, GPT-6.1 Sol, GPT-6 Astra, GPT-6.1 Terra) yalnızca [Codex](/tr/codex) içinde kullanılabilir.
+**GPT modelleri** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) yalnızca [Codex](/tr/codex) içinde kullanılabilir.
 
 **Claude modelleri** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) yalnızca [Claude Code](/tr/claude-code) içinde kullanılabilir.
 
@@ -77,7 +77,7 @@ Harogo aşağıdaki kullanım limitlerini uygular:
 - Haftalık limit: \$30
 - Aylık limit: \$60
 
-Üç limit de aynı anda geçerlidir. Her model çağrısı paylaşılan abonelik kotasından düşer. Tüm modeller için kota sınırı \$60 olarak belirlenmiştir.
+Üç limit de aynı anda geçerlidir. Her model çağrısı paylaşılan abonelik kotasından düşer. Her modelin kendi kullanım sınırı vardır: sınırı \$60'ın altındaki modeller paylaşılan kotayı daha hızlı, \$60'ın üzerindekiler daha yavaş tüketir. Her modelin sınırı için [Fiyatlandırma](/tr/pricing) sayfasına bakın.
 
 Limitler sabit bir istek sayısı değil, USD değeri olarak belirlenir. Gerçekte kaç istek alacağınız kullandığınız modele bağlıdır — daha ucuz modeller genellikle daha fazla istek, daha pahalı modeller ise daha az istek sağlar.
 
@@ -85,23 +85,27 @@ Güncel kullanımınızı ve kalan kotanızı [Harogo konsolunda](https://consol
 
 ### Tahmini İstek Hacmi
 
-Aşağıdaki tablo, tipik Harogo kullanım örüntülerine göre model başına tahmini istek sayılarını gösterir:
+Aşağıdaki tablo, tipik Harogo kullanım kalıplarına göre model başına tahmini istek sayılarını gösterir. Paylaşılan kota gün / hafta / ay başına \$12 / \$30 / \$60'tır, ancak her modelin kendi kullanım sınırı vardır: sınırı düşük olan model paylaşılan kotayı daha hızlı tüketir. Gösterilen sınır, yalnızca o model kullanıldığında her pencerede kullanılabilecek miktardır.
 
-| Model | Günlük (\$12) | Haftalık (\$30) | Aylık (\$60) |
-| --- | --: | --: | --: |
-| GLM-5.3 | 7,487 | 18,716 | 37,433 |
-| Qwen4 Max | 3,190 | 7,980 | 15,960 |
-| Kimi K3.1 Pro | 5,882 | 14,706 | 29,412 |
-| MiniMax M3 | 11,087 | 27,718 | 55,436 |
-| DeepSeek V4 Pro | 4,005 | 10,012 | 20,024 |
-| DeepSeek V4.1 Flash 1017 | 130,626 | 326,564 | 653,128 |
-| GPT-6 Luna | 21,306 | 53,264 | 106,528 |
-| GPT-6.1 Sol | 3,992 | 9,981 | 19,962 |
-| GPT-6 Astra | 582 | 1,454 | 2,908 |
-| GPT-6.1 Terra | 8,591 | 21,476 | 42,953 |
-| Claude Opus 5.5 | 552 | 1,380 | 2,759 |
-| Claude Sonnet 5.5 | 3,204 | 8,011 | 16,022 |
-| Claude Haiku 5.5 | 180,451 | 451,128 | 902,256 |
+<Note>
+**Kullanım sınırları ayrı kotalar değildir.** Tüm modeller günde \$12, haftada \$30 ve ayda \$60 olan tek bir paylaşılan kotadan düşer. Bir modelin sınırı yalnızca sadece o modeli kullandığınızda ne kadar kullanabileceğinizi gösterir; sınırlar toplanmaz ve aynı pencerede her modelin tam sınırını kullanamazsınız. Örneğin Kimi K3.1 Pro'nun \$15'lık aylık sınırının tamamını kullanırsanız o ayın paylaşılan kotası tükenir ve diğer modeller için hiçbir şey kalmaz.
+</Note>
+
+| Model | Kullanım sınırı (gün / hafta / ay) | Günlük | Haftalık | Aylık |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
+| GPT-6.1 Terra | \$10 / \$25 / \$50 | 7,159 | 17,897 | 35,794 |
+| Claude Haiku 5.5 | \$10 / \$25 / \$50 | 150,376 | 375,940 | 751,880 |
+| GPT-6.2 Sol | \$8 / \$20 / \$40 | 2,662 | 6,654 | 13,308 |
+| Claude Sonnet 5.5 | \$8 / \$20 / \$40 | 2,136 | 5,341 | 10,681 |
+| GPT-6.2 Astra | \$6 / \$15 / \$30 | 363 | 909 | 1,817 |
+| Claude Opus 5.5 | \$6 / \$15 / \$30 | 276 | 690 | 1,380 |
 
 Her satır, ilgili zaman penceresinin kotasının büyük ölçüde o tek model için harcandığını varsayar. Modelleri birlikte kullandığınızda hepsi aynı paylaşılan kotadan düşer; bu nedenle tablodaki istek sayıları satırlar arasında doğrudan toplanamaz.
 
@@ -121,10 +125,10 @@ Bu tahminler aşağıdaki tipik istek profiline dayanır:
 - **Claude Sonnet 5.5** — istek başına yaklaşık 159 girdi token'ı, 129,804 önbellek okuma token'ı, 6,260 önbellek yazma token'ı ve 850 çıktı token'ı. (Önceki bir model sürümünde gözlemlenen istek profilini kullanır.)
 - **Claude Haiku 5.5** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (Claude Haiku 4.5 istek profili yeniden kullanılmıştır.)
 - **GPT-6 Luna** — istek başına yaklaşık 45,726 girdi token'ı, 10,720 önbellek okuma token'ı ve 1,905 çıktı token'ı. (GPT-5.6 Luna istek profili yeniden kullanılmıştır.)
-- **GPT-6.1 Sol** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (GPT-5.6 Sol istek profili yeniden kullanılmıştır.)
-- **GPT-6 Astra** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (Geçici olarak GPT-5.6 Sol istek profiline dayanmaktadır.)
+- **GPT-6.2 Sol** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (GPT-5.6 Sol istek profili yeniden kullanılmıştır.)
+- **GPT-6.2 Astra** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (Geçici olarak GPT-5.6 Sol istek profiline dayanmaktadır.)
 - **GPT-6.1 Terra** — istek başına yaklaşık 6,825 girdi token'ı, 69,476 önbellek okuma token'ı ve 734 çıktı token'ı. (GPT-5.6 Terra istek profili yeniden kullanılmıştır.)
 
-Yeni model sürümleri şimdilik öncüllerinde gözlemlenen istek profilini kullanır. İstek sayısı = pencere kotası ÷ (istek başına liste fiyatı × 0.1).
+Yeni model sürümleri şimdilik öncüllerinde gözlemlenen istek profilini kullanır. İstek sayısı = pencere kotası ÷ (istek başına liste fiyatı × 0.1) × (model sınırı ÷ \$60).
 
 Bu rakamlar tipik kullanımı tahmin etmek içindir ve sabit bir istek sayısı taahhüdü değildir. Kota sınırları ve tahmini istek hacimleri hizmet geliştikçe değişebilir — en güncel bilgiler için Harogo konsolunu ve bu sayfayı kontrol edin.
