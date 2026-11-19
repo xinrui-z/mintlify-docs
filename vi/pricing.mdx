@@ -16,14 +16,19 @@ Giá được tính trên 1 triệu token. Tất cả mô hình dùng chung mộ
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| MiniMax M3 | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
-| GPT-6.2 Sol | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| GPT-6.2 Astra | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
+| MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
+| GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
+| GPT-6.2 Sol (> 272K) | \$4.00 | \$15.00 | \$0.20 | \$5.00 | **\$60** |
+| GPT-6.2 Astra (≤ 272K) | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| GPT-6.2 Astra (> 272K) | \$16.00 | \$60.00 | \$1.60 | \$20.00 | **\$60** |
 | GPT-6.1 Terra | \$1.00 | \$5.00 | \$0.05 | - | **\$60** |
-| GPT-6 Luna | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (≤ 272K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (> 272K) | \$0.20 | \$0.75 | \$0.02 | \$0.25 | **\$60** |
 | Claude Opus 5.5 | \$4.00 | \$20.00 | \$0.20 | \$5.00 | **\$60** |
 | Claude Sonnet 5.5 | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| Claude Haiku 5.5 | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (≤ 100K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (> 100K) | \$0.50 | \$2.50 | \$0.05 | \$0.625 | **\$60** |
 
 </div>
 
@@ -31,5 +36,7 @@ Giá được tính trên 1 triệu token. Tất cả mô hình dùng chung mộ
 
 - Giới hạn hàng tháng khác nhau theo từng mô hình. Mô hình có hạn mức thấp hơn tiêu hao hạn mức dùng chung nhanh hơn, mô hình có hạn mức cao hơn tiêu hao chậm hơn.
 - Hạn mức sử dụng không phải là các hạn mức riêng biệt: mọi mô hình dùng chung một hạn mức, và mỗi hạn mức chỉ cho biết riêng mô hình đó dùng được bao nhiêu. Các hạn mức không cộng dồn.
+- Các mô hình có ghi khoảng đầu vào được tính giá theo bậc: khi tổng đầu vào của một yêu cầu (đầu vào + đọc cache + ghi cache) vượt ngưỡng, toàn bộ yêu cầu được tính theo bậc giá cao hơn.
+- Khi thanh toán bằng số dư tài khoản thay vì hạn mức gói đăng ký, yêu cầu được tính đủ theo giá trong bảng, không áp dụng mức giá 0,1× của gói đăng ký.
 
 Giá và giới hạn có thể thay đổi khi danh sách mô hình thay đổi. [Bảng điều khiển Harogo](https://console.harogo.ai/plan) và trang này là nguồn tham chiếu.

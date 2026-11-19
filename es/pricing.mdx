@@ -16,14 +16,19 @@ Los precios son por 1 M de tokens. Todos los modelos comparten una misma cuota d
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| MiniMax M3 | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
-| GPT-6.2 Sol | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| GPT-6.2 Astra | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
+| MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
+| GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
+| GPT-6.2 Sol (> 272K) | \$4.00 | \$15.00 | \$0.20 | \$5.00 | **\$60** |
+| GPT-6.2 Astra (≤ 272K) | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| GPT-6.2 Astra (> 272K) | \$16.00 | \$60.00 | \$1.60 | \$20.00 | **\$60** |
 | GPT-6.1 Terra | \$1.00 | \$5.00 | \$0.05 | - | **\$60** |
-| GPT-6 Luna | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (≤ 272K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (> 272K) | \$0.20 | \$0.75 | \$0.02 | \$0.25 | **\$60** |
 | Claude Opus 5.5 | \$4.00 | \$20.00 | \$0.20 | \$5.00 | **\$60** |
 | Claude Sonnet 5.5 | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| Claude Haiku 5.5 | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (≤ 100K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (> 100K) | \$0.50 | \$2.50 | \$0.05 | \$0.625 | **\$60** |
 
 </div>
 
@@ -31,5 +36,7 @@ Los precios son por 1 M de tokens. Todos los modelos comparten una misma cuota d
 
 - El límite mensual varía según el modelo. Los modelos con un tope más bajo consumen la cuota compartida más rápido; los de tope más alto, más despacio.
 - Los topes de uso no son asignaciones independientes: todos los modelos comparten una cuota y cada tope solo indica lo que ese modelo puede usar por sí solo. Los topes no se suman entre modelos.
+- Los modelos con un rango de entrada se cobran por tramos: cuando la entrada total de una solicitud (entrada + lecturas de caché + escrituras de caché) supera el umbral, toda la solicitud se factura con la tarifa superior.
+- Si pagas con el saldo de tu cuenta en lugar de la cuota de suscripción, se cobran los precios completos de la tabla, sin el precio de 0,1× de la suscripción.
 
 Los precios y límites pueden cambiar a medida que evoluciona la lista de modelos. La [consola de Harogo](https://console.harogo.ai/plan) y esta página son la referencia.
