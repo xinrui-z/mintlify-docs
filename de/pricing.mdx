@@ -16,14 +16,19 @@ Die Preise gelten pro 1 Mio. Tokens. Alle Modelle nutzen ein gemeinsames Abo-Kon
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| MiniMax M3 | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
-| GPT-6.2 Sol | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| GPT-6.2 Astra | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
+| MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
+| GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
+| GPT-6.2 Sol (> 272K) | \$4.00 | \$15.00 | \$0.20 | \$5.00 | **\$60** |
+| GPT-6.2 Astra (≤ 272K) | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| GPT-6.2 Astra (> 272K) | \$16.00 | \$60.00 | \$1.60 | \$20.00 | **\$60** |
 | GPT-6.1 Terra | \$1.00 | \$5.00 | \$0.05 | - | **\$60** |
-| GPT-6 Luna | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (≤ 272K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (> 272K) | \$0.20 | \$0.75 | \$0.02 | \$0.25 | **\$60** |
 | Claude Opus 5.5 | \$4.00 | \$20.00 | \$0.20 | \$5.00 | **\$60** |
 | Claude Sonnet 5.5 | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| Claude Haiku 5.5 | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (≤ 100K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (> 100K) | \$0.50 | \$2.50 | \$0.05 | \$0.625 | **\$60** |
 
 </div>
 
@@ -31,5 +36,7 @@ Die Preise gelten pro 1 Mio. Tokens. Alle Modelle nutzen ein gemeinsames Abo-Kon
 
 - Das Monatslimit ist je Modell unterschiedlich. Modelle mit niedrigerem Limit verbrauchen das gemeinsame Kontingent schneller, Modelle mit höherem Limit langsamer.
 - Nutzungslimits sind keine separaten Kontingente: Alle Modelle teilen sich ein Kontingent, und jedes Limit zeigt nur, was dieses Modell allein nutzen kann. Die Limits addieren sich nicht.
+- Modelle mit Eingabebereich werden gestaffelt abgerechnet: Überschreitet die Gesamteingabe einer Anfrage (Eingabe + Cache-Lesen + Cache-Schreiben) den Schwellenwert, wird die gesamte Anfrage zum höheren Tarif berechnet.
+- Wenn du über dein Kontoguthaben statt über das Abo-Kontingent bezahlst, werden die oben aufgeführten Preise vollständig berechnet – ohne die 0,1-fache Abo-Abrechnung.
 
 Preise und Limits können sich mit dem Modellangebot ändern. Die [Harogo Console](https://console.harogo.ai/plan) und diese Seite sind maßgeblich.

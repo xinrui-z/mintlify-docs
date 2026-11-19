@@ -16,14 +16,19 @@ Os preços são por 1 M de tokens. Todos os modelos compartilham a mesma cota de
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| MiniMax M3 | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
-| GPT-6.2 Sol | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| GPT-6.2 Astra | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
+| MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
+| GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
+| GPT-6.2 Sol (> 272K) | \$4.00 | \$15.00 | \$0.20 | \$5.00 | **\$60** |
+| GPT-6.2 Astra (≤ 272K) | \$8.00 | \$40.00 | \$0.80 | \$10.00 | **\$60** |
+| GPT-6.2 Astra (> 272K) | \$16.00 | \$60.00 | \$1.60 | \$20.00 | **\$60** |
 | GPT-6.1 Terra | \$1.00 | \$5.00 | \$0.05 | - | **\$60** |
-| GPT-6 Luna | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (≤ 272K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| GPT-6 Luna (> 272K) | \$0.20 | \$0.75 | \$0.02 | \$0.25 | **\$60** |
 | Claude Opus 5.5 | \$4.00 | \$20.00 | \$0.20 | \$5.00 | **\$60** |
 | Claude Sonnet 5.5 | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
-| Claude Haiku 5.5 | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (≤ 100K) | \$0.10 | \$0.50 | \$0.01 | \$0.125 | **\$60** |
+| Claude Haiku 5.5 (> 100K) | \$0.50 | \$2.50 | \$0.05 | \$0.625 | **\$60** |
 
 </div>
 
@@ -31,5 +36,7 @@ Os preços são por 1 M de tokens. Todos os modelos compartilham a mesma cota de
 
 - O limite mensal varia por modelo. Modelos com limite menor consomem a cota compartilhada mais rápido; modelos com limite maior, mais devagar.
 - Os limites de uso não são cotas separadas: todos os modelos compartilham uma cota, e cada limite mostra apenas o que aquele modelo sozinho pode usar. Os limites não se somam.
+- Modelos com faixa de entrada são cobrados por faixas: quando a entrada total de uma solicitação (entrada + leituras de cache + gravações de cache) ultrapassa o limite, a solicitação inteira é cobrada pela faixa mais alta.
+- Ao pagar com o saldo da conta em vez da cota da assinatura, são cobrados os preços integrais da tabela, sem o preço de 0,1× da assinatura.
 
 Preços e limites podem mudar conforme a lista de modelos evolui. O [console do Harogo](https://console.harogo.ai/plan) e esta página são a referência.
