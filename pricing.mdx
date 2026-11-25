@@ -1,6 +1,6 @@
 ---
 title: "Pricing"
-description: "Token prices per 1M tokens for the 13 models available on Harogo, with each model's monthly usage cap."
+description: "Token prices per 1M tokens for the 14 models available on Harogo, with each model's monthly usage cap."
 ---
 
 Token prices are per 1M tokens. All models share one subscription quota; the **Monthly limit** column is the usage cap applied to that model.
@@ -15,6 +15,7 @@ Token prices are per 1M tokens. All models share one subscription quota; the **M
 | DeepSeek V4 Pro | \$1.40 | \$4.20 | \$0.046 | - | **\$60** |
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
+| GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
@@ -37,6 +38,7 @@ Token prices are per 1M tokens. All models share one subscription quota; the **M
 - Monthly limits differ by model. Models with a lower cap draw down the shared quota faster; models with a higher cap draw it down more slowly.
 - Usage caps are not separate allowances: all models share one quota, and each cap only shows what that model alone can use. The caps don't add up across models.
 - Models with an input range are priced in tiers: once a single request's total input (input + cache reads + cache writes) exceeds the threshold, the whole request is billed at the higher tier.
-- When you pay from your account balance instead of the subscription quota, requests are charged at the full prices listed above, without the subscription's 0.1× pricing.
+- Subscription quota usage is the API list price multiplied by the model’s quota multiplier. For example, at a 1× multiplier, \$10 in API usage consumes \$10 of shared quota.
+- When you pay from your account balance instead of the subscription quota, requests are charged at the full prices listed above.
 
 Prices and caps may change as the lineup evolves. The [Harogo console](https://console.harogo.ai/plan) and this page are the source of truth.

@@ -20,7 +20,7 @@ Harogo riunisce in un unico servizio una serie di modelli adatti agli agenti di 
 I modelli attuali si dividono a grandi linee in questi gruppi:
 
 - **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Chiamate ad alta frequenza, risposte rapide e task sensibili ai costi**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
 Questi gruppi sono solo un riferimento per la scelta del modello. I risultati effettivi dipendono dal task, dal contesto e da come usi gli strumenti.
@@ -41,6 +41,7 @@ Modelli attualmente supportati:
 
 | Modello | ID modello | Ideale per |
 | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Task di lunga durata, codebase estese, coding per agenti |
 | GLM-5.3 | `glm-5.3` | Task di lunga durata, codebase estese, coding per agenti |
 | Qwen4 Max | `qwen4-max` | Ragionamento complesso, comprensione visiva e chiamate a strumenti integrate |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Coding di lunga durata, contesto da 1M, front-end e modellazione 3D |
@@ -93,19 +94,20 @@ La tabella seguente stima il numero di richieste per modello in base ai modelli 
 
 | Modello | Limite di utilizzo (giorno / settimana / mese) | Giornaliero | Settimanale | Mensile |
 | --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 3,204 | 8,011 | 16,022 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 552 | 1,380 | 2,759 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 8,591 | 21,476 | 42,953 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 180,451 | 451,128 | 902,256 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 3,992 | 9,981 | 19,962 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 727 | 1,817 | 3,634 |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
 
 Ogni riga presuppone che la quota di quella finestra venga spesa principalmente su quel solo modello. Se combini più modelli, attingono insieme dalla stessa quota condivisa, quindi i conteggi delle richieste nella tabella non si possono semplicemente sommare tra le righe.
 
@@ -115,7 +117,7 @@ Il volume di richieste effettivo dipende da fattori come la lunghezza del contes
 
 Queste stime si basano sul seguente profilo di richiesta tipico:
 
-- **GLM-5.3**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di GLM-5.2.)
+- **GLM-5.4 / GLM-5.3**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di GLM-5.2.)
 - **Qwen4 Max** — circa 8.731 token di input, 31.831 di lettura cache e 2.029 di output per richiesta. (Stima provvisoria.)
 - **Kimi K3.1 Pro**: circa 1,050 token di input, 76,500 token di lettura dalla cache e 300 token di output per richiesta. (Riutilizza il profilo di richiesta di Kimi K3.)
 - **MiniMax M3**: circa 4,381 token di input, 28,768 token di lettura dalla cache e 1,108 token di output per richiesta.
@@ -129,6 +131,6 @@ Queste stime si basano sul seguente profilo di richiesta tipico:
 - **GPT-6.2 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
 - **GPT-6.1 Terra**: circa 6,825 token di input, 69,476 token di lettura dalla cache e 734 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Terra.)
 
-Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta × 0.1) × (limite del modello ÷ \$60).
+Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta) × (limite del modello ÷ \$60).
 
 Questi dati servono a stimare un utilizzo tipico e non costituiscono un impegno su un numero fisso di richieste. I limiti quota e i volumi di richieste stimati possono cambiare con l'evoluzione del servizio: per le informazioni più aggiornate consulta la console Harogo e questa pagina.

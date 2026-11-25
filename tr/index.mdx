@@ -20,7 +20,7 @@ Harogo, kodlama ajanlarına uygun çeşitli modelleri tek bir hizmette bir araya
 Mevcut modeller kabaca şu gruplara ayrılır:
 
 - **Büyük kod tabanları ve zor muhakeme**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Günlük ajan kodlaması, kod üretimi ve hata ayıklama**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Günlük ajan kodlaması, kod üretimi ve hata ayıklama**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Yüksek frekanslı çağrılar, hızlı yanıtlar ve maliyete duyarlı görevler**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
 Bu gruplar yalnızca model seçerken referans amaçlıdır. Gerçek sonuçlar göreve, bağlama ve araçları nasıl kullandığınıza bağlıdır.
@@ -41,6 +41,7 @@ API anahtarınızı gizli tutun. Herkese açık bir depoya commit etmeyin veya b
 
 | Model | Model kimliği | En uygun kullanım |
 | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Uzun süreli görevler, büyük kod tabanları, ajan kodlaması |
 | GLM-5.3 | `glm-5.3` | Uzun süreli görevler, büyük kod tabanları, ajan kodlaması |
 | Qwen4 Max | `qwen4-max` | Karmaşık akıl yürütme, görsel anlama ve yerleşik araç çağrısı |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Uzun süreli kodlama, 1M bağlam, ön yüz ve 3D modelleme |
@@ -93,19 +94,20 @@ Aşağıdaki tablo, tipik Harogo kullanım kalıplarına göre model başına ta
 
 | Model | Kullanım sınırı (gün / hafta / ay) | Günlük | Haftalık | Aylık |
 | --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 3,204 | 8,011 | 16,022 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 552 | 1,380 | 2,759 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 8,591 | 21,476 | 42,953 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 180,451 | 451,128 | 902,256 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 3,992 | 9,981 | 19,962 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 727 | 1,817 | 3,634 |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
 
 Her satır, ilgili zaman penceresinin kotasının büyük ölçüde o tek model için harcandığını varsayar. Modelleri birlikte kullandığınızda hepsi aynı paylaşılan kotadan düşer; bu nedenle tablodaki istek sayıları satırlar arasında doğrudan toplanamaz.
 
@@ -115,7 +117,7 @@ Gerçek istek hacmi bağlam uzunluğu, önbellek isabet oranı, muhakeme çabas�
 
 Bu tahminler aşağıdaki tipik istek profiline dayanır:
 
-- **GLM-5.3** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (GLM-5.2 istek profili yeniden kullanılmıştır.)
+- **GLM-5.4 / GLM-5.3** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (GLM-5.2 istek profili yeniden kullanılmıştır.)
 - **Qwen4 Max** — istek başına yaklaşık 8.731 girdi, 31.831 önbellek okuma ve 2.029 çıktı token’ı. (Geçici tahmin.)
 - **Kimi K3.1 Pro** — istek başına yaklaşık 1,050 girdi token'ı, 76,500 önbellek okuma token'ı ve 300 çıktı token'ı. (Kimi K3 istek profili yeniden kullanılmıştır.)
 - **MiniMax M3** — istek başına yaklaşık 4,381 girdi token'ı, 28,768 önbellek okuma token'ı ve 1,108 çıktı token'ı.
@@ -129,6 +131,6 @@ Bu tahminler aşağıdaki tipik istek profiline dayanır:
 - **GPT-6.2 Astra** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (Geçici olarak GPT-5.6 Sol istek profiline dayanmaktadır.)
 - **GPT-6.1 Terra** — istek başına yaklaşık 6,825 girdi token'ı, 69,476 önbellek okuma token'ı ve 734 çıktı token'ı. (GPT-5.6 Terra istek profili yeniden kullanılmıştır.)
 
-Yeni model sürümleri şimdilik öncüllerinde gözlemlenen istek profilini kullanır. İstek sayısı = pencere kotası ÷ (istek başına liste fiyatı × 0.1) × (model sınırı ÷ \$60).
+Yeni model sürümleri şimdilik öncüllerinde gözlemlenen istek profilini kullanır. İstek sayısı = pencere kotası ÷ (istek başına liste fiyatı) × (model sınırı ÷ \$60).
 
 Bu rakamlar tipik kullanımı tahmin etmek içindir ve sabit bir istek sayısı taahhüdü değildir. Kota sınırları ve tahmini istek hacimleri hizmet geliştikçe değişebilir — en güncel bilgiler için Harogo konsolunu ve bu sayfayı kontrol edin.
