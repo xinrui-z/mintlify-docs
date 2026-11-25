@@ -20,7 +20,7 @@ Harogo tập hợp nhiều mô hình phù hợp cho agent lập trình vào mộ
 Các mô hình hiện tại được chia thành mấy nhóm chính như sau:
 
 - **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Lệnh gọi tần suất cao, phản hồi nhanh và tác vụ tối ưu chi phí**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
 Các nhóm này chỉ mang tính tham khảo khi chọn mô hình. Kết quả thực tế phụ thuộc vào tác vụ, ngữ cảnh và cách bạn sử dụng công cụ.
@@ -41,6 +41,7 @@ Các mô hình hiện được hỗ trợ:
 
 | Mô hình | ID mô hình | Phù hợp nhất cho |
 | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Tác vụ chạy dài, codebase lớn, lập trình agent |
 | GLM-5.3 | `glm-5.3` | Tác vụ chạy dài, codebase lớn, lập trình agent |
 | Qwen4 Max | `qwen4-max` | Suy luận phức tạp, hiểu hình ảnh và gọi công cụ tích hợp |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Lập trình chạy dài, ngữ cảnh 1M, front-end và dựng mô hình 3D |
@@ -93,19 +94,20 @@ Bảng dưới đây ước tính số yêu cầu cho từng mô hình dựa tr�
 
 | Mô hình | Hạn mức sử dụng (ngày / tuần / tháng) | Theo ngày | Theo tuần | Theo tháng |
 | --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 3,204 | 8,011 | 16,022 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 552 | 1,380 | 2,759 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 8,591 | 21,476 | 42,953 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 180,451 | 451,128 | 902,256 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 3,992 | 9,981 | 19,962 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 727 | 1,817 | 3,634 |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
 
 Mỗi hàng giả định hạn mức của khung thời gian đó được dùng chủ yếu cho riêng mô hình đó. Khi bạn kết hợp nhiều mô hình, chúng cùng trừ vào một hạn mức dùng chung, nên không thể cộng dồn số lượng yêu cầu giữa các hàng trong bảng.
 
@@ -115,7 +117,7 @@ Khối lượng yêu cầu thực tế chịu ảnh hưởng bởi các yếu t�
 
 Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
 
-- **GLM-5.3** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GLM-5.2.)
+- **GLM-5.4 / GLM-5.3** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GLM-5.2.)
 - **Qwen4 Max** — khoảng 8.731 token đầu vào, 31.831 token đọc bộ nhớ đệm và 2.029 token đầu ra mỗi yêu cầu. (Ước tính tạm thời.)
 - **Kimi K3.1 Pro** — khoảng 1,050 token đầu vào, 76,500 token đọc cache và 300 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Kimi K3.)
 - **MiniMax M3** — khoảng 4,381 token đầu vào, 28,768 token đọc cache và 1,108 token đầu ra mỗi yêu cầu.
@@ -129,6 +131,6 @@ Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
 - **GPT-6.2 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
 - **GPT-6.1 Terra** — khoảng 6,825 token đầu vào, 69,476 token đọc cache và 734 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Terra.)
 
-Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu × 0.1) × (hạn mức của mô hình ÷ \$60).
+Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu) × (hạn mức của mô hình ÷ \$60).
 
 Các con số này nhằm ước tính mức sử dụng điển hình và không phải là cam kết về số lượng yêu cầu cố định. Hạn mức tối đa và khối lượng yêu cầu ước tính có thể thay đổi khi dịch vụ phát triển — hãy kiểm tra console Harogo và trang này để biết thông tin mới nhất.

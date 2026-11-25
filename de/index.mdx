@@ -20,7 +20,7 @@ Harogo bündelt eine Reihe von Modellen, die sich gut für Coding-Agenten eignen
 Die aktuellen Modelle lassen sich grob in folgende Gruppen einteilen:
 
 - **Große Codebasen und anspruchsvolles Reasoning**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Alltägliches Agent-Coding, Codegenerierung und Debugging**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Alltägliches Agent-Coding, Codegenerierung und Debugging**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Hochfrequente Aufrufe, schnelle Antworten und kostensensitive Aufgaben**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
 Diese Gruppen dienen nur als Orientierung bei der Modellwahl. Die tatsächlichen Ergebnisse hängen von der Aufgabe, dem Kontext und der Art der Tool-Nutzung ab.
@@ -41,6 +41,7 @@ Derzeit unterstützte Modelle:
 
 | Modell | Modell-ID | Geeignet für |
 | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Langlaufende Aufgaben, große Codebasen, Agent-Coding |
 | GLM-5.3 | `glm-5.3` | Langlaufende Aufgaben, große Codebasen, Agent-Coding |
 | Qwen4 Max | `qwen4-max` | Komplexes Reasoning, Bildverständnis und integrierte Tool-Aufrufe |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Langlaufendes Coding, 1M Kontext, Frontend & 3D-Modellierung |
@@ -93,19 +94,20 @@ Die folgende Tabelle schätzt die Anzahl der Anfragen pro Modell auf Basis typis
 
 | Modell | Nutzungslimit (Tag / Woche / Monat) | Täglich | Wöchentlich | Monatlich |
 | --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 3,204 | 8,011 | 16,022 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 552 | 1,380 | 2,759 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 8,591 | 21,476 | 42,953 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 180,451 | 451,128 | 902,256 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 3,992 | 9,981 | 19,962 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 727 | 1,817 | 3,634 |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
 
 Jede Zeile geht davon aus, dass das Kontingent des jeweiligen Zeitfensters überwiegend für dieses eine Modell verbraucht wird. Wenn Sie Modelle kombinieren, greifen sie gemeinsam auf dasselbe Kontingent zu. Die Anfragezahlen der Tabelle lassen sich daher nicht einfach zeilenübergreifend addieren.
 
@@ -115,7 +117,7 @@ Das tatsächliche Anfragevolumen hängt unter anderem von Kontextlänge, Cache-T
 
 Die Schätzungen basieren auf folgendem typischen Anfrageprofil:
 
-- **GLM-5.3** – etwa 700 Eingabe-Tokens, 52,000 Cache-Read-Tokens und 150 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GLM-5.2.)
+- **GLM-5.4 / GLM-5.3** – etwa 700 Eingabe-Tokens, 52,000 Cache-Read-Tokens und 150 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GLM-5.2.)
 - **Qwen4 Max** — etwa 8.731 Eingabe-, 31.831 Cache-Lese- und 2.029 Ausgabe-Tokens pro Anfrage. (Vorläufige Schätzung.)
 - **Kimi K3.1 Pro** – etwa 1,050 Eingabe-Tokens, 76,500 Cache-Read-Tokens und 300 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von Kimi K3.)
 - **MiniMax M3** – etwa 4,381 Eingabe-Tokens, 28,768 Cache-Read-Tokens und 1,108 Ausgabe-Tokens pro Anfrage.
@@ -129,6 +131,6 @@ Die Schätzungen basieren auf folgendem typischen Anfrageprofil:
 - **GPT-6.2 Astra** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Basiert vorübergehend auf dem Anfrageprofil von GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – etwa 6,825 Eingabe-Tokens, 69,476 Cache-Read-Tokens und 734 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Terra.)
 
-Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage × 0.1) × (Modell-Limit ÷ \$60).
+Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage) × (Modell-Limit ÷ \$60).
 
 Diese Werte dienen zur Schätzung typischer Nutzung und sind keine Zusage einer festen Anzahl an Anfragen. Kontingent-Limits und geschätztes Anfragevolumen können sich im Zuge der Weiterentwicklung des Dienstes ändern – aktuelle Informationen finden Sie in der Harogo-Konsole und auf dieser Seite.

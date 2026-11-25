@@ -20,7 +20,7 @@ Harogo brengt een reeks modellen die goed geschikt zijn voor coding agents samen
 De huidige modellen zijn grofweg in te delen in deze groepen:
 
 - **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
+- **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
 - **Hoogfrequente aanroepen, snelle reacties en kostenbewuste taken**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
 
 Deze groepen zijn alleen een richtlijn bij het kiezen van een model. De werkelijke resultaten hangen af van de taak, de context en hoe je de tools gebruikt.
@@ -41,6 +41,7 @@ Momenteel ondersteunde modellen:
 
 | Model | Model-ID | Geschikt voor |
 | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Langlopende taken, grote codebases, agent-coding |
 | GLM-5.3 | `glm-5.3` | Langlopende taken, grote codebases, agent-coding |
 | Qwen4 Max | `qwen4-max` | Complex redeneren, beeldbegrip en ingebouwde tool-aanroepen |
 | Kimi K3.1 Pro | `kimi-k3.1-pro` | Langlopende coding, 1M context, front-end en 3D-modellering |
@@ -93,19 +94,20 @@ De onderstaande tabel schat het aantal aanvragen per model op basis van typische
 
 | Model | Gebruikslimiet (dag / week / maand) | Per dag | Per week | Per maand |
 | --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 122,324 | 305,810 | 611,621 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 19,868 | 49,669 | 99,338 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 13,193 | 32,982 | 65,963 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 45,767 | 114,417 | 228,834 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 2,438 | 6,094 | 12,188 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 1,471 | 3,676 | 7,353 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 21,306 | 53,264 | 106,528 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 3,204 | 8,011 | 16,022 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 552 | 1,380 | 2,759 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 8,591 | 21,476 | 42,953 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 180,451 | 451,128 | 902,256 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 3,992 | 9,981 | 19,962 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 727 | 1,817 | 3,634 |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
 
 Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
 
@@ -115,7 +117,7 @@ Het werkelijke aanvraagvolume hangt onder meer af van contextlengte, cache-hitra
 
 Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
 
-- **GLM-5.3** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GLM-5.2.)
+- **GLM-5.4 / GLM-5.3** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GLM-5.2.)
 - **Qwen4 Max** — ongeveer 8.731 invoer-, 31.831 cache-lees- en 2.029 uitvoertokens per aanvraag. (Voorlopige schatting.)
 - **Kimi K3.1 Pro** – ongeveer 1,050 inputtokens, 76,500 cache-read-tokens en 300 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Kimi K3.)
 - **MiniMax M3** – ongeveer 4,381 inputtokens, 28,768 cache-read-tokens en 1,108 outputtokens per aanvraag.
@@ -129,6 +131,6 @@ Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
 - **GPT-6.2 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
 - **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
 
-Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag × 0.1) × (modellimiet ÷ \$60).
+Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag) × (modellimiet ÷ \$60).
 
 Deze cijfers zijn bedoeld om typisch gebruik te schatten en zijn geen toezegging van een vast aantal aanvragen. Quotumlimieten en het geschatte aanvraagvolume kunnen wijzigen naarmate de dienst zich ontwikkelt – check de Harogo-console en deze pagina voor de meest actuele informatie.
