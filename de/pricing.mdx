@@ -1,11 +1,13 @@
 ---
-title: "Preise"
-description: "Tokenpreise pro 1 Mio. Tokens für die 14 Modelle auf Harogo, inklusive des monatlichen Nutzungslimits je Modell."
+title: "Modellpreise und Nutzung"
+description: "Tokenpreise pro 1 Mio. Tokens für die 13 Modelle auf Harogo, inklusive des monatlichen Nutzungslimits je Modell."
 ---
 
 Die Preise gelten pro 1 Mio. Tokens. Alle Modelle nutzen ein gemeinsames Abo-Kontingent; die Spalte **Monatslimit** ist das Nutzungslimit des jeweiligen Modells.
 
-## Modelle und Preise
+[Abo und Verlängerung](/de/subscription) · [Zeiten für die Kontingent-Rücksetzung](#usage-limits) · [API-Schlüssel für die Abrechnung](#billing-keys)
+
+## Modelle und Preise {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Die Preise gelten pro 1 Mio. Tokens. Alle Modelle nutzen ein gemeinsames Abo-Kon
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Die Preise gelten pro 1 Mio. Tokens. Alle Modelle nutzen ein gemeinsames Abo-Kon
 - Das Monatslimit ist je Modell unterschiedlich. Modelle mit niedrigerem Limit verbrauchen das gemeinsame Kontingent schneller, Modelle mit höherem Limit langsamer.
 - Nutzungslimits sind keine separaten Kontingente: Alle Modelle teilen sich ein Kontingent, und jedes Limit zeigt nur, was dieses Modell allein nutzen kann. Die Limits addieren sich nicht.
 - Modelle mit Eingabebereich werden gestaffelt abgerechnet: Überschreitet die Gesamteingabe einer Anfrage (Eingabe + Cache-Lesen + Cache-Schreiben) den Schwellenwert, wird die gesamte Anfrage zum höheren Tarif berechnet.
+- Für die API-Nutzung gelten die Preise in der Tabelle. Der Kontingentfaktor des Modells bestimmt den Verbrauch des gemeinsamen Abo-Kontingents.
 - Wenn du über dein Kontoguthaben statt über das Abo-Kontingent bezahlst, werden die oben aufgeführten Preise vollständig berechnet.
 
 Preise und Limits können sich mit dem Modellangebot ändern. Die [Harogo Console](https://console.harogo.ai/plan) und diese Seite sind maßgeblich.
+
+## Nutzung und Limits {#usage-limits}
+
+Harogo wendet die folgenden Nutzungslimits an:
+
+- Tageslimit: \$12 (wird täglich um **16:00 UTC** zurückgesetzt)
+- Wochenlimit: \$30 (wird ab der ersten Nutzung des Abos alle 7 Tage zurückgesetzt)
+- Monatslimit: \$60 (wird ab der ersten Nutzung des Abos alle 30 Tage zurückgesetzt)
+
+Alle drei Limits gelten gleichzeitig. Jedes Modell hat ein eigenes Nutzungslimit: Modelle mit einem Limit unter \$60 verbrauchen das gemeinsame Kontingent schneller, Modelle mit einem Limit über \$60 langsamer. Die Limits je Modell stehen auf der Seite [Preise](#token-prices).
+
+Die Limits sind in USD-Wert festgelegt, nicht als feste Anzahl an Anfragen. Wie viele Anfragen Sie tatsächlich erhalten, hängt vom verwendeten Modell ab: Günstigere Modelle erlauben in der Regel mehr Anfragen, teurere Modelle weniger.
+
+Ihre aktuelle Nutzung und das verbleibende Kontingent sehen Sie in der [Harogo-Konsole](https://console.harogo.ai/plan).
+
+| Modell | Verbrauch aus dem gemeinsamen Kontingent je \$1 zu den angegebenen API-Preisen |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### API-Schlüssel für Abo und Guthaben {#billing-keys}
+
+Erstelle auf der [API-Schlüssel-Seite](https://console.harogo.ai/keys) getrennte Schlüssel: einen Abo-Schlüssel für das Abo-Kontingent und einen Guthabenschlüssel für die Zahlung aus deinem Kontoguthaben. Beide werden getrennt abgerechnet. Ist dein Abo-Kontingent aufgebraucht, belastet Harogo dein Guthaben nicht automatisch.
+
+### Geschätztes Anfragevolumen
+
+Die Anfragezahlen sind Schätzwerte und nicht garantiert. Eine Programmieraufgabe kann mehrere Modellanfragen auslösen.
+
+Jede Zeile geht davon aus, dass das Kontingent des jeweiligen Zeitfensters überwiegend für dieses eine Modell verbraucht wird. Wenn Sie Modelle kombinieren, greifen sie gemeinsam auf dasselbe Kontingent zu. Die Anfragezahlen der Tabelle lassen sich daher nicht einfach zeilenübergreifend addieren.
+
+| Modell | Nutzungslimit (Tag / Woche / Monat) | Täglich | Wöchentlich | Monatlich |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Schätzmethode
+
+Die Schätzungen basieren auf folgendem typischen Anfrageprofil:
+
+- **GLM-5.4** – etwa 700 Eingabe-Tokens, 52,000 Cache-Read-Tokens und 150 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GLM-5.2.)
+- **Qwen4 Max** — etwa 8.731 Eingabe-, 31.831 Cache-Lese- und 2.029 Ausgabe-Tokens pro Anfrage. (Vorläufige Schätzung.)
+- **Kimi K3.1 Pro** – etwa 1,050 Eingabe-Tokens, 76,500 Cache-Read-Tokens und 300 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von Kimi K3.)
+- **MiniMax M3** – etwa 4,381 Eingabe-Tokens, 28,768 Cache-Read-Tokens und 1,108 Ausgabe-Tokens pro Anfrage.
+- **DeepSeek V4 Pro** – etwa 750 Eingabe-Tokens, 82,000 Cache-Read-Tokens und 290 Ausgabe-Tokens pro Anfrage.
+- **DeepSeek V4.1 Flash 1017** – etwa 790 Eingabe-Tokens, 68,000 Cache-Read-Tokens und 280 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** – etwa 580 Eingabe-Tokens, 386,230 Cache-Read-Tokens, 19,476 Cache-Write-Tokens und 2,025 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von Claude Opus 5.)
+- **Claude Sonnet 5.5** – etwa 159 Eingabe-Tokens, 129,804 Cache-Read-Tokens, 6,260 Cache-Write-Tokens und 850 Ausgabe-Tokens pro Anfrage. (Verwendet das beobachtete Anfrageprofil einer früheren Modellversion.)
+- **Claude Haiku 5.5** – etwa 700 Eingabe-Tokens, 52,000 Cache-Read-Tokens und 150 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von Claude Haiku 4.5.)
+- **GPT-6 Luna** – etwa 45,726 Eingabe-Tokens, 10,720 Cache-Read-Tokens und 1,905 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Luna.)
+- **GPT-6.2 Sol** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Sol.)
+- **GPT-6.2 Astra** – etwa 6,032 Eingabe-Tokens, 112,138 Cache-Read-Tokens und 678 Ausgabe-Tokens pro Anfrage. (Basiert vorübergehend auf dem Anfrageprofil von GPT-5.6 Sol.)
+- **GPT-6.1 Terra** – etwa 6,825 Eingabe-Tokens, 69,476 Cache-Read-Tokens und 734 Ausgabe-Tokens pro Anfrage. (Übernimmt das Anfrageprofil von GPT-5.6 Terra.)
+
+Neuere Modellversionen übernehmen vorerst das Anfrageprofil, das bei ihrem Vorgänger beobachtet wurde. Anfragen = Kontingent des Zeitfensters ÷ (Listenpreis pro Anfrage) × (Modell-Limit ÷ \$60).

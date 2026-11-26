@@ -1,11 +1,13 @@
 ---
-title: "Precios"
-description: "Precios por 1 M de tokens para los 14 modelos disponibles en Harogo, con el límite de uso mensual de cada modelo."
+title: "Precios y uso de los modelos"
+description: "Precios por 1 M de tokens para los 13 modelos disponibles en Harogo, con el límite de uso mensual de cada modelo."
 ---
 
 Los precios son por 1 M de tokens. Todos los modelos comparten una misma cuota de suscripción; la columna **Límite mensual** es el tope aplicado a ese modelo.
 
-## Modelos y precios
+[Suscripción y renovación](/es/subscription) · [Cuándo se restablecen los límites](#usage-limits) · [Claves según la forma de pago](#billing-keys)
+
+## Modelos y precios {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Los precios son por 1 M de tokens. Todos los modelos comparten una misma cuota d
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Los precios son por 1 M de tokens. Todos los modelos comparten una misma cuota d
 - El límite mensual varía según el modelo. Los modelos con un tope más bajo consumen la cuota compartida más rápido; los de tope más alto, más despacio.
 - Los topes de uso no son asignaciones independientes: todos los modelos comparten una cuota y cada tope solo indica lo que ese modelo puede usar por sí solo. Los topes no se suman entre modelos.
 - Los modelos con un rango de entrada se cobran por tramos: cuando la entrada total de una solicitud (entrada + lecturas de caché + escrituras de caché) supera el umbral, toda la solicitud se factura con la tarifa superior.
+- El uso de la API se calcula con los precios de la tabla. El multiplicador de cada modelo determina cuánto consume de la cuota compartida de la suscripción.
 - Si pagas con el saldo de tu cuenta en lugar de la cuota de suscripción, se cobran los precios completos de la tabla.
 
 Los precios y límites pueden cambiar a medida que evoluciona la lista de modelos. La [consola de Harogo](https://console.harogo.ai/plan) y esta página son la referencia.
+
+## Uso y límites {#usage-limits}
+
+Harogo aplica los siguientes límites de uso:
+
+- Límite diario: \$12 (se restablece todos los días a las **16:00 UTC**)
+- Límite semanal: \$30 (se restablece cada 7 días a partir del primer uso de la suscripción)
+- Límite mensual: \$60 (se restablece cada 30 días a partir del primer uso de la suscripción)
+
+Los tres límites se aplican al mismo tiempo. Cada modelo tiene su propio tope de uso: los modelos con un tope inferior a \$60 consumen la cuota compartida más rápido y los que superan \$60, más despacio. Consulta el tope de cada modelo en [Precios](#token-prices).
+
+Los límites se definen en importes en dólares, no en un número fijo de solicitudes. Cuántas solicitudes obtienes realmente depende del modelo que uses: los modelos más económicos suelen permitir más solicitudes, y los más caros, menos.
+
+Puedes consultar tu uso actual y la cuota restante en la [consola de Harogo](https://console.harogo.ai/plan).
+
+| Modelo | Consumo de la cuota compartida por cada \$1 a los precios de la API de la tabla |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### Claves de API de suscripción y de saldo {#billing-keys}
+
+Crea claves separadas en la [página de claves de API](https://console.harogo.ai/keys): una clave de suscripción para usar la cuota del plan y una clave de saldo para pagar con el saldo de tu cuenta. El uso se contabiliza por separado. Si agotas la cuota de tu suscripción, Harogo no hará cargos automáticos a tu saldo.
+
+### Volumen de solicitudes estimado
+
+Estas cifras son estimaciones, no cantidades garantizadas. Una sola tarea de programación puede generar varias solicitudes al modelo.
+
+Cada fila supone que la cuota de esa ventana de tiempo se gasta principalmente en ese único modelo. Si combinas modelos, todos consumen de la misma cuota compartida, así que los números de solicitudes de la tabla no se pueden sumar entre filas.
+
+| Modelo | Tope de uso (día / semana / mes) | Diario | Semanal | Mensual |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Método de estimación
+
+Estas estimaciones se basan en el siguiente perfil de solicitud típico:
+
+- **GLM-5.4**: unos 700 tokens de entrada, 52,000 tokens de lectura de caché y 150 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de GLM-5.2).
+- **Qwen4 Max** — unos 8.731 tokens de entrada, 31.831 de lectura de caché y 2.029 de salida por solicitud. (Estimación provisional.)
+- **Kimi K3.1 Pro**: unos 1,050 tokens de entrada, 76,500 tokens de lectura de caché y 300 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de Kimi K3).
+- **MiniMax M3**: unos 4,381 tokens de entrada, 28,768 tokens de lectura de caché y 1,108 tokens de salida por solicitud.
+- **DeepSeek V4 Pro**: unos 750 tokens de entrada, 82,000 tokens de lectura de caché y 290 tokens de salida por solicitud.
+- **DeepSeek V4.1 Flash 1017**: unos 790 tokens de entrada, 68,000 tokens de lectura de caché y 280 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de DeepSeek V4 Flash 0731).
+- **Claude Opus 5.5**: unos 580 tokens de entrada, 386,230 tokens de lectura de caché, 19,476 tokens de escritura de caché y 2,025 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de Claude Opus 5).
+- **Claude Sonnet 5.5**: unos 159 tokens de entrada, 129,804 tokens de lectura de caché, 6,260 tokens de escritura de caché y 850 tokens de salida por solicitud. (Usa el perfil de solicitudes observado en una versión anterior del modelo.)
+- **Claude Haiku 5.5**: unos 700 tokens de entrada, 52,000 tokens de lectura de caché y 150 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de Claude Haiku 4.5).
+- **GPT-6 Luna**: unos 45,726 tokens de entrada, 10,720 tokens de lectura de caché y 1,905 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de GPT-5.6 Luna).
+- **GPT-6.2 Sol**: unos 6,032 tokens de entrada, 112,138 tokens de lectura de caché y 678 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de GPT-5.6 Sol).
+- **GPT-6.2 Astra**: unos 6,032 tokens de entrada, 112,138 tokens de lectura de caché y 678 tokens de salida por solicitud. (Se basa provisionalmente en el perfil de solicitud de GPT-5.6 Sol).
+- **GPT-6.1 Terra**: unos 6,825 tokens de entrada, 69,476 tokens de lectura de caché y 734 tokens de salida por solicitud. (Reutiliza el perfil de solicitud de GPT-5.6 Terra).
+
+Por ahora, las versiones nuevas de los modelos reutilizan el perfil de solicitud observado en su predecesor. Solicitudes = cuota de la ventana ÷ (precio de lista por solicitud) × (tope del modelo ÷ \$60).

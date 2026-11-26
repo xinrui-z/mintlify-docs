@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "이 가이드를 따라 하면 Harogo 기반의 Codex를 몇 분 만에 사용할 수 있습니다."
+description: "설치된 Codex CLI를 Harogo에 연결합니다."
 icon: "pineapple"
 ---
 
 <Note>
-**이 가이드는 GPT 시리즈만 사용합니다.** Codex에서는 GPT 시리즈(GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra)와 제한이 없는 모델(GLM, Qwen, Kimi, MiniMax, DeepSeek)을 실행할 수 있습니다. Claude 시리즈는 Codex에서 사용할 수 없습니다. [Claude Code](/ko/claude-code)를 참고하세요.
+이 페이지는 Codex CLI가 이미 설치되어 있다고 가정합니다.
 </Note>
 
-## 설치
+## 1. API 키 받기
 
-### 공식 사이트에서 다운로드(macOS)
+[Harogo 콘솔](https://console.harogo.ai/keys)을 열고 API 키를 생성한 뒤 복사합니다. 키는 비밀번호처럼 관리하세요. 저장소에 커밋하거나 공유하지 마세요. 결제 방식에 따라 [구독용 키 또는 잔액 결제용 키](/ko/pricing#billing-keys)를 선택하세요.
 
-[https://openai.com/codex/](https://openai.com/codex/)
+## 2. Harogo 구성
 
-### 명령줄로 설치
-
-```bash
-npm install -g @openai/codex
-```
-
-## 환경 변수 설정
-
-### 설정 파일로 설정하기
-
-1. `~/.codex/config.toml` 파일을 편집해 다음 내용을 추가합니다.
+기존 `~/.codex/config.toml`에 Harogo Provider를 추가합니다. 기존 Provider와 Profile을 보존하고 파일 전체를 교체하지 마세요.
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,18 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. `~/.codex/auth.json` 파일을 편집해 다음과 같이 수정합니다.
+Harogo를 기본 Profile로 사용할 때만 `profile = "harogo"`를 설정하세요. 기존 `~/.codex/auth.json`에서는 `OPENAI_API_KEY` 값만 Harogo API 키로 업데이트하고 다른 항목은 보존하세요.
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+[CC Switch](/ko/troubleshooting#cc-switch)를 사용한다면 대신 그곳에 같은 Provider를 추가하고 활성화하세요. 우선순위를 모른다면 두 구성을 동시에 사용하지 마세요.
 
-### cc-switch로 설정하기
+모델 ID를 선택하기 전에 [모델 호환성 표](/ko#model-compatibility)를 확인하세요.
 
-1. CC-Switch를 실행하고 제공업체를 추가합니다.
+## 3. 연결 확인
 
-<img
-  alt="CC-Switch의 제공업체 추가 화면"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="CC-Switch의 제공업체 추가 화면"
-  darkAlt="CC-Switch의 제공업체 추가 화면"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+프로젝트 디렉터리에서 이미 설치된 클라이언트를 시작합니다.
 
-2. 프리셋 목록에서 "사용자 지정 설정"(Custom Configuration)을 선택합니다.
-
-<img
-  alt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
-  darkAlt="CC-Switch 프리셋 목록에서 Custom Configuration을 선택하는 화면"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. 제공업체 이름, API 키, 엔드포인트([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) 등을 입력합니다. 모두 입력했다면 "추가"(Add)를 클릭합니다.
-
-<img
-  alt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
-  darkAlt="CC-Switch에서 API 키를 입력하고 저장하는 화면"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. 홈 화면으로 돌아가 "harogo"를 선택하고 "활성화"(Enable)를 클릭하면 바로 사용할 수 있습니다.
-
-<img
-  alt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
-  darkAlt="CC-Switch에서 harogo 제공업체를 활성화하는 화면"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## Codex 사용하기
-
-### 터미널에서 사용하기
-
-1. 터미널을 열고 프로젝트 디렉터리로 이동한 뒤 `codex` 명령을 실행합니다.
-
-```bash
-cd /path/to/your/project
+```shellscript
 codex
 ```
 
-2. 필요에 따라 권한을 설정합니다.
-
-<img
-  alt="Codex 시작 시 승인 권한을 설정하는 화면"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Codex 시작 시 승인 권한을 설정하는 화면"
-  darkAlt="Codex 시작 시 승인 권한을 설정하는 화면"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. 자연어로 프롬프트를 입력하세요. 정상적인 응답이 돌아오면 설정이 완료된 것입니다.
+`Reply with exactly: 2` 같은 간단한 요청을 보냅니다. 응답이 반환되고 활성 모델이 구성한 Harogo 모델(예: `gpt-6.2-sol`)인지 확인하세요. 정상 응답만으로는 Harogo가 실제로 활성화되었다고 볼 수 없습니다.

@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "Hướng dẫn này giúp bạn bắt đầu dùng Codex với Harogo chỉ trong vài phút."
+description: "Kết nối Codex CLI đã cài đặt với Harogo."
 icon: "pineapple"
 ---
 
 <Note>
-**Hướng dẫn này chỉ dùng mô hình GPT.** Codex có thể chạy các mô hình GPT (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) cùng các mô hình không bị giới hạn ứng dụng (GLM, Qwen, Kimi, MiniMax, DeepSeek). Mô hình Claude không dùng được trong Codex — xem [Claude Code](/vi/claude-code).
+Trang này giả định Codex CLI đã được cài đặt.
 </Note>
 
-## Cài đặt
+## 1. Lấy API key
 
-### Tải từ trang chính thức (macOS)
+Mở [console Harogo](https://console.harogo.ai/keys), tạo API key và sao chép. Hãy bảo vệ key như mật khẩu. Không commit key vào repository hoặc chia sẻ key. Chọn [khóa gói đăng ký hoặc khóa số dư](/vi/pricing#billing-keys) theo cách bạn muốn thanh toán.
 
-[https://openai.com/codex/](https://openai.com/codex/)
+## 2. Cấu hình Harogo
 
-### Cài đặt qua dòng lệnh
-
-```bash
-npm install -g @openai/codex
-```
-
-## Cấu hình biến môi trường
-
-### Cấu hình qua tệp cấu hình
-
-1. Mở tệp `~/.codex/config.toml` và thêm nội dung sau:
+Thêm provider Harogo vào `~/.codex/config.toml` hiện có. Giữ lại các provider và profile hiện tại; không thay thế toàn bộ file.
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,18 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. Mở tệp `~/.codex/auth.json` và cập nhật như sau:
+Chỉ đặt `profile = "harogo"` nếu muốn Harogo là profile mặc định. Trong `~/.codex/auth.json` hiện có, chỉ cập nhật giá trị `OPENAI_API_KEY` và giữ lại các mục khác.
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+Nếu dùng [CC Switch](/vi/troubleshooting#cc-switch), hãy thêm và bật provider tương tự ở đó. Không kết hợp các cấu hình nếu bạn chưa biết cấu hình nào được ưu tiên.
 
-### Cấu hình qua cc-switch
+Xem [bảng tương thích mô hình](/vi#model-compatibility) trước khi chọn ID mô hình.
 
-1. Mở CC-Switch và thêm một nhà cung cấp.
+## 3. Xác nhận kết nối
 
-<img
-  alt="Màn hình Thêm nhà cung cấp trong CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="Màn hình Thêm nhà cung cấp trong CC-Switch"
-  darkAlt="Màn hình Thêm nhà cung cấp trong CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+Trong thư mục dự án, khởi động client đã cài đặt:
 
-2. Trong danh sách cài đặt sẵn, chọn "Cấu hình tùy chỉnh" (Custom Configuration).
-
-<img
-  alt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
-  darkAlt="Chọn Custom Configuration trong danh sách cấu hình sẵn của CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. Điền tên nhà cung cấp, API key, endpoint ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) và các thông tin khác. Điền xong, nhấp "Thêm" (Add).
-
-<img
-  alt="Nhập API key và lưu trong CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="Nhập API key và lưu trong CC-Switch"
-  darkAlt="Nhập API key và lưu trong CC-Switch"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. Quay lại màn hình chính, chọn "harogo" và nhấp "Bật" (Enable) để bắt đầu sử dụng.
-
-<img
-  alt="Bật nhà cung cấp harogo trên CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="Bật nhà cung cấp harogo trên CC-Switch"
-  darkAlt="Bật nhà cung cấp harogo trên CC-Switch"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## Sử dụng Codex
-
-### Trong terminal
-
-1. Mở terminal, chuyển đến thư mục dự án của bạn, rồi chạy lệnh `codex`.
-
-```bash
-cd /path/to/your/project
+```shellscript
 codex
 ```
 
-2. Thiết lập quyền theo nhu cầu.
-
-<img
-  alt="Thiết lập quyền phê duyệt khi khởi động Codex"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Thiết lập quyền phê duyệt khi khởi động Codex"
-  darkAlt="Thiết lập quyền phê duyệt khi khởi động Codex"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. Nhập một prompt bằng ngôn ngữ tự nhiên — nếu nhận được phản hồi bình thường, nghĩa là bạn đã thiết lập thành công.
+Gửi một yêu cầu ngắn như `Reply with exactly: 2`. Kiểm tra phản hồi và model đang hoạt động, chẳng hạn `gpt-6.2-sol`. Chỉ có phản hồi bình thường chưa đủ để xác nhận Harogo đang hoạt động.

@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "Bu rehber, Harogo destekli Codex'i birkaç dakika içinde kullanmaya başlamanıza yardımcı olur."
+description: "Yüklü Codex CLI'yi Harogo'ya bağlayın."
 icon: "pineapple"
 ---
 
 <Note>
-**Bu kılavuz yalnızca GPT modellerini kullanır.** Codex, GPT modellerini (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) ve istemci kısıtlaması olmayan modelleri (GLM, Qwen, Kimi, MiniMax, DeepSeek) çalıştırabilir. Claude modelleri Codex'te kullanılamaz — bkz. [Claude Code](/tr/claude-code).
+Bu sayfa Codex CLI'nin zaten yüklü olduğunu varsayar.
 </Note>
 
-## Kurulum
+## 1. API anahtarı alın
 
-### Resmi siteden indirin (macOS)
+[Harogo konsolunu](https://console.harogo.ai/keys) açın, bir API anahtarı oluşturun ve kopyalayın. Anahtarı parola gibi koruyun. Bir depoya göndermeyin veya paylaşmayın. Ödeme tercihinize göre bir [abonelik veya bakiye anahtarı](/tr/pricing#billing-keys) seçin.
 
-[https://openai.com/codex/](https://openai.com/codex/)
+## 2. Harogo'yu yapılandırın
 
-### Komut satırından kurun
-
-```bash
-npm install -g @openai/codex
-```
-
-## Ortam Değişkeni Yapılandırması
-
-### Yapılandırma dosyasıyla yapılandırın
-
-1. `~/.codex/config.toml` dosyanızı düzenleyin ve aşağıdakileri ekleyin:
+Harogo sağlayıcısını mevcut `~/.codex/config.toml` dosyanıza ekleyin. Mevcut sağlayıcıları ve profilleri koruyun; dosyanın tamamını değiştirmeyin.
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,18 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. `~/.codex/auth.json` dosyanızı düzenleyin ve aşağıdaki gibi güncelleyin:
+Harogo'nun varsayılan profil olmasını istiyorsanız `profile = "harogo"` ayarlayın. Mevcut `~/.codex/auth.json` içinde yalnızca `OPENAI_API_KEY` değerini güncelleyin ve diğer girdileri koruyun.
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+[CC Switch](/tr/troubleshooting#cc-switch) kullanıyorsanız aynı sağlayıcıyı oraya ekleyip etkinleştirin. Önceliği bilmiyorsanız yapılandırmaları birleştirmeyin.
 
-### cc-switch ile yapılandırın
+Model kimliği seçmeden önce [model uyumluluk tablosuna](/tr#model-compatibility) bakın.
 
-1. CC-Switch'i açın ve bir sağlayıcı ekleyin.
+## 3. Bağlantıyı doğrulayın
 
-<img
-  alt="CC-Switch'teki Sağlayıcı Ekle ekranı"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="CC-Switch'teki Sağlayıcı Ekle ekranı"
-  darkAlt="CC-Switch'teki Sağlayıcı Ekle ekranı"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+Proje dizininizde yüklü istemciyi başlatın:
 
-2. Hazır ayarlar listesinden "Özel Yapılandırma" (Custom Configuration) seçeneğini seçin.
-
-<img
-  alt="CC-Switch ön ayar listesinde Custom Configuration seçimi"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="CC-Switch ön ayar listesinde Custom Configuration seçimi"
-  darkAlt="CC-Switch ön ayar listesinde Custom Configuration seçimi"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. Sağlayıcı adı, API anahtarı ve uç nokta ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) gibi bilgileri doldurun. Tüm alanları doldurduktan sonra "Ekle" (Add) seçeneğine tıklayın.
-
-<img
-  alt="CC-Switch'te API anahtarının girilip kaydedilmesi"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="CC-Switch'te API anahtarının girilip kaydedilmesi"
-  darkAlt="CC-Switch'te API anahtarının girilip kaydedilmesi"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. Ana ekrana döndüğünüzde "harogo"yu seçin ve kullanmaya başlamak için "Etkinleştir" (Enable) seçeneğine tıklayın.
-
-<img
-  alt="CC-Switch'te harogo sağlayıcısının etkinleştirilmesi"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="CC-Switch'te harogo sağlayıcısının etkinleştirilmesi"
-  darkAlt="CC-Switch'te harogo sağlayıcısının etkinleştirilmesi"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## Codex'i Kullanma
-
-### Terminalde
-
-1. Bir terminal açın, proje dizininize gidin ve ardından `codex` komutunu çalıştırın.
-
-```bash
-cd /path/to/your/project
+```shellscript
 codex
 ```
 
-2. İzinleri ihtiyacınıza göre ayarlayın.
-
-<img
-  alt="Codex başlatılırken onay izinlerinin ayarlanması"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Codex başlatılırken onay izinlerinin ayarlanması"
-  darkAlt="Codex başlatılırken onay izinlerinin ayarlanması"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. Doğal dilde bir istem yazın — normal bir yanıt alırsanız kurulum başarıyla tamamlanmıştır.
+`Reply with exactly: 2` gibi kısa bir istek gönderin. Yanıtı ve etkin modelin yapılandırdığınız Harogo modeli (ör. `gpt-6.2-sol`) olduğunu kontrol edin. Normal bir yanıt tek başına Harogo'nun etkin olduğunu kanıtlamaz.

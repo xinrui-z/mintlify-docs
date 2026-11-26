@@ -3,134 +3,40 @@ title: "Giới thiệu sản phẩm"
 description: "Harogo là gói đăng ký đa mô hình được xây dựng cho các agent lập trình. Trang này giới thiệu những gì có trong gói đăng ký, cách thiết lập, các mô hình được hỗ trợ và cách hoạt động của giới hạn sử dụng."
 ---
 
-# Giới thiệu
-
 Harogo là gói đăng ký đa mô hình được xây dựng cho các agent lập trình.
-
-Giá đăng ký ưu đãi là \$4.90 cho tháng đầu tiên, sau đó là \$9.90/tháng, hiện có 100 suất đăng ký ưu đãi. Số suất còn lại và mức giá thanh toán thực tế được hiển thị trên trang đăng ký. Gói đăng ký tự động gia hạn hằng tháng và được trừ tiền vào thẻ của bạn qua Stripe. Giá tháng đầu chỉ áp dụng cho lần đăng ký Harogo đầu tiên của bạn. Bạn có thể hủy tự động gia hạn bất cứ lúc nào tại trang **Plan** trong bảng điều khiển và vẫn dùng được đến hết kỳ đã thanh toán.
 
 Sau khi đăng ký, bạn có thể dùng nhiều mô hình lập trình chỉ với một tài khoản Harogo và một API key. Mọi mô hình dùng chung một hạn mức đăng ký, nên bạn không cần đăng ký, nạp tiền hay quản lý riêng từng nền tảng mô hình.
 
-# Vì sao chọn Harogo
+## Bắt đầu
 
-Mỗi mô hình lại phù hợp với một loại tác vụ lập trình khác nhau. Dùng trực tiếp nhiều nhà cung cấp mô hình thường đồng nghĩa với việc phải quản lý cùng lúc nhiều tài khoản, API key, số dư, giới hạn tốc độ và hóa đơn.
-
-Harogo tập hợp nhiều mô hình phù hợp cho agent lập trình vào một dịch vụ duy nhất. Bạn có thể tự do chuyển đổi mô hình theo từng tác vụ, và mọi lệnh gọi đều được tính vào cùng một hạn mức đăng ký dùng chung.
-
-Các mô hình hiện tại được chia thành mấy nhóm chính như sau:
-
-- **Codebase lớn và suy luận khó**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Lập trình agent thường ngày, sinh mã và gỡ lỗi**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
-- **Lệnh gọi tần suất cao, phản hồi nhanh và tác vụ tối ưu chi phí**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-
-Các nhóm này chỉ mang tính tham khảo khi chọn mô hình. Kết quả thực tế phụ thuộc vào tác vụ, ngữ cảnh và cách bạn sử dụng công cụ.
-
-# Bắt đầu
-
-1. Đăng nhập Harogo và đăng ký gói.
-2. Tạo và sao chép API key trong console.
-3. Dùng `https://api.harogo.ai` cho [Claude Code](/vi/claude-code), hoặc `https://api.harogo.ai/v1` cho [Codex](/vi/codex) và [OpenCode](/vi/opencode). Làm theo hướng dẫn của ứng dụng bạn dùng.
-4. Dán API key của bạn vào.
-5. Bắt đầu sử dụng.
+1. [Mở trang đăng ký Harogo](https://console.harogo.ai/plan)
+2. [Tạo và sao chép khóa API trong bảng điều khiển](https://console.harogo.ai/keys)
+3. Làm theo hướng dẫn cho ứng dụng của bạn: [Claude Code](/vi/claude-code) hoặc [Codex](/vi/codex).
 
 Giữ API key ở chế độ riêng tư. Không commit nó lên kho mã công khai hay chia sẻ cho bất kỳ ai.
 
-# Các mô hình được hỗ trợ
+## Các mô hình được hỗ trợ {#model-compatibility}
 
-Các mô hình hiện được hỗ trợ:
+Các kết quả dưới đây áp dụng cho gói cơ bản của Harogo. [Claude Code](/vi/claude-code) dùng `POST /v1/messages`, còn [Codex](/vi/codex) dùng `POST /v1/responses`.
 
-| Mô hình | ID mô hình | Phù hợp nhất cho |
-| --- | --- | --- |
-| GLM-5.4 | `glm-5.4` | Tác vụ chạy dài, codebase lớn, lập trình agent |
-| GLM-5.3 | `glm-5.3` | Tác vụ chạy dài, codebase lớn, lập trình agent |
-| Qwen4 Max | `qwen4-max` | Suy luận phức tạp, hiểu hình ảnh và gọi công cụ tích hợp |
-| Kimi K3.1 Pro | `kimi-k3.1-pro` | Lập trình chạy dài, ngữ cảnh 1M, front-end và dựng mô hình 3D |
-| MiniMax M3 | `minimax-m3` | Lập trình tần suất cao, gọi công cụ, ngữ cảnh dài |
-| DeepSeek V4 Pro | `deepseek-v4-pro` | Suy luận và sinh mã phức tạp |
-| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Hoàn thành nhanh, lệnh gọi tần suất cao, tác vụ theo lô |
-| Claude Opus 5.5 | `claude-opus-5-5` | Lập trình agent phức tạp và các tác vụ kỹ thuật khó |
-| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Lập trình hằng ngày và công việc phát triển tổng quát |
-| Claude Haiku 5.5 | `claude-haiku-5-5` | Phản hồi nhanh, tác vụ nhẹ, xử lý theo lô |
-| GPT-6 Luna | `gpt-6-luna` | Lập trình tần suất cao và tác vụ nhẹ |
-| GPT-6.2 Sol | `gpt-6.2-sol` | Sinh mã khó, review và suy luận |
-| GPT-6.2 Astra | `gpt-6.2-astra` | Suy luận hàng đầu cho các bài toán kỹ thuật khó nhất |
-| GPT-6.1 Terra | `gpt-6.1-terra` | Lập trình agent hằng ngày và các tác vụ tổng quát |
+| Mô hình | ID mô hình | Phù hợp nhất cho | Messages | Responses |
+| --- | --- | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Tác vụ chạy dài, codebase lớn, lập trình agent | Không khả dụng | Hỗ trợ |
+| Qwen4 Max | `qwen4-max` | Suy luận phức tạp, hiểu hình ảnh và gọi công cụ tích hợp | Không khả dụng | Hỗ trợ |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Lập trình chạy dài, ngữ cảnh 1M, front-end và dựng mô hình 3D | Không khả dụng | Hỗ trợ |
+| MiniMax M3 | `minimax-m3` | Lập trình tần suất cao, gọi công cụ, ngữ cảnh dài | Không khả dụng | Hỗ trợ |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Suy luận và sinh mã phức tạp | Không khả dụng | Hỗ trợ |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Hoàn thành nhanh, lệnh gọi tần suất cao, tác vụ theo lô | Không khả dụng | Hỗ trợ |
+| Claude Opus 5.5 | `claude-opus-5-5` | Lập trình agent phức tạp và các tác vụ kỹ thuật khó | Chỉ chấp nhận yêu cầu từ Claude Code | Không khả dụng |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Lập trình hằng ngày và công việc phát triển tổng quát | Chỉ chấp nhận yêu cầu từ Claude Code | Không khả dụng |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Phản hồi nhanh, tác vụ nhẹ, xử lý theo lô | Chỉ chấp nhận yêu cầu từ Claude Code | Không khả dụng |
+| GPT-6 Luna | `gpt-6-luna` | Lập trình tần suất cao và tác vụ nhẹ | Không khả dụng | Hỗ trợ |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Sinh mã khó, review và suy luận | Không khả dụng | Hỗ trợ |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Suy luận hàng đầu cho các bài toán kỹ thuật khó nhất | Không khả dụng | Hỗ trợ |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Lập trình agent hằng ngày và các tác vụ tổng quát | Không khả dụng | Hỗ trợ |
 
 Tên và ID mô hình ở trên là các định danh định tuyến mà Harogo sử dụng nội bộ. Danh sách mô hình, phiên bản và tình trạng khả dụng có thể thay đổi — hãy kiểm tra console để biết danh sách hiện tại.
 
-## Phạm vi sử dụng mô hình theo ứng dụng
-
-Một số mô hình chỉ dùng được trong một ứng dụng nhất định. Các mô hình còn lại không bị giới hạn.
-
-<Note>
-**Mô hình GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) chỉ dùng được trong [Codex](/vi/codex).
-
-**Mô hình Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) chỉ dùng được trong [Claude Code](/vi/claude-code).
-
-**Các mô hình còn lại** (GLM, Qwen, Kimi, MiniMax, DeepSeek) không bị giới hạn ứng dụng và dùng được trong mọi ứng dụng được hỗ trợ.
-</Note>
-
-## Mức sử dụng và hạn mức
-
-Harogo áp dụng các giới hạn sử dụng sau:
-
-- Hạn mức theo ngày: \$12
-- Hạn mức theo tuần: \$30
-- Hạn mức theo tháng: \$60
-
-Cả ba hạn mức áp dụng cùng lúc. Mọi lệnh gọi mô hình đều trừ vào cùng một hạn mức đăng ký dùng chung. Mỗi mô hình có hạn mức sử dụng riêng: mô hình có hạn mức dưới \$60 tiêu hao hạn mức dùng chung nhanh hơn, mô hình có hạn mức trên \$60 tiêu hao chậm hơn. Xem hạn mức của từng mô hình tại trang [Bảng giá](/vi/pricing).
-
-Hạn mức được tính theo giá trị USD chứ không phải theo số lượng yêu cầu cố định. Số yêu cầu bạn thực sự nhận được phụ thuộc vào mô hình đang dùng — mô hình giá thấp thường cho phép nhiều yêu cầu hơn, còn mô hình giá cao cho phép ít yêu cầu hơn.
-
-Bạn có thể xem mức sử dụng hiện tại và hạn mức còn lại trong [console Harogo](https://console.harogo.ai/plan).
-
-### Khối lượng yêu cầu ước tính
-
-Bảng dưới đây ước tính số yêu cầu cho từng mô hình dựa trên mẫu sử dụng Harogo điển hình. Hạn mức dùng chung là \$12 / \$30 / \$60 mỗi ngày / tuần / tháng, nhưng mỗi mô hình có hạn mức sử dụng riêng: mô hình có hạn mức thấp hơn tiêu hao hạn mức dùng chung nhanh hơn. Hạn mức trong bảng là lượng mà riêng mô hình đó có thể dùng trong mỗi khung.
-
-<Note>
-**Hạn mức sử dụng không phải là các hạn mức riêng biệt.** Tất cả mô hình đều trừ vào một hạn mức dùng chung duy nhất: \$12 mỗi ngày, \$30 mỗi tuần và \$60 mỗi tháng. Hạn mức của mỗi mô hình chỉ cho biết bạn dùng được bao nhiêu nếu chỉ dùng riêng mô hình đó — các hạn mức không cộng dồn và bạn không thể dùng hết hạn mức của mọi mô hình trong cùng một khung. Ví dụ, dùng hết hạn mức tháng \$15 của Kimi K3.1 Pro sẽ tiêu hết toàn bộ hạn mức dùng chung của tháng, không còn lại gì cho các mô hình khác.
-</Note>
-
-| Mô hình | Hạn mức sử dụng (ngày / tuần / tháng) | Theo ngày | Theo tuần | Theo tháng |
-| --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
-| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
-
-Mỗi hàng giả định hạn mức của khung thời gian đó được dùng chủ yếu cho riêng mô hình đó. Khi bạn kết hợp nhiều mô hình, chúng cùng trừ vào một hạn mức dùng chung, nên không thể cộng dồn số lượng yêu cầu giữa các hàng trong bảng.
-
-Khối lượng yêu cầu thực tế chịu ảnh hưởng bởi các yếu tố như độ dài ngữ cảnh, tỷ lệ cache hit, mức độ suy luận và độ dài đầu ra. Ngoài ra, một agent lập trình thường gửi nhiều yêu cầu mô hình để hoàn thành một tác vụ, nên một yêu cầu không tương đương với một tác vụ lập trình hoàn chỉnh.
-
-### Phương pháp ước tính
-
-Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
-
-- **GLM-5.4 / GLM-5.3** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GLM-5.2.)
-- **Qwen4 Max** — khoảng 8.731 token đầu vào, 31.831 token đọc bộ nhớ đệm và 2.029 token đầu ra mỗi yêu cầu. (Ước tính tạm thời.)
-- **Kimi K3.1 Pro** — khoảng 1,050 token đầu vào, 76,500 token đọc cache và 300 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Kimi K3.)
-- **MiniMax M3** — khoảng 4,381 token đầu vào, 28,768 token đọc cache và 1,108 token đầu ra mỗi yêu cầu.
-- **DeepSeek V4 Pro** — khoảng 750 token đầu vào, 82,000 token đọc cache và 290 token đầu ra mỗi yêu cầu.
-- **DeepSeek V4.1 Flash 1017** — khoảng 790 token đầu vào, 68,000 token đọc cache và 280 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của DeepSeek V4 Flash 0731.)
-- **Claude Opus 5.5** — khoảng 580 token đầu vào, 386,230 token đọc cache, 19,476 token ghi cache và 2,025 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Opus 5.)
-- **Claude Sonnet 5.5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu. (Dùng mẫu yêu cầu quan sát được ở một phiên bản mô hình trước đó.)
-- **Claude Haiku 5.5** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Haiku 4.5.)
-- **GPT-6 Luna** — khoảng 45,726 token đầu vào, 10,720 token đọc cache và 1,905 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Luna.)
-- **GPT-6.2 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
-- **GPT-6.2 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
-- **GPT-6.1 Terra** — khoảng 6,825 token đầu vào, 69,476 token đọc cache và 734 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Terra.)
-
-Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu) × (hạn mức của mô hình ÷ \$60).
-
-Các con số này nhằm ước tính mức sử dụng điển hình và không phải là cam kết về số lượng yêu cầu cố định. Hạn mức tối đa và khối lượng yêu cầu ước tính có thể thay đổi khi dịch vụ phát triển — hãy kiểm tra console Harogo và trang này để biết thông tin mới nhất.
+- [Đăng ký và gia hạn](/vi/subscription)
+- [Giá và hạn mức mô hình](/vi/pricing)
+- [Khắc phục sự cố](/vi/troubleshooting)

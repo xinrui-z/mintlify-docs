@@ -1,11 +1,13 @@
 ---
-title: "Tarifs"
-description: "Prix par million de tokens pour les 14 modèles disponibles sur Harogo, avec la limite d'usage mensuelle de chaque modèle."
+title: "Tarifs et utilisation des modèles"
+description: "Prix par million de tokens pour les 13 modèles disponibles sur Harogo, avec la limite d'usage mensuelle de chaque modèle."
 ---
 
 Les prix sont indiqués par million de tokens. Tous les modèles partagent un même quota d'abonnement ; la colonne **Limite mensuelle** correspond au plafond appliqué à ce modèle.
 
-## Modèles et tarifs
+[Abonnement et renouvellement](/fr/subscription) · [Réinitialisation des quotas](#usage-limits) · [Clés API par mode de paiement](#billing-keys)
+
+## Modèles et tarifs {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Les prix sont indiqués par million de tokens. Tous les modèles partagent un m�
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Les prix sont indiqués par million de tokens. Tous les modèles partagent un m�
 - Le plafond mensuel varie selon le modèle. Les modèles au plafond plus bas consomment le quota partagé plus vite ; ceux au plafond plus élevé, plus lentement.
 - Les plafonds d'utilisation ne sont pas des enveloppes séparées : tous les modèles partagent un quota, et chaque plafond indique seulement ce que ce modèle seul peut utiliser. Les plafonds ne s'additionnent pas.
 - Les modèles avec une plage d'entrée sont facturés par paliers : lorsque l'entrée totale d'une requête (entrée + lectures du cache + écritures du cache) dépasse le seuil, toute la requête est facturée au palier supérieur.
+- L’utilisation de l’API est calculée aux prix du tableau. Le multiplicateur du modèle détermine la quantité prélevée sur le quota partagé de l’abonnement.
 - Si vous payez avec le solde de votre compte plutôt qu'avec le quota d'abonnement, les prix complets du tableau s'appliquent.
 
 Les prix et les plafonds peuvent évoluer avec la gamme de modèles. La [console Harogo](https://console.harogo.ai/plan) et cette page font foi.
+
+## Utilisation et limites {#usage-limits}
+
+Harogo applique les limites d'utilisation suivantes :
+
+- Limite quotidienne : \$12 (réinitialisation quotidienne à **16:00 UTC**)
+- Limite hebdomadaire : \$30 (réinitialisation tous les 7 jours à compter de la première utilisation de l’abonnement)
+- Limite mensuelle : \$60 (réinitialisation tous les 30 jours à compter de la première utilisation de l’abonnement)
+
+Les trois limites s'appliquent en même temps. Chaque modèle a son propre plafond d'utilisation : les modèles plafonnés sous \$60 consomment le quota partagé plus vite, ceux plafonnés au-dessus de \$60 plus lentement. Le plafond de chaque modèle figure sur la page [Tarifs](#token-prices).
+
+Les limites sont exprimées en dollars plutôt qu'en nombre fixe de requêtes. Le nombre de requêtes dont vous disposez réellement dépend du modèle utilisé : les modèles moins chers permettent généralement plus de requêtes, les modèles plus chers moins.
+
+Vous pouvez consulter votre utilisation actuelle et votre quota restant dans la [console Harogo](https://console.harogo.ai/plan).
+
+| Modèle | Quota partagé consommé pour chaque \$1 au prix de l’API indiqué |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### Clés API pour l’abonnement et le solde {#billing-keys}
+
+Créez deux clés distinctes sur la [page des clés API](https://console.harogo.ai/keys) : une clé d’abonnement pour utiliser le quota du forfait et une clé de solde pour payer avec le solde du compte. Les consommations sont comptabilisées séparément. Si le quota d’abonnement est épuisé, Harogo ne débite pas automatiquement votre solde.
+
+### Volume de requêtes estimé
+
+Ces nombres de requêtes sont des estimations, pas des garanties. Une seule tâche de programmation peut déclencher plusieurs requêtes au modèle.
+
+Chaque ligne suppose que le quota de la fenêtre concernée est consacré principalement à ce seul modèle. Si vous combinez plusieurs modèles, ils puisent ensemble dans le même quota partagé : les nombres de requêtes du tableau ne s'additionnent donc pas d'une ligne à l'autre.
+
+| Modèle | Plafond d'utilisation (jour / semaine / mois) | Par jour | Par semaine | Par mois |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Méthode d'estimation
+
+Ces estimations reposent sur le profil de requête typique suivant :
+
+- **GLM-5.4** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de GLM-5.2.)
+- **Qwen4 Max** — environ 8 731 tokens d’entrée, 31 831 de lecture de cache et 2 029 de sortie par requête. (Estimation provisoire.)
+- **Kimi K3.1 Pro** : environ 1,050 jetons d'entrée, 76,500 jetons de lecture du cache et 300 jetons de sortie par requête. (Reprend le profil de requête de Kimi K3.)
+- **MiniMax M3** : environ 4,381 jetons d'entrée, 28,768 jetons de lecture du cache et 1,108 jetons de sortie par requête.
+- **DeepSeek V4 Pro** : environ 750 jetons d'entrée, 82,000 jetons de lecture du cache et 290 jetons de sortie par requête.
+- **DeepSeek V4.1 Flash 1017** : environ 790 jetons d'entrée, 68,000 jetons de lecture du cache et 280 jetons de sortie par requête. (Reprend le profil de requête de DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** : environ 580 jetons d'entrée, 386,230 jetons de lecture du cache, 19,476 jetons d'écriture dans le cache et 2,025 jetons de sortie par requête. (Reprend le profil de requête de Claude Opus 5.)
+- **Claude Sonnet 5.5** : environ 159 jetons d'entrée, 129,804 jetons de lecture du cache, 6,260 jetons d'écriture dans le cache et 850 jetons de sortie par requête. (Utilise le profil de requêtes observé sur une version précédente du modèle.)
+- **Claude Haiku 5.5** : environ 700 jetons d'entrée, 52,000 jetons de lecture du cache et 150 jetons de sortie par requête. (Reprend le profil de requête de Claude Haiku 4.5.)
+- **GPT-6 Luna** : environ 45,726 jetons d'entrée, 10,720 jetons de lecture du cache et 1,905 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Luna.)
+- **GPT-6.2 Sol** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.2 Astra** : environ 6,032 jetons d'entrée, 112,138 jetons de lecture du cache et 678 jetons de sortie par requête. (Provisoirement basé sur le profil de requête de GPT-5.6 Sol.)
+- **GPT-6.1 Terra** : environ 6,825 jetons d'entrée, 69,476 jetons de lecture du cache et 734 jetons de sortie par requête. (Reprend le profil de requête de GPT-5.6 Terra.)
+
+Les nouvelles versions de modèles reprennent pour l'instant le profil de requête observé sur leur prédécesseur. Requêtes = quota de la fenêtre ÷ (prix catalogue par requête) × (plafond du modèle ÷ \$60).

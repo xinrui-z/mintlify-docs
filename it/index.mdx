@@ -3,134 +3,40 @@ title: "Presentazione del prodotto"
 description: "Harogo è un abbonamento multi-modello pensato per gli agenti di coding. Questa pagina spiega cosa include un abbonamento, come configurarlo, quali modelli sono supportati e come funzionano i limiti di utilizzo."
 ---
 
-# Presentazione
-
 Harogo è un abbonamento multi-modello pensato per gli agenti di coding.
-
-Il prezzo scontato dell'abbonamento è di \$4.90 per il primo mese, poi \$9.90/mese, con 100 posti in abbonamento scontati attualmente disponibili. I posti rimanenti e il prezzo di liquidazione effettivo sono indicati nella pagina di abbonamento. L'abbonamento si rinnova automaticamente ogni mese e viene addebitato sulla tua carta tramite Stripe. Il prezzo del primo mese vale solo per il tuo primo abbonamento Harogo. Puoi annullare il rinnovo automatico in qualsiasi momento dalla pagina **Plan** della console e mantieni l'accesso fino alla fine del periodo già pagato.
 
 Una volta abbonato, puoi usare più modelli di coding con un unico account Harogo e un'unica chiave API. Tutti i modelli condividono la stessa quota di abbonamento, quindi non serve registrarsi, ricaricare il saldo o gestire piattaforme di modelli separate.
 
-# Perché Harogo
+## Primi passi
 
-Modelli diversi eccellono in compiti di coding diversi. Usare direttamente più provider di modelli di solito significa gestire contemporaneamente più account, chiavi API, saldi, limiti di frequenza e fatture.
-
-Harogo riunisce in un unico servizio una serie di modelli adatti agli agenti di coding. Puoi passare liberamente da un modello all'altro in base al task, e tutto viene conteggiato su un'unica quota di abbonamento condivisa.
-
-I modelli attuali si dividono a grandi linee in questi gruppi:
-
-- **Codebase estese e ragionamento complesso**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Coding quotidiano per agenti, generazione di codice e debug**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
-- **Chiamate ad alta frequenza, risposte rapide e task sensibili ai costi**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-
-Questi gruppi sono solo un riferimento per la scelta del modello. I risultati effettivi dipendono dal task, dal contesto e da come usi gli strumenti.
-
-# Per iniziare
-
-1. Accedi a Harogo e sottoscrivi l'abbonamento.
-2. Crea e copia una chiave API nella console.
-3. Usa `https://api.harogo.ai` per [Claude Code](/it/claude-code), oppure `https://api.harogo.ai/v1` per [Codex](/it/codex) e [OpenCode](/it/opencode). Segui la guida del tuo client.
-4. Incolla la tua chiave API.
-5. Inizia a usarlo.
+1. [Apri la pagina degli abbonamenti Harogo](https://console.harogo.ai/plan)
+2. [Crea e copia una chiave API nella console](https://console.harogo.ai/keys)
+3. Segui la guida del tuo client: [Claude Code](/it/claude-code) o [Codex](/it/codex).
 
 Custodisci la tua chiave API. Non includerla nei commit di un repository pubblico e non condividerla con nessuno.
 
-# Modelli supportati
+## Modelli supportati {#model-compatibility}
 
-Modelli attualmente supportati:
+Questi risultati si applicano al piano base di Harogo. [Claude Code](/it/claude-code) usa `POST /v1/messages`, mentre [Codex](/it/codex) usa `POST /v1/responses`.
 
-| Modello | ID modello | Ideale per |
-| --- | --- | --- |
-| GLM-5.4 | `glm-5.4` | Task di lunga durata, codebase estese, coding per agenti |
-| GLM-5.3 | `glm-5.3` | Task di lunga durata, codebase estese, coding per agenti |
-| Qwen4 Max | `qwen4-max` | Ragionamento complesso, comprensione visiva e chiamate a strumenti integrate |
-| Kimi K3.1 Pro | `kimi-k3.1-pro` | Coding di lunga durata, contesto da 1M, front-end e modellazione 3D |
-| MiniMax M3 | `minimax-m3` | Coding ad alta frequenza, chiamate a strumenti, contesto lungo |
-| DeepSeek V4 Pro | `deepseek-v4-pro` | Ragionamento e generazione di codice complessa |
-| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Completamenti rapidi, chiamate ad alta frequenza, task in batch |
-| Claude Opus 5.5 | `claude-opus-5-5` | Coding complesso per agenti e task di ingegneria difficili |
-| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Coding quotidiano e sviluppo generale |
-| Claude Haiku 5.5 | `claude-haiku-5-5` | Risposte rapide, task leggeri, elaborazione in batch |
-| GPT-6 Luna | `gpt-6-luna` | Coding ad alta frequenza e task leggeri |
-| GPT-6.2 Sol | `gpt-6.2-sol` | Generazione di codice complessa, revisione e ragionamento |
-| GPT-6.2 Astra | `gpt-6.2-astra` | Ragionamento di punta per i problemi di ingegneria più difficili |
-| GPT-6.1 Terra | `gpt-6.1-terra` | Coding quotidiano per agenti e task generali |
+| Modello | ID modello | Ideale per | Messages | Responses |
+| --- | --- | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Task di lunga durata, codebase estese, coding per agenti | Non disponibile | Supportato |
+| Qwen4 Max | `qwen4-max` | Ragionamento complesso, comprensione visiva e chiamate a strumenti integrate | Non disponibile | Supportato |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Coding di lunga durata, contesto da 1M, front-end e modellazione 3D | Non disponibile | Supportato |
+| MiniMax M3 | `minimax-m3` | Coding ad alta frequenza, chiamate a strumenti, contesto lungo | Non disponibile | Supportato |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Ragionamento e generazione di codice complessa | Non disponibile | Supportato |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Completamenti rapidi, chiamate ad alta frequenza, task in batch | Non disponibile | Supportato |
+| Claude Opus 5.5 | `claude-opus-5-5` | Coding complesso per agenti e task di ingegneria difficili | Riservato a Claude Code | Non disponibile |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Coding quotidiano e sviluppo generale | Riservato a Claude Code | Non disponibile |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Risposte rapide, task leggeri, elaborazione in batch | Riservato a Claude Code | Non disponibile |
+| GPT-6 Luna | `gpt-6-luna` | Coding ad alta frequenza e task leggeri | Non disponibile | Supportato |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Generazione di codice complessa, revisione e ragionamento | Non disponibile | Supportato |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Ragionamento di punta per i problemi di ingegneria più difficili | Non disponibile | Supportato |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Coding quotidiano per agenti e task generali | Non disponibile | Supportato |
 
 I nomi e gli ID dei modelli qui sopra sono gli identificatori di instradamento usati internamente da Harogo. L'elenco dei modelli, le versioni e la disponibilità possono cambiare: verifica l'elenco attuale nella console.
 
-## Disponibilità dei modelli per client
-
-Alcuni modelli sono limitati a un client specifico. Gli altri funzionano ovunque.
-
-<Note>
-**Modelli GPT** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) sono disponibili solo in [Codex](/it/codex).
-
-**Modelli Claude** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) sono disponibili solo in [Claude Code](/it/claude-code).
-
-**Tutti gli altri modelli** (GLM, Qwen, Kimi, MiniMax, DeepSeek) non hanno restrizioni di client e funzionano in qualsiasi client supportato.
-</Note>
-
-## Utilizzo e limiti
-
-Harogo applica i seguenti limiti di utilizzo:
-
-- Limite giornaliero: \$12
-- Limite settimanale: \$30
-- Limite mensile: \$60
-
-Tutti e tre i limiti si applicano contemporaneamente. Ogni chiamata al modello attinge dalla quota di abbonamento condivisa. Ogni modello ha un proprio limite di utilizzo: i modelli con limite inferiore a \$60 consumano la quota condivisa più rapidamente, quelli con limite superiore a \$60 più lentamente. Il limite di ciascun modello è indicato in [Prezzi](/it/pricing).
-
-I limiti sono definiti in dollari anziché in un numero fisso di richieste. Il numero di richieste che ottieni effettivamente dipende dal modello che usi: i modelli più economici in genere consentono più richieste, quelli più costosi meno.
-
-Puoi verificare l'utilizzo attuale e la quota residua nella [console Harogo](https://console.harogo.ai/plan).
-
-### Volume di richieste stimato
-
-La tabella seguente stima il numero di richieste per modello in base ai modelli di utilizzo tipici di Harogo. La quota condivisa è di \$12 / \$30 / \$60 al giorno / settimana / mese, ma ogni modello ha un proprio limite di utilizzo: un modello con limite più basso consuma la quota condivisa più rapidamente. Il limite indicato è quanto quel modello da solo può usare in ciascuna finestra.
-
-<Note>
-**I limiti di utilizzo non sono quote separate.** Tutti i modelli attingono da un'unica quota condivisa di \$12 al giorno, \$30 a settimana e \$60 al mese. Il limite di ciascun modello indica solo quanto puoi usare se usi esclusivamente quel modello: i limiti non si sommano e non puoi usare il limite completo di ogni modello nella stessa finestra. Ad esempio, esaurire l'intero limite mensile di \$15 di Kimi K3.1 Pro consuma tutta la quota condivisa del mese e non lascia nulla per gli altri modelli.
-</Note>
-
-| Modello | Limite di utilizzo (giorno / settimana / mese) | Giornaliero | Settimanale | Mensile |
-| --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
-| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
-
-Ogni riga presuppone che la quota di quella finestra venga spesa principalmente su quel solo modello. Se combini più modelli, attingono insieme dalla stessa quota condivisa, quindi i conteggi delle richieste nella tabella non si possono semplicemente sommare tra le righe.
-
-Il volume di richieste effettivo dipende da fattori come la lunghezza del contesto, il tasso di cache hit, lo sforzo di ragionamento e la lunghezza dell'output. Inoltre, per completare un singolo task un agente di coding invia di solito più richieste al modello, quindi una richiesta non equivale a un task di coding completo.
-
-### Metodo di stima
-
-Queste stime si basano sul seguente profilo di richiesta tipico:
-
-- **GLM-5.4 / GLM-5.3**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di GLM-5.2.)
-- **Qwen4 Max** — circa 8.731 token di input, 31.831 di lettura cache e 2.029 di output per richiesta. (Stima provvisoria.)
-- **Kimi K3.1 Pro**: circa 1,050 token di input, 76,500 token di lettura dalla cache e 300 token di output per richiesta. (Riutilizza il profilo di richiesta di Kimi K3.)
-- **MiniMax M3**: circa 4,381 token di input, 28,768 token di lettura dalla cache e 1,108 token di output per richiesta.
-- **DeepSeek V4 Pro**: circa 750 token di input, 82,000 token di lettura dalla cache e 290 token di output per richiesta.
-- **DeepSeek V4.1 Flash 1017**: circa 790 token di input, 68,000 token di lettura dalla cache e 280 token di output per richiesta. (Riutilizza il profilo di richiesta di DeepSeek V4 Flash 0731.)
-- **Claude Opus 5.5**: circa 580 token di input, 386,230 token di lettura dalla cache, 19,476 token di scrittura nella cache e 2,025 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Opus 5.)
-- **Claude Sonnet 5.5**: circa 159 token di input, 129,804 token di lettura dalla cache, 6,260 token di scrittura nella cache e 850 token di output per richiesta. (Usa il profilo di richieste osservato in una versione precedente del modello.)
-- **Claude Haiku 5.5**: circa 700 token di input, 52,000 token di lettura dalla cache e 150 token di output per richiesta. (Riutilizza il profilo di richiesta di Claude Haiku 4.5.)
-- **GPT-6 Luna**: circa 45,726 token di input, 10,720 token di lettura dalla cache e 1,905 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Luna.)
-- **GPT-6.2 Sol**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Sol.)
-- **GPT-6.2 Astra**: circa 6,032 token di input, 112,138 token di lettura dalla cache e 678 token di output per richiesta. (Basato temporaneamente sul profilo di richiesta di GPT-5.6 Sol.)
-- **GPT-6.1 Terra**: circa 6,825 token di input, 69,476 token di lettura dalla cache e 734 token di output per richiesta. (Riutilizza il profilo di richiesta di GPT-5.6 Terra.)
-
-Per ora le nuove versioni dei modelli riutilizzano il profilo di richiesta osservato sul modello precedente. Richieste = quota della finestra ÷ (prezzo di listino per richiesta) × (limite del modello ÷ \$60).
-
-Questi dati servono a stimare un utilizzo tipico e non costituiscono un impegno su un numero fisso di richieste. I limiti quota e i volumi di richieste stimati possono cambiare con l'evoluzione del servizio: per le informazioni più aggiornate consulta la console Harogo e questa pagina.
+- [Abbonamento e rinnovo](/it/subscription)
+- [Prezzi e utilizzo dei modelli](/it/pricing)
+- [Risoluzione dei problemi](/it/troubleshooting)

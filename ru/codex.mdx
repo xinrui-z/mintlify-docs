@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "Это руководство поможет вам за несколько минут начать работать с Codex на базе Harogo."
+description: "Подключите установленный Codex CLI к Harogo."
 icon: "pineapple"
 ---
 
 <Note>
-**В этом руководстве используются только модели GPT.** Codex может запускать модели GPT (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) и модели без ограничений по клиенту (GLM, Qwen, Kimi, MiniMax, DeepSeek). Модели Claude в Codex недоступны — см. [Claude Code](/ru/claude-code).
+На этой странице предполагается, что Codex CLI уже установлен.
 </Note>
 
-## Установка
+## 1. Получите API-ключ
 
-### Загрузка с официального сайта (macOS)
+Откройте [консоль Harogo](https://console.harogo.ai/keys), создайте API-ключ и скопируйте его. Считайте ключ паролем. Не добавляйте его в репозиторий и не передавайте другим. Выберите [ключ подписки или ключ баланса](/ru/pricing#billing-keys) в зависимости от способа оплаты.
 
-[https://openai.com/codex/](https://openai.com/codex/)
+## 2. Настройте Harogo
 
-### Установка через командную строку
-
-```bash
-npm install -g @openai/codex
-```
-
-## Настройка переменных окружения
-
-### Настройка через файл конфигурации
-
-1. Откройте файл `~/.codex/config.toml` и добавьте в него следующее:
+Добавьте провайдер Harogo в существующий `~/.codex/config.toml`. Сохраните текущие провайдеры и профили; не заменяйте весь файл.
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,18 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. Откройте файл `~/.codex/auth.json` и измените его следующим образом:
+Указывайте `profile = "harogo"` только если Harogo должен быть профилем по умолчанию. В существующем `~/.codex/auth.json` обновите только значение `OPENAI_API_KEY`, сохранив остальные записи.
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+При использовании [CC Switch](/ru/troubleshooting#cc-switch) добавьте и включите там тот же провайдер вместо этого. Не объединяйте конфигурации, если не знаете, какая из них имеет приоритет.
 
-### Настройка через cc-switch
+Перед выбором ID модели проверьте [таблицу совместимости моделей](/ru#model-compatibility).
 
-1. Запустите CC-Switch и добавьте провайдера.
+## 3. Проверьте подключение
 
-<img
-  alt="Экран добавления провайдера в CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="Экран добавления провайдера в CC-Switch"
-  darkAlt="Экран добавления провайдера в CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+Запустите уже установленный клиент из каталога проекта:
 
-2. В списке пресетов выберите «Пользовательская конфигурация» (Custom Configuration).
-
-<img
-  alt="Выбор Custom Configuration в списке пресетов CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="Выбор Custom Configuration в списке пресетов CC-Switch"
-  darkAlt="Выбор Custom Configuration в списке пресетов CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. Укажите имя провайдера, API-ключ, эндпоинт ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)) и другие данные. Заполнив все поля, нажмите «Добавить» (Add).
-
-<img
-  alt="Ввод API-ключа и сохранение в CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="Ввод API-ключа и сохранение в CC-Switch"
-  darkAlt="Ввод API-ключа и сохранение в CC-Switch"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. Вернитесь на главный экран, выберите «harogo» и нажмите «Включить» (Enable), чтобы начать работу.
-
-<img
-  alt="Включение провайдера harogo в CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="Включение провайдера harogo в CC-Switch"
-  darkAlt="Включение провайдера harogo в CC-Switch"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## Работа с Codex
-
-### В терминале
-
-1. Откройте терминал, перейдите в каталог проекта и выполните команду `codex`.
-
-```bash
-cd /path/to/your/project
+```shellscript
 codex
 ```
 
-2. Настройте разрешения по необходимости.
-
-<img
-  alt="Настройка разрешений на подтверждение при запуске Codex"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Настройка разрешений на подтверждение при запуске Codex"
-  darkAlt="Настройка разрешений на подтверждение при запуске Codex"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. Введите запрос на естественном языке: если пришёл нормальный ответ, настройка выполнена успешно.
+Отправьте короткий запрос, например `Reply with exactly: 2`. Проверьте ответ и активную модель, например `gpt-6.2-sol`. Обычный ответ сам по себе не подтверждает, что активен Harogo.

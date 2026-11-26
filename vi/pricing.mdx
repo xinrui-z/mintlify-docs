@@ -1,11 +1,13 @@
 ---
-title: "Bảng giá"
-description: "Giá trên 1 triệu token cho 14 mô hình trên Harogo, kèm giới hạn sử dụng hàng tháng của từng mô hình."
+title: "Giá và hạn mức mô hình"
+description: "Giá trên 1 triệu token cho 13 mô hình trên Harogo, kèm giới hạn sử dụng hàng tháng của từng mô hình."
 ---
 
 Giá được tính trên 1 triệu token. Tất cả mô hình dùng chung một hạn mức đăng ký; cột **Giới hạn hàng tháng** là hạn mức áp cho mô hình đó.
 
-## Mô hình và giá
+[Đăng ký và gia hạn](/vi/subscription) · [Thời điểm đặt lại hạn mức](#usage-limits) · [Khóa theo cách thanh toán](#billing-keys)
+
+## Mô hình và giá {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Giá được tính trên 1 triệu token. Tất cả mô hình dùng chung mộ
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Giá được tính trên 1 triệu token. Tất cả mô hình dùng chung mộ
 - Giới hạn hàng tháng khác nhau theo từng mô hình. Mô hình có hạn mức thấp hơn tiêu hao hạn mức dùng chung nhanh hơn, mô hình có hạn mức cao hơn tiêu hao chậm hơn.
 - Hạn mức sử dụng không phải là các hạn mức riêng biệt: mọi mô hình dùng chung một hạn mức, và mỗi hạn mức chỉ cho biết riêng mô hình đó dùng được bao nhiêu. Các hạn mức không cộng dồn.
 - Các mô hình có ghi khoảng đầu vào được tính giá theo bậc: khi tổng đầu vào của một yêu cầu (đầu vào + đọc cache + ghi cache) vượt ngưỡng, toàn bộ yêu cầu được tính theo bậc giá cao hơn.
+- Chi phí sử dụng API được tính theo giá trong bảng. Hệ số của từng mô hình xác định mức trừ vào hạn mức dùng chung của gói đăng ký.
 - Khi thanh toán bằng số dư tài khoản thay vì hạn mức gói đăng ký, yêu cầu được tính đủ theo giá trong bảng.
 
 Giá và giới hạn có thể thay đổi khi danh sách mô hình thay đổi. [Bảng điều khiển Harogo](https://console.harogo.ai/plan) và trang này là nguồn tham chiếu.
+
+## Mức sử dụng và hạn mức {#usage-limits}
+
+Harogo áp dụng các giới hạn sử dụng sau:
+
+- Hạn mức theo ngày: \$12 (đặt lại hằng ngày lúc **16:00 UTC**)
+- Hạn mức theo tuần: \$30 (đặt lại sau mỗi 7 ngày kể từ lần đầu sử dụng gói đăng ký)
+- Hạn mức theo tháng: \$60 (đặt lại sau mỗi 30 ngày kể từ lần đầu sử dụng gói đăng ký)
+
+Cả ba hạn mức áp dụng cùng lúc. Mỗi mô hình có hạn mức sử dụng riêng: mô hình có hạn mức dưới \$60 tiêu hao hạn mức dùng chung nhanh hơn, mô hình có hạn mức trên \$60 tiêu hao chậm hơn. Xem hạn mức của từng mô hình tại trang [Bảng giá](#token-prices).
+
+Hạn mức được tính theo giá trị USD chứ không phải theo số lượng yêu cầu cố định. Số yêu cầu bạn thực sự nhận được phụ thuộc vào mô hình đang dùng — mô hình giá thấp thường cho phép nhiều yêu cầu hơn, còn mô hình giá cao cho phép ít yêu cầu hơn.
+
+Bạn có thể xem mức sử dụng hiện tại và hạn mức còn lại trong [console Harogo](https://console.harogo.ai/plan).
+
+| Mô hình | Mức trừ vào hạn mức dùng chung cho mỗi \$1 theo giá API trong bảng |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### Khóa API cho gói đăng ký và số dư {#billing-keys}
+
+Tạo các khóa riêng trên [trang khóa API](https://console.harogo.ai/keys): khóa gói đăng ký dùng hạn mức của gói, còn khóa số dư thanh toán từ số dư tài khoản. Mức sử dụng được tính riêng. Khi hết hạn mức gói đăng ký, Harogo không tự động trừ tiền vào số dư.
+
+### Khối lượng yêu cầu ước tính
+
+Số lượt yêu cầu chỉ là ước tính, không được đảm bảo. Một tác vụ lập trình có thể gửi nhiều yêu cầu đến mô hình.
+
+Mỗi hàng giả định hạn mức của khung thời gian đó được dùng chủ yếu cho riêng mô hình đó. Khi bạn kết hợp nhiều mô hình, chúng cùng trừ vào một hạn mức dùng chung, nên không thể cộng dồn số lượng yêu cầu giữa các hàng trong bảng.
+
+| Mô hình | Hạn mức sử dụng (ngày / tuần / tháng) | Theo ngày | Theo tuần | Theo tháng |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Phương pháp ước tính
+
+Các ước tính này dựa trên mẫu yêu cầu điển hình sau:
+
+- **GLM-5.4** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GLM-5.2.)
+- **Qwen4 Max** — khoảng 8.731 token đầu vào, 31.831 token đọc bộ nhớ đệm và 2.029 token đầu ra mỗi yêu cầu. (Ước tính tạm thời.)
+- **Kimi K3.1 Pro** — khoảng 1,050 token đầu vào, 76,500 token đọc cache và 300 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Kimi K3.)
+- **MiniMax M3** — khoảng 4,381 token đầu vào, 28,768 token đọc cache và 1,108 token đầu ra mỗi yêu cầu.
+- **DeepSeek V4 Pro** — khoảng 750 token đầu vào, 82,000 token đọc cache và 290 token đầu ra mỗi yêu cầu.
+- **DeepSeek V4.1 Flash 1017** — khoảng 790 token đầu vào, 68,000 token đọc cache và 280 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** — khoảng 580 token đầu vào, 386,230 token đọc cache, 19,476 token ghi cache và 2,025 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Opus 5.)
+- **Claude Sonnet 5.5** — khoảng 159 token đầu vào, 129,804 token đọc cache, 6,260 token ghi cache và 850 token đầu ra mỗi yêu cầu. (Dùng mẫu yêu cầu quan sát được ở một phiên bản mô hình trước đó.)
+- **Claude Haiku 5.5** — khoảng 700 token đầu vào, 52,000 token đọc cache và 150 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của Claude Haiku 4.5.)
+- **GPT-6 Luna** — khoảng 45,726 token đầu vào, 10,720 token đọc cache và 1,905 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Luna.)
+- **GPT-6.2 Sol** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Sol.)
+- **GPT-6.2 Astra** — khoảng 6,032 token đầu vào, 112,138 token đọc cache và 678 token đầu ra mỗi yêu cầu. (Tạm thời dựa trên mẫu yêu cầu của GPT-5.6 Sol.)
+- **GPT-6.1 Terra** — khoảng 6,825 token đầu vào, 69,476 token đọc cache và 734 token đầu ra mỗi yêu cầu. (Dùng lại mẫu yêu cầu của GPT-5.6 Terra.)
+
+Hiện tại, các phiên bản mô hình mới hơn tạm dùng lại mẫu yêu cầu quan sát được trên phiên bản tiền nhiệm. Số yêu cầu = hạn mức của khung ÷ (giá niêm yết mỗi yêu cầu) × (hạn mức của mô hình ÷ \$60).

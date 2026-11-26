@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "本指南將幫助您在幾分鐘內使用由 Harogo 提供的 Codex。"
+description: "將已安裝的 Codex CLI 連接到 Harogo。"
 icon: "pineapple"
 ---
 
 <Note>
-**本指南僅使用 GPT 系列模型。** Codex 可執行 GPT 系列模型（GPT-6 Luna、GPT-6.2 Sol、GPT-6.2 Astra、GPT-6.1 Terra），以及沒有限制的模型（GLM、Qwen、Kimi、MiniMax、DeepSeek）。Claude 系列模型無法在 Codex 中使用，請參考 [Claude Code](/zh/claude-code)。
+本頁假設您已安裝 Codex CLI。
 </Note>
 
-## 安裝
+## 1. 獲取 API Key
 
-### 官網下載（macOS 版本）
+開啟 [Harogo 控制台](https://console.harogo.ai/keys)，建立並複製 API Key。請像保護密碼一樣保管它，不要提交到程式碼儲存庫或分享給他人。 請依照計費方式選用[訂閱 Key 或餘額 Key](/zh/pricing#billing-keys)。
 
-[https://openai.com/zh-Hans-CN/codex/](https://openai.com/zh-Hans-CN/codex/)
+## 2. 配置 Harogo
 
-### 使用命令行安裝
-
-```bash
-npm install -g @openai/codex
-```
-
-## 環境變量配置
-
-### 使用配置文件配置
-
-1. 修改 ` ~/.codex/config.toml` 配置文件，增加如下配置：
+將 Harogo Provider 加入現有的 `~/.codex/config.toml`。保留已有的 Provider 和 Profile，不要替換整個文件。
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,20 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. 修改 ` ~/.codex/auth.json` 配置文件，修改如下配置：
+只有在希望 Harogo 成為預設 Profile 時，才設置 `profile = "harogo"`。否則請在啟動 Codex 時選擇該 Profile。
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+在現有的 `~/.codex/auth.json` 中，只更新 `OPENAI_API_KEY` 的值為 Harogo API Key，保留文件中的其他憑據和內容。
 
-### 通過 cc-switch 配置
+如果使用 [CC Switch](/zh/troubleshooting#cc-switch)，請改為在其中新增相同的 Provider 並啟用。除非清楚哪一項配置優先，否則不要同時使用 CC Switch 和另一份 Provider 配置。
 
-1. 運行 CC-Switch，添加供應商。
+選擇模型 ID 前，請先查看[模型相容性表](/zh#model-compatibility)。
 
-<img
-  alt="CC-Switch 添加供應商界面"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="CC-Switch 添加供應商界面"
-  darkAlt="CC-Switch 添加供應商界面"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+## 3. 確認連接
 
-2. 在預設列表中選擇「自定義配置」。
+在專案目錄中啟動已安裝的客戶端：
 
-<img
-  alt="在 CC-Switch 預設列表選擇自定義配置"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="在 CC-Switch 預設列表選擇自定義配置"
-  darkAlt="在 CC-Switch 預設列表選擇自定義配置"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. 填寫供應商名稱、API Key、端點（[https://api.harogo.ai/v1](https://api.harogo.ai/v1)）等信息。信息填寫完整後，點擊「添加」即可。
-
-<img
-  alt="在 CC-Switch 填寫 API Key 並保存"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="在 CC-Switch 填寫 API Key 並保存"
-  darkAlt="在 CC-Switch 填寫 API Key 並保存"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. 返回首頁，選擇「harogo」，點擊「啓用」即可使用。
-
-<img
-  alt="在 CC-Switch 啓用 harogo 供應商"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="在 CC-Switch 啓用 harogo 供應商"
-  darkAlt="在 CC-Switch 啓用 harogo 供應商"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## 使用 Codex
-
-### 在終端中使用
-
-1. 打開終端，定位到你的項目目錄，然後運行 `codex` 命令。
-
-```bash
-cd /你的項目路徑
+```shellscript
 codex
 ```
 
-2. 根據需求，設置權限。
-
-<img
-  alt="Codex 啓動時設置審批權限"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Codex 啓動時設置審批權限"
-  darkAlt="Codex 啓動時設置審批權限"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. 輸入自然語言，若正常響應，則配置成功。
+輸入簡單提示，例如 `Reply with exactly: 2`。確認 Codex 返回結果，並確認目前模型是您配置的 Harogo 模型，例如 `gpt-6.2-sol`。僅收到正常回覆，不能證明實際使用的是 Harogo。

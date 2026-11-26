@@ -1,371 +1,50 @@
 ---
 title: "Claude Code"
-description: "Este guia ajuda você a começar a usar o Claude Code com a Harogo em poucos minutos."
+description: "Conecte o Claude Code já instalado à Harogo."
 icon: "code-branch"
 ---
 
 <Note>
-**Este guia usa apenas modelos Claude.** O Claude Code pode executar os modelos Claude (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) e os modelos sem restrição de cliente (GLM, Qwen, Kimi, MiniMax, DeepSeek). Modelos GPT não estão disponíveis no Claude Code — veja [Codex](/pt/codex).
+Esta página pressupõe que o Claude Code já está instalado.
 </Note>
 
-### 1. Instalar o Claude Code
+## 1. Obtenha uma chave de API
 
-#### Instalação local
+Abra o [console da Harogo](https://console.harogo.ai/keys), crie uma chave de API e copie-a. Trate-a como uma senha. Não a envie para um repositório nem a compartilhe. Escolha uma [chave de assinatura ou de saldo](/pt/pricing#billing-keys), conforme a forma de pagamento desejada.
+
+## 2. Configure a Harogo
+
+O Claude Code usa o endpoint compatível com Anthropic da Harogo. Escolha um método:
+
+- **Variáveis de ambiente:** use `https://api.harogo.ai` como URL base, sua chave Harogo como `ANTHROPIC_AUTH_TOKEN` e um modelo Claude compatível, como `claude-sonnet-5-5`.
+- **[CC Switch](/pt/troubleshooting#cc-switch):** adicione um provedor Claude Code com a mesma URL base, chave e modelo e selecione-o.
+
+Não use os dois métodos ao mesmo tempo. Se o CC Switch gerenciar o provedor, remova ou desative os valores globais `ANTHROPIC_BASE_URL`, `ANTHROPIC_AUTH_TOKEN` e `ANTHROPIC_MODEL` para evitar substituições.
 
 <CodeGroup>
 
-```shellscript macOS
-curl -fsSL https://claude.ai/install.sh | bash
-```
-
-```shellscript Windows
-irm https://claude.ai/install.ps1 | iex
-```
-
-</CodeGroup>
-
-#### Instalar via npm
-
-Requer [Node.js 18 ou posterior](https://nodejs.org/en/download/)
-
-```shellscript
-npm install -g @anthropic-ai/claude-code
-```
-
-### 2. Configurar a API da Harogo
-
-Para se conectar ao serviço de modelos da Harogo pela API compatível com a Anthropic, defina as seguintes variáveis de ambiente.
-
-1. Defina `ANTHROPIC_BASE_URL` como `https://api.harogo.ai/`
-2. Defina `ANTHROPIC_AUTH_TOKEN` com a chave de API obtida na [plataforma Harogo](https://console.harogo.ai/keys)
-3. Defina `ANTHROPIC_MODEL` com um modelo Claude suportado pela Harogo, por exemplo `claude-sonnet-5-5`.
-
-<Tabs>
-  <Tab title="macOS">
-    1. Execute o comando a seguir no terminal para verificar seu shell padrão.
-
-    ```shellscript
-    echo $SHELL
-    ```
-
-    2. Defina as variáveis de ambiente de acordo com o tipo de shell:
-
-    <CodeGroup>
-
-    ```shellscript Zsh
-    # Substitua <HAROGO_API_KEY> pela chave real da sua plataforma Harogo
-    echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.zshrc
-    echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.zshrc
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc
-    ```
-
-    ```shellscript Bash
-    # Substitua <HAROGO_API_KEY> pela chave real da sua plataforma Harogo
-    echo 'export ANTHROPIC_BASE_URL="https://api.harogo.ai"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"' >> ~/.bash_profile
-    echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bash_profile
-    ```
-
-    </CodeGroup>
-
-    3. Execute o comando a seguir no terminal para aplicar as variáveis de ambiente.
-
-    <CodeGroup>
-
-    ```shellscript Zsh
-    source ~/.zshrc
-    ```
-
-    ```shellscript Bash
-    source ~/.bash_profile
-    ```
-
-    </CodeGroup>
-
-    4. Abra um novo terminal e execute os comandos a seguir para confirmar que as variáveis de ambiente foram aplicadas.
-
-    ```shellscript
-    echo $ANTHROPIC_BASE_URL
-    test -n "$ANTHROPIC_AUTH_TOKEN" && echo "ANTHROPIC_AUTH_TOKEN is set"
-    echo $ANTHROPIC_MODEL
-    ```
-  </Tab>
-  <Tab title="Windows">
-    No Windows, você pode definir a Base URL e a [chave de API](https://console.harogo.ai/keys) da Harogo como variáveis de ambiente usando o CMD ou o PowerShell.
-
-    <Tabs>
-      <Tab title="CMD">
-        1. Execute o comando a seguir no CMD para definir as variáveis de ambiente.
-
-        ```shellscript
-        REM Substitua <HAROGO_API_KEY> pela chave real da sua plataforma Harogo
-        setx ANTHROPIC_AUTH_TOKEN "<HAROGO_API_KEY>"
-        setx ANTHROPIC_BASE_URL "https://api.harogo.ai"
-        setx ANTHROPIC_MODEL "claude-sonnet-5-5"
-        ```
-
-        2. Abra uma nova janela do CMD e execute os comandos a seguir para confirmar que as variáveis de ambiente foram aplicadas.
-
-        ```shellscript
-        if defined ANTHROPIC_AUTH_TOKEN echo ANTHROPIC_AUTH_TOKEN is set
-        echo %ANTHROPIC_BASE_URL%
-        echo %ANTHROPIC_MODEL%
-        ```
-      </Tab>
-      <Tab title="PowerShell">
-        1. Execute o comando a seguir no PowerShell para definir as variáveis de ambiente.
-
-        ```shellscript
-        # Substitua <HAROGO_API_KEY> pela chave real da sua plataforma Harogo
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "<HAROGO_API_KEY>", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.harogo.ai", [EnvironmentVariableTarget]::User)
-        [Environment]::SetEnvironmentVariable("ANTHROPIC_MODEL", "claude-sonnet-5-5", [EnvironmentVariableTarget]::User)
-        ```
-
-        2. Abra uma nova janela do PowerShell e execute os comandos a seguir para confirmar que as variáveis de ambiente foram aplicadas.
-
-        ```shellscript
-        if ($env:ANTHROPIC_AUTH_TOKEN) { "ANTHROPIC_AUTH_TOKEN is set" }
-        echo $env:ANTHROPIC_BASE_URL
-        echo $env:ANTHROPIC_MODEL
-        ```
-      </Tab>
-    </Tabs>
-  </Tab>
-</Tabs>
-
-<Note>
-  Se você for gerenciar o Claude Code pelo CC Switch, recomendamos não definir também valores globais de `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` ou `ANTHROPIC_MODEL`. Variáveis de ambiente no nível do sistema ou do usuário podem sobrescrever a configuração de provedor gravada pelo CC Switch; assim, a interface mostra o provedor correto selecionado enquanto o Claude Code continua, na prática, usando uma chave ou um modelo antigos.
-</Note>
-
-### 3. Verificar a configuração
-
-Depois de configurar as variáveis de ambiente ou o CC Switch, envie primeiro uma solicitação mínima para confirmar que a chave, o modelo e o endpoint compatível com a Anthropic estão funcionando, antes de iniciar uma sessão mais longa.
-
-<CodeGroup>
-
-```bash macOS/Linux
-curl https://api.harogo.ai/v1/messages \
-  -H "content-type: application/json" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "x-api-key: $ANTHROPIC_AUTH_TOKEN" \
-  -d '{
-    "model": "claude-sonnet-5-5",
-    "max_tokens": 16,
-    "messages": [{"role": "user", "content": "1+1, output only the answer"}]
-  }'
+```shellscript macOS/Linux
+export ANTHROPIC_BASE_URL="https://api.harogo.ai"
+export ANTHROPIC_AUTH_TOKEN="<HAROGO_API_KEY>"
+export ANTHROPIC_MODEL="claude-sonnet-5-5"
 ```
 
 ```powershell Windows
-curl.exe https://api.harogo.ai/v1/messages `
-  -H "content-type: application/json" `
-  -H "anthropic-version: 2023-06-01" `
-  -H "x-api-key: $env:ANTHROPIC_AUTH_TOKEN" `
-  -d "{\"model\":\"claude-sonnet-5-5\",\"max_tokens\":16,\"messages\":[{\"role\":\"user\",\"content\":\"1+1, output only the answer\"}]}"
+$env:ANTHROPIC_BASE_URL = "https://api.harogo.ai"
+$env:ANTHROPIC_AUTH_TOKEN = "<HAROGO_API_KEY>"
+$env:ANTHROPIC_MODEL = "claude-sonnet-5-5"
 ```
 
 </CodeGroup>
 
-### 4. Começar a usar o Claude Code
+Consulte a [tabela de compatibilidade de modelos](/pt#model-compatibility) antes de escolher um ID de modelo.
 
-Depois de configurar, vá até o diretório de trabalho e execute o comando `claude` no terminal para começar.
+## 3. Confirme a conexão
 
-```bash
-$ cd /path/your-project
-> claude
-```
-
-Se aparecer `Not logged in · Please run /login` ao iniciar, ou se você for levado ao fluxo de login da Anthropic, normalmente isso significa que o Claude Code não carregou uma configuração válida da Harogo ou que a configuração inicial não foi concluída. Primeiro, confirme que a solicitação mínima da etapa anterior retorna `2` e verifique se `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` ou `ANTHROPIC_MODEL` estão sendo sobrescritas por variáveis de ambiente globais antigas. Se a chave já estiver funcionando e você ainda for levado ao fluxo de login, pule a configuração inicial com as etapas abaixo:
-
-<img
-  alt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  width="1622"
-  height="438"
-  data-path="public/cn/cc-7.jpg"
-  lightAlt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  darkAlt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  src="/images/cc-7.avif"
-  className="dark:hidden"
-/>
-<img
-  alt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  width="1622"
-  height="438"
-  data-path="public/cn/cc-7.jpg"
-  lightAlt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  darkAlt="Terminal exibindo a opção de fazer login ou continuar na primeira execução do Claude Code"
-  src="https://mintcdn.com/aihubmix/HZpz50Qb6hBBcBVb/public/cn/cc-7.jpg?fit=max&auto=format&n=HZpz50Qb6hBBcBVb&q=85&s=0d1309bcea8f4170809d104bc2b380a6"
-  className="hidden dark:block"
-/>
-
-1. Localize o arquivo `.claude.json` no seu diretório pessoal:
-   - macOS / Linux: `~/.claude.json`
-   - Windows: `C:\Users\%USERNAME%\.claude.json`
-2. Defina o campo `hasCompletedOnboarding` como `true`
-
-```json
-{
-  "hasCompletedOnboarding": true
-}
-```
-
-3. Salve o arquivo e execute `claude` novamente no terminal.
-
-#### (Opcional) Outras formas de configurar o modelo
-
-O Claude Code permite configurar o modelo das seguintes formas, **listadas da maior para a menor prioridade**: uma configuração de maior prioridade sobrescreve uma de menor prioridade.
-
-1. **Durante uma conversa:** execute o comando `/model <model-name>` para trocar de modelo. Ideal para uma troca pontual.
-
-```text
-/model claude-sonnet-5-5
-```
-
-2. **Ao iniciar o Claude Code:** execute `claude --model <model-name>` para especificar um modelo. Ideal para uma única sessão.
-
-```text
-claude --model claude-sonnet-5-5
-```
-
-3. **Definir variáveis de ambiente:** configure modelos de níveis diferentes conforme a complexidade da tarefa, e o Claude Code escolherá automaticamente o mais adequado. Vale globalmente.
+No diretório do projeto, inicie o cliente já instalado:
 
 ```shellscript
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5-5"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5-5"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
+claude
 ```
 
-Onde:
-
-- `ANTHROPIC_DEFAULT_OPUS_MODEL`: para raciocínio complexo, design de arquitetura e outras tarefas de alta dificuldade.
-- `ANTHROPIC_DEFAULT_SONNET_MODEL`: para escrever código, implementar funcionalidades e outras tarefas do dia a dia.
-- `ANTHROPIC_DEFAULT_HAIKU_MODEL`: para verificação de sintaxe, busca de arquivos e outras tarefas simples.
-
-4. **Definir permanentemente no settings.json:** grave a configuração do modelo no arquivo de configuração de usuário do Claude Code (por exemplo, `~/.claude/settings.json`, ou `C:\Users\%USERNAME%\.claude\settings.json` no Windows) ou em uma configuração de projeto, para uma definição permanente no nível do usuário ou do projeto.
-
-## Configurar pelo CC Switch
-
-1. Abra o CC Switch, selecione **Claude Code** à esquerda e clique em "Adicionar provedor" (Add Provider).
-
-<img
-  alt="Opção Adicionar provedor na tela inicial do CC Switch"
-  width="2068"
-  height="1370"
-  data-path="public/cn/cc-1.jpg"
-  lightAlt="Opção Adicionar provedor na tela inicial do CC Switch"
-  darkAlt="Opção Adicionar provedor na tela inicial do CC Switch"
-  src="/images/1.png"
-  className="dark:hidden"
-/>
-<img
-  alt="Opção Adicionar provedor na tela inicial do CC Switch"
-  width="2068"
-  height="1370"
-  data-path="public/cn/cc-1.jpg"
-  lightAlt="Opção Adicionar provedor na tela inicial do CC Switch"
-  darkAlt="Opção Adicionar provedor na tela inicial do CC Switch"
-  src="https://mintcdn.com/aihubmix/l2uHw7hd14guDu0f/public/cn/cc-1.jpg?fit=max&auto=format&n=l2uHw7hd14guDu0f&q=85&s=257b71ad7c6f876ac31147b7fd81f169"
-  className="hidden dark:block"
-/>
-
-2. Na lista de predefinições, escolha "Configuração personalizada" (Custom Configuration) como provedor.
-
-<img
-  alt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  width="2072"
-  height="1376"
-  data-path="public/cn/cc-2.jpg"
-  lightAlt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  darkAlt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  src="/images/iShot_2026-08-07_16.51.01.png"
-  className="dark:hidden"
-/>
-<img
-  alt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  width="2072"
-  height="1376"
-  data-path="public/cn/cc-2.jpg"
-  lightAlt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  darkAlt="Seleção de Custom Configuration na lista de predefinições de provedores do CC Switch"
-  src="https://mintcdn.com/aihubmix/l2uHw7hd14guDu0f/public/cn/cc-2.jpg?fit=max&auto=format&n=l2uHw7hd14guDu0f&q=85&s=16dcb0697fdbf6438d4452ff8c39e485"
-  className="hidden dark:block"
-/>
-
-3. Preencha o nome do provedor, a chave de API, o endpoint ([https://api.harogo.ai](https://api.harogo.ai)) etc. Depois de preencher tudo, clique em "Adicionar" (Add).
-
-<img
-  alt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  width="2070"
-  height="1372"
-  data-path="public/cn/cc-3.jpg"
-  lightAlt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  darkAlt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  src="/images/iShot_2026-08-07_16.55.17.png"
-  className="dark:hidden"
-/>
-<img
-  alt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  width="2070"
-  height="1372"
-  data-path="public/cn/cc-3.jpg"
-  lightAlt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  darkAlt="Inserção da chave de API no formulário de configuração do provedor do CC Switch"
-  src="https://mintcdn.com/aihubmix/qVeqJ54P7wCzwnj-/public/cn/cc-3.jpg?fit=max&auto=format&n=qVeqJ54P7wCzwnj-&q=85&s=30deb64e7737ba515d70b161ee19ea58"
-  className="hidden dark:block"
-/>
-
-4. De volta à tela inicial, selecione "harogo" na lista de provedores e clique em "Usar" (Use).
-
-<img
-  alt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  width="2068"
-  height="1366"
-  data-path="public/cn/cc-5.jpg"
-  lightAlt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  darkAlt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  src="/images/iShot_2026-08-07_17.00.16.png"
-  className="dark:hidden"
-/>
-<img
-  alt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  width="2068"
-  height="1366"
-  data-path="public/cn/cc-5.jpg"
-  lightAlt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  darkAlt="Seleção de harogo e clique em Use na tela inicial do CC Switch"
-  src="https://mintcdn.com/aihubmix/l2uHw7hd14guDu0f/public/cn/cc-5.jpg?fit=max&auto=format&n=l2uHw7hd14guDu0f&q=85&s=4e765832e55e9737c91e2b40bf127c5d"
-  className="hidden dark:block"
-/>
-
-<Frame>
-  <img
-    alt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    width="1142"
-    height="1068"
-    data-path="images/image-68.png"
-    lightAlt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    darkAlt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    src="/images/iShot_2026-08-07_17.03.17.png"
-    className="dark:hidden"
-  />
-  <img
-    alt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    width="1142"
-    height="1068"
-    data-path="images/image-68.png"
-    lightAlt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    darkAlt="Verificação da configuração do modelo com os comandos status e models no terminal do Claude Code"
-    src="https://mintcdn.com/aihubmix/mDZumr5HeEPTKpFC/images/image-68.png?fit=max&auto=format&n=mDZumr5HeEPTKpFC&q=85&s=a6dd56f69a939f0a6b174cefc371cee7"
-    className="hidden dark:block"
-  />
-</Frame>
-
-<Frame>
-  ![I Shot 2026 08 07 17 04 52](/images/iShot_2026-08-07_17.04.52.png "I Shot 2026 08 07 17 04 52")
-</Frame>
-
-Dica: com o Claude Code aberto no terminal, digite <kbd>/status</kbd> para ver o ID do modelo ou <kbd>/models</kbd> para escolher outro modelo configurado.
-
-<Warning>
-  Se o CC Switch mostrar "Conflito de variáveis de ambiente do sistema detectado" (System environment variable conflict detected), resolva primeiro `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` e `ANTHROPIC_MODEL`. Essas variáveis globais sobrescrevem a configuração atual do provedor, e um valor de espaço reservado como `ANTHROPIC_AUTH_TOKEN=<HAROGO_API_KEY>` faz a autenticação falhar de imediato. Quando tiver certeza de que não precisa mais das variáveis globais, remova as entradas conflitantes no CC Switch ou exclua manualmente as variáveis de ambiente do sistema/usuário e reinicie o terminal.
-</Warning>
+Envie uma solicitação mínima, como `Reply with exactly: 2`. Confirme a resposta e que `/status` mostra o modelo Harogo escolhido. Uma resposta normal, sozinha, não confirma que a Harogo está ativa.

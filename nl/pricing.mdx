@@ -1,11 +1,13 @@
 ---
-title: "Prijzen"
-description: "Tokenprijzen per 1 mln tokens voor de 14 modellen op Harogo, met het maandelijkse gebruikslimiet per model."
+title: "Modelprijzen en gebruik"
+description: "Tokenprijzen per 1 mln tokens voor de 13 modellen op Harogo, met het maandelijkse gebruikslimiet per model."
 ---
 
 De prijzen zijn per 1 mln tokens. Alle modellen delen één abonnementsquotum; de kolom **Maandlimiet** is het limiet dat op dat model van toepassing is.
 
-## Modellen en prijzen
+[Abonnement en verlenging](/nl/subscription) · [Wanneer quota worden vernieuwd](#usage-limits) · [API-sleutels per betaalmethode](#billing-keys)
+
+## Modellen en prijzen {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ De prijzen zijn per 1 mln tokens. Alle modellen delen één abonnementsquotum; d
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ De prijzen zijn per 1 mln tokens. Alle modellen delen één abonnementsquotum; d
 - De maandlimiet verschilt per model. Modellen met een lagere limiet verbruiken het gedeelde quotum sneller, modellen met een hogere limiet langzamer.
 - Gebruikslimieten zijn geen aparte tegoeden: alle modellen delen één quotum en elke limiet geeft alleen aan wat dat model alleen kan gebruiken. De limieten tellen niet op.
 - Modellen met een invoerbereik worden in staffels geprijsd: zodra de totale invoer van één verzoek (invoer + cache lezen + cache schrijven) de drempel overschrijdt, wordt het hele verzoek tegen het hogere tarief gefactureerd.
+- Voor API-gebruik gelden de prijzen in de tabel. De quotumfactor van het model bepaalt hoeveel van het gedeelde abonnementsquotum wordt verbruikt.
 - Betaal je met je accounttegoed in plaats van het abonnementsquotum, dan worden de volledige prijzen uit de tabel berekend.
 
 Prijzen en limieten kunnen veranderen naarmate het modellenaanbod evolueert. De [Harogo-console](https://console.harogo.ai/plan) en deze pagina zijn leidend.
+
+## Gebruik en limieten {#usage-limits}
+
+Harogo hanteert de volgende gebruikslimieten:
+
+- Daglimiet: \$12 (wordt dagelijks om **16:00 UTC** vernieuwd)
+- Weeklimiet: \$30 (wordt elke 7 dagen vernieuwd vanaf het eerste gebruik van je abonnement)
+- Maandlimiet: \$60 (wordt elke 30 dagen vernieuwd vanaf het eerste gebruik van je abonnement)
+
+Alle drie de limieten gelden tegelijk. Elk model heeft een eigen gebruikslimiet: modellen met een limiet onder \$60 verbruiken het gedeelde quotum sneller, modellen met een limiet boven \$60 langzamer. De limiet per model staat op de pagina [Prijzen](#token-prices).
+
+Limieten zijn vastgesteld in USD-waarde, niet in een vast aantal aanvragen. Hoeveel aanvragen je werkelijk krijgt, hangt af van het model dat je gebruikt: goedkopere modellen leveren doorgaans meer aanvragen op, duurdere modellen minder.
+
+Je huidige gebruik en resterende quotum zie je in de [Harogo-console](https://console.harogo.ai/plan).
+
+| Model | Verbruikt gedeeld quotum per \$1 tegen de vermelde API-prijzen |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### API-sleutels voor abonnement en tegoed {#billing-keys}
+
+Maak op de [pagina met API-sleutels](https://console.harogo.ai/keys) aparte sleutels: een abonnementssleutel om je abonnementsquotum te gebruiken en een tegoedsleutel om met je accounttegoed te betalen. Het verbruik wordt apart bijgehouden. Als je abonnementsquotum op is, schrijft Harogo niet automatisch van je tegoed af.
+
+### Geschat aanvraagvolume
+
+De aantallen zijn schattingen, geen garanties. Eén programmeertaak kan meerdere modelaanvragen opleveren.
+
+Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
+
+| Model | Gebruikslimiet (dag / week / maand) | Per dag | Per week | Per maand |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Schattingsmethode
+
+Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
+
+- **GLM-5.4** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GLM-5.2.)
+- **Qwen4 Max** — ongeveer 8.731 invoer-, 31.831 cache-lees- en 2.029 uitvoertokens per aanvraag. (Voorlopige schatting.)
+- **Kimi K3.1 Pro** – ongeveer 1,050 inputtokens, 76,500 cache-read-tokens en 300 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Kimi K3.)
+- **MiniMax M3** – ongeveer 4,381 inputtokens, 28,768 cache-read-tokens en 1,108 outputtokens per aanvraag.
+- **DeepSeek V4 Pro** – ongeveer 750 inputtokens, 82,000 cache-read-tokens en 290 outputtokens per aanvraag.
+- **DeepSeek V4.1 Flash 1017** – ongeveer 790 inputtokens, 68,000 cache-read-tokens en 280 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** – ongeveer 580 inputtokens, 386,230 cache-read-tokens, 19,476 cache-write-tokens en 2,025 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Opus 5.)
+- **Claude Sonnet 5.5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag. (Gebruikt het waargenomen aanvraagprofiel van een eerdere modelversie.)
+- **Claude Haiku 5.5** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Haiku 4.5.)
+- **GPT-6 Luna** – ongeveer 45,726 inputtokens, 10,720 cache-read-tokens en 1,905 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Luna.)
+- **GPT-6.2 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
+- **GPT-6.2 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
+- **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
+
+Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag) × (modellimiet ÷ \$60).

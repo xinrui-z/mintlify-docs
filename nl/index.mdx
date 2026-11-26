@@ -3,134 +3,40 @@ title: "Productintroductie"
 description: "Harogo is een multi-model abonnement gebouwd voor coding agents. Op deze pagina lees je wat een abonnement omvat, hoe je het instelt, welke modellen worden ondersteund en hoe de gebruikslimieten werken."
 ---
 
-# Introductie
-
 Harogo is een multi-model abonnement gebouwd voor coding agents.
-
-De kortingsprijs van het abonnement is \$4.90 voor de eerste maand en daarna \$9.90/maand. Er zijn momenteel 100 kortingsplekken voor het abonnement beschikbaar. Het aantal resterende plekken en de werkelijk gefactureerde prijs staan op de abonnementspagina. Het abonnement wordt elke maand automatisch verlengd en via Stripe van je kaart afgeschreven. De prijs voor de eerste maand geldt alleen voor je eerste Harogo-abonnement. Je kunt de automatische verlenging altijd opzeggen op de pagina **Plan** in de console; je houdt toegang tot het einde van de periode die je al hebt betaald.
 
 Met een abonnement gebruik je meerdere codingmodellen via één Harogo-account en één API-key. Alle modellen delen hetzelfde abonnementsquotum, dus je hoeft je niet apart aan te melden bij verschillende modelplatforms, daar saldo op te zetten of ze los te beheren.
 
-# Waarom Harogo
+## Aan de slag
 
-Verschillende modellen blinken uit in verschillende codingtaken. Rechtstreeks meerdere modelaanbieders gebruiken betekent meestal dat je tegelijk meerdere accounts, API-keys, saldo's, ratelimieten en facturen moet beheren.
-
-Harogo brengt een reeks modellen die goed geschikt zijn voor coding agents samen in één dienst. Je wisselt vrij van model op basis van de taak, en alles wordt verrekend met één gedeeld abonnementsquotum.
-
-De huidige modellen zijn grofweg in te delen in deze groepen:
-
-- **Grote codebases en complexe redenering**: Kimi K3.1 Pro, Claude Opus 5.5, GPT-6.2 Sol, GPT-6.2 Astra
-- **Dagelijkse agent-coding, codegeneratie en debuggen**: Qwen4 Max, GLM-5.4, GLM-5.3, Claude Sonnet 5.5, GPT-6.1 Terra, MiniMax M3, DeepSeek V4 Pro
-- **Hoogfrequente aanroepen, snelle reacties en kostenbewuste taken**: DeepSeek V4.1 Flash 1017, Claude Haiku 5.5, GPT-6 Luna
-
-Deze groepen zijn alleen een richtlijn bij het kiezen van een model. De werkelijke resultaten hangen af van de taak, de context en hoe je de tools gebruikt.
-
-# Aan de slag
-
-1. Log in bij Harogo en sluit een abonnement af.
-2. Maak in de console een API-key aan en kopieer die.
-3. Gebruik `https://api.harogo.ai` voor [Claude Code](/nl/claude-code) of `https://api.harogo.ai/v1` voor [Codex](/nl/codex) en [OpenCode](/nl/opencode). Volg de handleiding voor je client.
-4. Plak je API-key.
-5. Ga aan de slag.
+1. [Open de Harogo-abonnementspagina](https://console.harogo.ai/plan)
+2. [Maak een API-sleutel in de console en kopieer deze](https://console.harogo.ai/keys)
+3. Volg de handleiding voor je client: [Claude Code](/nl/claude-code) of [Codex](/nl/codex).
 
 Houd je API-key privé. Commit hem niet naar een openbare repository en deel hem met niemand.
 
-# Ondersteunde modellen
+## Ondersteunde modellen {#model-compatibility}
 
-Momenteel ondersteunde modellen:
+Deze resultaten gelden voor het basisabonnement van Harogo. [Claude Code](/nl/claude-code) gebruikt `POST /v1/messages`. [Codex](/nl/codex) gebruikt `POST /v1/responses`.
 
-| Model | Model-ID | Geschikt voor |
-| --- | --- | --- |
-| GLM-5.4 | `glm-5.4` | Langlopende taken, grote codebases, agent-coding |
-| GLM-5.3 | `glm-5.3` | Langlopende taken, grote codebases, agent-coding |
-| Qwen4 Max | `qwen4-max` | Complex redeneren, beeldbegrip en ingebouwde tool-aanroepen |
-| Kimi K3.1 Pro | `kimi-k3.1-pro` | Langlopende coding, 1M context, front-end en 3D-modellering |
-| MiniMax M3 | `minimax-m3` | Hoogfrequente coding, tool calls, lange context |
-| DeepSeek V4 Pro | `deepseek-v4-pro` | Redenering en complexe codegeneratie |
-| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Snelle completions, hoogfrequente aanroepen, batchtaken |
-| Claude Opus 5.5 | `claude-opus-5-5` | Complexe agent-coding en zware technische taken |
-| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Dagelijkse coding en algemeen ontwikkelwerk |
-| Claude Haiku 5.5 | `claude-haiku-5-5` | Snelle reacties, lichte taken, batchverwerking |
-| GPT-6 Luna | `gpt-6-luna` | Hoogfrequente coding en lichte taken |
-| GPT-6.2 Sol | `gpt-6.2-sol` | Zware codegeneratie, review en redenering |
-| GPT-6.2 Astra | `gpt-6.2-astra` | Vlaggenschip-redeneren voor de moeilijkste engineeringproblemen |
-| GPT-6.1 Terra | `gpt-6.1-terra` | Dagelijkse agent-coding en algemene taken |
+| Model | Model-ID | Geschikt voor | Messages | Responses |
+| --- | --- | --- | --- | --- |
+| GLM-5.4 | `glm-5.4` | Langlopende taken, grote codebases, agent-coding | Niet beschikbaar | Ondersteund |
+| Qwen4 Max | `qwen4-max` | Complex redeneren, beeldbegrip en ingebouwde tool-aanroepen | Niet beschikbaar | Ondersteund |
+| Kimi K3.1 Pro | `kimi-k3.1-pro` | Langlopende coding, 1M context, front-end en 3D-modellering | Niet beschikbaar | Ondersteund |
+| MiniMax M3 | `minimax-m3` | Hoogfrequente coding, tool calls, lange context | Niet beschikbaar | Ondersteund |
+| DeepSeek V4 Pro | `deepseek-v4-pro` | Redenering en complexe codegeneratie | Niet beschikbaar | Ondersteund |
+| DeepSeek V4.1 Flash 1017 | `deepseek-v4.1-flash-1017` | Snelle completions, hoogfrequente aanroepen, batchtaken | Niet beschikbaar | Ondersteund |
+| Claude Opus 5.5 | `claude-opus-5-5` | Complexe agent-coding en zware technische taken | Alleen aanvragen van Claude Code toegestaan | Niet beschikbaar |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Dagelijkse coding en algemeen ontwikkelwerk | Alleen aanvragen van Claude Code toegestaan | Niet beschikbaar |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Snelle reacties, lichte taken, batchverwerking | Alleen aanvragen van Claude Code toegestaan | Niet beschikbaar |
+| GPT-6 Luna | `gpt-6-luna` | Hoogfrequente coding en lichte taken | Niet beschikbaar | Ondersteund |
+| GPT-6.2 Sol | `gpt-6.2-sol` | Zware codegeneratie, review en redenering | Niet beschikbaar | Ondersteund |
+| GPT-6.2 Astra | `gpt-6.2-astra` | Vlaggenschip-redeneren voor de moeilijkste engineeringproblemen | Niet beschikbaar | Ondersteund |
+| GPT-6.1 Terra | `gpt-6.1-terra` | Dagelijkse agent-coding en algemene taken | Niet beschikbaar | Ondersteund |
 
 De bovenstaande namen en model-ID's zijn de routeringsidentifiers die Harogo intern gebruikt. Het modelaanbod, de versies en de beschikbaarheid kunnen wijzigen – check de console voor de actuele lijst.
 
-## Modelbeschikbaarheid per client
-
-Sommige modellen zijn beperkt tot een specifieke client. De overige modellen werken overal.
-
-<Note>
-**GPT-modellen** (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) zijn alleen beschikbaar in [Codex](/nl/codex).
-
-**Claude-modellen** (Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5) zijn alleen beschikbaar in [Claude Code](/nl/claude-code).
-
-**Alle andere modellen** (GLM, Qwen, Kimi, MiniMax, DeepSeek) hebben geen clientbeperking en werken in elke ondersteunde client.
-</Note>
-
-## Gebruik en limieten
-
-Harogo hanteert de volgende gebruikslimieten:
-
-- Daglimiet: \$12
-- Weeklimiet: \$30
-- Maandlimiet: \$60
-
-Alle drie de limieten gelden tegelijk. Elke modelaanroep put uit het gedeelde abonnementsquotum. Elk model heeft een eigen gebruikslimiet: modellen met een limiet onder \$60 verbruiken het gedeelde quotum sneller, modellen met een limiet boven \$60 langzamer. De limiet per model staat op de pagina [Prijzen](/nl/pricing).
-
-Limieten zijn vastgesteld in USD-waarde, niet in een vast aantal aanvragen. Hoeveel aanvragen je werkelijk krijgt, hangt af van het model dat je gebruikt: goedkopere modellen leveren doorgaans meer aanvragen op, duurdere modellen minder.
-
-Je huidige gebruik en resterende quotum zie je in de [Harogo-console](https://console.harogo.ai/plan).
-
-### Geschat aanvraagvolume
-
-De onderstaande tabel schat het aantal aanvragen per model op basis van typische Harogo-gebruikspatronen. Het gedeelde quotum is \$12 / \$30 / \$60 per dag / week / maand, maar elk model heeft een eigen gebruikslimiet: een model met een lagere limiet verbruikt het gedeelde quotum sneller. De vermelde limiet is hoeveel dat model alleen per periode kan gebruiken.
-
-<Note>
-**Gebruikslimieten zijn geen aparte tegoeden.** Alle modellen putten uit één gedeeld quotum van \$12 per dag, \$30 per week en \$60 per maand. De limiet van een model geeft alleen aan hoeveel je kunt gebruiken als je uitsluitend dat model gebruikt — de limieten tellen niet op en je kunt niet in dezelfde periode de volledige limiet van elk model gebruiken. Wie bijvoorbeeld de volledige maandlimiet van \$15 van Kimi K3.1 Pro opmaakt, heeft het hele gedeelde quotum van die maand verbruikt; voor andere modellen blijft niets over.
-</Note>
-
-| Model | Gebruikslimiet (dag / week / maand) | Per dag | Per week | Per maand |
-| --- | --- | --: | --: | --: |
-| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
-| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
-| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| GLM-5.3 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
-| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
-| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
-| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
-| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
-| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
-| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
-| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
-| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
-| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
-| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
-
-Elke rij gaat ervan uit dat het quotum van die periode grotendeels aan dat ene model wordt besteed. Als je modellen combineert, putten ze samen uit hetzelfde gedeelde quotum. De aantallen aanvragen in de tabel kun je dus niet zomaar over de rijen heen optellen.
-
-Het werkelijke aanvraagvolume hangt onder meer af van contextlengte, cache-hitrate, redeneerinspanning en outputlengte. Bovendien doet een coding agent voor één taak meestal meerdere modelaanvragen, dus één aanvraag is niet gelijk aan één volledige codingtaak.
-
-### Schattingsmethode
-
-Deze schattingen zijn gebaseerd op het volgende typische aanvraagprofiel:
-
-- **GLM-5.4 / GLM-5.3** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GLM-5.2.)
-- **Qwen4 Max** — ongeveer 8.731 invoer-, 31.831 cache-lees- en 2.029 uitvoertokens per aanvraag. (Voorlopige schatting.)
-- **Kimi K3.1 Pro** – ongeveer 1,050 inputtokens, 76,500 cache-read-tokens en 300 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Kimi K3.)
-- **MiniMax M3** – ongeveer 4,381 inputtokens, 28,768 cache-read-tokens en 1,108 outputtokens per aanvraag.
-- **DeepSeek V4 Pro** – ongeveer 750 inputtokens, 82,000 cache-read-tokens en 290 outputtokens per aanvraag.
-- **DeepSeek V4.1 Flash 1017** – ongeveer 790 inputtokens, 68,000 cache-read-tokens en 280 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van DeepSeek V4 Flash 0731.)
-- **Claude Opus 5.5** – ongeveer 580 inputtokens, 386,230 cache-read-tokens, 19,476 cache-write-tokens en 2,025 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Opus 5.)
-- **Claude Sonnet 5.5** – ongeveer 159 inputtokens, 129,804 cache-read-tokens, 6,260 cache-write-tokens en 850 outputtokens per aanvraag. (Gebruikt het waargenomen aanvraagprofiel van een eerdere modelversie.)
-- **Claude Haiku 5.5** – ongeveer 700 inputtokens, 52,000 cache-read-tokens en 150 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van Claude Haiku 4.5.)
-- **GPT-6 Luna** – ongeveer 45,726 inputtokens, 10,720 cache-read-tokens en 1,905 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Luna.)
-- **GPT-6.2 Sol** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Sol.)
-- **GPT-6.2 Astra** – ongeveer 6,032 inputtokens, 112,138 cache-read-tokens en 678 outputtokens per aanvraag. (Tijdelijk gebaseerd op het aanvraagprofiel van GPT-5.6 Sol.)
-- **GPT-6.1 Terra** – ongeveer 6,825 inputtokens, 69,476 cache-read-tokens en 734 outputtokens per aanvraag. (Hergebruikt het aanvraagprofiel van GPT-5.6 Terra.)
-
-Nieuwere modelversies hergebruiken voorlopig het aanvraagprofiel dat bij hun voorganger is waargenomen. Aanvragen = quotum van de periode ÷ (lijstprijs per aanvraag) × (modellimiet ÷ \$60).
-
-Deze cijfers zijn bedoeld om typisch gebruik te schatten en zijn geen toezegging van een vast aantal aanvragen. Quotumlimieten en het geschatte aanvraagvolume kunnen wijzigen naarmate de dienst zich ontwikkelt – check de Harogo-console en deze pagina voor de meest actuele informatie.
+- [Abonnement en verlenging](/nl/subscription)
+- [Modelprijzen en gebruik](/nl/pricing)
+- [Problemen oplossen](/nl/troubleshooting)

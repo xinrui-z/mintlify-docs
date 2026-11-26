@@ -1,11 +1,13 @@
 ---
-title: "Fiyatlandırma"
-description: "Harogo'daki 14 model için 1 milyon token başına fiyatlar ve her modelin aylık kullanım limiti."
+title: "Model fiyatları ve kullanım"
+description: "Harogo'daki 13 model için 1 milyon token başına fiyatlar ve her modelin aylık kullanım limiti."
 ---
 
 Fiyatlar 1 milyon token başınadır. Tüm modeller tek bir abonelik kotasını paylaşır; **Aylık limit** sütunu o modele uygulanan kullanım sınırıdır.
 
-## Modeller ve fiyatlar
+[Abonelik ve yenileme](/tr/subscription) · [Kota sıfırlama zamanları](#usage-limits) · [Ödeme yöntemine göre API anahtarları](#billing-keys)
+
+## Modeller ve fiyatlar {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Fiyatlar 1 milyon token başınadır. Tüm modeller tek bir abonelik kotasını 
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Fiyatlar 1 milyon token başınadır. Tüm modeller tek bir abonelik kotasını 
 - Aylık limit modele göre değişir. Sınırı düşük modeller paylaşılan kotayı daha hızlı, sınırı yüksek modeller daha yavaş tüketir.
 - Kullanım sınırları ayrı kotalar değildir: tüm modeller tek bir kotayı paylaşır ve her sınır yalnızca o modelin tek başına ne kadar kullanabileceğini gösterir. Sınırlar toplanmaz.
 - Girdi aralığı belirtilen modeller kademeli fiyatlandırılır: tek bir isteğin toplam girdisi (girdi + önbellek okuma + önbellek yazma) eşiği aştığında isteğin tamamı üst kademeden ücretlendirilir.
+- API kullanım tutarı tablodaki fiyatlarla hesaplanır. Paylaşılan abonelik kotasından düşülen tutarı modelin kota çarpanı belirler.
 - Abonelik kotası yerine hesap bakiyesiyle ödeme yaptığınızda, tablodaki tam fiyatlar uygulanır.
 
 Fiyatlar ve limitler model listesi değiştikçe güncellenebilir. Güncel bilgi için [Harogo konsolu](https://console.harogo.ai/plan) ve bu sayfa esas alınır.
+
+## Kullanım ve Limitler {#usage-limits}
+
+Harogo aşağıdaki kullanım limitlerini uygular:
+
+- Günlük limit: \$12 (her gün **16:00 UTC**’de sıfırlanır)
+- Haftalık limit: \$30 (aboneliği ilk kullandığınız andan itibaren her 7 günde bir sıfırlanır)
+- Aylık limit: \$60 (aboneliği ilk kullandığınız andan itibaren her 30 günde bir sıfırlanır)
+
+Üç limit de aynı anda geçerlidir. Her modelin kendi kullanım sınırı vardır: sınırı \$60'ın altındaki modeller paylaşılan kotayı daha hızlı, \$60'ın üzerindekiler daha yavaş tüketir. Her modelin sınırı için [Fiyatlandırma](#token-prices) sayfasına bakın.
+
+Limitler sabit bir istek sayısı değil, USD değeri olarak belirlenir. Gerçekte kaç istek alacağınız kullandığınız modele bağlıdır — daha ucuz modeller genellikle daha fazla istek, daha pahalı modeller ise daha az istek sağlar.
+
+Güncel kullanımınızı ve kalan kotanızı [Harogo konsolunda](https://console.harogo.ai/plan) görebilirsiniz.
+
+| Model | Tablodaki API fiyatlarıyla \$1 kullanıldığında harcanan paylaşılan kota |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### Abonelik ve bakiye için API anahtarları {#billing-keys}
+
+[API Anahtarları sayfasında](https://console.harogo.ai/keys) ayrı anahtarlar oluşturun: plan kotasını kullanmak için bir abonelik anahtarı, hesap bakiyesinden ödeme yapmak için bir bakiye anahtarı. Kullanımlar ayrı ayrı hesaplanır. Abonelik kotanız bittiğinde Harogo bakiyenizden otomatik olarak ödeme almaz.
+
+### Tahmini İstek Hacmi
+
+İstek sayıları tahminidir ve garanti edilmez. Tek bir kodlama görevi modele birden fazla istek gönderebilir.
+
+Her satır, ilgili zaman penceresinin kotasının büyük ölçüde o tek model için harcandığını varsayar. Modelleri birlikte kullandığınızda hepsi aynı paylaşılan kotadan düşer; bu nedenle tablodaki istek sayıları satırlar arasında doğrudan toplanamaz.
+
+| Model | Kullanım sınırı (gün / hafta / ay) | Günlük | Haftalık | Aylık |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Tahmin Yöntemi
+
+Bu tahminler aşağıdaki tipik istek profiline dayanır:
+
+- **GLM-5.4** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (GLM-5.2 istek profili yeniden kullanılmıştır.)
+- **Qwen4 Max** — istek başına yaklaşık 8.731 girdi, 31.831 önbellek okuma ve 2.029 çıktı token’ı. (Geçici tahmin.)
+- **Kimi K3.1 Pro** — istek başına yaklaşık 1,050 girdi token'ı, 76,500 önbellek okuma token'ı ve 300 çıktı token'ı. (Kimi K3 istek profili yeniden kullanılmıştır.)
+- **MiniMax M3** — istek başına yaklaşık 4,381 girdi token'ı, 28,768 önbellek okuma token'ı ve 1,108 çıktı token'ı.
+- **DeepSeek V4 Pro** — istek başına yaklaşık 750 girdi token'ı, 82,000 önbellek okuma token'ı ve 290 çıktı token'ı.
+- **DeepSeek V4.1 Flash 1017** — istek başına yaklaşık 790 girdi token'ı, 68,000 önbellek okuma token'ı ve 280 çıktı token'ı. (DeepSeek V4 Flash 0731 istek profili yeniden kullanılmıştır.)
+- **Claude Opus 5.5** — istek başına yaklaşık 580 girdi token'ı, 386,230 önbellek okuma token'ı, 19,476 önbellek yazma token'ı ve 2,025 çıktı token'ı. (Claude Opus 5 istek profili yeniden kullanılmıştır.)
+- **Claude Sonnet 5.5** — istek başına yaklaşık 159 girdi token'ı, 129,804 önbellek okuma token'ı, 6,260 önbellek yazma token'ı ve 850 çıktı token'ı. (Önceki bir model sürümünde gözlemlenen istek profilini kullanır.)
+- **Claude Haiku 5.5** — istek başına yaklaşık 700 girdi token'ı, 52,000 önbellek okuma token'ı ve 150 çıktı token'ı. (Claude Haiku 4.5 istek profili yeniden kullanılmıştır.)
+- **GPT-6 Luna** — istek başına yaklaşık 45,726 girdi token'ı, 10,720 önbellek okuma token'ı ve 1,905 çıktı token'ı. (GPT-5.6 Luna istek profili yeniden kullanılmıştır.)
+- **GPT-6.2 Sol** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (GPT-5.6 Sol istek profili yeniden kullanılmıştır.)
+- **GPT-6.2 Astra** — istek başına yaklaşık 6,032 girdi token'ı, 112,138 önbellek okuma token'ı ve 678 çıktı token'ı. (Geçici olarak GPT-5.6 Sol istek profiline dayanmaktadır.)
+- **GPT-6.1 Terra** — istek başına yaklaşık 6,825 girdi token'ı, 69,476 önbellek okuma token'ı ve 734 çıktı token'ı. (GPT-5.6 Terra istek profili yeniden kullanılmıştır.)
+
+Yeni model sürümleri şimdilik öncüllerinde gözlemlenen istek profilini kullanır. İstek sayısı = pencere kotası ÷ (istek başına liste fiyatı) × (model sınırı ÷ \$60).

@@ -1,38 +1,25 @@
 ---
 title: "Codex CLI"
-description: "Ce guide vous permet de prendre en main Codex avec Harogo en quelques minutes."
+description: "Connectez Codex CLI installé à Harogo."
 icon: "pineapple"
 ---
 
 <Note>
-**Ce guide utilise uniquement les modèles GPT.** Codex peut exécuter les modèles GPT (GPT-6 Luna, GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra) ainsi que les modèles sans restriction de client (GLM, Qwen, Kimi, MiniMax, DeepSeek). Les modèles Claude ne sont pas disponibles dans Codex — voir [Claude Code](/fr/claude-code).
+Cette page suppose que Codex CLI est déjà installé.
 </Note>
 
-## Installation
+## 1. Obtenir une clé API
 
-### Télécharger depuis le site officiel (macOS)
+Ouvrez la [console Harogo](https://console.harogo.ai/keys), créez une clé API et copiez-la. Traitez-la comme un mot de passe. Ne la publiez pas dans un dépôt et ne la partagez pas. Choisissez une [clé d’abonnement ou de solde](/fr/pricing#billing-keys) selon le mode de paiement souhaité.
 
-[https://openai.com/codex/](https://openai.com/codex/)
+## 2. Configurer Harogo
 
-### Installer en ligne de commande
-
-```bash
-npm install -g @openai/codex
-```
-
-## Configuration des variables d'environnement
-
-### Configurer via le fichier de configuration
-
-1. Modifiez votre fichier `~/.codex/config.toml` et ajoutez le contenu suivant :
+Ajoutez le fournisseur Harogo à votre `~/.codex/config.toml` existant. Gardez vos fournisseurs et profils actuels ; ne remplacez pas tout le fichier.
 
 ```toml
-profile = "harogo"
-
 [model_providers.harogo]
 name = "harogo"
 base_url = "https://api.harogo.ai/v1"
-personality = "pragmatic"
 wire_api = "responses"
 
 [profiles.harogo]
@@ -41,85 +28,18 @@ model_provider = "harogo"
 model_reasoning_effort = "high"
 ```
 
-2. Modifiez votre fichier `~/.codex/auth.json` comme suit :
+Définissez `profile = "harogo"` uniquement si Harogo doit être le profil par défaut. Dans votre `~/.codex/auth.json`, mettez à jour uniquement la valeur de `OPENAI_API_KEY` et gardez les autres entrées.
 
-```json
-{
-  "OPENAI_API_KEY": "HAROGO_API_KEY"
-}
-```
+Avec [CC Switch](/fr/troubleshooting#cc-switch), ajoutez et activez plutôt le même fournisseur dans cet outil. Ne combinez pas les deux configurations sans connaître leur priorité.
 
-### Configurer via cc-switch
+Consultez le [tableau de compatibilité des modèles](/fr#model-compatibility) avant de choisir un ID de modèle.
 
-1. Lancez CC-Switch et ajoutez un fournisseur.
+## 3. Vérifier la connexion
 
-<img
-  alt="Écran Ajouter un fournisseur dans CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-1.png"
-  lightAlt="Écran Ajouter un fournisseur dans CC-Switch"
-  darkAlt="Écran Ajouter un fournisseur dans CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.12.png"
-/>
+Depuis le répertoire de votre projet, démarrez le client déjà installé :
 
-2. Dans la liste des préréglages, choisissez « Configuration personnalisée » (Custom Configuration).
-
-<img
-  alt="Sélection de Custom Configuration dans la liste des préréglages de CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-2.png"
-  lightAlt="Sélection de Custom Configuration dans la liste des préréglages de CC-Switch"
-  darkAlt="Sélection de Custom Configuration dans la liste des préréglages de CC-Switch"
-  src="/images/iShot_2026-08-07_17.20.35.png"
-/>
-
-3. Renseignez le nom du fournisseur, la clé API, l'endpoint ([https://api.harogo.ai/v1](https://api.harogo.ai/v1)), etc. Une fois tous les champs remplis, cliquez sur « Ajouter » (Add).
-
-<img
-  alt="Saisie de la clé API et enregistrement dans CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-3.png"
-  lightAlt="Saisie de la clé API et enregistrement dans CC-Switch"
-  darkAlt="Saisie de la clé API et enregistrement dans CC-Switch"
-  src="/images/iShot_2026-08-07_17.22.08.png"
-/>
-
-4. De retour sur l'écran d'accueil, sélectionnez « harogo » et cliquez sur « Activer » (Enable) pour commencer à l'utiliser.
-
-<img
-  alt="Activation du fournisseur harogo dans CC-Switch"
-  width="2072"
-  height="1374"
-  data-path="public/cn/codex-4.png"
-  lightAlt="Activation du fournisseur harogo dans CC-Switch"
-  darkAlt="Activation du fournisseur harogo dans CC-Switch"
-  src="/images/iShot_2026-08-07_17.27.33.png"
-/>
-
-## Utiliser Codex
-
-### Dans le terminal
-
-1. Ouvrez un terminal, placez-vous dans le répertoire de votre projet, puis exécutez la commande `codex`.
-
-```bash
-cd /path/to/your/project
+```shellscript
 codex
 ```
 
-2. Définissez les autorisations selon vos besoins.
-
-<img
-  alt="Définition des autorisations d'approbation au démarrage de Codex"
-  width="1212"
-  height="814"
-  data-path="public/cn/codex-5.png"
-  lightAlt="Définition des autorisations d'approbation au démarrage de Codex"
-  darkAlt="Définition des autorisations d'approbation au démarrage de Codex"
-  src="/images/iShot_2026-08-07_17.31.13.png"
-/>
-
-3. Saisissez une instruction en langage naturel : si vous obtenez une réponse normale, la configuration a réussi.
+Envoyez une requête minimale comme `Reply with exactly: 2`. Vérifiez la réponse et le modèle actif, par exemple `gpt-6.2-sol`. Une réponse normale ne suffit pas à confirmer que Harogo est actif.

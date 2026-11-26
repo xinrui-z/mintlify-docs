@@ -1,11 +1,13 @@
 ---
-title: "Cennik"
-description: "Ceny za 1 mln tokenów dla 14 modeli dostępnych w Harogo wraz z miesięcznym limitem użycia każdego modelu."
+title: "Ceny i limity modeli"
+description: "Ceny za 1 mln tokenów dla 13 modeli dostępnych w Harogo wraz z miesięcznym limitem użycia każdego modelu."
 ---
 
 Ceny podano za 1 mln tokenów. Wszystkie modele korzystają ze wspólnego limitu subskrypcji; kolumna **Miesięczny limit** to limit zastosowany do danego modelu.
 
-## Modele i ceny
+[Subskrypcja i odnowienie](/pl/subscription) · [Terminy resetowania limitów](#usage-limits) · [Klucze według sposobu rozliczania](#billing-keys)
+
+## Modele i ceny {#token-prices}
 
 <div className="pricing-table">
 
@@ -16,7 +18,6 @@ Ceny podano za 1 mln tokenów. Wszystkie modele korzystają ze wspólnego limitu
 | Kimi K3.1 Pro | \$2.00 | \$10.00 | \$0.20 | - | **\$15** |
 | Qwen4 Max | \$1.50 | \$4.50 | \$0.075 | \$1.875 | **\$30** |
 | GLM-5.4 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
-| GLM-5.3 | \$1.40 | \$4.40 | \$0.26 | - | **\$100** |
 | MiniMax M3 (≤ 512K) | \$0.30 | \$1.20 | \$0.06 | - | **\$100** |
 | MiniMax M3 (> 512K) | \$0.60 | \$2.40 | \$0.12 | - | **\$100** |
 | GPT-6.2 Sol (≤ 272K) | \$2.00 | \$10.00 | \$0.10 | \$2.50 | **\$60** |
@@ -38,6 +39,72 @@ Ceny podano za 1 mln tokenów. Wszystkie modele korzystają ze wspólnego limitu
 - Miesięczny limit zależy od modelu. Modele z niższym limitem szybciej zużywają wspólny limit, a modele z wyższym limitem — wolniej.
 - Limity wykorzystania nie są osobnymi pulami: wszystkie modele dzielą jeden limit, a każdy limit pokazuje tylko, ile może wykorzystać sam ten model. Limity się nie sumują.
 - Modele z zakresem wejścia są rozliczane progowo: gdy łączne wejście pojedynczego żądania (wejście + odczyt z cache + zapis do cache) przekroczy próg, całe żądanie jest rozliczane według wyższej stawki.
+- Koszt użycia API oblicza się według cen z tabeli. Mnożnik danego modelu określa, o ile zmniejsza się wspólny limit subskrypcji.
 - Przy płatności z salda konta zamiast z limitu subskrypcji pobierane są pełne ceny z tabeli.
 
 Ceny i limity mogą się zmieniać wraz z listą modeli. Wiążące są [konsola Harogo](https://console.harogo.ai/plan) i ta strona.
+
+## Wykorzystanie i limity {#usage-limits}
+
+Harogo stosuje następujące limity wykorzystania:
+
+- Limit dzienny: \$12 (resetuje się codziennie o **16:00 UTC**)
+- Limit tygodniowy: \$30 (resetuje się co 7 dni od pierwszego użycia subskrypcji)
+- Limit miesięczny: \$60 (resetuje się co 30 dni od pierwszego użycia subskrypcji)
+
+Wszystkie trzy limity obowiązują jednocześnie. Każdy model ma własny limit wykorzystania: modele z limitem poniżej \$60 szybciej zużywają wspólny limit subskrypcji, a modele z limitem powyżej \$60 — wolniej. Limity poszczególnych modeli znajdziesz w [Cenniku](#token-prices).
+
+Limity są określone w wartości USD, a nie jako stała liczba zapytań. Liczba zapytań, które faktycznie otrzymasz, zależy od używanego modelu — tańsze modele zazwyczaj pozwalają na więcej zapytań, a droższe na mniej.
+
+Bieżące wykorzystanie i pozostały limit możesz sprawdzić w [konsoli Harogo](https://console.harogo.ai/plan).
+
+| Model | Zużycie wspólnego limitu na każde \$1 według podanych cen API |
+| --- | --- |
+| Kimi K3.1 Pro | \$4.00 |
+| GLM-5.4 | \$0.60 |
+
+### Klucze API do subskrypcji i salda {#billing-keys}
+
+Utwórz na [stronie kluczy API](https://console.harogo.ai/keys) osobne klucze: klucz subskrypcji do korzystania z limitu planu i klucz salda do płacenia z salda konta. Użycie jest rozliczane oddzielnie. Po wyczerpaniu limitu subskrypcji Harogo nie pobiera automatycznie środków z salda.
+
+### Szacowany wolumen zapytań
+
+Liczba zapytań to szacunek, nie gwarancja. Jedno zadanie programistyczne może wymagać kilku zapytań do modelu.
+
+Każdy wiersz zakłada, że limit danego okna czasowego jest wykorzystywany głównie przez ten jeden model. Gdy łączysz kilka modeli, wszystkie korzystają z tego samego wspólnego limitu, więc liczb zapytań z różnych wierszy tabeli nie można po prostu sumować.
+
+| Model | Limit wykorzystania (dzień / tydzień / miesiąc) | Dziennie | Tygodniowo | Miesięcznie |
+| --- | --- | --: | --: | --: |
+| DeepSeek V4.1 Flash 1017 | \$12 / \$30 / \$60 | 12,232 | 30,581 | 61,162 |
+| DeepSeek V4 Pro | \$12 / \$30 / \$60 | 1,987 | 4,967 | 9,934 |
+| GLM-5.4 | \$20 / \$50 / \$100 | 1,319 | 3,298 | 6,596 |
+| MiniMax M3 | \$20 / \$50 / \$100 | 4,577 | 11,442 | 22,883 |
+| Qwen4 Max | \$6 / \$15 / \$30 | 244 | 609 | 1,219 |
+| Kimi K3.1 Pro | \$3 / \$7.5 / \$15 | 147 | 368 | 735 |
+| GPT-6 Luna | \$12 / \$30 / \$60 | 2,131 | 5,326 | 10,653 |
+| Claude Sonnet 5.5 | \$12 / \$30 / \$60 | 320 | 801 | 1,602 |
+| Claude Opus 5.5 | \$12 / \$30 / \$60 | 55 | 138 | 276 |
+| GPT-6.1 Terra | \$12 / \$30 / \$60 | 859 | 2,148 | 4,295 |
+| Claude Haiku 5.5 | \$12 / \$30 / \$60 | 18,045 | 45,113 | 90,226 |
+| GPT-6.2 Sol | \$12 / \$30 / \$60 | 399 | 998 | 1,996 |
+| GPT-6.2 Astra | \$12 / \$30 / \$60 | 73 | 182 | 363 |
+
+### Metoda szacowania
+
+Szacunki opierają się na następującym typowym profilu zapytań:
+
+- **GLM-5.4** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań GLM-5.2.)
+- **Qwen4 Max** — około 8 731 tokenów wejściowych, 31 831 odczytu z pamięci podręcznej i 2 029 tokenów wyjściowych na zapytanie. (Wstępne szacunki.)
+- **Kimi K3.1 Pro** — na zapytanie około 1,050 tokenów wejściowych, 76,500 tokenów odczytu z pamięci podręcznej i 300 tokenów wyjściowych. (Wykorzystuje profil zapytań Kimi K3.)
+- **MiniMax M3** — na zapytanie około 4,381 tokenów wejściowych, 28,768 tokenów odczytu z pamięci podręcznej i 1,108 tokenów wyjściowych.
+- **DeepSeek V4 Pro** — na zapytanie około 750 tokenów wejściowych, 82,000 tokenów odczytu z pamięci podręcznej i 290 tokenów wyjściowych.
+- **DeepSeek V4.1 Flash 1017** — na zapytanie około 790 tokenów wejściowych, 68,000 tokenów odczytu z pamięci podręcznej i 280 tokenów wyjściowych. (Wykorzystuje profil zapytań DeepSeek V4 Flash 0731.)
+- **Claude Opus 5.5** — na zapytanie około 580 tokenów wejściowych, 386,230 tokenów odczytu z pamięci podręcznej, 19,476 tokenów zapisu do pamięci podręcznej i 2,025 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Opus 5.)
+- **Claude Sonnet 5.5** — na zapytanie około 159 tokenów wejściowych, 129,804 tokenów odczytu z pamięci podręcznej, 6,260 tokenów zapisu do pamięci podręcznej i 850 tokenów wyjściowych. (Wykorzystuje profil zapytań zaobserwowany we wcześniejszej wersji modelu.)
+- **Claude Haiku 5.5** — na zapytanie około 700 tokenów wejściowych, 52,000 tokenów odczytu z pamięci podręcznej i 150 tokenów wyjściowych. (Wykorzystuje profil zapytań Claude Haiku 4.5.)
+- **GPT-6 Luna** — na zapytanie około 45,726 tokenów wejściowych, 10,720 tokenów odczytu z pamięci podręcznej i 1,905 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Luna.)
+- **GPT-6.2 Sol** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Sol.)
+- **GPT-6.2 Astra** — na zapytanie około 6,032 tokenów wejściowych, 112,138 tokenów odczytu z pamięci podręcznej i 678 tokenów wyjściowych. (Tymczasowo oparte na profilu zapytań GPT-5.6 Sol.)
+- **GPT-6.1 Terra** — na zapytanie około 6,825 tokenów wejściowych, 69,476 tokenów odczytu z pamięci podręcznej i 734 tokenów wyjściowych. (Wykorzystuje profil zapytań GPT-5.6 Terra.)
+
+Nowsze wersje modeli na razie wykorzystują profil zapytań zaobserwowany dla swoich poprzedników. Liczba zapytań = limit okna ÷ (cena katalogowa za zapytanie) × (limit modelu ÷ \$60).

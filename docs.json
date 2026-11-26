@@ -22,17 +22,23 @@
             ]
           },
           {
-            "group": "Quick Started",
+            "group": "Quick Start",
             "pages": [
               "claude-code",
-              "codex",
-              "untitled-page"
+              "codex"
             ]
           },
           {
-            "group": "Pricing",
+            "group": "Billing and usage",
             "pages": [
+              "subscription",
               "pricing"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "troubleshooting"
             ]
           }
         ]
@@ -50,14 +56,20 @@
             "group": "クイックスタート",
             "pages": [
               "ja/claude-code",
-              "ja/codex",
-              "ja/opencode"
+              "ja/codex"
             ]
           },
           {
-            "group": "料金",
+            "group": "請求と利用状況",
             "pages": [
+              "ja/subscription",
               "ja/pricing"
+            ]
+          },
+          {
+            "group": "ヘルプ",
+            "pages": [
+              "ja/troubleshooting"
             ]
           }
         ]
@@ -75,14 +87,20 @@
             "group": "빠른 시작",
             "pages": [
               "ko/claude-code",
-              "ko/codex",
-              "ko/opencode"
+              "ko/codex"
             ]
           },
           {
-            "group": "요금",
+            "group": "결제 및 사용량",
             "pages": [
+              "ko/subscription",
               "ko/pricing"
+            ]
+          },
+          {
+            "group": "도움말",
+            "pages": [
+              "ko/troubleshooting"
             ]
           }
         ]
@@ -100,14 +118,20 @@
             "group": "Schnellstart",
             "pages": [
               "de/claude-code",
-              "de/codex",
-              "de/opencode"
+              "de/codex"
             ]
           },
           {
-            "group": "Preise",
+            "group": "Abrechnung und Nutzung",
             "pages": [
+              "de/subscription",
               "de/pricing"
+            ]
+          },
+          {
+            "group": "Hilfe",
+            "pages": [
+              "de/troubleshooting"
             ]
           }
         ]
@@ -125,14 +149,20 @@
             "group": "Inicio rápido",
             "pages": [
               "es/claude-code",
-              "es/codex",
-              "es/opencode"
+              "es/codex"
             ]
           },
           {
-            "group": "Precios",
+            "group": "Facturación y uso",
             "pages": [
+              "es/subscription",
               "es/pricing"
+            ]
+          },
+          {
+            "group": "Ayuda",
+            "pages": [
+              "es/troubleshooting"
             ]
           }
         ]
@@ -150,14 +180,20 @@
             "group": "Démarrage rapide",
             "pages": [
               "fr/claude-code",
-              "fr/codex",
-              "fr/opencode"
+              "fr/codex"
             ]
           },
           {
-            "group": "Tarifs",
+            "group": "Facturation et utilisation",
             "pages": [
+              "fr/subscription",
               "fr/pricing"
+            ]
+          },
+          {
+            "group": "Aide",
+            "pages": [
+              "fr/troubleshooting"
             ]
           }
         ]
@@ -175,14 +211,20 @@
             "group": "Início rápido",
             "pages": [
               "pt/claude-code",
-              "pt/codex",
-              "pt/opencode"
+              "pt/codex"
             ]
           },
           {
-            "group": "Preços",
+            "group": "Cobrança e uso",
             "pages": [
+              "pt/subscription",
               "pt/pricing"
+            ]
+          },
+          {
+            "group": "Ajuda",
+            "pages": [
+              "pt/troubleshooting"
             ]
           }
         ]
@@ -200,14 +242,20 @@
             "group": "Быстрый старт",
             "pages": [
               "ru/claude-code",
-              "ru/codex",
-              "ru/opencode"
+              "ru/codex"
             ]
           },
           {
-            "group": "Цены",
+            "group": "Оплата и использование",
             "pages": [
+              "ru/subscription",
               "ru/pricing"
+            ]
+          },
+          {
+            "group": "Справка",
+            "pages": [
+              "ru/troubleshooting"
             ]
           }
         ]
@@ -225,14 +273,20 @@
             "group": "Hızlı başlangıç",
             "pages": [
               "tr/claude-code",
-              "tr/codex",
-              "tr/opencode"
+              "tr/codex"
             ]
           },
           {
-            "group": "Fiyatlandırma",
+            "group": "Faturalandırma ve kullanım",
             "pages": [
+              "tr/subscription",
               "tr/pricing"
+            ]
+          },
+          {
+            "group": "Yardım",
+            "pages": [
+              "tr/troubleshooting"
             ]
           }
         ]
@@ -250,14 +304,20 @@
             "group": "Szybki start",
             "pages": [
               "pl/claude-code",
-              "pl/codex",
-              "pl/opencode"
+              "pl/codex"
             ]
           },
           {
-            "group": "Cennik",
+            "group": "Rozliczenia i użycie",
             "pages": [
+              "pl/subscription",
               "pl/pricing"
+            ]
+          },
+          {
+            "group": "Pomoc",
+            "pages": [
+              "pl/troubleshooting"
             ]
           }
         ]
@@ -275,14 +335,20 @@
             "group": "Snelstart",
             "pages": [
               "nl/claude-code",
-              "nl/codex",
-              "nl/opencode"
+              "nl/codex"
             ]
           },
           {
-            "group": "Prijzen",
+            "group": "Facturering en gebruik",
             "pages": [
+              "nl/subscription",
               "nl/pricing"
+            ]
+          },
+          {
+            "group": "Hulp",
+            "pages": [
+              "nl/troubleshooting"
             ]
           }
         ]
@@ -300,14 +366,20 @@
             "group": "Avvio rapido",
             "pages": [
               "it/claude-code",
-              "it/codex",
-              "it/opencode"
+              "it/codex"
             ]
           },
           {
-            "group": "Prezzi",
+            "group": "Fatturazione e utilizzo",
             "pages": [
+              "it/subscription",
               "it/pricing"
+            ]
+          },
+          {
+            "group": "Guida",
+            "pages": [
+              "it/troubleshooting"
             ]
           }
         ]
@@ -325,14 +397,20 @@
             "group": "Khởi động nhanh",
             "pages": [
               "vi/claude-code",
-              "vi/codex",
-              "vi/opencode"
+              "vi/codex"
             ]
           },
           {
-            "group": "Bảng giá",
+            "group": "Thanh toán và mức sử dụng",
             "pages": [
+              "vi/subscription",
               "vi/pricing"
+            ]
+          },
+          {
+            "group": "Trợ giúp",
+            "pages": [
+              "vi/troubleshooting"
             ]
           }
         ]
@@ -350,14 +428,20 @@
             "group": "Швидкий старт",
             "pages": [
               "uk/claude-code",
-              "uk/codex",
-              "uk/opencode"
+              "uk/codex"
             ]
           },
           {
-            "group": "Ціни",
+            "group": "Оплата й використання",
             "pages": [
+              "uk/subscription",
               "uk/pricing"
+            ]
+          },
+          {
+            "group": "Довідка",
+            "pages": [
+              "uk/troubleshooting"
             ]
           }
         ]
@@ -375,14 +459,20 @@
             "group": "快速開始",
             "pages": [
               "zh/claude-code",
-              "zh/codex",
-              "zh/opencode"
+              "zh/codex"
             ]
           },
           {
-            "group": "價格表",
+            "group": "計費與用量",
             "pages": [
+              "zh/subscription",
               "zh/pricing"
+            ]
+          },
+          {
+            "group": "使用支援",
+            "pages": [
+              "zh/troubleshooting"
             ]
           }
         ]
@@ -391,7 +481,8 @@
   },
   "logo": {
     "light": "/images/logo.svg",
-    "dark": "/images/logo.svg"
+    "dark": "/images/logo.svg",
+    "href": "https://harogo.ai/"
   },
   "navbar": {
     "links": [
@@ -403,14 +494,73 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://app.harogo.ai"
+      "href": "https://console.harogo.ai"
     }
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+  "redirects": [
+    {
+      "source": "/untitled-page",
+      "destination": "/#model-compatibility"
+    },
+    {
+      "source": "/opencode",
+      "destination": "/#model-compatibility"
+    },
+    {
+      "source": "/ja/opencode",
+      "destination": "/ja#model-compatibility"
+    },
+    {
+      "source": "/ko/opencode",
+      "destination": "/ko#model-compatibility"
+    },
+    {
+      "source": "/de/opencode",
+      "destination": "/de#model-compatibility"
+    },
+    {
+      "source": "/es/opencode",
+      "destination": "/es#model-compatibility"
+    },
+    {
+      "source": "/fr/opencode",
+      "destination": "/fr#model-compatibility"
+    },
+    {
+      "source": "/pt/opencode",
+      "destination": "/pt#model-compatibility"
+    },
+    {
+      "source": "/ru/opencode",
+      "destination": "/ru#model-compatibility"
+    },
+    {
+      "source": "/tr/opencode",
+      "destination": "/tr#model-compatibility"
+    },
+    {
+      "source": "/pl/opencode",
+      "destination": "/pl#model-compatibility"
+    },
+    {
+      "source": "/nl/opencode",
+      "destination": "/nl#model-compatibility"
+    },
+    {
+      "source": "/it/opencode",
+      "destination": "/it#model-compatibility"
+    },
+    {
+      "source": "/vi/opencode",
+      "destination": "/vi#model-compatibility"
+    },
+    {
+      "source": "/uk/opencode",
+      "destination": "/uk#model-compatibility"
+    },
+    {
+      "source": "/zh/opencode",
+      "destination": "/zh#model-compatibility"
     }
-  }
+  ]
 }
